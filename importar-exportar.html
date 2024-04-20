@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 15 Importar/exportar datos | R</title>
+  <meta name="description" content="Chapter 15 Importar/exportar datos | R" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 15 Importar/exportar datos | R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 15 Importar/exportar datos | R" />
+  
+  
+  
+
+<meta name="author" content="Cristian Benalcázar" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="proyecto.html"/>
+<link rel="next" href="gráficos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para Ciencia de Datos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="que-es-R.html"><a href="que-es-R.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="que-es-R.html"><a href="que-es-R.html#historia-de-r"><i class="fa fa-check"></i><b>2.1</b> Historia de R</a></li>
+<li class="chapter" data-level="2.2" data-path="que-es-R.html"><a href="que-es-R.html#comunidadpaquetes"><i class="fa fa-check"></i><b>2.2</b> Comunidad de usuarios: paquetes</a></li>
+<li class="chapter" data-level="2.3" data-path="que-es-R.html"><a href="que-es-R.html#por-qué-excel-no-es-tu-amigo"><i class="fa fa-check"></i><b>2.3</b> ¿Por qué Excel no es tu amigo?</a></li>
+<li class="chapter" data-level="2.4" data-path="que-es-R.html"><a href="que-es-R.html#glosario"><i class="fa fa-check"></i><b>2.4</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="instalacionR.html"><a href="instalacionR.html"><i class="fa fa-check"></i><b>3</b> Instalación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="instalacionR.html"><a href="instalacionR.html#instalación-de-r"><i class="fa fa-check"></i><b>3.1</b> Instalación de R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="instalacionR.html"><a href="instalacionR.html#paso-1"><i class="fa fa-check"></i><b>3.1.1</b> Paso 1</a></li>
+<li class="chapter" data-level="3.1.2" data-path="instalacionR.html"><a href="instalacionR.html#paso-2"><i class="fa fa-check"></i><b>3.1.2</b> Paso 2</a></li>
+<li class="chapter" data-level="3.1.3" data-path="instalacionR.html"><a href="instalacionR.html#paso-3"><i class="fa fa-check"></i><b>3.1.3</b> Paso 3</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="instalacionR.html"><a href="instalacionR.html#primera-operación-en-consola-sumar-dos-números"><i class="fa fa-check"></i><b>3.2</b> Primera operación en consola: sumar dos números</a></li>
+<li class="chapter" data-level="3.3" data-path="instalacionR.html"><a href="instalacionR.html#instalacionRStudio"><i class="fa fa-check"></i><b>3.3</b> Instalación de RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="instalacionR.html"><a href="instalacionR.html#instalacionpaquetes"><i class="fa fa-check"></i><b>3.4</b> Instalación de paquetes</a></li>
+<li class="chapter" data-level="3.5" data-path="instalacionR.html"><a href="instalacionR.html#glosario-1"><i class="fa fa-check"></i><b>3.5</b> Glosario</a></li>
+<li class="chapter" data-level="3.6" data-path="instalacionR.html"><a href="instalacionR.html#consejos"><i class="fa fa-check"></i><b>3.6</b> Consejos</a></li>
+<li class="chapter" data-level="3.7" data-path="instalacionR.html"><a href="instalacionR.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos.html"><a href="primeros-pasos.html#primeros-pasos-en-r-calculadora"><i class="fa fa-check"></i><b>4.1</b> Primeros pasos en R: calculadora</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html#y-dónde-programamos"><i class="fa fa-check"></i><b>4.2</b> ¿Y dónde programamos?</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos.html"><a href="primeros-pasos.html#tipos_errores"><i class="fa fa-check"></i><b>4.3</b> Tipos de errores</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos.html"><a href="primeros-pasos.html#glosario-2"><i class="fa fa-check"></i><b>4.4</b> Glosario</a></li>
+<li class="chapter" data-level="4.5" data-path="primeros-pasos.html"><a href="primeros-pasos.html#consejos-1"><i class="fa fa-check"></i><b>4.5</b> Consejos</a></li>
+<li class="chapter" data-level="4.6" data-path="primeros-pasos.html"><a href="primeros-pasos.html#ejercicios-1"><i class="fa fa-check"></i><b>4.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>I Tipos de datos</b></span></li>
+<li class="chapter" data-level="5" data-path="var-num.html"><a href="var-num.html"><i class="fa fa-check"></i><b>5</b> Variables individuales: números y caracteres</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="var-num.html"><a href="var-num.html#numericas"><i class="fa fa-check"></i><b>5.1</b> Variables numéricas (individuales)</a></li>
+<li class="chapter" data-level="5.2" data-path="var-num.html"><a href="var-num.html#caracter"><i class="fa fa-check"></i><b>5.2</b> Variables de tipo caracter (texto)</a></li>
+<li class="chapter" data-level="5.3" data-path="var-num.html"><a href="var-num.html#nuestra-primera-función-paste"><i class="fa fa-check"></i><b>5.3</b> Nuestra primera función: paste</a></li>
+<li class="chapter" data-level="5.4" data-path="var-num.html"><a href="var-num.html#nuestro-primer-paquete-glue"><i class="fa fa-check"></i><b>5.4</b> Nuestro primer paquete: glue</a></li>
+<li class="chapter" data-level="5.5" data-path="var-num.html"><a href="var-num.html#manejando-textos-paquete-stringr"><i class="fa fa-check"></i><b>5.5</b> Manejando textos: paquete stringr</a></li>
+<li class="chapter" data-level="5.6" data-path="var-num.html"><a href="var-num.html#consejos-2"><i class="fa fa-check"></i><b>5.6</b> Consejos</a></li>
+<li class="chapter" data-level="5.7" data-path="var-num.html"><a href="var-num.html#ejercicios-2"><i class="fa fa-check"></i><b>5.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectores.html"><a href="vectores.html#vectores-numéricos"><i class="fa fa-check"></i><b>6.1</b> Vectores numéricos</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html#secuencias-numéricas-con-un-patrón"><i class="fa fa-check"></i><b>6.2</b> Secuencias numéricas con un patrón</a></li>
+<li class="chapter" data-level="6.3" data-path="vectores.html"><a href="vectores.html#vectores-de-caracteres-texto"><i class="fa fa-check"></i><b>6.3</b> Vectores de caracteres (texto)</a></li>
+<li class="chapter" data-level="6.4" data-path="vectores.html"><a href="vectores.html#vectores-lógicos-truefalse"><i class="fa fa-check"></i><b>6.4</b> Vectores lógicos (TRUE/FALSE)</a></li>
+<li class="chapter" data-level="6.5" data-path="vectores.html"><a href="vectores.html#consejos-3"><i class="fa fa-check"></i><b>6.5</b> Consejos</a></li>
+<li class="chapter" data-level="6.6" data-path="vectores.html"><a href="vectores.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="operacionesvectores.html"><a href="operacionesvectores.html"><i class="fa fa-check"></i><b>7</b> Operaciones con vectores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#vectores-numéricos-1"><i class="fa fa-check"></i><b>7.1</b> Vectores numéricos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-aritméticas"><i class="fa fa-check"></i><b>7.1.1</b> Operaciones aritméticas</a></li>
+<li class="chapter" data-level="7.1.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-estadísticas"><i class="fa fa-check"></i><b>7.1.2</b> Operaciones estadísticas</a></li>
+<li class="chapter" data-level="7.1.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operacionesausentes"><i class="fa fa-check"></i><b>7.1.3</b> Operaciones con ausentes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#seleccionar-elementos"><i class="fa fa-check"></i><b>7.2</b> Seleccionar elementos</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#which"><i class="fa fa-check"></i><b>7.2.1</b> which</a></li>
+<li class="chapter" data-level="7.2.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#null"><i class="fa fa-check"></i><b>7.2.2</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación"><i class="fa fa-check"></i><b>7.3</b> Nombrando vectores: añadiendo metainformación</a></li>
+<li class="chapter" data-level="7.4" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ordenar"><i class="fa fa-check"></i><b>7.4</b> Ordenar</a></li>
+<li class="chapter" data-level="7.5" data-path="operacionesvectores.html"><a href="operacionesvectores.html#consejos-4"><i class="fa fa-check"></i><b>7.5</b> Consejos</a></li>
+<li class="chapter" data-level="7.6" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ejercicios-4"><i class="fa fa-check"></i><b>7.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i><b>8</b> Fechas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="fechas.html"><a href="fechas.html#funciones-de-lubridate"><i class="fa fa-check"></i><b>8.1</b> Funciones de lubridate</a></li>
+<li class="chapter" data-level="8.2" data-path="fechas.html"><a href="fechas.html#consejos-5"><i class="fa fa-check"></i><b>8.2</b> Consejos</a></li>
+<li class="chapter" data-level="8.3" data-path="fechas.html"><a href="fechas.html#ejercicios-5"><i class="fa fa-check"></i><b>8.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>9</b> Datos estructurados</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="datos.html"><a href="datos.html#matrices"><i class="fa fa-check"></i><b>9.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="datos.html"><a href="datos.html#acceder-a-elementos"><i class="fa fa-check"></i><b>9.1.1</b> Acceder a elementos</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datos.html"><a href="datos.html#operaciones-por-filas-y-columnas-apply"><i class="fa fa-check"></i><b>9.1.2</b> Operaciones por filas y columnas (apply)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datos.html"><a href="datos.html#tablas-data.frames"><i class="fa fa-check"></i><b>9.2</b> Tablas: data.frames</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="datos.html"><a href="datos.html#selección-de-columnas-y-filas"><i class="fa fa-check"></i><b>9.2.1</b> Selección de columnas y filas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="datos.html"><a href="datos.html#primer-análisis-de-datos-arrestos-en-ee.-uu."><i class="fa fa-check"></i><b>9.2.2</b> Primer análisis de datos: arrestos en EE. UU.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="datos.html"><a href="datos.html#consejos-6"><i class="fa fa-check"></i><b>9.3</b> Consejos</a></li>
+<li class="chapter" data-level="9.4" data-path="datos.html"><a href="datos.html#ejercicios-6"><i class="fa fa-check"></i><b>9.4</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>10</b> Listas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="listas.html"><a href="listas.html#introducción-a-purrr"><i class="fa fa-check"></i><b>10.1</b> Introducción a purrr</a></li>
+<li class="chapter" data-level="10.2" data-path="listas.html"><a href="listas.html#ejercicios-7"><i class="fa fa-check"></i><b>10.2</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Haciendo el trabajo más fácil</b></span></li>
+<li class="chapter" data-level="11" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>11</b> Estructuras de control: if-else</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="if-else.html"><a href="if-else.html#if"><i class="fa fa-check"></i><b>11.1</b> if</a></li>
+<li class="chapter" data-level="11.2" data-path="if-else.html"><a href="if-else.html#if---else"><i class="fa fa-check"></i><b>11.2</b> if - else</a></li>
+<li class="chapter" data-level="11.3" data-path="if-else.html"><a href="if-else.html#if---else-anidados"><i class="fa fa-check"></i><b>11.3</b> if - else anidados</a></li>
+<li class="chapter" data-level="11.4" data-path="if-else.html"><a href="if-else.html#ifelse-vectorizado"><i class="fa fa-check"></i><b>11.4</b> ifelse () vectorizado</a></li>
+<li class="chapter" data-level="11.5" data-path="if-else.html"><a href="if-else.html#consejos-7"><i class="fa fa-check"></i><b>11.5</b> Consejos</a></li>
+<li class="chapter" data-level="11.6" data-path="if-else.html"><a href="if-else.html#ejercicios-8"><i class="fa fa-check"></i><b>11.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>12</b> Estructuras de control: bucles</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bucles.html"><a href="bucles.html#for"><i class="fa fa-check"></i><b>12.1</b> for</a></li>
+<li class="chapter" data-level="12.2" data-path="bucles.html"><a href="bucles.html#while"><i class="fa fa-check"></i><b>12.2</b> while</a></li>
+<li class="chapter" data-level="12.3" data-path="bucles.html"><a href="bucles.html#breaknext"><i class="fa fa-check"></i><b>12.3</b> break/next</a></li>
+<li class="chapter" data-level="12.4" data-path="bucles.html"><a href="bucles.html#repeat"><i class="fa fa-check"></i><b>12.4</b> repeat</a></li>
+<li class="chapter" data-level="12.5" data-path="bucles.html"><a href="bucles.html#consejos-8"><i class="fa fa-check"></i><b>12.5</b> Consejos</a></li>
+<li class="chapter" data-level="12.6" data-path="bucles.html"><a href="bucles.html#ejercicios-9"><i class="fa fa-check"></i><b>12.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="funs.html"><a href="funs.html"><i class="fa fa-check"></i><b>13</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="funs.html"><a href="funs.html#primera-función"><i class="fa fa-check"></i><b>13.1</b> Primera función</a></li>
+<li class="chapter" data-level="13.2" data-path="funs.html"><a href="funs.html#variables-localesglobales"><i class="fa fa-check"></i><b>13.2</b> Variables locales/globales</a></li>
+<li class="chapter" data-level="13.3" data-path="funs.html"><a href="funs.html#ejercicios-10"><i class="fa fa-check"></i><b>13.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyecto.html"><a href="proyecto.html"><i class="fa fa-check"></i><b>14</b> Proyecto de trabajo</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyecto.html"><a href="proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>14.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="14.2" data-path="proyecto.html"><a href="proyecto.html#directorios-de-trabajo-y-cabecera"><i class="fa fa-check"></i><b>14.2</b> Directorios de trabajo y cabecera</a></li>
+<li class="chapter" data-level="14.3" data-path="proyecto.html"><a href="proyecto.html#ejecución"><i class="fa fa-check"></i><b>14.3</b> Ejecución</a></li>
+<li class="chapter" data-level="14.4" data-path="proyecto.html"><a href="proyecto.html#consejos-9"><i class="fa fa-check"></i><b>14.4</b> Consejos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="importar-exportar.html"><a href="importar-exportar.html"><i class="fa fa-check"></i><b>15</b> Importar/exportar datos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="importar-exportar.html"><a href="importar-exportar.html#importar-datos"><i class="fa fa-check"></i><b>15.1</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic"><i class="fa fa-check"></i><b>15.1.1</b> Archivo .RData: pasajeros del RMS Titanic</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rda-pisos-en-boston"><i class="fa fa-check"></i><b>15.2</b> Archivo .rda: pisos en Boston</a></li>
+<li class="chapter" data-level="15.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat"><i class="fa fa-check"></i><b>15.3</b> Desde paquete: estadísticas del Eurostat</a></li>
+<li class="chapter" data-level="15.4" data-path="importar-exportar.html"><a href="importar-exportar.html#importando-datos-rectangulares"><i class="fa fa-check"></i><b>15.4</b> Importando datos RECTANGULARES</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="importar-exportar.html"><a href="importar-exportar.html#csv"><i class="fa fa-check"></i><b>15.4.1</b> CSV</a></li>
+<li class="chapter" data-level="15.4.2" data-path="importar-exportar.html"><a href="importar-exportar.html#txt"><i class="fa fa-check"></i><b>15.4.2</b> txt</a></li>
+<li class="chapter" data-level="15.4.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-web"><i class="fa fa-check"></i><b>15.4.3</b> DESDE WEB</a></li>
+<li class="chapter" data-level="15.4.4" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-readxl"><i class="fa fa-check"></i><b>15.4.4</b> EXCEL readxl</a></li>
+<li class="chapter" data-level="15.4.5" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-openxlsx"><i class="fa fa-check"></i><b>15.4.5</b> EXCEL openxlsx</a></li>
+<li class="chapter" data-level="15.4.6" data-path="importar-exportar.html"><a href="importar-exportar.html#googlesheet"><i class="fa fa-check"></i><b>15.4.6</b> googlesheet</a></li>
+<li class="chapter" data-level="15.4.7" data-path="importar-exportar.html"><a href="importar-exportar.html#sasspssstata"><i class="fa fa-check"></i><b>15.4.7</b> SAS/SPSS/STATA</a></li>
+<li class="chapter" data-level="15.4.8" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-api"><i class="fa fa-check"></i><b>15.4.8</b> desde API</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="importar-exportar.html"><a href="importar-exportar.html#exportación-de-datos"><i class="fa fa-check"></i><b>15.5</b> Exportación de datos</a></li>
+<li class="chapter" data-level="15.6" data-path="importar-exportar.html"><a href="importar-exportar.html#consejos-10"><i class="fa fa-check"></i><b>15.6</b> Consejos</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="importar-exportar.html"><a href="importar-exportar.html#exportando-datos-.rdata.rda"><i class="fa fa-check"></i><b>15.6.1</b> Exportando datos: .RData/.rda</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>16</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-una-variable-cuantitativa"><i class="fa fa-check"></i><b>16.1</b> Gráficos para una variable cuantitativa</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="gráficos.html"><a href="gráficos.html#función-stem"><i class="fa fa-check"></i><b>16.1.1</b> Función <code>stem ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.2" data-path="gráficos.html"><a href="gráficos.html#función-boxplot"><i class="fa fa-check"></i><b>16.1.2</b> Función <code>boxplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo 1</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo 2</a></li>
+<li class="chapter" data-level="16.1.3" data-path="gráficos.html"><a href="gráficos.html#función-hist"><i class="fa fa-check"></i><b>16.1.3</b> Función <code>hist ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.4" data-path="gráficos.html"><a href="gráficos.html#función-density"><i class="fa fa-check"></i><b>16.1.4</b> Función <code>density ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-dos-variables-cuantitativas"><i class="fa fa-check"></i><b>16.2</b> Gráficos para dos variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="gráficos.html"><a href="gráficos.html#función-plot"><i class="fa fa-check"></i><b>16.2.1</b> Función <code>plot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="16.2.2" data-path="gráficos.html"><a href="gráficos.html#función-pairs"><i class="fa fa-check"></i><b>16.2.2</b> Función <code>pairs ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-variables-categóricas"><i class="fa fa-check"></i><b>16.3</b> Gráficos para variables categóricas</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="gráficos.html"><a href="gráficos.html#función-barplot"><i class="fa fa-check"></i><b>16.3.1</b> Función <code>barplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.2" data-path="gráficos.html"><a href="gráficos.html#la-función-pie"><i class="fa fa-check"></i><b>16.3.2</b> La función <code>pie ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.3" data-path="gráficos.html"><a href="gráficos.html#función-dotchart"><i class="fa fa-check"></i><b>16.3.3</b> Función <code>dotchart ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="gráficos.html"><a href="gráficos.html#la-librería-lattice"><i class="fa fa-check"></i><b>16.4</b> La librería <code>lattice</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-2"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>17</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="r-markdown.html"><a href="r-markdown.html#introducción-1"><i class="fa fa-check"></i><b>17.1</b> Introducción</a></li>
+<li class="chapter" data-level="17.2" data-path="r-markdown.html"><a href="r-markdown.html#por-qué-r-markdown"><i class="fa fa-check"></i><b>17.2</b> ¿Por qué R Markdown?</a></li>
+<li class="chapter" data-level="17.3" data-path="r-markdown.html"><a href="r-markdown.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>17.3</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="17.4" data-path="r-markdown.html"><a href="r-markdown.html#cómo-crear-un-fichero-.rmd"><i class="fa fa-check"></i><b>17.4</b> ¿Cómo crear un fichero <code>.Rmd</code>?</a></li>
+<li class="chapter" data-level="17.5" data-path="r-markdown.html"><a href="r-markdown.html#cabeceras-yaml"><i class="fa fa-check"></i><b>17.5</b> Cabeceras YAML</a></li>
+<li class="chapter" data-level="17.6" data-path="r-markdown.html"><a href="r-markdown.html#sintáxis-básica-de-markdown"><i class="fa fa-check"></i><b>17.6</b> Sintáxis básica de Markdown</a></li>
+<li class="chapter" data-level="17.7" data-path="r-markdown.html"><a href="r-markdown.html#insertar-código-de-r"><i class="fa fa-check"></i><b>17.7</b> Insertar código de R</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="r-markdown.html"><a href="r-markdown.html#código-de-r-en-línea"><i class="fa fa-check"></i><b>17.7.1</b> Código de R en línea</a></li>
+<li class="chapter" data-level="17.7.2" data-path="r-markdown.html"><a href="r-markdown.html#bloques-chunks-de-código-r"><i class="fa fa-check"></i><b>17.7.2</b> Bloques (<em>chunks</em>) de código R</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="r-markdown.html"><a href="r-markdown.html#opciones-de-los-bloques-de-código-r"><i class="fa fa-check"></i><b>17.8</b> Opciones de los bloques de código R</a></li>
+<li class="chapter" data-level="17.9" data-path="r-markdown.html"><a href="r-markdown.html#figuras"><i class="fa fa-check"></i><b>17.9</b> Figuras</a></li>
+<li class="chapter" data-level="17.10" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i><b>17.10</b> Tablas</a></li>
+<li class="chapter" data-level="17.11" data-path="r-markdown.html"><a href="r-markdown.html#tabla-de-contenidos"><i class="fa fa-check"></i><b>17.11</b> Tabla de contenidos</a></li>
+<li class="chapter" data-level="17.12" data-path="r-markdown.html"><a href="r-markdown.html#caching"><i class="fa fa-check"></i><b>17.12</b> <em>Caching</em></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>18</b> Git y Github con Rstudio</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="git.html"><a href="git.html#git-y-github-junto-con-rstudio"><i class="fa fa-check"></i><b>18.1</b> Git y GitHub junto con RStudio</a></li>
+<li class="chapter" data-level="18.2" data-path="git.html"><a href="git.html#qué-es-git-qué-es-github"><i class="fa fa-check"></i><b>18.2</b> ¿Qué es Git? ¿Qué es GitHub?</a></li>
+<li class="chapter" data-level="18.3" data-path="git.html"><a href="git.html#instalar-git"><i class="fa fa-check"></i><b>18.3</b> Instalar Git</a></li>
+<li class="chapter" data-level="18.4" data-path="git.html"><a href="git.html#crear-cuenta-y-repositorio-en-github"><i class="fa fa-check"></i><b>18.4</b> Crear cuenta y repositorio en Github</a></li>
+<li class="chapter" data-level="18.5" data-path="git.html"><a href="git.html#configurar-git-editar-gitconfig-file"><i class="fa fa-check"></i><b>18.5</b> Configurar Git (Editar gitconfig file)</a></li>
+<li class="chapter" data-level="18.6" data-path="git.html"><a href="git.html#crear-un-token-de-acceso-personal-pat-en-github"><i class="fa fa-check"></i><b>18.6</b> Crear un token de acceso personal (PAT) en GitHub</a></li>
+<li class="chapter" data-level="18.7" data-path="git.html"><a href="git.html#almacenar-token-de-acceso-personal-para-conectar-rstudio-y-github"><i class="fa fa-check"></i><b>18.7</b> Almacenar token de acceso personal para conectar RStudio y GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="practica-final.html"><a href="practica-final.html"><i class="fa fa-check"></i><b>19</b> 📝 Práctica final</a></li>
+<li class="part"><span><b>III Recursos</b></span></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html"><i class="fa fa-check"></i>📝 Ejercicios recopilados</a>
+<ul>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#instalación"><i class="fa fa-check"></i>Instalación</a></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#primeros-pasos-1"><i class="fa fa-check"></i>Primeros pasos</a></li>
+<li class="chapter" data-level="19.1" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#variables-numéricas-y-de-texto"><i class="fa fa-check"></i><b>19.1</b> Variables numéricas y de texto</a></li>
+<li class="chapter" data-level="19.2" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#vectores-1"><i class="fa fa-check"></i><b>19.2</b> Vectores</a></li>
+<li class="chapter" data-level="19.3" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#operaciones-con-vectores"><i class="fa fa-check"></i><b>19.3</b> Operaciones con vectores</a></li>
+<li class="chapter" data-level="19.4" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#fechas-1"><i class="fa fa-check"></i><b>19.4</b> Fechas</a></li>
+<li class="chapter" data-level="19.5" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#datos-estructurados"><i class="fa fa-check"></i><b>19.5</b> Datos estructurados</a></li>
+<li class="chapter" data-level="19.6" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#listas-1"><i class="fa fa-check"></i><b>19.6</b> Listas</a></li>
+<li class="chapter" data-level="19.7" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-if-else"><i class="fa fa-check"></i><b>19.7</b> Estructuras if-else</a></li>
+<li class="chapter" data-level="19.8" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-for-y-while"><i class="fa fa-check"></i><b>19.8</b> Estructuras for y while</a></li>
+<li class="chapter" data-level="19.9" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#funciones"><i class="fa fa-check"></i><b>19.9</b> Funciones</a></li>
+<li class="chapter" data-level="19.10" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#practica-final-1"><i class="fa fa-check"></i><b>19.10</b> Practica final</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html"><i class="fa fa-check"></i>📚 Recursos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#aprendizajedocencia"><i class="fa fa-check"></i>Aprendizaje/docencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-datos"><i class="fa fa-check"></i>Manejo de datos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-textos"><i class="fa fa-check"></i>Manejo de textos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#datos.-importarexportar"><i class="fa fa-check"></i>Datos. Importar/exportar</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#dataviz"><i class="fa fa-check"></i>dataviz</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#mapas-y-datos-espaciales-en-r"><i class="fa fa-check"></i>Mapas y datos espaciales en R</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#colores-y-temas-en-dataviz-generales"><i class="fa fa-check"></i>Colores y temas en dataviz (generales)</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#análisis-exploratorio"><i class="fa fa-check"></i>Análisis exploratorio</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#modelización-e-inferencia"><i class="fa fa-check"></i>Modelización e inferencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#estadística-bayesiana"><i class="fa fa-check"></i>Estadística Bayesiana</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#informes-tablas-webs-libros-y-diapositivas"><i class="fa fa-check"></i>Informes, tablas, webs, libros y diapositivas</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#paquetesrecursos-curiosos"><i class="fa fa-check"></i>Paquetes/recursos curiosos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importar-exportar" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Importar/exportar datos<a href="importar-exportar.html#importar-exportar" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Hemos aprendido a <strong>crear nuestros propios datos</strong> pero muchas veces los cargaremos de distintos paquetes, archivos y fuentes, y necesitaremos expotarlo. En este manual introductorio simplemente vamos a ver cómo <mark><strong>cargar datos desde paquetes o formatos nativos de <code>R</code></strong><mark>, así como su exportación (pero las fuentes de exportación son más de las que imaginas, desde Spotify hasta el AEMET, pero lo dejaremos para un futuro manual algo más avanzado.)</p>
+<p>Es <strong>recomendable</strong> tener los datos en la <mark><strong>misma carpeta del proyecto</strong></mark> pero una carpeta separada, ya que podemos tener muchos archivos y así no mezclamos dichos ficheros con los códigos que escirbamos.</p>
+<div id="importar-datos" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> Importar datos<a href="importar-exportar.html#importar-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="archivo-.rdata-pasajeros-del-rms-titanic" class="section level3 hasAnchor" number="15.1.1">
+<h3><span class="header-section-number">15.1.1</span> Archivo .RData: pasajeros del RMS Titanic<a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Fuente original de los datos: <a href="https://www.kaggle.com/c/titanic/overview" class="uri">https://www.kaggle.com/c/titanic/overview</a></p>
+</blockquote>
+<p>El 15 de abril de 1912 se producía el <mark><strong>hundimiento naval más famoso de la historia: el hundimiento del barco RMS Titanic</strong></mark>. Tras chocar con un iceberg, y con un déficit de botes salvavidas a bordo, murieron 1502 de los 2224 pasajeros (tripulación incluida) que iban a bordo del navío.</p>
+<p><mark><strong>¿Qué edad, sexo o cabina ocupabana los pasajeros que sobrevivieron y los que no sobrevivieron?</strong></mark> Dicho conjunto de datos nos va a servir para ilustrar la forma <strong>más sencilla</strong> de guardar datos y variables en <code>R</code>, y que además ocupa menos espacio en nuestro disco duro: los archivos propios que tiene <code>R</code> con <mark><strong>extensiones <code>.rda</code> o <code>.RData</code></strong></mark>. De nuestra carpeta <code>DATOS</code> cargaremos el archivo <code>titanic.RData</code>, un archivo con extensión <code>.RData</code>, conteniendo los datos de los pasajeros del Titanic (nombre, título, cabina, si sobrevivió o no, edad, etc)</p>
+<p><mark><strong>¿Cómo cargar archivos <code>.RData</code>?</strong></mark></p>
+<p>Muy sencillo: como son ficheros nativos de <code>R</code>, basta con usar la <mark><strong>función de carga <code>load()</code></strong></mark>, y dentro de los paréntesis la ruta del archivo que queramos cargar.</p>
+<div class="sourceCode" id="cb982"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb982-1"><a href="importar-exportar.html#cb982-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;./DATOS/titanic.RData&quot;</span>)</span></code></pre></div>
+<p>Fíjate que, al <strong>fijar nuestro directorio de trabajo</strong>, no necesitamos toda la ruta, solo <code>./</code> (que nos arranca la ruta en la carpeta de nuestro proyecto) más la ruta dentro de la carpeta del proyecto. Ahora en el panel de <strong>entorno de la parte superior derecha</strong> tendremos un <code>data.frame</code> que antes no teníamos. Ya hemos visto que una función muy útil es <code>head()</code>, con argumento el nombre de un <code>data.frame</code>, que nos permite visualizar las primeras filas.</p>
+<div class="sourceCode" id="cb983"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb983-1"><a href="importar-exportar.html#cb983-1" tabindex="-1"></a><span class="fu">head</span>(titanic)</span></code></pre></div>
+<pre><code>  PassengerId Survived Pclass                                                Name    Sex Age SibSp Parch           Ticket    Fare
+1           1        0      3                             Braund, Mr. Owen Harris   male  22     1     0        A/5 21171  7.2500
+2           2        1      1 Cumings, Mrs. John Bradley (Florence Briggs Thayer) female  38     1     0         PC 17599 71.2833
+3           3        1      3                              Heikkinen, Miss. Laina female  26     0     0 STON/O2. 3101282  7.9250
+4           4        1      1        Futrelle, Mrs. Jacques Heath (Lily May Peel) female  35     1     0           113803 53.1000
+5           5        0      3                            Allen, Mr. William Henry   male  35     0     0           373450  8.0500
+6           6        0      3                                    Moran, Mr. James   male  NA     0     0           330877  8.4583
+  Cabin Embarked
+1              S
+2   C85        C
+3              S
+4  C123        S
+5              S
+6              Q</code></pre>
+</div>
+</div>
+<div id="archivo-.rda-pisos-en-boston" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> Archivo .rda: pisos en Boston<a href="importar-exportar.html#archivo-.rda-pisos-en-boston" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Fuente original de los datos: <a href="https://doi.org/10.1016/0095-0696(78)90006-2" class="uri">https://doi.org/10.1016/0095-0696(78)90006-2</a></p>
+</blockquote>
+<p>Muchas veces no tendremos un <code>.Rdata</code> sino un archivo <code>.rda</code>. El procedimiento para leerlo será el mismo</p>
+<div class="sourceCode" id="cb985"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb985-1"><a href="importar-exportar.html#cb985-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;./DATOS/boston.rda&quot;</span>)</span></code></pre></div>
+<p>El dataset <code>Boston</code> está basado en el estudio que realizaron <a href="https://doi.org/10.1016/0095-0696(78)90006-2">Harrison and Rubinfeld, 1978</a> en el que se pretende determinar la <strong>disposición de los compradores para pagar más por una vivienda en un entorno con mayor calidad del aire</strong>. El conjunto de datos contiene datos del <strong>área metropolitana de Boston</strong>, con datos de 560 vecindarios, midiendo 14 variables en cada uno.</p>
+<p>Las variables están totalmente descritas en <a href="https://doi.org/10.1016/0095-0696(78)90006-2">Harrison and Rubinfeld, 1978</a> pero podemos resumirlas de la siguiente forma:</p>
+<ul>
+<li><code>medv</code>: <strong>variable objetivo</strong>, representa la mediana del precio inmobiliario (en miles de dolares).</li>
+<li><strong>Variables arquitectónicas</strong>: <code>rm</code> (número medio de habitaciones) y <code>age</code> (porcentaje de propiedades construidas antes de 1940).</li>
+<li><strong>Variables de vecindario</strong>: <code>crim</code> (tasa de criminalidad), <code>zn</code> (porcentaje del territorio destinado a áreas residenciales), <code>indus</code> (porcentaje del territorio destinado al tejido industrial), <code>chas</code> ( ¿hay río limitando la extensión en el territorio?), <code>tax</code> (coste de los servicios públicos), <code>ptratio</code> (ratio alumno-profesor), <code>black</code> (índice de población negra - sí, es un archivo vergonzoso, pero no viene mal ver los sesgo raciales de muchos de los datos que consumimos - calcualda como <span class="math inline">\(1000 ( B - 0.63)^2\)</span>, donde <span class="math inline">\(B\)</span> es el procentaje de población negra) y <code>lstat</code> (porcentaje de la población con bajos ingresos).</li>
+<li><strong>Variables de accesibilidad</strong>: <code>dis</code> (distancia a oficinas de empleo) y <code>rad</code> (categoría indicando la accesibilidad a la red de autopistas, a mayor índice, mayor accesibilidad).</li>
+<li><strong>Variables de calidad del aire</strong>: <code>nox</code> (concentración anual de óxido de nitrógeno, en partes por 10 millones).</li>
+</ul>
+</div>
+<div id="desde-paquete-estadísticas-del-eurostat" class="section level2 hasAnchor" number="15.3">
+<h2><span class="header-section-number">15.3</span> Desde paquete: estadísticas del Eurostat<a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Fuente original de los datos: Our World in Data</p>
+</blockquote>
+<p>Una opción muy común es <mark><strong>cargar datos desde paquetes que ya los tienen incorporadas</strong></mark> (o los consiguen a través de una API). Uno de los ejemplos más útiles seguramente sea uno de los protagonistas de los últimos años debido a la pandemia ha sido la web <mark><a href="https://ourworldindata.org/"><strong>Our World in Data</strong></a></mark>, y en concreto los datos que han recopilado de covid y vacunación de todos los países del mundo. Y sí, podemos acceder a ellos directamente desde <code>R</code> a través del paquete <code>{owidR}</code>.</p>
+<div class="sourceCode" id="cb986"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb986-1"><a href="importar-exportar.html#cb986-1" tabindex="-1"></a><span class="co"># install.packages(&quot;owidR&quot;)</span></span>
+<span id="cb986-2"><a href="importar-exportar.html#cb986-2" tabindex="-1"></a><span class="fu">library</span>(owidR)</span></code></pre></div>
+<p>Con la función <code>owid_search()</code> podemos introducir una palabra clave, para <mark><strong>obtener el listado de datasets</strong></mark> y su palabra clave.</p>
+</div>
+<div id="importando-datos-rectangulares" class="section level2 hasAnchor" number="15.4">
+<h2><span class="header-section-number">15.4</span> Importando datos RECTANGULARES<a href="importar-exportar.html#importando-datos-rectangulares" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El paquete <code>{readr}</code> dentro del entorno <code>{tidyverse}</code> contiene distintas funciones útiles para la carga de <strong>.bg-purple_light[datos rectangulares]</strong> (sin formatear).</p>
+<p>.pull-left[</p>
+<ul>
+<li><code>read_csv()</code>: archivos <code>.csv</code> cuyo separador sea la <strong>.bg-purple_light[coma]</strong> <code>,</code></li>
+<li><code>read_csv2()</code>: archivos <code>.csv</code> cuyo separador sea el <strong>.bg-purple_light[punto y coma]</strong> <code>;</code></li>
+<li><code>read_tsv()</code>: archivos cuyos valores estén separados por un <strong>.bg-purple_light[tabulador]</strong>.</li>
+<li><code>read_table()</code>: archivos cuyos valores estén separados por un <strong>.bg-purple_light[espacio]</strong>.</li>
+<li><code>read_delim()</code>: <strong>función general</strong> para leer archivos delimitados por caracteres.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:readr"></span>
+<img src="https://github.com/rstudio/cheatsheets/raw/main/pngs/thumbnails/data-import-cheatsheet-thumbs.png" alt="Ver más en https://readr.tidyverse.org/" width="110%" />
+<p class="caption">
+Figure 15.1: Ver más en <a href="https://readr.tidyverse.org/" class="uri">https://readr.tidyverse.org/</a>
+</p>
+</div>
+<p>Todos necesitan como argumento la <strong>.bg-purple_light[ruta del archivo]</strong> (que podemos simplificar teniendo una carpeta de datos en nuestro proyecto), amén de otros argumentos opcionales (saltar o no cabecera, decimales son con punto o coma, etc)</p>
+<div id="csv" class="section level3 hasAnchor" number="15.4.1">
+<h3><span class="header-section-number">15.4.1</span> CSV<a href="importar-exportar.html#csv" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La principal ventaja de <code>{readr}</code> es que <strong>.bg-purple_light[automatiza el formateo]</strong> necesario para pasar de un archivo plano (sin formato) a un <code>tibble</code> (en filas y columnas, con formato).</p>
+<p>En <code>read_csv()</code> necesitaremos pasar como argumento la ruta del archivo en <code>file</code></p>
+<div class="sourceCode" id="cb987"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb987-1"><a href="importar-exportar.html#cb987-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb987-2"><a href="importar-exportar.html#cb987-2" tabindex="-1"></a>chickens <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>)</span>
+<span id="cb987-3"><a href="importar-exportar.html#cb987-3" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code># A tibble: 5 × 4
+  chicken                 sex     eggs_laid motto                                                   
+  &lt;chr&gt;                   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;                                                   
+1 Foghorn Leghorn         rooster         0 That&#39;s a joke, ah say, that&#39;s a joke, son.              
+2 Chicken Little          hen             3 The sky is falling!                                     
+3 Ginger                  hen            12 Listen. We&#39;ll either die free chickens or we die trying.
+4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                                    
+5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold.                     </code></pre>
+<p>El formato de las columnas normalmente lo hará <code>read_csv()</code> de forma automática, y podemos consultarlo con <code>spec()</code></p>
+<div class="sourceCode" id="cb989"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb989-1"><a href="importar-exportar.html#cb989-1" tabindex="-1"></a><span class="fu">spec</span>(chickens)</span></code></pre></div>
+<pre><code>cols(
+  chicken = col_character(),
+  sex = col_character(),
+  eggs_laid = col_double(),
+  motto = col_character()
+)</code></pre>
+<p>Aunque lo haga normalmente bien de forma automática podemos <strong>.bg-purple_light[especificar el formato explícitamente]</strong> en <code>col_types = list()</code> (en formato lista, con <code>col_xxx()</code> para el formateo de cada tipo de variable, por ejemplo una la pondremos como factor).</p>
+<div class="sourceCode" id="cb991"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb991-1"><a href="importar-exportar.html#cb991-1" tabindex="-1"></a>chickens <span class="ot">&lt;-</span></span>
+<span id="cb991-2"><a href="importar-exportar.html#cb991-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>,</span>
+<span id="cb991-3"><a href="importar-exportar.html#cb991-3" tabindex="-1"></a>           <span class="at">col_types =</span> <span class="fu">list</span>(<span class="fu">col_character</span>(), <span class="fu">col_factor</span>(),</span>
+<span id="cb991-4"><a href="importar-exportar.html#cb991-4" tabindex="-1"></a>                            <span class="fu">col_double</span>(), <span class="fu">col_character</span>()))</span>
+<span id="cb991-5"><a href="importar-exportar.html#cb991-5" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code># A tibble: 5 × 4
+  chicken                 sex     eggs_laid motto                                                   
+  &lt;chr&gt;                   &lt;fct&gt;       &lt;dbl&gt; &lt;chr&gt;                                                   
+1 Foghorn Leghorn         rooster         0 That&#39;s a joke, ah say, that&#39;s a joke, son.              
+2 Chicken Little          hen             3 The sky is falling!                                     
+3 Ginger                  hen            12 Listen. We&#39;ll either die free chickens or we die trying.
+4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                                    
+5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold.                     </code></pre>
+<p>Incluso podemos <strong>.bg-purple_light[indicar que columnas que queremos]</strong> (imagina que no quieres cargar todas, y quieres seleccionar ya en la carga para que no te ocupe en memoria), indicándoselo en <code>col_select = ...</code>.</p>
+<div class="sourceCode" id="cb993"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb993-1"><a href="importar-exportar.html#cb993-1" tabindex="-1"></a>chickens <span class="ot">&lt;-</span></span>
+<span id="cb993-2"><a href="importar-exportar.html#cb993-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>,</span>
+<span id="cb993-3"><a href="importar-exportar.html#cb993-3" tabindex="-1"></a>           <span class="at">col_select =</span> <span class="fu">c</span>(chicken, eggs_laid))</span>
+<span id="cb993-4"><a href="importar-exportar.html#cb993-4" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code># A tibble: 5 × 2
+  chicken                 eggs_laid
+  &lt;chr&gt;                       &lt;dbl&gt;
+1 Foghorn Leghorn                 0
+2 Chicken Little                  3
+3 Ginger                         12
+4 Camilla the Chicken             7
+5 Ernie The Giant Chicken         0</code></pre>
+<p>Dentro de <code>col_select = ...</code> podemos <strong>.bg-purple_light[usar sentencias tidyverse]</strong> como <code>starts_with(...)</code></p>
+<div class="sourceCode" id="cb995"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb995-1"><a href="importar-exportar.html#cb995-1" tabindex="-1"></a>chickens <span class="ot">&lt;-</span></span>
+<span id="cb995-2"><a href="importar-exportar.html#cb995-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>,</span>
+<span id="cb995-3"><a href="importar-exportar.html#cb995-3" tabindex="-1"></a>           <span class="at">col_select =</span> <span class="fu">c</span>(<span class="fu">starts_with</span>(<span class="st">&quot;c&quot;</span>), <span class="fu">last_col</span>()))</span>
+<span id="cb995-4"><a href="importar-exportar.html#cb995-4" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code># A tibble: 5 × 2
+  chicken                 motto                                                   
+  &lt;chr&gt;                   &lt;chr&gt;                                                   
+1 Foghorn Leghorn         That&#39;s a joke, ah say, that&#39;s a joke, son.              
+2 Chicken Little          The sky is falling!                                     
+3 Ginger                  Listen. We&#39;ll either die free chickens or we die trying.
+4 Camilla the Chicken     Bawk, buck, ba-gawk.                                    
+5 Ernie The Giant Chicken Put Captain Solo in the cargo hold.                     </code></pre>
+<p>También podemos <strong>.bg-purple_light[decidir nosotros los nombres]</strong> de las variables indicándoselo en <code>col_names = ...</code> (incluso si los decimales están codificados con punto o coma)</p>
+<div class="sourceCode" id="cb997"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb997-1"><a href="importar-exportar.html#cb997-1" tabindex="-1"></a>chickens <span class="ot">&lt;-</span></span>
+<span id="cb997-2"><a href="importar-exportar.html#cb997-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>,</span>
+<span id="cb997-3"><a href="importar-exportar.html#cb997-3" tabindex="-1"></a>           <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&quot;var1&quot;</span>, <span class="st">&quot;var2&quot;</span>, <span class="st">&quot;var3&quot;</span>, <span class="st">&quot;var4&quot;</span>))</span>
+<span id="cb997-4"><a href="importar-exportar.html#cb997-4" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code># A tibble: 6 × 4
+  var1                    var2    var3      var4                                                    
+  &lt;chr&gt;                   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;                                                   
+1 chicken                 sex     eggs_laid motto                                                   
+2 Foghorn Leghorn         rooster 0         That&#39;s a joke, ah say, that&#39;s a joke, son.              
+3 Chicken Little          hen     3         The sky is falling!                                     
+4 Ginger                  hen     12        Listen. We&#39;ll either die free chickens or we die trying.
+5 Camilla the Chicken     hen     7         Bawk, buck, ba-gawk.                                    
+6 Ernie The Giant Chicken rooster 0         Put Captain Solo in the cargo hold.                     </code></pre>
+<p>¿Qué sucede cuando el separador no el correcto? Como puedes ver en la carga del siguiente <code>.txt</code>, nos interpreta todo como una sola columna, ya que no le hemos indicado donde separar</p>
+<div class="sourceCode" id="cb999"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb999-1"><a href="importar-exportar.html#cb999-1" tabindex="-1"></a>datos_txt <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/massey-rating.txt&quot;</span>)</span>
+<span id="cb999-2"><a href="importar-exportar.html#cb999-2" tabindex="-1"></a><span class="fu">as_tibble</span>(datos_txt)</span></code></pre></div>
+<pre><code># A tibble: 10 × 1
+   `UCC PAY LAZ KPK  RT   COF BIH DII ENG ACU Rank Team            Conf`
+   &lt;chr&gt;                                                                
+ 1 1   1   1   1   1     1   1   1   1   1    1 Ohio St          B10    
+ 2 2   2   2   2   2     2   2   2   4   2    2 Oregon           P12    
+ 3 3   4   3   4   3     4   3   4   2   3    3 Alabama          SEC    
+ 4 4   3   4   3   4     3   5   3   3   4    4 TCU              B12    
+ 5 6   6   6   5   5     7   6   5   6  11    5 Michigan St      B10    
+ 6 7   7   7   6   7     6  11   8   7   8    6 Georgia          SEC    
+ 7 5   5   5   7   6     8   4   6   5   5    7 Florida St       ACC    
+ 8 8   8   9   9  10     5   7   7  10   7    8 Baylor           B12    
+ 9 9  11   8  13  11    11  12   9  14   9    9 Georgia Tech     ACC    
+10 13  10  13  11   8     9  10  11   9  10   10 Mississippi      SEC   </code></pre>
+</div>
+<div id="txt" class="section level3 hasAnchor" number="15.4.2">
+<h3><span class="header-section-number">15.4.2</span> txt<a href="importar-exportar.html#txt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para ello tenemos <code>read_csv2()</code> cuando el separador sea el <strong>.bg-purple_light[punto y coma]</strong>, <code>read_tsv()</code> cuando el separador sea un <strong>.bg-purple_light[tabulador]</strong>, <code>read_table()</code> cuando el separador sea un <strong>.bg-purple_light[espacio]</strong> y <code>read_delim()</code> en general</p>
+<div class="sourceCode" id="cb1001"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1001-1"><a href="importar-exportar.html#cb1001-1" tabindex="-1"></a>datos_txt <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="at">file =</span> <span class="st">&quot;./datos/massey-rating.txt&quot;</span>)</span>
+<span id="cb1001-2"><a href="importar-exportar.html#cb1001-2" tabindex="-1"></a><span class="fu">as_tibble</span>(datos_txt)</span></code></pre></div>
+<pre><code># A tibble: 10 × 13
+     UCC   PAY   LAZ   KPK    RT   COF   BIH   DII   ENG   ACU  Rank Team        Conf 
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;
+ 1     1     1     1     1     1     1     1     1     1     1     1 Ohio        St   
+ 2     2     2     2     2     2     2     2     2     4     2     2 Oregon      P12  
+ 3     3     4     3     4     3     4     3     4     2     3     3 Alabama     SEC  
+ 4     4     3     4     3     4     3     5     3     3     4     4 TCU         B12  
+ 5     6     6     6     5     5     7     6     5     6    11     5 Michigan    St   
+ 6     7     7     7     6     7     6    11     8     7     8     6 Georgia     SEC  
+ 7     5     5     5     7     6     8     4     6     5     5     7 Florida     St   
+ 8     8     8     9     9    10     5     7     7    10     7     8 Baylor      B12  
+ 9     9    11     8    13    11    11    12     9    14     9     9 Georgia     Tech 
+10    13    10    13    11     8     9    10    11     9    10    10 Mississippi SEC  </code></pre>
+</div>
+<div id="desde-web" class="section level3 hasAnchor" number="15.4.3">
+<h3><span class="header-section-number">15.4.3</span> DESDE WEB<a href="importar-exportar.html#desde-web" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Una de las principales ventajas de <code>R</code> es que podemos <strong>.bg-purple_light[importar datos desde una web]</strong>, sin necesidad de realizar la descarga manual del archivo. Y lo mejor es que se hará igual que hemos importado todo: en lugar de pasarle la ruta local de nuestro PC, le <strong>.bg-purple_light[indicaremos el enlace (permalink)]</strong>.</p>
+<div class="sourceCode" id="cb1003"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1003-1"><a href="importar-exportar.html#cb1003-1" tabindex="-1"></a>momo_datos <span class="ot">&lt;-</span></span>
+<span id="cb1003-2"><a href="importar-exportar.html#cb1003-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;https://momo.isciii.es/public/momo/data&quot;</span>,</span>
+<span id="cb1003-3"><a href="importar-exportar.html#cb1003-3" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">500000</span>)</span>
+<span id="cb1003-4"><a href="importar-exportar.html#cb1003-4" tabindex="-1"></a>momo_datos</span></code></pre></div>
+<pre><code># A tibble: 500,000 × 15
+   ambito cod_ambito cod_ine_ambito nombre_ambito cod_sexo nombre_sexo cod_gedad nombre_gedad fecha_defuncion defunciones_observadas
+   &lt;chr&gt;  &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;        &lt;date&gt;                           &lt;dbl&gt;
+ 1 ccaa   AN                      1 Andalucía     1        hombres     +65       edad &gt;= 65   2015-01-01                      109.  
+ 2 ccaa   AN                      1 Andalucía     1        hombres     +85       edad &gt;= 85   2015-01-01                       35.6 
+ 3 ccaa   AN                      1 Andalucía     1        hombres     0-14      edad 0-14    2015-01-01                        0   
+ 4 ccaa   AN                      1 Andalucía     1        hombres     15-44     edad 15-44   2015-01-01                        3.05
+ 5 ccaa   AN                      1 Andalucía     1        hombres     45-64     edad 45-64   2015-01-01                       29.4 
+ 6 ccaa   AN                      1 Andalucía     1        hombres     65-74     edad 65-74   2015-01-01                       32.5 
+ 7 ccaa   AN                      1 Andalucía     1        hombres     75-84     edad 75-84   2015-01-01                       41.7 
+ 8 ccaa   AN                      1 Andalucía     1        hombres     all       todos        2015-01-01                      142.  
+ 9 ccaa   AN                      1 Andalucía     6        mujeres     +65       edad &gt;= 65   2015-01-01                      121.  
+10 ccaa   AN                      1 Andalucía     6        mujeres     +85       edad &gt;= 85   2015-01-01                       69.1 
+# ℹ 499,990 more rows
+# ℹ 5 more variables: defunciones_estimadas_base &lt;dbl&gt;, defunciones_estimadas_base_q01 &lt;dbl&gt;, defunciones_estimadas_base_q99 &lt;dbl&gt;,
+#   defunciones_atrib_exc_temp &lt;dbl&gt;, defunciones_atrib_def_temp &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb1005"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1005-1"><a href="importar-exportar.html#cb1005-1" tabindex="-1"></a>discurso_2021 <span class="ot">&lt;-</span></span>
+<span id="cb1005-2"><a href="importar-exportar.html#cb1005-2" tabindex="-1"></a>  <span class="fu">read_delim</span>(<span class="at">file =</span> <span class="st">&quot;https://raw.githubusercontent.com/lirondos/discursos-de-navidad/master/data/speeches/2021.txt&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb1005-3"><a href="importar-exportar.html#cb1005-3" tabindex="-1"></a>discurso_2021</span></code></pre></div>
+<pre><code># A tibble: 26 × 1
+   `Buenas noches,`                                                                                                                    
+   &lt;chr&gt;                                                                                                                               
+ 1 Mis primeras palabras en esta Nochebuena quiero dedicarlas a quienes vivís en la isla de La Palma y estáis pasando, desde hace tres…
+ 2 Hoy nuestro corazón y nuestro pensamiento siguen con vosotros. Nos sentimos muy cerca y sabéis que tenéis nuestra solidaridad y que…
+ 3 El año pasado, en mi mensaje de Navidad, compartí con vosotros la necesidad de hacer un gran esfuerzo colectivo que nos permitiera …
+ 4 Un año después —y siempre con toda la prudencia necesaria— la situación es diferente. Hemos avanzado sustancialmente en la lucha co…
+ 5 Aun así, estamos viendo que el virus todavía tiene la capacidad de hacernos daño, de muchas maneras. Se vuelve a transmitir muy ráp…
+ 6 También en este último año muchos ciudadanos continúan padeciendo las consecuencias sociales, económicas y también emocionales deri…
+ 7 Y junto a todo ello, es verdad que en el mundo es un hecho que los países dependemos, cada vez más, los unos de los otros; y que se…
+ 8 También, las nuevas tecnologías están cambiando los tradicionales modos de producción de las empresas y por tanto influyen en el co…
+ 9 Estos son algunos ejemplos de los retos que tenemos por delante y que muestran los tiempos tan complicados que vivimos; tiempos que…
+10 Ante esta situación ¿qué hacer?, ¿tenemos que dejarnos llevar por el pesimismo?; ¿debemos caer en el conformismo, esperando que los…
+# ℹ 16 more rows</code></pre>
+</div>
+<div id="excel-readxl" class="section level3 hasAnchor" number="15.4.4">
+<h3><span class="header-section-number">15.4.4</span> EXCEL readxl<a href="importar-exportar.html#excel-readxl" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Otro de los paquetes fundamentales de importación será el paquete <code>{readxl}</code> para <strong>.bg-purple_light[importar datos desde una Excel]</strong> (y <code>{openxlsx}</code> para exportar, aunque se recomienda <code>.csv</code>)</p>
+<p>Tres funciones serán claves: <code>read_xls()</code> (especifica para extensión <code>.xls</code>), <code>read_xlsx()</code> (especifica para extensión <code>.xlsx</code>) y <code>read_excel()</code> (para ambas).</p>
+<div class="sourceCode" id="cb1007"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1007-1"><a href="importar-exportar.html#cb1007-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1007-2"><a href="importar-exportar.html#cb1007-2" tabindex="-1"></a>deaths <span class="ot">&lt;-</span></span>
+<span id="cb1007-3"><a href="importar-exportar.html#cb1007-3" tabindex="-1"></a>  <span class="fu">read_xls</span>(<span class="at">path =</span> <span class="st">&quot;./datos/deaths.xls&quot;</span>,</span>
+<span id="cb1007-4"><a href="importar-exportar.html#cb1007-4" tabindex="-1"></a>           <span class="at">skip =</span> <span class="dv">4</span>)</span>
+<span id="cb1007-5"><a href="importar-exportar.html#cb1007-5" tabindex="-1"></a>deaths</span></code></pre></div>
+<pre><code># A tibble: 14 × 6
+   Name               Profession               Age    `Has kids` `Date of birth`     `Date of death`
+   &lt;chr&gt;              &lt;chr&gt;                    &lt;chr&gt;  &lt;chr&gt;      &lt;dttm&gt;              &lt;chr&gt;          
+ 1 David Bowie        musician                 69     TRUE       1947-01-08 00:00:00 42379          
+ 2 Carrie Fisher      actor                    60     TRUE       1956-10-21 00:00:00 42731          
+ 3 Chuck Berry        musician                 90     TRUE       1926-10-18 00:00:00 42812          
+ 4 Bill Paxton        actor                    61     TRUE       1955-05-17 00:00:00 42791          
+ 5 Prince             musician                 57     TRUE       1958-06-07 00:00:00 42481          
+ 6 Alan Rickman       actor                    69     FALSE      1946-02-21 00:00:00 42383          
+ 7 Florence Henderson actor                    82     TRUE       1934-02-14 00:00:00 42698          
+ 8 Harper Lee         author                   89     FALSE      1926-04-28 00:00:00 42419          
+ 9 Zsa Zsa Gábor      actor                    99     TRUE       1917-02-06 00:00:00 42722          
+10 George Michael     musician                 53     FALSE      1963-06-25 00:00:00 42729          
+11 Some               &lt;NA&gt;                     &lt;NA&gt;   &lt;NA&gt;       NA                  &lt;NA&gt;           
+12 &lt;NA&gt;               also like to write stuff &lt;NA&gt;   &lt;NA&gt;       NA                  &lt;NA&gt;           
+13 &lt;NA&gt;               &lt;NA&gt;                     at the bottom,    NA                  &lt;NA&gt;           
+14 &lt;NA&gt;               &lt;NA&gt;                     &lt;NA&gt;   &lt;NA&gt;       NA                  too!           </code></pre>
+<div class="sourceCode" id="cb1009"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1009-1"><a href="importar-exportar.html#cb1009-1" tabindex="-1"></a>deaths <span class="ot">&lt;-</span></span>
+<span id="cb1009-2"><a href="importar-exportar.html#cb1009-2" tabindex="-1"></a>  <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">&quot;./datos/deaths.xlsx&quot;</span>,</span>
+<span id="cb1009-3"><a href="importar-exportar.html#cb1009-3" tabindex="-1"></a>            <span class="at">skip =</span> <span class="dv">5</span>,</span>
+<span id="cb1009-4"><a href="importar-exportar.html#cb1009-4" tabindex="-1"></a>            <span class="at">col_names =</span></span>
+<span id="cb1009-5"><a href="importar-exportar.html#cb1009-5" tabindex="-1"></a>              <span class="fu">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;profession&quot;</span>,</span>
+<span id="cb1009-6"><a href="importar-exportar.html#cb1009-6" tabindex="-1"></a>                <span class="st">&quot;age&quot;</span>, <span class="st">&quot;kids&quot;</span>,</span>
+<span id="cb1009-7"><a href="importar-exportar.html#cb1009-7" tabindex="-1"></a>                <span class="st">&quot;birth&quot;</span>, <span class="st">&quot;death&quot;</span>))</span>
+<span id="cb1009-8"><a href="importar-exportar.html#cb1009-8" tabindex="-1"></a>deaths</span></code></pre></div>
+<pre><code># A tibble: 14 × 6
+   name               profession               age    kids    birth               death
+   &lt;chr&gt;              &lt;chr&gt;                    &lt;chr&gt;  &lt;chr&gt;   &lt;dttm&gt;              &lt;chr&gt;
+ 1 David Bowie        musician                 69     TRUE    1947-01-08 00:00:00 42379
+ 2 Carrie Fisher      actor                    60     TRUE    1956-10-21 00:00:00 42731
+ 3 Chuck Berry        musician                 90     TRUE    1926-10-18 00:00:00 42812
+ 4 Bill Paxton        actor                    61     TRUE    1955-05-17 00:00:00 42791
+ 5 Prince             musician                 57     TRUE    1958-06-07 00:00:00 42481
+ 6 Alan Rickman       actor                    69     FALSE   1946-02-21 00:00:00 42383
+ 7 Florence Henderson actor                    82     TRUE    1934-02-14 00:00:00 42698
+ 8 Harper Lee         author                   89     FALSE   1926-04-28 00:00:00 42419
+ 9 Zsa Zsa Gábor      actor                    99     TRUE    1917-02-06 00:00:00 42722
+10 George Michael     musician                 53     FALSE   1963-06-25 00:00:00 42729
+11 Some               &lt;NA&gt;                     &lt;NA&gt;   &lt;NA&gt;    NA                  &lt;NA&gt; 
+12 &lt;NA&gt;               also like to write stuff &lt;NA&gt;   &lt;NA&gt;    NA                  &lt;NA&gt; 
+13 &lt;NA&gt;               &lt;NA&gt;                     at the bottom, NA                  &lt;NA&gt; 
+14 &lt;NA&gt;               &lt;NA&gt;                     &lt;NA&gt;   &lt;NA&gt;    NA                  too! </code></pre>
+</div>
+<div id="excel-openxlsx" class="section level3 hasAnchor" number="15.4.5">
+<h3><span class="header-section-number">15.4.5</span> EXCEL openxlsx<a href="importar-exportar.html#excel-openxlsx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si te fijas las <strong>.bg-purple_light[fechas de Excel están mal formateadas]</strong> (sorpresa) así que podemos hacer uso de <code>convertToDate()</code> del paquete <code>{openxlsx}</code> para convertirlo</p>
+<div class="sourceCode" id="cb1011"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1011-1"><a href="importar-exportar.html#cb1011-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb1011-2"><a href="importar-exportar.html#cb1011-2" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1011-3"><a href="importar-exportar.html#cb1011-3" tabindex="-1"></a>deaths <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">birth =</span> <span class="fu">as_date</span>(birth),</span>
+<span id="cb1011-4"><a href="importar-exportar.html#cb1011-4" tabindex="-1"></a>                  <span class="at">death =</span> <span class="fu">convertToDate</span>(death))</span></code></pre></div>
+<pre><code># A tibble: 14 × 6
+   name               profession               age    kids    birth      death     
+   &lt;chr&gt;              &lt;chr&gt;                    &lt;chr&gt;  &lt;chr&gt;   &lt;date&gt;     &lt;date&gt;    
+ 1 David Bowie        musician                 69     TRUE    1947-01-08 2016-01-10
+ 2 Carrie Fisher      actor                    60     TRUE    1956-10-21 2016-12-27
+ 3 Chuck Berry        musician                 90     TRUE    1926-10-18 2017-03-18
+ 4 Bill Paxton        actor                    61     TRUE    1955-05-17 2017-02-25
+ 5 Prince             musician                 57     TRUE    1958-06-07 2016-04-21
+ 6 Alan Rickman       actor                    69     FALSE   1946-02-21 2016-01-14
+ 7 Florence Henderson actor                    82     TRUE    1934-02-14 2016-11-24
+ 8 Harper Lee         author                   89     FALSE   1926-04-28 2016-02-19
+ 9 Zsa Zsa Gábor      actor                    99     TRUE    1917-02-06 2016-12-18
+10 George Michael     musician                 53     FALSE   1963-06-25 2016-12-25
+11 Some               &lt;NA&gt;                     &lt;NA&gt;   &lt;NA&gt;    NA         NA        
+12 &lt;NA&gt;               also like to write stuff &lt;NA&gt;   &lt;NA&gt;    NA         NA        
+13 &lt;NA&gt;               &lt;NA&gt;                     at the bottom, NA         NA        
+14 &lt;NA&gt;               &lt;NA&gt;                     &lt;NA&gt;   &lt;NA&gt;    NA         NA        </code></pre>
+<p>También podemos <strong>.bg-purple_light[cargar un Excel con varias hojas]</strong>, pero por defecto nos carga solo la primera hoja. Para indicarle la hoja (bien por su nombre bien por su número) usaremos el argumento <code>sheet = ...</code></p>
+<div class="sourceCode" id="cb1013"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1013-1"><a href="importar-exportar.html#cb1013-1" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">&quot;./datos/datasets.xlsx&quot;</span>,</span>
+<span id="cb1013-2"><a href="importar-exportar.html#cb1013-2" tabindex="-1"></a>                      <span class="at">sheet =</span> <span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb1013-3"><a href="importar-exportar.html#cb1013-3" tabindex="-1"></a>mtcars</span></code></pre></div>
+<pre><code># A tibble: 32 × 11
+     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+ 2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+ 3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+ 4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+ 5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+ 6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+ 7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+ 8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+ 9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+# ℹ 22 more rows</code></pre>
+<p>Incluso podemos <strong>.bg-purple_light[indicarle el rango de celdas]</strong> del Excel que queremos cargar, haciendo uso del argumento <code>range = ...</code></p>
+<div class="sourceCode" id="cb1015"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1015-1"><a href="importar-exportar.html#cb1015-1" tabindex="-1"></a>iris <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">&quot;./datos/datasets.xlsx&quot;</span>,</span>
+<span id="cb1015-2"><a href="importar-exportar.html#cb1015-2" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">&quot;iris&quot;</span>,</span>
+<span id="cb1015-3"><a href="importar-exportar.html#cb1015-3" tabindex="-1"></a>                  <span class="at">range =</span> <span class="st">&quot;C1:E4&quot;</span>)</span>
+<span id="cb1015-4"><a href="importar-exportar.html#cb1015-4" tabindex="-1"></a>iris</span></code></pre></div>
+<pre><code># A tibble: 3 × 3
+  Petal.Length Petal.Width Species
+         &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
+1          1.4         0.2 setosa 
+2          1.4         0.2 setosa 
+3          1.3         0.2 setosa </code></pre>
+</div>
+<div id="googlesheet" class="section level3 hasAnchor" number="15.4.6">
+<h3><span class="header-section-number">15.4.6</span> googlesheet<a href="importar-exportar.html#googlesheet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Otra opción disponible (sobre todo si trabajamos con otras personas que trabajan en Google Drive) es <strong>.bg-purple_light[importar desde una hoja de cálculo Google Drive]</strong>, haciendo uso de <code>read_sheet()</code> del paquete <code>{googlesheets4}</code> (os pedirá un permiso de tidyverse para interactuar con vuestro drive)</p>
+<div class="sourceCode" id="cb1017"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1017-1"><a href="importar-exportar.html#cb1017-1" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
+<span id="cb1017-2"><a href="importar-exportar.html#cb1017-2" tabindex="-1"></a>google_sheet <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(<span class="st">&quot;https://docs.google.com/spreadsheets/d/1AxHm5qndAQXT77HUjbB7h4rbUVe48Doe1iNIxwk05L4/edit?usp=sharing&quot;</span>)</span>
+<span id="cb1017-3"><a href="importar-exportar.html#cb1017-3" tabindex="-1"></a>google_sheet</span></code></pre></div>
+</div>
+<div id="sasspssstata" class="section level3 hasAnchor" number="15.4.7">
+<h3><span class="header-section-number">15.4.7</span> SAS/SPSS/STATA<a href="importar-exportar.html#sasspssstata" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El paquete <code>{haven}</code> dentro de la órbita tidyverse nos permitirá importar archivos de los 3 software de pago de gestión y análisis de datos más importantes y usados: nos permite <strong>.bg-purple_light[importar desde SAS, SPSS y Stata]</strong></p>
+<div class="sourceCode" id="cb1018"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1018-1"><a href="importar-exportar.html#cb1018-1" tabindex="-1"></a><span class="fu">library</span>(haven)</span>
+<span id="cb1018-2"><a href="importar-exportar.html#cb1018-2" tabindex="-1"></a><span class="co"># SAS</span></span>
+<span id="cb1018-3"><a href="importar-exportar.html#cb1018-3" tabindex="-1"></a>iris_sas <span class="ot">&lt;-</span> <span class="fu">read_sas</span>(<span class="at">data_file =</span> <span class="st">&quot;./datos/iris.sas7bdat&quot;</span>)</span>
+<span id="cb1018-4"><a href="importar-exportar.html#cb1018-4" tabindex="-1"></a><span class="fu">write_sas</span>(iris_sas, <span class="at">path =</span> <span class="st">&quot;./datos/iris_exportado.sas7bdat&quot;</span>)</span>
+<span id="cb1018-5"><a href="importar-exportar.html#cb1018-5" tabindex="-1"></a>iris_sas</span></code></pre></div>
+<pre><code># A tibble: 150 × 5
+   Sepal_Length Sepal_Width Petal_Length Petal_Width Species
+          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
+ 1          5.1         3.5          1.4         0.2 setosa 
+ 2          4.9         3            1.4         0.2 setosa 
+ 3          4.7         3.2          1.3         0.2 setosa 
+ 4          4.6         3.1          1.5         0.2 setosa 
+ 5          5           3.6          1.4         0.2 setosa 
+ 6          5.4         3.9          1.7         0.4 setosa 
+ 7          4.6         3.4          1.4         0.3 setosa 
+ 8          5           3.4          1.5         0.2 setosa 
+ 9          4.4         2.9          1.4         0.2 setosa 
+10          4.9         3.1          1.5         0.1 setosa 
+# ℹ 140 more rows</code></pre>
+<div class="sourceCode" id="cb1020"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1020-1"><a href="importar-exportar.html#cb1020-1" tabindex="-1"></a><span class="co"># SPSS</span></span>
+<span id="cb1020-2"><a href="importar-exportar.html#cb1020-2" tabindex="-1"></a>iris_spss <span class="ot">&lt;-</span> <span class="fu">read_sav</span>(<span class="at">file =</span> <span class="st">&quot;./datos/iris.sav&quot;</span>)</span>
+<span id="cb1020-3"><a href="importar-exportar.html#cb1020-3" tabindex="-1"></a><span class="fu">write_sav</span>(iris_spss, <span class="at">path =</span> <span class="st">&quot;./datos/iris_exportado.sav&quot;</span>)</span>
+<span id="cb1020-4"><a href="importar-exportar.html#cb1020-4" tabindex="-1"></a>iris_spss</span></code></pre></div>
+<pre><code># A tibble: 150 × 5
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species   
+          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl+lbl&gt; 
+ 1          5.1         3.5          1.4         0.2 1 [setosa]
+ 2          4.9         3            1.4         0.2 1 [setosa]
+ 3          4.7         3.2          1.3         0.2 1 [setosa]
+ 4          4.6         3.1          1.5         0.2 1 [setosa]
+ 5          5           3.6          1.4         0.2 1 [setosa]
+ 6          5.4         3.9          1.7         0.4 1 [setosa]
+ 7          4.6         3.4          1.4         0.3 1 [setosa]
+ 8          5           3.4          1.5         0.2 1 [setosa]
+ 9          4.4         2.9          1.4         0.2 1 [setosa]
+10          4.9         3.1          1.5         0.1 1 [setosa]
+# ℹ 140 more rows</code></pre>
+<div class="sourceCode" id="cb1022"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1022-1"><a href="importar-exportar.html#cb1022-1" tabindex="-1"></a><span class="co"># Stata</span></span>
+<span id="cb1022-2"><a href="importar-exportar.html#cb1022-2" tabindex="-1"></a>iris_stata <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="at">file =</span> <span class="st">&quot;./datos/iris.dta&quot;</span>)</span>
+<span id="cb1022-3"><a href="importar-exportar.html#cb1022-3" tabindex="-1"></a><span class="fu">write_dta</span>(iris_stata, <span class="at">path =</span> <span class="st">&quot;./datos/iris_exportado.dta&quot;</span>)</span>
+<span id="cb1022-4"><a href="importar-exportar.html#cb1022-4" tabindex="-1"></a>iris_stata</span></code></pre></div>
+<pre><code># A tibble: 150 × 5
+   sepallength sepalwidth petallength petalwidth species
+         &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;  
+ 1        5.10       3.5         1.40      0.200 setosa 
+ 2        4.90       3           1.40      0.200 setosa 
+ 3        4.70       3.20        1.30      0.200 setosa 
+ 4        4.60       3.10        1.5       0.200 setosa 
+ 5        5          3.60        1.40      0.200 setosa 
+ 6        5.40       3.90        1.70      0.400 setosa 
+ 7        4.60       3.40        1.40      0.300 setosa 
+ 8        5          3.40        1.5       0.200 setosa 
+ 9        4.40       2.90        1.40      0.200 setosa 
+10        4.90       3.10        1.5       0.100 setosa 
+# ℹ 140 more rows</code></pre>
+</div>
+<div id="desde-api" class="section level3 hasAnchor" number="15.4.8">
+<h3><span class="header-section-number">15.4.8</span> desde API<a href="importar-exportar.html#desde-api" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Por último, una opción muy interesante es la <strong>.bg-purple_light[carga desde una API]</strong>: un intermediario entre una app o proveedor datos y nuestro <code>R</code>. Por ejemplo, vamos a cargar la librería <code>{owidR}</code>, que nos permite la descarga de datos de uno de los mayores referentes durante la pandemia, la web <a href="https://ourworldindata.org/" class="uri">https://ourworldindata.org/</a></p>
+<div class="sourceCode" id="cb1024"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1024-1"><a href="importar-exportar.html#cb1024-1" tabindex="-1"></a><span class="co"># install.packages(&quot;owidR&quot;)</span></span>
+<span id="cb1024-2"><a href="importar-exportar.html#cb1024-2" tabindex="-1"></a><span class="fu">library</span>(owidR)</span>
+<span id="cb1024-3"><a href="importar-exportar.html#cb1024-3" tabindex="-1"></a><span class="fu">owid_covid</span>()</span></code></pre></div>
+<pre><code>        iso_code continent    location       date total_cases new_cases new_cases_smoothed total_deaths new_deaths new_deaths_smoothed
+          &lt;char&gt;    &lt;char&gt;      &lt;char&gt;     &lt;IDat&gt;       &lt;num&gt;     &lt;num&gt;              &lt;num&gt;        &lt;num&gt;      &lt;num&gt;               &lt;num&gt;
+     1:      AFG      Asia Afghanistan 2020-01-05          NA         0                 NA           NA          0                  NA
+     2:      AFG      Asia Afghanistan 2020-01-06          NA         0                 NA           NA          0                  NA
+     3:      AFG      Asia Afghanistan 2020-01-07          NA         0                 NA           NA          0                  NA
+     4:      AFG      Asia Afghanistan 2020-01-08          NA         0                 NA           NA          0                  NA
+     5:      AFG      Asia Afghanistan 2020-01-09          NA         0                 NA           NA          0                  NA
+    ---                                                                                                                               
+392363:      ZWE    Africa    Zimbabwe 2024-04-03      266359         0                  0         5740          0                   0
+392364:      ZWE    Africa    Zimbabwe 2024-04-04      266359         0                  0         5740          0                   0
+392365:      ZWE    Africa    Zimbabwe 2024-04-05      266359         0                  0         5740          0                   0
+392366:      ZWE    Africa    Zimbabwe 2024-04-06      266359         0                  0         5740          0                   0
+392367:      ZWE    Africa    Zimbabwe 2024-04-07      266359         0                  0         5740          0                   0
+        total_cases_per_million new_cases_per_million new_cases_smoothed_per_million total_deaths_per_million new_deaths_per_million
+                          &lt;num&gt;                 &lt;num&gt;                          &lt;num&gt;                    &lt;num&gt;                  &lt;num&gt;
+     1:                      NA                     0                             NA                       NA                      0
+     2:                      NA                     0                             NA                       NA                      0
+     3:                      NA                     0                             NA                       NA                      0
+     4:                      NA                     0                             NA                       NA                      0
+     5:                      NA                     0                             NA                       NA                      0
+    ---                                                                                                                             
+392363:                16320.48                     0                              0                  351.704                      0
+392364:                16320.48                     0                              0                  351.704                      0
+392365:                16320.48                     0                              0                  351.704                      0
+392366:                16320.48                     0                              0                  351.704                      0
+392367:                16320.48                     0                              0                  351.704                      0
+        new_deaths_smoothed_per_million reproduction_rate icu_patients icu_patients_per_million hosp_patients
+                                  &lt;num&gt;             &lt;num&gt;        &lt;num&gt;                    &lt;num&gt;         &lt;num&gt;
+     1:                              NA                NA           NA                       NA            NA
+     2:                              NA                NA           NA                       NA            NA
+     3:                              NA                NA           NA                       NA            NA
+     4:                              NA                NA           NA                       NA            NA
+     5:                              NA                NA           NA                       NA            NA
+    ---                                                                                                      
+392363:                               0                NA           NA                       NA            NA
+392364:                               0                NA           NA                       NA            NA
+392365:                               0                NA           NA                       NA            NA
+392366:                               0                NA           NA                       NA            NA
+392367:                               0                NA           NA                       NA            NA
+        hosp_patients_per_million weekly_icu_admissions weekly_icu_admissions_per_million weekly_hosp_admissions
+                            &lt;num&gt;                 &lt;num&gt;                             &lt;num&gt;                  &lt;num&gt;
+     1:                        NA                    NA                                NA                     NA
+     2:                        NA                    NA                                NA                     NA
+     3:                        NA                    NA                                NA                     NA
+     4:                        NA                    NA                                NA                     NA
+     5:                        NA                    NA                                NA                     NA
+    ---                                                                                                         
+392363:                        NA                    NA                                NA                     NA
+392364:                        NA                    NA                                NA                     NA
+392365:                        NA                    NA                                NA                     NA
+392366:                        NA                    NA                                NA                     NA
+392367:                        NA                    NA                                NA                     NA
+        weekly_hosp_admissions_per_million total_tests new_tests total_tests_per_thousand new_tests_per_thousand new_tests_smoothed
+                                     &lt;num&gt;       &lt;num&gt;     &lt;num&gt;                    &lt;num&gt;                  &lt;num&gt;              &lt;num&gt;
+     1:                                 NA          NA        NA                       NA                     NA                 NA
+     2:                                 NA          NA        NA                       NA                     NA                 NA
+     3:                                 NA          NA        NA                       NA                     NA                 NA
+     4:                                 NA          NA        NA                       NA                     NA                 NA
+     5:                                 NA          NA        NA                       NA                     NA                 NA
+    ---                                                                                                                            
+392363:                                 NA          NA        NA                       NA                     NA                 NA
+392364:                                 NA          NA        NA                       NA                     NA                 NA
+392365:                                 NA          NA        NA                       NA                     NA                 NA
+392366:                                 NA          NA        NA                       NA                     NA                 NA
+392367:                                 NA          NA        NA                       NA                     NA                 NA
+        new_tests_smoothed_per_thousand positive_rate tests_per_case tests_units total_vaccinations people_vaccinated
+                                  &lt;num&gt;         &lt;num&gt;          &lt;num&gt;      &lt;char&gt;              &lt;num&gt;             &lt;num&gt;
+     1:                              NA            NA             NA                             NA                NA
+     2:                              NA            NA             NA                             NA                NA
+     3:                              NA            NA             NA                             NA                NA
+     4:                              NA            NA             NA                             NA                NA
+     5:                              NA            NA             NA                             NA                NA
+    ---                                                                                                              
+392363:                              NA            NA             NA                             NA                NA
+392364:                              NA            NA             NA                             NA                NA
+392365:                              NA            NA             NA                             NA                NA
+392366:                              NA            NA             NA                             NA                NA
+392367:                              NA            NA             NA                             NA                NA
+        people_fully_vaccinated total_boosters new_vaccinations new_vaccinations_smoothed total_vaccinations_per_hundred
+                          &lt;num&gt;          &lt;num&gt;            &lt;num&gt;                     &lt;num&gt;                          &lt;num&gt;
+     1:                      NA             NA               NA                        NA                             NA
+     2:                      NA             NA               NA                        NA                             NA
+     3:                      NA             NA               NA                        NA                             NA
+     4:                      NA             NA               NA                        NA                             NA
+     5:                      NA             NA               NA                        NA                             NA
+    ---                                                                                                                 
+392363:                      NA             NA               NA                        NA                             NA
+392364:                      NA             NA               NA                        NA                             NA
+392365:                      NA             NA               NA                        NA                             NA
+392366:                      NA             NA               NA                        NA                             NA
+392367:                      NA             NA               NA                        NA                             NA
+        people_vaccinated_per_hundred people_fully_vaccinated_per_hundred total_boosters_per_hundred
+                                &lt;num&gt;                               &lt;num&gt;                      &lt;num&gt;
+     1:                            NA                                  NA                         NA
+     2:                            NA                                  NA                         NA
+     3:                            NA                                  NA                         NA
+     4:                            NA                                  NA                         NA
+     5:                            NA                                  NA                         NA
+    ---                                                                                             
+392363:                            NA                                  NA                         NA
+392364:                            NA                                  NA                         NA
+392365:                            NA                                  NA                         NA
+392366:                            NA                                  NA                         NA
+392367:                            NA                                  NA                         NA
+        new_vaccinations_smoothed_per_million new_people_vaccinated_smoothed new_people_vaccinated_smoothed_per_hundred
+                                        &lt;num&gt;                          &lt;num&gt;                                      &lt;num&gt;
+     1:                                    NA                             NA                                         NA
+     2:                                    NA                             NA                                         NA
+     3:                                    NA                             NA                                         NA
+     4:                                    NA                             NA                                         NA
+     5:                                    NA                             NA                                         NA
+    ---                                                                                                                
+392363:                                    NA                             NA                                         NA
+392364:                                    NA                             NA                                         NA
+392365:                                    NA                             NA                                         NA
+392366:                                    NA                             NA                                         NA
+392367:                                    NA                             NA                                         NA
+        stringency_index population_density median_age aged_65_older aged_70_older gdp_per_capita extreme_poverty
+                   &lt;num&gt;              &lt;num&gt;      &lt;num&gt;         &lt;num&gt;         &lt;num&gt;          &lt;num&gt;           &lt;num&gt;
+     1:                0             54.422       18.6         2.581         1.337       1803.987              NA
+     2:                0             54.422       18.6         2.581         1.337       1803.987              NA
+     3:                0             54.422       18.6         2.581         1.337       1803.987              NA
+     4:                0             54.422       18.6         2.581         1.337       1803.987              NA
+     5:                0             54.422       18.6         2.581         1.337       1803.987              NA
+    ---                                                                                                          
+392363:               NA             42.729       19.6         2.822         1.882       1899.775            21.4
+392364:               NA             42.729       19.6         2.822         1.882       1899.775            21.4
+392365:               NA             42.729       19.6         2.822         1.882       1899.775            21.4
+392366:               NA             42.729       19.6         2.822         1.882       1899.775            21.4
+392367:               NA             42.729       19.6         2.822         1.882       1899.775            21.4
+        cardiovasc_death_rate diabetes_prevalence female_smokers male_smokers handwashing_facilities hospital_beds_per_thousand
+                        &lt;num&gt;               &lt;num&gt;          &lt;num&gt;        &lt;num&gt;                  &lt;num&gt;                      &lt;num&gt;
+     1:               597.029                9.59             NA           NA                 37.746                        0.5
+     2:               597.029                9.59             NA           NA                 37.746                        0.5
+     3:               597.029                9.59             NA           NA                 37.746                        0.5
+     4:               597.029                9.59             NA           NA                 37.746                        0.5
+     5:               597.029                9.59             NA           NA                 37.746                        0.5
+    ---                                                                                                                        
+392363:               307.846                1.82            1.6         30.7                 36.791                        1.7
+392364:               307.846                1.82            1.6         30.7                 36.791                        1.7
+392365:               307.846                1.82            1.6         30.7                 36.791                        1.7
+392366:               307.846                1.82            1.6         30.7                 36.791                        1.7
+392367:               307.846                1.82            1.6         30.7                 36.791                        1.7
+        life_expectancy human_development_index population excess_mortality_cumulative_absolute excess_mortality_cumulative
+                  &lt;num&gt;                   &lt;num&gt;      &lt;num&gt;                                &lt;num&gt;                       &lt;num&gt;
+     1:           64.83                   0.511   41128772                                   NA                          NA
+     2:           64.83                   0.511   41128772                                   NA                          NA
+     3:           64.83                   0.511   41128772                                   NA                          NA
+     4:           64.83                   0.511   41128772                                   NA                          NA
+     5:           64.83                   0.511   41128772                                   NA                          NA
+    ---                                                                                                                    
+392363:           61.49                   0.571   16320539                                   NA                          NA
+392364:           61.49                   0.571   16320539                                   NA                          NA
+392365:           61.49                   0.571   16320539                                   NA                          NA
+392366:           61.49                   0.571   16320539                                   NA                          NA
+392367:           61.49                   0.571   16320539                                   NA                          NA
+        excess_mortality excess_mortality_cumulative_per_million
+                   &lt;num&gt;                                   &lt;num&gt;
+     1:               NA                                      NA
+     2:               NA                                      NA
+     3:               NA                                      NA
+     4:               NA                                      NA
+     5:               NA                                      NA
+    ---                                                         
+392363:               NA                                      NA
+392364:               NA                                      NA
+392365:               NA                                      NA
+392366:               NA                                      NA
+392367:               NA                                      NA</code></pre>
+<p>La función <code>owid_covid()</code> nos ha cargado sin darnos cuenta <strong>.bg-purple_light[más de 200 000 registros]</strong> con más de 50 variables de 238 países diferentes, desde casos, hospitalizados, pacientes en UCI, fallecidos, etc.</p>
+<p>Este paquete tiene la función <code>owid_search()</code> para <strong>.bg-purple_light[buscar datasets por palabras clave]</strong>, por ejemplo, por <code>emissions</code>, dándonos un dataset con el título de la base de datos y su id para luego usarla.</p>
+<div class="sourceCode" id="cb1026"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1026-1"><a href="importar-exportar.html#cb1026-1" tabindex="-1"></a><span class="fu">as_tibble</span>(<span class="fu">owid_search</span>(<span class="st">&quot;emissions&quot;</span>))</span></code></pre></div>
+<p>Vamos a pedirle por ejemplo las emisiones per cápita de gases de efecto invernadero</p>
+<div class="sourceCode" id="cb1027"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1027-1"><a href="importar-exportar.html#cb1027-1" tabindex="-1"></a>emissions <span class="ot">&lt;-</span> <span class="fu">owid</span>(<span class="st">&quot;per-capita-ghg-emissions&quot;</span>)</span>
+<span id="cb1027-2"><a href="importar-exportar.html#cb1027-2" tabindex="-1"></a>emissions</span></code></pre></div>
+<p>En muchas ocasiones para <strong>.bg-purple_light[conectar con la API tendremos antes que registrarnos y obtener una clave]</strong>, es el caso del paquete <code>{climaemet}</code> para acceder a datos meteorológicos (ver documentación en &lt;<a href="https://ropenspain.github.io/climaemet/" class="uri">https://ropenspain.github.io/climaemet/</a>). Dicha clave se puede obtener de manera inmediata en <a href="https://opendata.aemet.es/centrodedescargas/altaUsuario" class="uri">https://opendata.aemet.es/centrodedescargas/altaUsuario</a></p>
+<p>Una vez que tenemos la clave la registramos en nuestro RStudio para poder usarla a futuro</p>
+<div class="sourceCode" id="cb1028"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1028-1"><a href="importar-exportar.html#cb1028-1" tabindex="-1"></a><span class="co"># install.packages(&quot;climaemet&quot;)</span></span>
+<span id="cb1028-2"><a href="importar-exportar.html#cb1028-2" tabindex="-1"></a><span class="fu">library</span>(climaemet)</span>
+<span id="cb1028-3"><a href="importar-exportar.html#cb1028-3" tabindex="-1"></a></span>
+<span id="cb1028-4"><a href="importar-exportar.html#cb1028-4" tabindex="-1"></a><span class="co"># Definir la clave</span></span>
+<span id="cb1028-5"><a href="importar-exportar.html#cb1028-5" tabindex="-1"></a>apikey <span class="ot">&lt;-</span> <span class="st">&quot;eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXZhbHYwOUB1Y20uZXMiLCJqdGkiOiI4YTU1ODUxMS01MTE3LTQ4MTYtYmM4OS1hYmVkNDhiODBkYzkiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTY2NjQ2OTcxNSwidXNlcklkIjoiOGE1NTg1MTEtNTExNy00ODE2LWJjODktYWJlZDQ4YjgwZGM5Iiwicm9sZSI6IiJ9.HEMR77lZy2ASjmOxJa8ppx2J8Za1IViurMX3p1reVBU&quot;</span></span>
+<span id="cb1028-6"><a href="importar-exportar.html#cb1028-6" tabindex="-1"></a><span class="fu">aemet_api_key</span>(apikey, <span class="at">install =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Con dicho paquete podemos hacer una <strong>.bg-purple_light[búsqueda de las estaciones meteorológicas]</strong> para conocer tanto su codigo postal como su código identificador dentro de la red AEMET (por ejemplo, para acceder a la estación de el aeropuerto de El Prat, Barcelona, es el código 0076)</p>
+<div class="sourceCode" id="cb1029"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1029-1"><a href="importar-exportar.html#cb1029-1" tabindex="-1"></a><span class="fu">library</span>(climaemet)</span>
+<span id="cb1029-2"><a href="importar-exportar.html#cb1029-2" tabindex="-1"></a>stations <span class="ot">&lt;-</span> <span class="fu">aemet_stations</span>()</span>
+<span id="cb1029-3"><a href="importar-exportar.html#cb1029-3" tabindex="-1"></a>stations</span></code></pre></div>
+<p>Una vez que tenemos el identificador podemos obtener los <strong>.bg-purple_light[datos horarios de las últimas 24 horas]</strong>, incluyendo no solo temperatura sino estadísticas del viento, la presión, etc</p>
+<div class="sourceCode" id="cb1030"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1030-1"><a href="importar-exportar.html#cb1030-1" tabindex="-1"></a><span class="fu">aemet_last_obs</span>(<span class="st">&quot;0076&quot;</span>)</span></code></pre></div>
+<p>También podemos extraer los <strong>.bg-purple_light[datos diarios en un intervalo de fechas]</strong> que le proporciones con <code>aemet_daily_clim()</code></p>
+<div class="sourceCode" id="cb1031"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1031-1"><a href="importar-exportar.html#cb1031-1" tabindex="-1"></a><span class="fu">aemet_daily_clim</span>(<span class="st">&quot;0076&quot;</span>, <span class="at">start =</span> <span class="st">&quot;2022-01-01&quot;</span>, <span class="at">end =</span> <span class="st">&quot;2022-09-30&quot;</span>)</span></code></pre></div>
+<p>También se pueden importar datos desde las API de spotify (ver <a href="https://www.rcharlie.com/spotifyr/" class="uri">https://www.rcharlie.com/spotifyr/</a>) como de Twitter (ver <a href="https://github.com/ropensci/rtweet" class="uri">https://github.com/ropensci/rtweet</a>)</p>
+<div class="sourceCode" id="cb1032"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1032-1"><a href="importar-exportar.html#cb1032-1" tabindex="-1"></a><span class="co"># install.packages(&quot;rtweet&quot;)</span></span>
+<span id="cb1032-2"><a href="importar-exportar.html#cb1032-2" tabindex="-1"></a><span class="fu">library</span>(rtweet)</span>
+<span id="cb1032-3"><a href="importar-exportar.html#cb1032-3" tabindex="-1"></a><span class="co"># install.packages(&quot;spotifyr&quot;)</span></span>
+<span id="cb1032-4"><a href="importar-exportar.html#cb1032-4" tabindex="-1"></a><span class="fu">library</span>(spotifyr)</span></code></pre></div>
+<div class="sourceCode" id="cb1033"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1033-1"><a href="importar-exportar.html#cb1033-1" tabindex="-1"></a><span class="co"># install.packages(&quot;rtweet&quot;)</span></span>
+<span id="cb1033-2"><a href="importar-exportar.html#cb1033-2" tabindex="-1"></a><span class="fu">library</span>(rtweet)</span>
+<span id="cb1033-3"><a href="importar-exportar.html#cb1033-3" tabindex="-1"></a><span class="fu">auth_setup_default</span>()</span>
+<span id="cb1033-4"><a href="importar-exportar.html#cb1033-4" tabindex="-1"></a>rt <span class="ot">&lt;-</span> <span class="fu">search_tweets</span>(<span class="st">&quot;#pedrosanchez&quot;</span>, <span class="at">n =</span> <span class="dv">100</span>, <span class="at">include_rts =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1033-5"><a href="importar-exportar.html#cb1033-5" tabindex="-1"></a>rt</span></code></pre></div>
+</div>
+</div>
+<div id="exportación-de-datos" class="section level2 hasAnchor" number="15.5">
+<h2><span class="header-section-number">15.5</span> Exportación de datos<a href="importar-exportar.html#exportación-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Aunque se puede exportar en cualquier formato que puedas importar, vamos a ver las <mark><strong>dos formas más útiles y eficientes de exportar datos en <code>R</code></strong></mark>:</p>
+<ul>
+<li>fichero <code>.RData</code>.</li>
+<li>fichero <code>.csv</code> (un Excel sin formato para ser leído en cualquier sistema)</li>
+</ul>
+<p>La exportación en fichero <code>.RData</code> es la opción <strong>más recomendable si tú o tu equipo solo trabajáis con <code>R</code></strong>, es la opción nativa de fichero, para que su importación sea tan sencilla como una función <code>load()</code>. Para exportar en <code>R.Data</code> basta con uses la función <code>save()</code>, indícandole lo que quieres guardar y la ruta donde quieres guardarlo.</p>
+<p>Es <strong>importante</strong> entender que la principal ventaja de exportar un fichero <code>.RData</code> es que no se está portando una tabla, o un fichero tabulado con un formato de filas y columnas: estás exportando <strong>cualquier cosa</strong>, cualquier variable de <code>R</code>, con la naturaleza de esa variable intacta, sin necesidad de pasarlo otro formato.</p>
+<div class="sourceCode" id="cb1034"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1034-1"><a href="importar-exportar.html#cb1034-1" tabindex="-1"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;javier&quot;</span>, <span class="st">&quot;carla&quot;</span>)</span>
+<span id="cb1034-2"><a href="importar-exportar.html#cb1034-2" tabindex="-1"></a><span class="co"># Exportamos en .RData la variable nombres </span></span>
+<span id="cb1034-3"><a href="importar-exportar.html#cb1034-3" tabindex="-1"></a><span class="fu">save</span>(nombres, <span class="at">file =</span> <span class="st">&quot;./EXPORTAR/nombres.RData&quot;</span>)</span></code></pre></div>
+<p>Para tenerlo organizado, la orden anterior está hecha habiendo creado en nuestra carpeta del proyecto una carpeta <code>EXPORTAR</code> para guardar lo que vayamos exportando. Ese fichero solo podrá ser abierto por <code>R</code>, pero cuando lo cargemos, tendremos la variable <code>nombres</code> tal cual la hemos guardado.</p>
+<p> </p>
+<p>No siempre trabajamos en <code>R</code> y a veces necesitamos una exportación de un <code>data.frame</code> o una tabla que podamos abrir en nuestra ordenador, ya sea para explicársela a alguien o para enviársela a otra persona. Para ello exportaremos en <code>.csv</code>, un fichero sin formato, y que es capaz de ser abierto por todo tipo de hojas de cálculo: basta que usemos la función <code>write_csv()</code> del paquete <code>{readr}</code></p>
+<div class="sourceCode" id="cb1035"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1035-1"><a href="importar-exportar.html#cb1035-1" tabindex="-1"></a><span class="co"># install.packages(&quot;readr&quot;) # solo la primera vez</span></span>
+<span id="cb1035-2"><a href="importar-exportar.html#cb1035-2" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1035-3"><a href="importar-exportar.html#cb1035-3" tabindex="-1"></a></span>
+<span id="cb1035-4"><a href="importar-exportar.html#cb1035-4" tabindex="-1"></a><span class="co"># Exportamos en .csv el data.frame boston</span></span>
+<span id="cb1035-5"><a href="importar-exportar.html#cb1035-5" tabindex="-1"></a><span class="fu">write_csv</span>(boston, <span class="at">file =</span> <span class="st">&quot;./EXPORTAR/boston.csv&quot;</span>)</span></code></pre></div>
+<p><strong><span style="color: #ffc107;">WARNING: líneas de código en los errores</span></strong></p>
+<p>Dado que los errores del código nos vendrán referenciados en la consola por el número de línea donde fueron detectados, puede sernos muy útil mostrar dichos números en la barra lateral izquierda, yendo a <code>Tools &lt;&lt; Global Options &lt;&lt; Code &lt;&lt; Display &lt;&lt; Show line numbers</code></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:show-line-numbers"></span>
+<img src="img/show_line_numbers.jpg" alt="Líneas de código." width="50%" />
+<p class="caption">
+Figure 15.2: Líneas de código.
+</p>
+</div>
+</div>
+<div id="consejos-10" class="section level2 hasAnchor" number="15.6">
+<h2><span class="header-section-number">15.6</span> Consejos<a href="importar-exportar.html#consejos-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong><span style="color: #20935E;">CONSEJOS</span></strong></p>
+<p> </p>
+<p><strong><span style="color: #20935E;">Margen derecho en la ventana de scripts</span></strong></p>
+<p>Aunque no afecte a nuestro código escribir todo en una línea sin saltos de línea, no somos bárbaros/as. ¿Por qué cuadno escribes en un Word lo haces en formato vertical pero cuando programas pones todas las órdenes seguidas? Recuerda que la legibilidad de tu código no solo te ahorrará tiempo sino que te hará programar mejor. ¿Cómo podemos fijar un margen imaginario para nosotros ser quienes demos al <em>ENTER</em>? Yendo a <code>Tools &lt;&lt; Global Options &lt;&lt; Code &lt;&lt; Display &lt;&lt; Show margin</code> (es un margen imaginario para ser nosotros quienes lo hagamos efectivo, a <code>R</code> le da igual)</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:show-margin"></span>
+<img src="img/show_margin.jpg" alt="Margen derecho." width="50%" />
+<p class="caption">
+Figure 15.3: Margen derecho.
+</p>
+</div>
+<div id="exportando-datos-.rdata.rda" class="section level3 hasAnchor" number="15.6.1">
+<h3><span class="header-section-number">15.6.1</span> Exportando datos: .RData/.rda<a href="importar-exportar.html#exportando-datos-.rdata.rda" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>De la misma manera que podemos importar, podemos <strong>.bg-purple_light[exportar]</strong> en <code>.RData</code>. Esta opción es la más recomendada si las variables guardadas van a ser únicamente usadas en <code>R</code>: recuerda que esta extensión es nativa de <code>R</code> por lo que <strong>.bg-purple_light[solo se podrá usar en <code>R</code>]</strong>. Para ello nos basta con usar <code>save(objeto, file = ruta con extensión)</code></p>
+<div class="sourceCode" id="cb1036"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1036-1"><a href="importar-exportar.html#cb1036-1" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">&quot;a&quot;</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;b&quot;</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb1036-2"><a href="importar-exportar.html#cb1036-2" tabindex="-1"></a><span class="fu">save</span>(tabla,</span>
+<span id="cb1036-3"><a href="importar-exportar.html#cb1036-3" tabindex="-1"></a>     <span class="at">file =</span> <span class="st">&quot;./datos/tabla_prueba.RData&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1037"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1037-1"><a href="importar-exportar.html#cb1037-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;./datos/tabla_prueba.RData&quot;</span>)</span>
+<span id="cb1037-2"><a href="importar-exportar.html#cb1037-2" tabindex="-1"></a>tabla</span></code></pre></div>
+<pre><code># A tibble: 4 × 2
+      a     b
+  &lt;int&gt; &lt;int&gt;
+1     1     1
+2     2     2
+3     3     3
+4     4     4</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="proyecto.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gráficos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02m-carga_datos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

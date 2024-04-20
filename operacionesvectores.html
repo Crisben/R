@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Operaciones con vectores | R</title>
+  <meta name="description" content="Chapter 7 Operaciones con vectores | R" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Operaciones con vectores | R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Operaciones con vectores | R" />
+  
+  
+  
+
+<meta name="author" content="Cristian Benalcázar" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="vectores.html"/>
+<link rel="next" href="fechas.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para Ciencia de Datos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="que-es-R.html"><a href="que-es-R.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="que-es-R.html"><a href="que-es-R.html#historia-de-r"><i class="fa fa-check"></i><b>2.1</b> Historia de R</a></li>
+<li class="chapter" data-level="2.2" data-path="que-es-R.html"><a href="que-es-R.html#comunidadpaquetes"><i class="fa fa-check"></i><b>2.2</b> Comunidad de usuarios: paquetes</a></li>
+<li class="chapter" data-level="2.3" data-path="que-es-R.html"><a href="que-es-R.html#por-qué-excel-no-es-tu-amigo"><i class="fa fa-check"></i><b>2.3</b> ¿Por qué Excel no es tu amigo?</a></li>
+<li class="chapter" data-level="2.4" data-path="que-es-R.html"><a href="que-es-R.html#glosario"><i class="fa fa-check"></i><b>2.4</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="instalacionR.html"><a href="instalacionR.html"><i class="fa fa-check"></i><b>3</b> Instalación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="instalacionR.html"><a href="instalacionR.html#instalación-de-r"><i class="fa fa-check"></i><b>3.1</b> Instalación de R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="instalacionR.html"><a href="instalacionR.html#paso-1"><i class="fa fa-check"></i><b>3.1.1</b> Paso 1</a></li>
+<li class="chapter" data-level="3.1.2" data-path="instalacionR.html"><a href="instalacionR.html#paso-2"><i class="fa fa-check"></i><b>3.1.2</b> Paso 2</a></li>
+<li class="chapter" data-level="3.1.3" data-path="instalacionR.html"><a href="instalacionR.html#paso-3"><i class="fa fa-check"></i><b>3.1.3</b> Paso 3</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="instalacionR.html"><a href="instalacionR.html#primera-operación-en-consola-sumar-dos-números"><i class="fa fa-check"></i><b>3.2</b> Primera operación en consola: sumar dos números</a></li>
+<li class="chapter" data-level="3.3" data-path="instalacionR.html"><a href="instalacionR.html#instalacionRStudio"><i class="fa fa-check"></i><b>3.3</b> Instalación de RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="instalacionR.html"><a href="instalacionR.html#instalacionpaquetes"><i class="fa fa-check"></i><b>3.4</b> Instalación de paquetes</a></li>
+<li class="chapter" data-level="3.5" data-path="instalacionR.html"><a href="instalacionR.html#glosario-1"><i class="fa fa-check"></i><b>3.5</b> Glosario</a></li>
+<li class="chapter" data-level="3.6" data-path="instalacionR.html"><a href="instalacionR.html#consejos"><i class="fa fa-check"></i><b>3.6</b> Consejos</a></li>
+<li class="chapter" data-level="3.7" data-path="instalacionR.html"><a href="instalacionR.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos.html"><a href="primeros-pasos.html#primeros-pasos-en-r-calculadora"><i class="fa fa-check"></i><b>4.1</b> Primeros pasos en R: calculadora</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html#y-dónde-programamos"><i class="fa fa-check"></i><b>4.2</b> ¿Y dónde programamos?</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos.html"><a href="primeros-pasos.html#tipos_errores"><i class="fa fa-check"></i><b>4.3</b> Tipos de errores</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos.html"><a href="primeros-pasos.html#glosario-2"><i class="fa fa-check"></i><b>4.4</b> Glosario</a></li>
+<li class="chapter" data-level="4.5" data-path="primeros-pasos.html"><a href="primeros-pasos.html#consejos-1"><i class="fa fa-check"></i><b>4.5</b> Consejos</a></li>
+<li class="chapter" data-level="4.6" data-path="primeros-pasos.html"><a href="primeros-pasos.html#ejercicios-1"><i class="fa fa-check"></i><b>4.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>I Tipos de datos</b></span></li>
+<li class="chapter" data-level="5" data-path="var-num.html"><a href="var-num.html"><i class="fa fa-check"></i><b>5</b> Variables individuales: números y caracteres</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="var-num.html"><a href="var-num.html#numericas"><i class="fa fa-check"></i><b>5.1</b> Variables numéricas (individuales)</a></li>
+<li class="chapter" data-level="5.2" data-path="var-num.html"><a href="var-num.html#caracter"><i class="fa fa-check"></i><b>5.2</b> Variables de tipo caracter (texto)</a></li>
+<li class="chapter" data-level="5.3" data-path="var-num.html"><a href="var-num.html#nuestra-primera-función-paste"><i class="fa fa-check"></i><b>5.3</b> Nuestra primera función: paste</a></li>
+<li class="chapter" data-level="5.4" data-path="var-num.html"><a href="var-num.html#nuestro-primer-paquete-glue"><i class="fa fa-check"></i><b>5.4</b> Nuestro primer paquete: glue</a></li>
+<li class="chapter" data-level="5.5" data-path="var-num.html"><a href="var-num.html#manejando-textos-paquete-stringr"><i class="fa fa-check"></i><b>5.5</b> Manejando textos: paquete stringr</a></li>
+<li class="chapter" data-level="5.6" data-path="var-num.html"><a href="var-num.html#consejos-2"><i class="fa fa-check"></i><b>5.6</b> Consejos</a></li>
+<li class="chapter" data-level="5.7" data-path="var-num.html"><a href="var-num.html#ejercicios-2"><i class="fa fa-check"></i><b>5.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectores.html"><a href="vectores.html#vectores-numéricos"><i class="fa fa-check"></i><b>6.1</b> Vectores numéricos</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html#secuencias-numéricas-con-un-patrón"><i class="fa fa-check"></i><b>6.2</b> Secuencias numéricas con un patrón</a></li>
+<li class="chapter" data-level="6.3" data-path="vectores.html"><a href="vectores.html#vectores-de-caracteres-texto"><i class="fa fa-check"></i><b>6.3</b> Vectores de caracteres (texto)</a></li>
+<li class="chapter" data-level="6.4" data-path="vectores.html"><a href="vectores.html#vectores-lógicos-truefalse"><i class="fa fa-check"></i><b>6.4</b> Vectores lógicos (TRUE/FALSE)</a></li>
+<li class="chapter" data-level="6.5" data-path="vectores.html"><a href="vectores.html#consejos-3"><i class="fa fa-check"></i><b>6.5</b> Consejos</a></li>
+<li class="chapter" data-level="6.6" data-path="vectores.html"><a href="vectores.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="operacionesvectores.html"><a href="operacionesvectores.html"><i class="fa fa-check"></i><b>7</b> Operaciones con vectores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#vectores-numéricos-1"><i class="fa fa-check"></i><b>7.1</b> Vectores numéricos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-aritméticas"><i class="fa fa-check"></i><b>7.1.1</b> Operaciones aritméticas</a></li>
+<li class="chapter" data-level="7.1.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-estadísticas"><i class="fa fa-check"></i><b>7.1.2</b> Operaciones estadísticas</a></li>
+<li class="chapter" data-level="7.1.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operacionesausentes"><i class="fa fa-check"></i><b>7.1.3</b> Operaciones con ausentes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#seleccionar-elementos"><i class="fa fa-check"></i><b>7.2</b> Seleccionar elementos</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#which"><i class="fa fa-check"></i><b>7.2.1</b> which</a></li>
+<li class="chapter" data-level="7.2.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#null"><i class="fa fa-check"></i><b>7.2.2</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación"><i class="fa fa-check"></i><b>7.3</b> Nombrando vectores: añadiendo metainformación</a></li>
+<li class="chapter" data-level="7.4" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ordenar"><i class="fa fa-check"></i><b>7.4</b> Ordenar</a></li>
+<li class="chapter" data-level="7.5" data-path="operacionesvectores.html"><a href="operacionesvectores.html#consejos-4"><i class="fa fa-check"></i><b>7.5</b> Consejos</a></li>
+<li class="chapter" data-level="7.6" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ejercicios-4"><i class="fa fa-check"></i><b>7.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i><b>8</b> Fechas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="fechas.html"><a href="fechas.html#funciones-de-lubridate"><i class="fa fa-check"></i><b>8.1</b> Funciones de lubridate</a></li>
+<li class="chapter" data-level="8.2" data-path="fechas.html"><a href="fechas.html#consejos-5"><i class="fa fa-check"></i><b>8.2</b> Consejos</a></li>
+<li class="chapter" data-level="8.3" data-path="fechas.html"><a href="fechas.html#ejercicios-5"><i class="fa fa-check"></i><b>8.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>9</b> Datos estructurados</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="datos.html"><a href="datos.html#matrices"><i class="fa fa-check"></i><b>9.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="datos.html"><a href="datos.html#acceder-a-elementos"><i class="fa fa-check"></i><b>9.1.1</b> Acceder a elementos</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datos.html"><a href="datos.html#operaciones-por-filas-y-columnas-apply"><i class="fa fa-check"></i><b>9.1.2</b> Operaciones por filas y columnas (apply)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datos.html"><a href="datos.html#tablas-data.frames"><i class="fa fa-check"></i><b>9.2</b> Tablas: data.frames</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="datos.html"><a href="datos.html#selección-de-columnas-y-filas"><i class="fa fa-check"></i><b>9.2.1</b> Selección de columnas y filas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="datos.html"><a href="datos.html#primer-análisis-de-datos-arrestos-en-ee.-uu."><i class="fa fa-check"></i><b>9.2.2</b> Primer análisis de datos: arrestos en EE. UU.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="datos.html"><a href="datos.html#consejos-6"><i class="fa fa-check"></i><b>9.3</b> Consejos</a></li>
+<li class="chapter" data-level="9.4" data-path="datos.html"><a href="datos.html#ejercicios-6"><i class="fa fa-check"></i><b>9.4</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>10</b> Listas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="listas.html"><a href="listas.html#introducción-a-purrr"><i class="fa fa-check"></i><b>10.1</b> Introducción a purrr</a></li>
+<li class="chapter" data-level="10.2" data-path="listas.html"><a href="listas.html#ejercicios-7"><i class="fa fa-check"></i><b>10.2</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Haciendo el trabajo más fácil</b></span></li>
+<li class="chapter" data-level="11" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>11</b> Estructuras de control: if-else</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="if-else.html"><a href="if-else.html#if"><i class="fa fa-check"></i><b>11.1</b> if</a></li>
+<li class="chapter" data-level="11.2" data-path="if-else.html"><a href="if-else.html#if---else"><i class="fa fa-check"></i><b>11.2</b> if - else</a></li>
+<li class="chapter" data-level="11.3" data-path="if-else.html"><a href="if-else.html#if---else-anidados"><i class="fa fa-check"></i><b>11.3</b> if - else anidados</a></li>
+<li class="chapter" data-level="11.4" data-path="if-else.html"><a href="if-else.html#ifelse-vectorizado"><i class="fa fa-check"></i><b>11.4</b> ifelse () vectorizado</a></li>
+<li class="chapter" data-level="11.5" data-path="if-else.html"><a href="if-else.html#consejos-7"><i class="fa fa-check"></i><b>11.5</b> Consejos</a></li>
+<li class="chapter" data-level="11.6" data-path="if-else.html"><a href="if-else.html#ejercicios-8"><i class="fa fa-check"></i><b>11.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>12</b> Estructuras de control: bucles</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bucles.html"><a href="bucles.html#for"><i class="fa fa-check"></i><b>12.1</b> for</a></li>
+<li class="chapter" data-level="12.2" data-path="bucles.html"><a href="bucles.html#while"><i class="fa fa-check"></i><b>12.2</b> while</a></li>
+<li class="chapter" data-level="12.3" data-path="bucles.html"><a href="bucles.html#breaknext"><i class="fa fa-check"></i><b>12.3</b> break/next</a></li>
+<li class="chapter" data-level="12.4" data-path="bucles.html"><a href="bucles.html#repeat"><i class="fa fa-check"></i><b>12.4</b> repeat</a></li>
+<li class="chapter" data-level="12.5" data-path="bucles.html"><a href="bucles.html#consejos-8"><i class="fa fa-check"></i><b>12.5</b> Consejos</a></li>
+<li class="chapter" data-level="12.6" data-path="bucles.html"><a href="bucles.html#ejercicios-9"><i class="fa fa-check"></i><b>12.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="funs.html"><a href="funs.html"><i class="fa fa-check"></i><b>13</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="funs.html"><a href="funs.html#primera-función"><i class="fa fa-check"></i><b>13.1</b> Primera función</a></li>
+<li class="chapter" data-level="13.2" data-path="funs.html"><a href="funs.html#variables-localesglobales"><i class="fa fa-check"></i><b>13.2</b> Variables locales/globales</a></li>
+<li class="chapter" data-level="13.3" data-path="funs.html"><a href="funs.html#ejercicios-10"><i class="fa fa-check"></i><b>13.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyecto.html"><a href="proyecto.html"><i class="fa fa-check"></i><b>14</b> Proyecto de trabajo</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyecto.html"><a href="proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>14.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="14.2" data-path="proyecto.html"><a href="proyecto.html#directorios-de-trabajo-y-cabecera"><i class="fa fa-check"></i><b>14.2</b> Directorios de trabajo y cabecera</a></li>
+<li class="chapter" data-level="14.3" data-path="proyecto.html"><a href="proyecto.html#ejecución"><i class="fa fa-check"></i><b>14.3</b> Ejecución</a></li>
+<li class="chapter" data-level="14.4" data-path="proyecto.html"><a href="proyecto.html#consejos-9"><i class="fa fa-check"></i><b>14.4</b> Consejos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="importar-exportar.html"><a href="importar-exportar.html"><i class="fa fa-check"></i><b>15</b> Importar/exportar datos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="importar-exportar.html"><a href="importar-exportar.html#importar-datos"><i class="fa fa-check"></i><b>15.1</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic"><i class="fa fa-check"></i><b>15.1.1</b> Archivo .RData: pasajeros del RMS Titanic</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rda-pisos-en-boston"><i class="fa fa-check"></i><b>15.2</b> Archivo .rda: pisos en Boston</a></li>
+<li class="chapter" data-level="15.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat"><i class="fa fa-check"></i><b>15.3</b> Desde paquete: estadísticas del Eurostat</a></li>
+<li class="chapter" data-level="15.4" data-path="importar-exportar.html"><a href="importar-exportar.html#importando-datos-rectangulares"><i class="fa fa-check"></i><b>15.4</b> Importando datos RECTANGULARES</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="importar-exportar.html"><a href="importar-exportar.html#csv"><i class="fa fa-check"></i><b>15.4.1</b> CSV</a></li>
+<li class="chapter" data-level="15.4.2" data-path="importar-exportar.html"><a href="importar-exportar.html#txt"><i class="fa fa-check"></i><b>15.4.2</b> txt</a></li>
+<li class="chapter" data-level="15.4.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-web"><i class="fa fa-check"></i><b>15.4.3</b> DESDE WEB</a></li>
+<li class="chapter" data-level="15.4.4" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-readxl"><i class="fa fa-check"></i><b>15.4.4</b> EXCEL readxl</a></li>
+<li class="chapter" data-level="15.4.5" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-openxlsx"><i class="fa fa-check"></i><b>15.4.5</b> EXCEL openxlsx</a></li>
+<li class="chapter" data-level="15.4.6" data-path="importar-exportar.html"><a href="importar-exportar.html#googlesheet"><i class="fa fa-check"></i><b>15.4.6</b> googlesheet</a></li>
+<li class="chapter" data-level="15.4.7" data-path="importar-exportar.html"><a href="importar-exportar.html#sasspssstata"><i class="fa fa-check"></i><b>15.4.7</b> SAS/SPSS/STATA</a></li>
+<li class="chapter" data-level="15.4.8" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-api"><i class="fa fa-check"></i><b>15.4.8</b> desde API</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="importar-exportar.html"><a href="importar-exportar.html#exportación-de-datos"><i class="fa fa-check"></i><b>15.5</b> Exportación de datos</a></li>
+<li class="chapter" data-level="15.6" data-path="importar-exportar.html"><a href="importar-exportar.html#consejos-10"><i class="fa fa-check"></i><b>15.6</b> Consejos</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="importar-exportar.html"><a href="importar-exportar.html#exportando-datos-.rdata.rda"><i class="fa fa-check"></i><b>15.6.1</b> Exportando datos: .RData/.rda</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>16</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-una-variable-cuantitativa"><i class="fa fa-check"></i><b>16.1</b> Gráficos para una variable cuantitativa</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="gráficos.html"><a href="gráficos.html#función-stem"><i class="fa fa-check"></i><b>16.1.1</b> Función <code>stem ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.2" data-path="gráficos.html"><a href="gráficos.html#función-boxplot"><i class="fa fa-check"></i><b>16.1.2</b> Función <code>boxplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo 1</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo 2</a></li>
+<li class="chapter" data-level="16.1.3" data-path="gráficos.html"><a href="gráficos.html#función-hist"><i class="fa fa-check"></i><b>16.1.3</b> Función <code>hist ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.4" data-path="gráficos.html"><a href="gráficos.html#función-density"><i class="fa fa-check"></i><b>16.1.4</b> Función <code>density ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-dos-variables-cuantitativas"><i class="fa fa-check"></i><b>16.2</b> Gráficos para dos variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="gráficos.html"><a href="gráficos.html#función-plot"><i class="fa fa-check"></i><b>16.2.1</b> Función <code>plot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="16.2.2" data-path="gráficos.html"><a href="gráficos.html#función-pairs"><i class="fa fa-check"></i><b>16.2.2</b> Función <code>pairs ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-variables-categóricas"><i class="fa fa-check"></i><b>16.3</b> Gráficos para variables categóricas</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="gráficos.html"><a href="gráficos.html#función-barplot"><i class="fa fa-check"></i><b>16.3.1</b> Función <code>barplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.2" data-path="gráficos.html"><a href="gráficos.html#la-función-pie"><i class="fa fa-check"></i><b>16.3.2</b> La función <code>pie ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.3" data-path="gráficos.html"><a href="gráficos.html#función-dotchart"><i class="fa fa-check"></i><b>16.3.3</b> Función <code>dotchart ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="gráficos.html"><a href="gráficos.html#la-librería-lattice"><i class="fa fa-check"></i><b>16.4</b> La librería <code>lattice</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-2"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>17</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="r-markdown.html"><a href="r-markdown.html#introducción-1"><i class="fa fa-check"></i><b>17.1</b> Introducción</a></li>
+<li class="chapter" data-level="17.2" data-path="r-markdown.html"><a href="r-markdown.html#por-qué-r-markdown"><i class="fa fa-check"></i><b>17.2</b> ¿Por qué R Markdown?</a></li>
+<li class="chapter" data-level="17.3" data-path="r-markdown.html"><a href="r-markdown.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>17.3</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="17.4" data-path="r-markdown.html"><a href="r-markdown.html#cómo-crear-un-fichero-.rmd"><i class="fa fa-check"></i><b>17.4</b> ¿Cómo crear un fichero <code>.Rmd</code>?</a></li>
+<li class="chapter" data-level="17.5" data-path="r-markdown.html"><a href="r-markdown.html#cabeceras-yaml"><i class="fa fa-check"></i><b>17.5</b> Cabeceras YAML</a></li>
+<li class="chapter" data-level="17.6" data-path="r-markdown.html"><a href="r-markdown.html#sintáxis-básica-de-markdown"><i class="fa fa-check"></i><b>17.6</b> Sintáxis básica de Markdown</a></li>
+<li class="chapter" data-level="17.7" data-path="r-markdown.html"><a href="r-markdown.html#insertar-código-de-r"><i class="fa fa-check"></i><b>17.7</b> Insertar código de R</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="r-markdown.html"><a href="r-markdown.html#código-de-r-en-línea"><i class="fa fa-check"></i><b>17.7.1</b> Código de R en línea</a></li>
+<li class="chapter" data-level="17.7.2" data-path="r-markdown.html"><a href="r-markdown.html#bloques-chunks-de-código-r"><i class="fa fa-check"></i><b>17.7.2</b> Bloques (<em>chunks</em>) de código R</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="r-markdown.html"><a href="r-markdown.html#opciones-de-los-bloques-de-código-r"><i class="fa fa-check"></i><b>17.8</b> Opciones de los bloques de código R</a></li>
+<li class="chapter" data-level="17.9" data-path="r-markdown.html"><a href="r-markdown.html#figuras"><i class="fa fa-check"></i><b>17.9</b> Figuras</a></li>
+<li class="chapter" data-level="17.10" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i><b>17.10</b> Tablas</a></li>
+<li class="chapter" data-level="17.11" data-path="r-markdown.html"><a href="r-markdown.html#tabla-de-contenidos"><i class="fa fa-check"></i><b>17.11</b> Tabla de contenidos</a></li>
+<li class="chapter" data-level="17.12" data-path="r-markdown.html"><a href="r-markdown.html#caching"><i class="fa fa-check"></i><b>17.12</b> <em>Caching</em></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>18</b> Git y Github con Rstudio</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="git.html"><a href="git.html#git-y-github-junto-con-rstudio"><i class="fa fa-check"></i><b>18.1</b> Git y GitHub junto con RStudio</a></li>
+<li class="chapter" data-level="18.2" data-path="git.html"><a href="git.html#qué-es-git-qué-es-github"><i class="fa fa-check"></i><b>18.2</b> ¿Qué es Git? ¿Qué es GitHub?</a></li>
+<li class="chapter" data-level="18.3" data-path="git.html"><a href="git.html#instalar-git"><i class="fa fa-check"></i><b>18.3</b> Instalar Git</a></li>
+<li class="chapter" data-level="18.4" data-path="git.html"><a href="git.html#crear-cuenta-y-repositorio-en-github"><i class="fa fa-check"></i><b>18.4</b> Crear cuenta y repositorio en Github</a></li>
+<li class="chapter" data-level="18.5" data-path="git.html"><a href="git.html#configurar-git-editar-gitconfig-file"><i class="fa fa-check"></i><b>18.5</b> Configurar Git (Editar gitconfig file)</a></li>
+<li class="chapter" data-level="18.6" data-path="git.html"><a href="git.html#crear-un-token-de-acceso-personal-pat-en-github"><i class="fa fa-check"></i><b>18.6</b> Crear un token de acceso personal (PAT) en GitHub</a></li>
+<li class="chapter" data-level="18.7" data-path="git.html"><a href="git.html#almacenar-token-de-acceso-personal-para-conectar-rstudio-y-github"><i class="fa fa-check"></i><b>18.7</b> Almacenar token de acceso personal para conectar RStudio y GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="practica-final.html"><a href="practica-final.html"><i class="fa fa-check"></i><b>19</b> 📝 Práctica final</a></li>
+<li class="part"><span><b>III Recursos</b></span></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html"><i class="fa fa-check"></i>📝 Ejercicios recopilados</a>
+<ul>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#instalación"><i class="fa fa-check"></i>Instalación</a></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#primeros-pasos-1"><i class="fa fa-check"></i>Primeros pasos</a></li>
+<li class="chapter" data-level="19.1" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#variables-numéricas-y-de-texto"><i class="fa fa-check"></i><b>19.1</b> Variables numéricas y de texto</a></li>
+<li class="chapter" data-level="19.2" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#vectores-1"><i class="fa fa-check"></i><b>19.2</b> Vectores</a></li>
+<li class="chapter" data-level="19.3" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#operaciones-con-vectores"><i class="fa fa-check"></i><b>19.3</b> Operaciones con vectores</a></li>
+<li class="chapter" data-level="19.4" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#fechas-1"><i class="fa fa-check"></i><b>19.4</b> Fechas</a></li>
+<li class="chapter" data-level="19.5" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#datos-estructurados"><i class="fa fa-check"></i><b>19.5</b> Datos estructurados</a></li>
+<li class="chapter" data-level="19.6" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#listas-1"><i class="fa fa-check"></i><b>19.6</b> Listas</a></li>
+<li class="chapter" data-level="19.7" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-if-else"><i class="fa fa-check"></i><b>19.7</b> Estructuras if-else</a></li>
+<li class="chapter" data-level="19.8" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-for-y-while"><i class="fa fa-check"></i><b>19.8</b> Estructuras for y while</a></li>
+<li class="chapter" data-level="19.9" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#funciones"><i class="fa fa-check"></i><b>19.9</b> Funciones</a></li>
+<li class="chapter" data-level="19.10" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#practica-final-1"><i class="fa fa-check"></i><b>19.10</b> Practica final</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html"><i class="fa fa-check"></i>📚 Recursos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#aprendizajedocencia"><i class="fa fa-check"></i>Aprendizaje/docencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-datos"><i class="fa fa-check"></i>Manejo de datos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-textos"><i class="fa fa-check"></i>Manejo de textos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#datos.-importarexportar"><i class="fa fa-check"></i>Datos. Importar/exportar</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#dataviz"><i class="fa fa-check"></i>dataviz</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#mapas-y-datos-espaciales-en-r"><i class="fa fa-check"></i>Mapas y datos espaciales en R</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#colores-y-temas-en-dataviz-generales"><i class="fa fa-check"></i>Colores y temas en dataviz (generales)</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#análisis-exploratorio"><i class="fa fa-check"></i>Análisis exploratorio</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#modelización-e-inferencia"><i class="fa fa-check"></i>Modelización e inferencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#estadística-bayesiana"><i class="fa fa-check"></i>Estadística Bayesiana</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#informes-tablas-webs-libros-y-diapositivas"><i class="fa fa-check"></i>Informes, tablas, webs, libros y diapositivas</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#paquetesrecursos-curiosos"><i class="fa fa-check"></i>Paquetes/recursos curiosos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="operacionesvectores" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Operaciones con vectores<a href="operacionesvectores.html#operacionesvectores" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="blackbox">
+<p>Scripts usados:</p>
+<ul>
+<li><a href="https://github.com/Crisben/uleam-stat24/blob/main/scripts/script07.R"><strong>script07.R</strong></a>. Ver en <a href="https://github.com/Crisben/uleam-stat24/blob/main/scripts/script07.R" class="uri">https://github.com/Crisben/uleam-stat24/blob/main/scripts/script07.R</a></li>
+</ul>
+</div>
+<div id="vectores-numéricos-1" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Vectores numéricos<a href="operacionesvectores.html#vectores-numéricos-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="operaciones-aritméticas" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Operaciones aritméticas<a href="operacionesvectores.html#operaciones-aritméticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hemos dicho ya que un número es un vector de longitud 1, así que toda <mark><strong>operación aritmética</strong></mark> (suma, resta, multiplicación, etc) que podamos hacer con un número la vamos a poder a hacer con un vector de números. Si hacemos por ejemplo la operación <code>2 * x</code>, siendo <code>x</code> un vector, lo que sucederá es que <mark><strong>la operación se realizará en CADA ELEMENTO del vector</strong></mark>. Esto es una ventaja enorme ya podremos escribir una sola línea de código pero realizar operaciones en 10, 20, 1000 o 100000 elementos (tantos como tenga el vector).</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="operacionesvectores.html#cb309-1" tabindex="-1"></a><span class="co"># Multiplicamos por 2 a CADA ELEMENTO del vector</span></span>
+<span id="cb309-2"><a href="operacionesvectores.html#cb309-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb309-3"><a href="operacionesvectores.html#cb309-3" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> x</span></code></pre></div>
+<pre><code>[1]  4  8 12</code></pre>
+<p>El resultado es por tanto otro vector. De la misma manera sucede si sumamos o restamos una constante.</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="operacionesvectores.html#cb311-1" tabindex="-1"></a><span class="co"># Sumamos 3 a CADA ELEMENTO DEL VECTOR</span></span>
+<span id="cb311-2"><a href="operacionesvectores.html#cb311-2" tabindex="-1"></a>x <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] 5 7 9</code></pre>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="operacionesvectores.html#cb313-1" tabindex="-1"></a><span class="co"># Restamos 5 a CADA ELEMENTO DEL VECTOR</span></span>
+<span id="cb313-2"><a href="operacionesvectores.html#cb313-2" tabindex="-1"></a>x <span class="sc">-</span> <span class="dv">5</span></span></code></pre></div>
+<pre><code>[1] -3 -1  1</code></pre>
+<p>Los vectores también pueden interactuar entre ellos, así que podemos definir sumas de vectores, como <code>x + y</code>, con <code>y &lt;- c(1, 3, 5)</code> (por ejemplo), raíces cuadradas <code>sqrt(x)</code> o elevar <strong>cada elemento</strong> al cuadrado <code>x^2</code>.</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="operacionesvectores.html#cb315-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
+<span id="cb315-2"><a href="operacionesvectores.html#cb315-2" tabindex="-1"></a>x <span class="sc">+</span> y <span class="co"># suma de vectores </span></span></code></pre></div>
+<pre><code>[1]  3  7 11</code></pre>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="operacionesvectores.html#cb317-1" tabindex="-1"></a><span class="fu">sqrt</span>(x) <span class="co"># Hacemos la raíz cuadrada de CADA ELEMENTO DEL VECTOR</span></span></code></pre></div>
+<pre><code>[1] 1.414214 2.000000 2.449490</code></pre>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="operacionesvectores.html#cb319-1" tabindex="-1"></a>x<span class="sc">^</span><span class="dv">2</span> <span class="co"># Elevamos al cuadrado CADA ELEMENTO DEL VECTOR</span></span></code></pre></div>
+<pre><code>[1]  4 16 36</code></pre>
+<p> </p>
+<p>En <code>R</code>, salvo que especifiquemos lo contrario, <strong><span style="color: #20935E;">toda operación ARITMÉTICA que hagas a un vector será elemento a elemento</span></strong>. Esto último es bastante importante que no se te olvide ya que en otros lenguajes no siempre es así.</p>
+<p> </p>
+<p>Dado que la operación (por ejemplo, una suma) se realiza <strong>elemento a elemento</strong>, ¿qué sucederá si <mark><strong>sumamos dos vectores de distinta longitud</strong></mark>? Prueba a definir un vector <code>z</code> con los 4 primeros impares, e intentar hacer la suma <code>x + z</code> (un vector de longitud 3 más un vector de longitud 4).</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="operacionesvectores.html#cb321-1" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb321-2"><a href="operacionesvectores.html#cb321-2" tabindex="-1"></a>x <span class="sc">+</span> z</span></code></pre></div>
+<pre><code>[1]  3  7 11  9</code></pre>
+<p><code>R</code> intenta molestarte lo menos posible, así que lo que hace es <mark><strong>reciclar elementos</strong></mark>: si tiene un vector de 4 elementos y le intentas sumar uno de 3 elementos, lo que hará será <strong>reciclar</strong> elementos del vector con menor longitud: hará <code>1 + 2</code>, <code>3 + 4</code>, <code>5 + 6</code> pero… <code>7 + 2</code> (vuelve al primero).</p>
+<p> </p>
+<p>Como hemos comentado anteriormente, los <mark><strong>valores lógicos</strong></mark> <code>TRUE/FALSE</code> son guardados internamente como <code>0/1</code> por lo que podemos usar <mark><strong>operaciones aritméticas</strong></mark> con ellos. Por ejemplo, si queremos averiguar el número de elementos de un vector que cumplen una condición lógica (por ejemplo, <code>&lt; 3</code>), los que lo hagan tendrán asignado un <code>1</code> y los que no un <code>0</code>, por lo que basta con <mark><strong>sumar dicho vector lógico</strong></mark> para obtener el número de elementos que cumplen dicha condición (elementos que son <code>TRUE</code>).</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="operacionesvectores.html#cb323-1" tabindex="-1"></a><span class="fu">sum</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>) <span class="co"># sumamos el vector de TRUE/FALSE --&gt; número de valores TRUE</span></span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+</div>
+<div id="operaciones-estadísticas" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Operaciones estadísticas<a href="operacionesvectores.html#operaciones-estadísticas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Al igual que podemos ejecutar operaciones aritméticas, podemos realizar también <mark><strong>operaciones estadísticas</strong></mark> con los vectores, como calcular su suma (<code>sum()</code>), su media (<code>mean()</code>), su mediana (<code>median()</code>) o su suma acumulada (<code>cumsum()</code> cada elemento lo acumula al anterior).</p>
+<p>Hagamos antes un <mark><strong>breve repaso de algunos términos estadísticos</strong></mark>:</p>
+<ul>
+<li><strong><span style="color: #4197D2;">Media</span></strong>: medida de centralización que consiste en sumar todos los elementos y dividirlos entre la cantidad de elementos sumados. A pesar de ser la más conocida, la media es <strong>muy poco robusta</strong>: dado un conjunto, si se introducen <strong>valores atípicos o outliers</strong> (valores muy grandes o muy pequeños), la media se perturbar con mucha facilidad (por ejemplo, el salario medio en un país con mucha desigualdad no tiene valor estadístico ya que está perturbado por las altas fortunas). Dado un vector de valores <span class="math inline">\(x = (x_1, \ldots, x_n)\)</span>, se denota como <span class="math inline">\(\overline{x}\)</span>.</li>
+</ul>
+<p><span class="math display">\[\overline{x} = \frac{\displaystyle \sum_{i=1}^{n}x_i}{n}\]</span></p>
+<ul>
+<li><strong><span style="color: #4197D2;">Mediana</span></strong>: medida de centralización que consiste en, tras ordenar los datos de menor a mayor, quedarnos con el valor que ocupa el medio (deja tantos números por debajo como por encima). Más robusta que la media aunque menos que la moda. Dado un vector de valores <span class="math inline">\(x = (x_1, \ldots, x_n)\)</span>, se denota como <span class="math inline">\(Me_x\)</span>.</li>
+</ul>
+<p><span class="math display">\[Me_x = \displaystyle \arg \min_{x_i} \left\lbrace F_i &gt; 0.5 \right\rbrace, \quad F_i = \frac{\#\left\lbrace x_j \leq x_i \right\rbrace}{n}\]</span></p>
+<ul>
+<li><strong><span style="color: #4197D2;">Moda</span></strong>: medida de centralización que consiste en encontrar el valor más repetido (el valor <em>trending</em>). Es la medida de centralización más robusta. Dado un vector de valores <span class="math inline">\(x = (x_1, \ldots, x_n)\)</span>, se denota como <span class="math inline">\(Mo_x\)</span>.</li>
+</ul>
+<p><span class="math display">\[Mo_x = \displaystyle \arg \max_{x_i} f_i  , \quad f_i = \frac{\#\left\lbrace x_j = x_i \right\rbrace}{n}\]</span></p>
+<p> </p>
+<p>He aquí un ejemplo de algunas funciones estadísticas útiles</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="operacionesvectores.html#cb325-1" tabindex="-1"></a><span class="fu">sum</span>(y) <span class="co"># suma</span></span></code></pre></div>
+<pre><code>[1] 9</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="operacionesvectores.html#cb327-1" tabindex="-1"></a><span class="fu">mean</span>(y) <span class="co"># media</span></span></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="operacionesvectores.html#cb329-1" tabindex="-1"></a><span class="fu">median</span>(y) <span class="co"># mediana</span></span></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="operacionesvectores.html#cb331-1" tabindex="-1"></a><span class="fu">cumsum</span>(y) <span class="co"># suma acumulada</span></span></code></pre></div>
+<pre><code>[1] 1 4 9</code></pre>
+<p>Otra operación útil en estadística es calcular los <mark><strong>percentiles</strong></mark> con la función <code>quantiles()</code>.</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="operacionesvectores.html#cb333-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">29</span>)</span>
+<span id="cb333-2"><a href="operacionesvectores.html#cb333-2" tabindex="-1"></a><span class="fu">quantile</span>(y) <span class="co"># Percentiles por defecto: cuartiles (0%-25%-50%-75%-100%)</span></span></code></pre></div>
+<pre><code>   0%   25%   50%   75%  100% 
+ 1.00  7.25 10.00 16.25 29.00 </code></pre>
+<p>Recuerda que en <code>R</code> algunas <strong>funciones tienen argumentos por defecto</strong>, argumentos que no necesitan ser asignados un valor a priori. En el ejemplo de calcular los percentiles con <code>quantile()</code>, hay un argumento por defecto (con un valor ya asignado sino se especifica lo contrario) que es <code>probs = c(0, 0.25, 0.5, 0.75, 1)</code>. Pero dicho argumento por defecto puede ser cambiado, por ejemplo, para sacar los percentiles 15%-30%-70%-90%.</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="operacionesvectores.html#cb335-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">29</span>)</span>
+<span id="cb335-2"><a href="operacionesvectores.html#cb335-2" tabindex="-1"></a><span class="fu">quantile</span>(y, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.15</span>, <span class="fl">0.3</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>)) <span class="co"># Percentiles p15, p30, p70 y p90</span></span></code></pre></div>
+<pre><code> 15%  30%  70%  90% 
+ 5.0  8.5 14.0 23.5 </code></pre>
+</div>
+<div id="operacionesausentes" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Operaciones con ausentes<a href="operacionesvectores.html#operacionesausentes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Imagina que tenemos un vector de temperaturas pero varios de los días el aparato de medición no funcionaba, por lo que tenemos un ausente <code>NA</code>.</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="operacionesvectores.html#cb337-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">21</span>, <span class="cn">NA</span>, <span class="dv">13</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">25</span>, <span class="dv">36</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">5</span>)</span>
+<span id="cb337-2"><a href="operacionesvectores.html#cb337-2" tabindex="-1"></a><span class="fu">sum</span>(x)</span></code></pre></div>
+<pre><code>[1] NA</code></pre>
+<p>Dado que hay días que no tenemos disponibles, la suma de todos los días tampoco la podemos conocer (salvo que obviemos los días donde no tenemos dato). Para evitar que un dato ausente en nuestros datos nos impida hacer ciertas operaciones, en muchas funciones de <code>R</code> podemos añadir el argumento <code>na.rm = TRUE</code>: <mark><strong>primero elimina los datos ausentes</strong></mark>, y luego ejecuta la función.</p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="operacionesvectores.html#cb339-1" tabindex="-1"></a><span class="co"># eliminando datos ausentes antes de aplicar la función</span></span>
+<span id="cb339-2"><a href="operacionesvectores.html#cb339-2" tabindex="-1"></a><span class="fu">sum</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>[1] 136</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="operacionesvectores.html#cb341-1" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>[1] 19.42857</code></pre>
+</div>
+</div>
+<div id="seleccionar-elementos" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Seleccionar elementos<a href="operacionesvectores.html#seleccionar-elementos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ya sabemos definir variables que sean vectores (recuerda: colección de valores del <strong>mismo tipo</strong>). ¿Y si del <mark><strong>vector original queremos EXTRAER UN SUBCONJUNTO del mismo</strong></mark>, por ejemplo, los primeros 10 elementos?</p>
+<p><code>R</code> tiene varias formas de hacer esto pero la más sencilla es entendiendo que si yo quiero <mark><strong>acceder al elemento i-ésimo</strong></mark> de un vector, deberé usar el <strong>operador de selección <code>[i]</code></strong>. Veamos un ejemplo: definimos las edades de cinco personas y queremos saber la edad de la persona que ocupa el tercer lugar.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="operacionesvectores.html#cb343-1" tabindex="-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">32</span>, <span class="cn">NA</span>, <span class="dv">61</span>)</span>
+<span id="cb343-2"><a href="operacionesvectores.html#cb343-2" tabindex="-1"></a>edades[<span class="dv">3</span>] <span class="co"># accedemos a la edad de la tercera persona en la lista</span></span></code></pre></div>
+<pre><code>[1] 32</code></pre>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="operacionesvectores.html#cb345-1" tabindex="-1"></a>edades[<span class="dv">4</span>] <span class="co"># accedemos a la edad de la cuarta persona (que no la tenemos guardada)</span></span></code></pre></div>
+<pre><code>[1] NA</code></pre>
+<p>Un número no es más que un vector de longitud uno, así que esta operación también la podemos aplicar <mark><strong>usando un vector de índices a seleccionar</strong></mark>, de forma que le podemos indicar simultaneamente que valores que queremos (por ejemplo, al tercer y cuarto elemento de nuestras edades).</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="operacionesvectores.html#cb347-1" tabindex="-1"></a>edades[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>)] <span class="co"># queremos acceder a la vez al tercer y cuarto elemento</span></span></code></pre></div>
+<pre><code>[1] 32 NA</code></pre>
+<p>Esta lógica para acceder a elementos de vectores también sirve para nuestros <mark><strong>vectores de caracteres</strong></mark>.</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="operacionesvectores.html#cb349-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;hola&quot;</span>, <span class="st">&quot;qué&quot;</span>, <span class="st">&quot;tal&quot;</span>, <span class="st">&quot;todo&quot;</span>, <span class="st">&quot;ok&quot;</span>, <span class="st">&quot;?&quot;</span>)</span>
+<span id="cb349-2"><a href="operacionesvectores.html#cb349-2" tabindex="-1"></a>y[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>] <span class="co"># Solo queremos acceder a los elementos en la posición 1 y 2</span></span></code></pre></div>
+<pre><code>[1] &quot;hola&quot; &quot;qué&quot; </code></pre>
+<p>Para acceder al último elemento de un vector podemos pasarle como índice la longitud de dicho vector (si el vector tiene longitud 6, el último elemento ocupará el lugar 6).</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="operacionesvectores.html#cb351-1" tabindex="-1"></a><span class="co"># Accedemos a los elementos en la posición 1, 2 y además el</span></span>
+<span id="cb351-2"><a href="operacionesvectores.html#cb351-2" tabindex="-1"></a><span class="co"># que ocupa la última posición</span></span>
+<span id="cb351-3"><a href="operacionesvectores.html#cb351-3" tabindex="-1"></a>y[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="fu">length</span>(y))] </span></code></pre></div>
+<pre><code>[1] &quot;hola&quot; &quot;qué&quot;  &quot;?&quot;   </code></pre>
+<p>Otras veces no querremos seleccionar un elemento en concreto sino <mark><strong>filtrar algunos elementos en concreto y no extraerlos, eliminarlos</strong></mark>, para lo cual deberemos repetir la misma operación pero con el signo <code>-</code> delante: el operador <code>[-i]</code> no selecciona el elemento i-ésimo del vector sino que lo elimina en nuestro filtro.</p>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="operacionesvectores.html#cb353-1" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>[1] &quot;hola&quot; &quot;qué&quot;  &quot;tal&quot;  &quot;todo&quot; &quot;ok&quot;   &quot;?&quot;   </code></pre>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="operacionesvectores.html#cb355-1" tabindex="-1"></a>y[<span class="sc">-</span><span class="dv">2</span>] <span class="co"># Nos muestra todo y salvo el elemento que ocupa la segunda posición</span></span></code></pre></div>
+<pre><code>[1] &quot;hola&quot; &quot;tal&quot;  &quot;todo&quot; &quot;ok&quot;   &quot;?&quot;   </code></pre>
+<p> </p>
+<p>Sin embargo, <strong>lo habitual</strong> es que dicho <strong>filtro</strong> lo hagamos en base a una <mark><strong>condición lógica</strong></mark>. Supongamos que <code>edades_1 &lt;- c(7, 20, 18, 3, 19, 9, 13, 3, 45)</code> e <code>edades_2 &lt;- c(17, 21, 58, 33, 15, 59, 13, 1, 45)</code> son las edades de dos grupos de personas y que queremos quedarnos solo con los mayores edad. ¿Tenemos que andar averiguando en que posición se encuentran para luego seleccionarlos? No, vamos a <mark><strong>seleccionar los elementos que cumplen una condición dada</strong></mark>.</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="operacionesvectores.html#cb357-1" tabindex="-1"></a>edades_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">3</span>, <span class="dv">19</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">3</span>, <span class="dv">45</span>)</span>
+<span id="cb357-2"><a href="operacionesvectores.html#cb357-2" tabindex="-1"></a>edades_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">17</span>, <span class="dv">21</span>, <span class="dv">58</span>, <span class="dv">33</span>, <span class="dv">15</span>, <span class="dv">59</span>, <span class="dv">13</span>, <span class="dv">1</span>, <span class="dv">45</span>)</span>
+<span id="cb357-3"><a href="operacionesvectores.html#cb357-3" tabindex="-1"></a>edades_1[edades_1 <span class="sc">&gt;=</span> <span class="dv">18</span>] <span class="co"># mayores de 18 años del conjunto x</span></span></code></pre></div>
+<pre><code>[1] 20 18 19 45</code></pre>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="operacionesvectores.html#cb359-1" tabindex="-1"></a>edades_2[edades_2 <span class="sc">&gt;=</span> <span class="dv">18</span>] <span class="co"># mayores de 18 años del conjunto y</span></span></code></pre></div>
+<pre><code>[1] 21 58 33 59 45</code></pre>
+<p>Lo que hemos hecho ha sido pasar como <strong>índices a seleccionar un vector lógico <code>TRUE/FALSE</code></strong>: solo filtrará los lugares donde se guarde un <code>TRUE</code>, aquellos que cumplen la condición lógica introducida.</p>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="operacionesvectores.html#cb361-1" tabindex="-1"></a>edades_1 <span class="sc">&gt;=</span> <span class="dv">18</span> <span class="co"># donde haya TRUE, lo seleccionará</span></span></code></pre></div>
+<pre><code>[1] FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="operacionesvectores.html#cb363-1" tabindex="-1"></a>edades_1[edades_1 <span class="sc">&gt;=</span> <span class="dv">18</span>] <span class="co"># mayores de 18 años del conjunto x</span></span></code></pre></div>
+<pre><code>[1] 20 18 19 45</code></pre>
+<p>Esto también nos puede servir para limpiar de datos ausentes, combinando la función <code>is.na()</code>, que nos localiza el lugar que ocupan los ausentes, con el operador <code>!</code>, que lo que hace es negar el valor lógico que venga detrás.</p>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="operacionesvectores.html#cb365-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">20</span>, <span class="dv">3</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">80</span>, <span class="cn">NA</span>)</span>
+<span id="cb365-2"><a href="operacionesvectores.html#cb365-2" tabindex="-1"></a>x[<span class="fu">is.na</span>(x)] <span class="co"># solo valores ausentes</span></span></code></pre></div>
+<pre><code>[1] NA NA</code></pre>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="operacionesvectores.html#cb367-1" tabindex="-1"></a>x[<span class="sc">!</span><span class="fu">is.na</span>(x)] <span class="co"># sin valores ausentes: ! es el símbolo de la negación</span></span></code></pre></div>
+<pre><code>[1]  7 20  3 19 21 25 80</code></pre>
+<p>También podemos probar a <mark><strong>combinar condiciones lógicas</strong></mark> para nuestra <strong>selección</strong>.</p>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="operacionesvectores.html#cb369-1" tabindex="-1"></a>x[x <span class="sc">&gt;=</span> <span class="dv">18</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">25</span>] <span class="co"># los valores que cumplen ambas (&amp;): entre 18 y 25 años</span></span></code></pre></div>
+<pre><code>[1] NA 20 19 21 25 NA</code></pre>
+<p>Como ves, si un valor está ausente (<code>NA</code>), la evaluación de una condición lógica sobre él (mayor o menor de 18 años) nos seguirá devolviendo <code>NA</code> en dicho lugar</p>
+<p> </p>
+<div id="which" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> which<a href="operacionesvectores.html#which" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Hemos visto como seleccionar elementos de un vector que cumplen una condición, para a veces no queremos el elemento en sí, sino el <mark><strong>lugar que ocupa</strong></mark>: <strong>¿qué valores de un vector cumplen una condición lógica, qué lugar ocupan?</strong> Para obtener dicho índice tenemos a nuestro disposición la función <code>which()</code>, que no nos devuelve el elemento en sí sino su lugar.</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="operacionesvectores.html#cb371-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">20</span>, <span class="dv">3</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="dv">25</span>, <span class="dv">80</span>, <span class="cn">NA</span>)</span>
+<span id="cb371-2"><a href="operacionesvectores.html#cb371-2" tabindex="-1"></a>x[x <span class="sc">&gt;=</span> <span class="dv">18</span>] <span class="co"># Accedemos a los elementos que cumplen la condición</span></span></code></pre></div>
+<pre><code>[1] NA 20 19 21 25 80 NA</code></pre>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="operacionesvectores.html#cb373-1" tabindex="-1"></a><span class="fu">which</span>(x <span class="sc">&gt;=</span> <span class="dv">18</span>) <span class="co"># Obtenemos los lugares que ocupan los elementos que cumplen la condición</span></span></code></pre></div>
+<pre><code>[1] 3 5 6 7 8</code></pre>
+<p>Esta función es muy útil especialmente cuando queremos <strong>averiguar el valor que ocupa el máximo/mínimo</strong> de una colección de valores, con las funciones <code>which.max()</code> y <code>which.min()</code>.</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="operacionesvectores.html#cb375-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>[1]  7 NA 20  3 19 21 25 80 NA</code></pre>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="operacionesvectores.html#cb377-1" tabindex="-1"></a><span class="fu">max</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># máximo de x (si no eliminamos NA, nos devolverá NA)</span></span></code></pre></div>
+<pre><code>[1] 80</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="operacionesvectores.html#cb379-1" tabindex="-1"></a><span class="fu">min</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># mínimo de x (si no eliminamos NA, nos devolverá NA)</span></span></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="operacionesvectores.html#cb381-1" tabindex="-1"></a><span class="fu">which.max</span>(x) <span class="co"># Lugar que ocupa el máximo</span></span></code></pre></div>
+<pre><code>[1] 8</code></pre>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="operacionesvectores.html#cb383-1" tabindex="-1"></a><span class="fu">which.min</span>(x) <span class="co"># Lugar que ocupa el mínimo</span></span></code></pre></div>
+<pre><code>[1] 4</code></pre>
+</div>
+<div id="null" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> NULL<a href="operacionesvectores.html#null" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A veces además de <code>NA</code> y <code>NaN</code>, <code>R</code> nos muestra un dato llamado <code>NULL</code>. Cuando tenemos <code>NA</code> en alguna variable, el registro existe, pero no está relleno. Sin embargo, cuando tenemos un <code>NULL</code> significa que ese valor ni siquiera existe: no es un dato guardado pero cuyo valor desconocemos, es un dato que ni siquiera existe (por ejemplo, si guardamos datos de 7 personas, el dato de la octava persona no es <code>NA</code>, es que no hay octava persona directamente).</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="operacionesvectores.html#cb385-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">NA</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb385-2"><a href="operacionesvectores.html#cb385-2" tabindex="-1"></a>x[<span class="dv">2</span>] <span class="co"># NA: el registro existe pero sin dato</span></span></code></pre></div>
+<pre><code>[1] NA</code></pre>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="operacionesvectores.html#cb387-1" tabindex="-1"></a><span class="fu">names</span>(x) <span class="co"># No hemos definido el nombre de las variables, así que devuelve NULL</span></span></code></pre></div>
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<div id="nombrando-vectores-añadiendo-metainformación" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Nombrando vectores: añadiendo metainformación<a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Además <code>R</code> nos permite <mark><strong>dar significado léxico</strong></mark> a nuestros valores (significan algo, no solo números), pudiendo poner <strong>nombres a los elementos de un vector</strong>.</p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="operacionesvectores.html#cb389-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;edad&quot;</span> <span class="ot">=</span> <span class="dv">31</span>, <span class="st">&quot;tlf&quot;</span> <span class="ot">=</span> <span class="dv">613910687</span>, <span class="st">&quot;cp&quot;</span> <span class="ot">=</span> <span class="dv">33007</span>) <span class="co"># cada número tiene un significado distinto</span></span>
+<span id="cb389-2"><a href="operacionesvectores.html#cb389-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>     edad       tlf        cp 
+       31 613910687     33007 </code></pre>
+<p>Esto es una ventaja ya que nos permite su selección usando dichos nombres: ya no elegimos el tercer número o el primero, sino el número que representa el teléfono y el código postal de una persona.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="operacionesvectores.html#cb391-1" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="st">&quot;edad&quot;</span>, <span class="st">&quot;cp&quot;</span>)] <span class="co"># seleccionamos los elementos que tienen ese nombre asignado</span></span></code></pre></div>
+<pre><code> edad    cp 
+   31 33007 </code></pre>
+<p>Con la función <code>names()</code> podemos, no solo consultar los nombres de una variable, sino cambiarlos a nuestro gusto.</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="operacionesvectores.html#cb393-1" tabindex="-1"></a><span class="fu">names</span>(x) <span class="co"># Consultamos nombres</span></span></code></pre></div>
+<pre><code>[1] &quot;edad&quot; &quot;tlf&quot;  &quot;cp&quot;  </code></pre>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="operacionesvectores.html#cb395-1" tabindex="-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;años&quot;</span>, <span class="st">&quot;móvil&quot;</span>, <span class="st">&quot;dirección&quot;</span>) <span class="co"># Cambiamos nombres</span></span>
+<span id="cb395-2"><a href="operacionesvectores.html#cb395-2" tabindex="-1"></a><span class="fu">names</span>(x) <span class="co"># Consultamos nuevos nombres</span></span></code></pre></div>
+<pre><code>[1] &quot;años&quot;      &quot;móvil&quot;     &quot;dirección&quot;</code></pre>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="operacionesvectores.html#cb397-1" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>     años     móvil dirección 
+       31 613910687     33007 </code></pre>
+<p>Más adelante dejaremos introducidos un tipo de dato más apropiado para guardar datos en «formato tabla», que se compondrá de una concetenación de concatenaciones, una concatenación de columnas (de vectores).</p>
+</div>
+<div id="ordenar" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Ordenar<a href="operacionesvectores.html#ordenar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una acción habitual al trabajar con datos es <mark><strong>saber ordenarlos</strong></mark>: de menor a mayor edad, datos más recientes vs antiguos, etc. Para ello tenemos la función <code>sort()</code>, que podemos usar directamente para <strong>ordenar de menor a mayor</strong>. Vamos a ordenar, por ejemplo, una colección de edades de diferentes personas.</p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="operacionesvectores.html#cb399-1" tabindex="-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">81</span>, <span class="dv">7</span>, <span class="dv">25</span>, <span class="dv">41</span>, <span class="dv">65</span>, <span class="dv">20</span>, <span class="dv">32</span>, <span class="dv">23</span>, <span class="dv">77</span>)</span>
+<span id="cb399-2"><a href="operacionesvectores.html#cb399-2" tabindex="-1"></a><span class="fu">sort</span>(edades) <span class="co"># orden de joven a mayor</span></span></code></pre></div>
+<pre><code>[1]  7 20 23 25 32 41 65 77 81</code></pre>
+<p>Por defecto, <code>sort()</code> <strong>ordena de menor a mayor</strong>. Con el argumento opcional <code>decreasing = TRUE</code> podemos <strong>ordenar de mayor a menor</strong>.</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="operacionesvectores.html#cb401-1" tabindex="-1"></a><span class="fu">sort</span>(edades, <span class="at">decreasing =</span> <span class="cn">FALSE</span>) <span class="co"># orden de mayor a joven</span></span></code></pre></div>
+<pre><code>[1]  7 20 23 25 32 41 65 77 81</code></pre>
+<p>Otra forma de ordenar un vector es que <code>R</code> nos <strong>devuelva los índices de los elementos ordenados</strong>, y luego usar dichos índices para reorganizar los elementos, con la función <code>order()</code>.</p>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="operacionesvectores.html#cb403-1" tabindex="-1"></a><span class="fu">order</span>(x) </span></code></pre></div>
+<pre><code>[1] 1 3 2</code></pre>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="operacionesvectores.html#cb405-1" tabindex="-1"></a>x[<span class="fu">order</span>(x)] <span class="co"># accedemos a los índices ordenados</span></span></code></pre></div>
+<pre><code>     años dirección     móvil 
+       31     33007 613910687 </code></pre>
+</div>
+<div id="consejos-4" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Consejos<a href="operacionesvectores.html#consejos-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong><span style="color: #20935E;">CONSEJOS</span></strong></p>
+<p> </p>
+<p><strong><span style="color: #20935E;">Operaciones estadísticas</span></strong></p>
+<p>Como has podido comprobar, las <strong><span style="color: #20935E;">operaciones ESTADÍSTICAS no se realizan elemento a elemento</span></strong>: la media o la suma las realiza tomando todos los elementos del vector.</p>
+<p> </p>
+<p><strong><span style="color: #20935E;">all, any</span></strong></p>
+<p>Existen dos funciones muy útiles en <code>R</code> para saber si <strong>TODOS</strong> o <strong>ALGUNO</strong> de los elementos de un vector cumple una condición. Las funciones <code>all()</code> y <code>any()</code> nos devolverá un único valor lógico. Estas funciones son muy útiles al final de los códigos para comprobar que las condiciones que tienen que verificar los datos se cumplen, y asegurarnos que el proceso se ha ejecutado correctamente (por ejemplo, que todos los datos sean positivos o no haya datos ausentes).</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="operacionesvectores.html#cb407-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">7</span>)</span>
+<span id="cb407-2"><a href="operacionesvectores.html#cb407-2" tabindex="-1"></a><span class="fu">all</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="operacionesvectores.html#cb409-1" tabindex="-1"></a><span class="fu">any</span>(x <span class="sc">&lt;</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="operacionesvectores.html#cb411-1" tabindex="-1"></a><span class="fu">all</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>[1] NA</code></pre>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="operacionesvectores.html#cb413-1" tabindex="-1"></a><span class="fu">all</span>(<span class="fu">na.omit</span>(x) <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="operacionesvectores.html#cb415-1" tabindex="-1"></a><span class="fu">all</span>(<span class="fu">is.na</span>(x))</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="operacionesvectores.html#cb417-1" tabindex="-1"></a><span class="fu">any</span>(<span class="fu">is.na</span>(x))</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p> </p>
+<p><strong><span style="color: #20935E;">Argumentos por defecto</span></strong></p>
+<p>La función <code>sort()</code> es un buen ejemplo de que las <strong>funciones traen definidos argumentos por defecto</strong> (aunque no los veamos a priori). La orden <code>sort(x)</code> en realidad está ejecutando <code>sort(x, decreasing = TRUE)</code>, pero como es su valor por defecto, nos podemos ahorrar incluirlo. Escribe <code>? help sort()</code> en la consola y verás como en la cabecera de la función ya hay preasignado un <code>decreasing = TRUE</code>.</p>
+<p> </p>
+<p><strong><span style="color: #20935E;">Diferencia de conjuntos</span></strong></p>
+<p>Una función muy útil para ver las <strong>diferencias entre dos conjuntos</strong> es <code>setdiff()</code>, una función que nos devuelve los elementos distintos entre dos conjuntos.</p>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="operacionesvectores.html#cb419-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb419-2"><a href="operacionesvectores.html#cb419-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">10</span>)</span>
+<span id="cb419-3"><a href="operacionesvectores.html#cb419-3" tabindex="-1"></a><span class="fu">setdiff</span>(y, z) <span class="co"># Elementos en y que no están en z </span></span></code></pre></div>
+<pre><code>[1] 2 4 5 6 8 9</code></pre>
+<p> </p>
+<p><strong><span style="color: #20935E;">Optimiza tu código</span></strong></p>
+<p>Aunque parezca un tema menor, si tu código tarda 1 milisegundo más de lo que podría tardar de otra forma, si esa orden se repite muchas veces, ese milisegundo extra puede ser 5, 10 o 20 minutos más que tu código tardará en ejecutarse. Hay un paquete muy útil en <code>R</code> para medir tiempos de distintas órdenes que hacen lo mismo (el paquete <code>{microbenchmark}</code>), vamos a instalarlo.</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="operacionesvectores.html#cb421-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;microbenchmark&quot;</span>)</span>
+<span id="cb421-2"><a href="operacionesvectores.html#cb421-2" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span></code></pre></div>
+<p>Este paquete contiene una orden para comparar el tiempo de dos órdenes: necesita como primeros argumentos las dos órdenes cuyos tiempos vamos a comparar, y un argumento <code>times</code> en el que le indicamos el número de veces que ejecutará cada orden para realizar los tiempos medios. Vamos a comparar los comandos de ordenación <code>order()</code> y <code>sort()</code>.</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="operacionesvectores.html#cb422-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e3</span>) <span class="co"># 1000 elementos aleatorias de una normal N(0, 1)</span></span>
+<span id="cb422-2"><a href="operacionesvectores.html#cb422-2" tabindex="-1"></a><span class="fu">microbenchmark</span>(<span class="fu">sort</span>(x), <span class="co"># primera forma</span></span>
+<span id="cb422-3"><a href="operacionesvectores.html#cb422-3" tabindex="-1"></a>               x[<span class="fu">order</span>(x)], <span class="co"># segunda forma</span></span>
+<span id="cb422-4"><a href="operacionesvectores.html#cb422-4" tabindex="-1"></a>               <span class="at">times =</span> <span class="fl">1e3</span>) <span class="co"># se repetirá 1000 veces</span></span></code></pre></div>
+<pre><code>Unit: microseconds
+        expr  min   lq    mean median   uq   max neval
+     sort(x) 59.9 61.8 65.9568   62.9 66.8 225.8  1000
+ x[order(x)] 39.2 41.2 43.8467   42.3 44.0 125.8  1000</code></pre>
+<p>Aunque a priori parezca contraintuitivo, es más corto obtener los índices ordenados de un vector, y luego reordenarlo en base a esos índices, que la ordenación directa a través del comando <code>sort()</code> (ya que usan algoritmos de ordenación distintos).</p>
+</div>
+<div id="ejercicios-4" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> 📝 Ejercicios<a href="#ejercicios-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(haz click en las flechas para ver soluciones)</p>
+<details>
+<summary>
+📝<strong>Ejercicio 1</strong>: define el vector <code>x</code> como la concatenación de los números 1, 10, -1 y 2, y calcula su suma.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="operacionesvectores.html#cb424-1" tabindex="-1"></a><span class="co"># Vector de números</span></span>
+<span id="cb424-2"><a href="operacionesvectores.html#cb424-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb424-3"><a href="operacionesvectores.html#cb424-3" tabindex="-1"></a></span>
+<span id="cb424-4"><a href="operacionesvectores.html#cb424-4" tabindex="-1"></a><span class="co"># Suma</span></span>
+<span id="cb424-5"><a href="operacionesvectores.html#cb424-5" tabindex="-1"></a><span class="fu">sum</span>(x)</span></code></pre></div>
+<pre><code>[1] 12</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 2</strong>: define otro vector <code>y</code> que contenga los números <code>5, -7, 8, -3</code>, y haz la suma de <code>x</code> e <code>y</code>.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="operacionesvectores.html#cb426-1" tabindex="-1"></a><span class="co"># Vector de números</span></span>
+<span id="cb426-2"><a href="operacionesvectores.html#cb426-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="sc">-</span><span class="dv">7</span>, <span class="dv">8</span>, <span class="sc">-</span><span class="dv">3</span>)</span>
+<span id="cb426-3"><a href="operacionesvectores.html#cb426-3" tabindex="-1"></a></span>
+<span id="cb426-4"><a href="operacionesvectores.html#cb426-4" tabindex="-1"></a><span class="co"># Suma</span></span>
+<span id="cb426-5"><a href="operacionesvectores.html#cb426-5" tabindex="-1"></a>x <span class="sc">+</span> y</span></code></pre></div>
+<pre><code>[1]  6  3  7 -1</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 3</strong>: calcula el número de elementos mayores que 0 del resultado de la suma de <code>x + y</code>.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="operacionesvectores.html#cb428-1" tabindex="-1"></a><span class="fu">sum</span>((x <span class="sc">+</span> y) <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="operacionesvectores.html#cb430-1" tabindex="-1"></a><span class="co"># Otra forma</span></span>
+<span id="cb430-2"><a href="operacionesvectores.html#cb430-2" tabindex="-1"></a>suma <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb430-3"><a href="operacionesvectores.html#cb430-3" tabindex="-1"></a><span class="fu">sum</span>(suma <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 4</strong>: calcula la versión ordenada del vector <code>x</code>.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="operacionesvectores.html#cb432-1" tabindex="-1"></a><span class="co"># Ordenamos el vector (con sort)</span></span>
+<span id="cb432-2"><a href="operacionesvectores.html#cb432-2" tabindex="-1"></a><span class="fu">sort</span>(x)</span></code></pre></div>
+<pre><code>[1] -1  1  2 10</code></pre>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="operacionesvectores.html#cb434-1" tabindex="-1"></a><span class="co"># Ordenamos el vector  (con order)</span></span>
+<span id="cb434-2"><a href="operacionesvectores.html#cb434-2" tabindex="-1"></a>x[<span class="fu">order</span>(x)]</span></code></pre></div>
+<pre><code>[1] -1  1  2 10</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 5</strong>: encuentra del vector <code>x</code> original el lugar (el índice) que ocupa su mínimo y su máximo.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="operacionesvectores.html#cb436-1" tabindex="-1"></a>x<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb436-2"><a href="operacionesvectores.html#cb436-2" tabindex="-1"></a></span>
+<span id="cb436-3"><a href="operacionesvectores.html#cb436-3" tabindex="-1"></a><span class="co"># Encontrando el lugar que ocupa el máximo y mínimo</span></span>
+<span id="cb436-4"><a href="operacionesvectores.html#cb436-4" tabindex="-1"></a><span class="fu">which.max</span>(x)</span></code></pre></div>
+<pre><code>[1] 2</code></pre>
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="operacionesvectores.html#cb438-1" tabindex="-1"></a><span class="fu">which.min</span>(x)</span></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 6</strong>: encuentra del vector <code>x</code> los elementos mayores que 1 y menores que 7. Encuentra una forma de averiguar si todos los elementos son o no positivos.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="operacionesvectores.html#cb440-1" tabindex="-1"></a><span class="co"># Vector lógico: mayores que 1 y menores que 7</span></span>
+<span id="cb440-2"><a href="operacionesvectores.html#cb440-2" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">7</span></span></code></pre></div>
+<pre><code>[1] FALSE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="operacionesvectores.html#cb442-1" tabindex="-1"></a><span class="co"># ¿Son todos positivos? Mira también any()</span></span>
+<span id="cb442-2"><a href="operacionesvectores.html#cb442-2" tabindex="-1"></a><span class="fu">all</span>(x <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 7</strong>: define el vector <code>c(-1, 0, 4, 5, -2)</code>, calcula la raíz cuadrada del vector y determina que lugares son ausente de tipo <code>NaN</code>.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="operacionesvectores.html#cb444-1" tabindex="-1"></a><span class="co"># Vector</span></span>
+<span id="cb444-2"><a href="operacionesvectores.html#cb444-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="sc">-</span><span class="dv">2</span>)</span>
+<span id="cb444-3"><a href="operacionesvectores.html#cb444-3" tabindex="-1"></a></span>
+<span id="cb444-4"><a href="operacionesvectores.html#cb444-4" tabindex="-1"></a><span class="co"># ¿Cuáles son ausentes tras aplicar la raíz cuadrada?</span></span>
+<span id="cb444-5"><a href="operacionesvectores.html#cb444-5" tabindex="-1"></a><span class="fu">is.nan</span>(<span class="fu">sqrt</span>(z))</span></code></pre></div>
+<pre><code>[1]  TRUE FALSE FALSE FALSE  TRUE</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 8</strong>: define el vector de los primeros números impares (hasta el 21) y extrae los elementos que ocupan los lugares 1, 4, 5, 8. Elimina del vector el segundo elemento
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="operacionesvectores.html#cb446-1" tabindex="-1"></a><span class="co"># Vector de impares (de 1 a 21 saltando de dos en dos)</span></span>
+<span id="cb446-2"><a href="operacionesvectores.html#cb446-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">21</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb446-3"><a href="operacionesvectores.html#cb446-3" tabindex="-1"></a></span>
+<span id="cb446-4"><a href="operacionesvectores.html#cb446-4" tabindex="-1"></a><span class="co"># Seleccionamos elementos</span></span>
+<span id="cb446-5"><a href="operacionesvectores.html#cb446-5" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>)]</span></code></pre></div>
+<pre><code>[1]  1  7  9 15</code></pre>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="operacionesvectores.html#cb448-1" tabindex="-1"></a><span class="co"># Eliminamos elementos</span></span>
+<span id="cb448-2"><a href="operacionesvectores.html#cb448-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> x[<span class="sc">-</span><span class="dv">2</span>]</span>
+<span id="cb448-3"><a href="operacionesvectores.html#cb448-3" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code> [1]  1  5  7  9 11 13 15 17 19 21</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 9</strong>: define una cadena de caracteres <code>texto &lt;- c("oso polar", "oso pardo", "salamandra", "buho", "lechuza", "oso malayo")</code>. Usa <code>str_count()</code> para contabilizar el número de osos. Usa <code>str_starts()</code> para saber que elemento del vector es un oso o no. Obten la longitud de cada cadena. Sustituye en todas las cadenas la <code>o</code> por <code>*</code>
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="operacionesvectores.html#cb450-1" tabindex="-1"></a>texto <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;oso polar&quot;</span>, <span class="st">&quot;oso pardo&quot;</span>, <span class="st">&quot;salamandra&quot;</span>, <span class="st">&quot;buho&quot;</span>, <span class="st">&quot;lechuza&quot;</span>, <span class="st">&quot;oso malayo&quot;</span>)</span>
+<span id="cb450-2"><a href="operacionesvectores.html#cb450-2" tabindex="-1"></a></span>
+<span id="cb450-3"><a href="operacionesvectores.html#cb450-3" tabindex="-1"></a><span class="co"># Cuenta el número de cadenas que contienen la palabra &quot;oso&quot;</span></span>
+<span id="cb450-4"><a href="operacionesvectores.html#cb450-4" tabindex="-1"></a><span class="fu">str_count</span>(texto, <span class="st">&quot;oso&quot;</span>)</span></code></pre></div>
+<pre><code>[1] 1 1 0 0 0 1</code></pre>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="operacionesvectores.html#cb452-1" tabindex="-1"></a><span class="co"># Nos devuelve TRUE en las cadenas que empiecen por &quot;oso&quot;</span></span>
+<span id="cb452-2"><a href="operacionesvectores.html#cb452-2" tabindex="-1"></a><span class="fu">str_starts</span>(texto, <span class="st">&quot;oso&quot;</span>)</span></code></pre></div>
+<pre><code>[1]  TRUE  TRUE FALSE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="operacionesvectores.html#cb454-1" tabindex="-1"></a><span class="fu">str_ends</span>(texto, <span class="st">&quot;oso&quot;</span>) <span class="co"># devuelve todo FALSE</span></span></code></pre></div>
+<pre><code>[1] FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="operacionesvectores.html#cb456-1" tabindex="-1"></a><span class="co"># Longitud de cada cadena</span></span>
+<span id="cb456-2"><a href="operacionesvectores.html#cb456-2" tabindex="-1"></a><span class="fu">str_length</span>(texto)</span></code></pre></div>
+<pre><code>[1]  9  9 10  4  7 10</code></pre>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="operacionesvectores.html#cb458-1" tabindex="-1"></a><span class="co"># Sustituimos en todas las oes por *</span></span>
+<span id="cb458-2"><a href="operacionesvectores.html#cb458-2" tabindex="-1"></a><span class="fu">str_replace_all</span>(texto, <span class="st">&quot;o&quot;</span>, <span class="st">&quot;*&quot;</span>)</span></code></pre></div>
+<pre><code>[1] &quot;*s* p*lar&quot;  &quot;*s* pard*&quot;  &quot;salamandra&quot; &quot;buh*&quot;       &quot;lechuza&quot;    &quot;*s* malay*&quot;</code></pre>
+<!-- tocstop -->
+</details>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vectores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fechas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02e-operaciones-con-vectores.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

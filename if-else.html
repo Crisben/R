@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 11 Estructuras de control: if-else | R</title>
+  <meta name="description" content="Chapter 11 Estructuras de control: if-else | R" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 11 Estructuras de control: if-else | R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 11 Estructuras de control: if-else | R" />
+  
+  
+  
+
+<meta name="author" content="Cristian Benalcázar" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="listas.html"/>
+<link rel="next" href="bucles.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para Ciencia de Datos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="que-es-R.html"><a href="que-es-R.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="que-es-R.html"><a href="que-es-R.html#historia-de-r"><i class="fa fa-check"></i><b>2.1</b> Historia de R</a></li>
+<li class="chapter" data-level="2.2" data-path="que-es-R.html"><a href="que-es-R.html#comunidadpaquetes"><i class="fa fa-check"></i><b>2.2</b> Comunidad de usuarios: paquetes</a></li>
+<li class="chapter" data-level="2.3" data-path="que-es-R.html"><a href="que-es-R.html#por-qué-excel-no-es-tu-amigo"><i class="fa fa-check"></i><b>2.3</b> ¿Por qué Excel no es tu amigo?</a></li>
+<li class="chapter" data-level="2.4" data-path="que-es-R.html"><a href="que-es-R.html#glosario"><i class="fa fa-check"></i><b>2.4</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="instalacionR.html"><a href="instalacionR.html"><i class="fa fa-check"></i><b>3</b> Instalación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="instalacionR.html"><a href="instalacionR.html#instalación-de-r"><i class="fa fa-check"></i><b>3.1</b> Instalación de R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="instalacionR.html"><a href="instalacionR.html#paso-1"><i class="fa fa-check"></i><b>3.1.1</b> Paso 1</a></li>
+<li class="chapter" data-level="3.1.2" data-path="instalacionR.html"><a href="instalacionR.html#paso-2"><i class="fa fa-check"></i><b>3.1.2</b> Paso 2</a></li>
+<li class="chapter" data-level="3.1.3" data-path="instalacionR.html"><a href="instalacionR.html#paso-3"><i class="fa fa-check"></i><b>3.1.3</b> Paso 3</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="instalacionR.html"><a href="instalacionR.html#primera-operación-en-consola-sumar-dos-números"><i class="fa fa-check"></i><b>3.2</b> Primera operación en consola: sumar dos números</a></li>
+<li class="chapter" data-level="3.3" data-path="instalacionR.html"><a href="instalacionR.html#instalacionRStudio"><i class="fa fa-check"></i><b>3.3</b> Instalación de RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="instalacionR.html"><a href="instalacionR.html#instalacionpaquetes"><i class="fa fa-check"></i><b>3.4</b> Instalación de paquetes</a></li>
+<li class="chapter" data-level="3.5" data-path="instalacionR.html"><a href="instalacionR.html#glosario-1"><i class="fa fa-check"></i><b>3.5</b> Glosario</a></li>
+<li class="chapter" data-level="3.6" data-path="instalacionR.html"><a href="instalacionR.html#consejos"><i class="fa fa-check"></i><b>3.6</b> Consejos</a></li>
+<li class="chapter" data-level="3.7" data-path="instalacionR.html"><a href="instalacionR.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos.html"><a href="primeros-pasos.html#primeros-pasos-en-r-calculadora"><i class="fa fa-check"></i><b>4.1</b> Primeros pasos en R: calculadora</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html#y-dónde-programamos"><i class="fa fa-check"></i><b>4.2</b> ¿Y dónde programamos?</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos.html"><a href="primeros-pasos.html#tipos_errores"><i class="fa fa-check"></i><b>4.3</b> Tipos de errores</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos.html"><a href="primeros-pasos.html#glosario-2"><i class="fa fa-check"></i><b>4.4</b> Glosario</a></li>
+<li class="chapter" data-level="4.5" data-path="primeros-pasos.html"><a href="primeros-pasos.html#consejos-1"><i class="fa fa-check"></i><b>4.5</b> Consejos</a></li>
+<li class="chapter" data-level="4.6" data-path="primeros-pasos.html"><a href="primeros-pasos.html#ejercicios-1"><i class="fa fa-check"></i><b>4.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>I Tipos de datos</b></span></li>
+<li class="chapter" data-level="5" data-path="var-num.html"><a href="var-num.html"><i class="fa fa-check"></i><b>5</b> Variables individuales: números y caracteres</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="var-num.html"><a href="var-num.html#numericas"><i class="fa fa-check"></i><b>5.1</b> Variables numéricas (individuales)</a></li>
+<li class="chapter" data-level="5.2" data-path="var-num.html"><a href="var-num.html#caracter"><i class="fa fa-check"></i><b>5.2</b> Variables de tipo caracter (texto)</a></li>
+<li class="chapter" data-level="5.3" data-path="var-num.html"><a href="var-num.html#nuestra-primera-función-paste"><i class="fa fa-check"></i><b>5.3</b> Nuestra primera función: paste</a></li>
+<li class="chapter" data-level="5.4" data-path="var-num.html"><a href="var-num.html#nuestro-primer-paquete-glue"><i class="fa fa-check"></i><b>5.4</b> Nuestro primer paquete: glue</a></li>
+<li class="chapter" data-level="5.5" data-path="var-num.html"><a href="var-num.html#manejando-textos-paquete-stringr"><i class="fa fa-check"></i><b>5.5</b> Manejando textos: paquete stringr</a></li>
+<li class="chapter" data-level="5.6" data-path="var-num.html"><a href="var-num.html#consejos-2"><i class="fa fa-check"></i><b>5.6</b> Consejos</a></li>
+<li class="chapter" data-level="5.7" data-path="var-num.html"><a href="var-num.html#ejercicios-2"><i class="fa fa-check"></i><b>5.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectores.html"><a href="vectores.html#vectores-numéricos"><i class="fa fa-check"></i><b>6.1</b> Vectores numéricos</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html#secuencias-numéricas-con-un-patrón"><i class="fa fa-check"></i><b>6.2</b> Secuencias numéricas con un patrón</a></li>
+<li class="chapter" data-level="6.3" data-path="vectores.html"><a href="vectores.html#vectores-de-caracteres-texto"><i class="fa fa-check"></i><b>6.3</b> Vectores de caracteres (texto)</a></li>
+<li class="chapter" data-level="6.4" data-path="vectores.html"><a href="vectores.html#vectores-lógicos-truefalse"><i class="fa fa-check"></i><b>6.4</b> Vectores lógicos (TRUE/FALSE)</a></li>
+<li class="chapter" data-level="6.5" data-path="vectores.html"><a href="vectores.html#consejos-3"><i class="fa fa-check"></i><b>6.5</b> Consejos</a></li>
+<li class="chapter" data-level="6.6" data-path="vectores.html"><a href="vectores.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="operacionesvectores.html"><a href="operacionesvectores.html"><i class="fa fa-check"></i><b>7</b> Operaciones con vectores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#vectores-numéricos-1"><i class="fa fa-check"></i><b>7.1</b> Vectores numéricos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-aritméticas"><i class="fa fa-check"></i><b>7.1.1</b> Operaciones aritméticas</a></li>
+<li class="chapter" data-level="7.1.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-estadísticas"><i class="fa fa-check"></i><b>7.1.2</b> Operaciones estadísticas</a></li>
+<li class="chapter" data-level="7.1.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operacionesausentes"><i class="fa fa-check"></i><b>7.1.3</b> Operaciones con ausentes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#seleccionar-elementos"><i class="fa fa-check"></i><b>7.2</b> Seleccionar elementos</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#which"><i class="fa fa-check"></i><b>7.2.1</b> which</a></li>
+<li class="chapter" data-level="7.2.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#null"><i class="fa fa-check"></i><b>7.2.2</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación"><i class="fa fa-check"></i><b>7.3</b> Nombrando vectores: añadiendo metainformación</a></li>
+<li class="chapter" data-level="7.4" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ordenar"><i class="fa fa-check"></i><b>7.4</b> Ordenar</a></li>
+<li class="chapter" data-level="7.5" data-path="operacionesvectores.html"><a href="operacionesvectores.html#consejos-4"><i class="fa fa-check"></i><b>7.5</b> Consejos</a></li>
+<li class="chapter" data-level="7.6" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ejercicios-4"><i class="fa fa-check"></i><b>7.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i><b>8</b> Fechas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="fechas.html"><a href="fechas.html#funciones-de-lubridate"><i class="fa fa-check"></i><b>8.1</b> Funciones de lubridate</a></li>
+<li class="chapter" data-level="8.2" data-path="fechas.html"><a href="fechas.html#consejos-5"><i class="fa fa-check"></i><b>8.2</b> Consejos</a></li>
+<li class="chapter" data-level="8.3" data-path="fechas.html"><a href="fechas.html#ejercicios-5"><i class="fa fa-check"></i><b>8.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>9</b> Datos estructurados</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="datos.html"><a href="datos.html#matrices"><i class="fa fa-check"></i><b>9.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="datos.html"><a href="datos.html#acceder-a-elementos"><i class="fa fa-check"></i><b>9.1.1</b> Acceder a elementos</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datos.html"><a href="datos.html#operaciones-por-filas-y-columnas-apply"><i class="fa fa-check"></i><b>9.1.2</b> Operaciones por filas y columnas (apply)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datos.html"><a href="datos.html#tablas-data.frames"><i class="fa fa-check"></i><b>9.2</b> Tablas: data.frames</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="datos.html"><a href="datos.html#selección-de-columnas-y-filas"><i class="fa fa-check"></i><b>9.2.1</b> Selección de columnas y filas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="datos.html"><a href="datos.html#primer-análisis-de-datos-arrestos-en-ee.-uu."><i class="fa fa-check"></i><b>9.2.2</b> Primer análisis de datos: arrestos en EE. UU.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="datos.html"><a href="datos.html#consejos-6"><i class="fa fa-check"></i><b>9.3</b> Consejos</a></li>
+<li class="chapter" data-level="9.4" data-path="datos.html"><a href="datos.html#ejercicios-6"><i class="fa fa-check"></i><b>9.4</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>10</b> Listas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="listas.html"><a href="listas.html#introducción-a-purrr"><i class="fa fa-check"></i><b>10.1</b> Introducción a purrr</a></li>
+<li class="chapter" data-level="10.2" data-path="listas.html"><a href="listas.html#ejercicios-7"><i class="fa fa-check"></i><b>10.2</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Haciendo el trabajo más fácil</b></span></li>
+<li class="chapter" data-level="11" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>11</b> Estructuras de control: if-else</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="if-else.html"><a href="if-else.html#if"><i class="fa fa-check"></i><b>11.1</b> if</a></li>
+<li class="chapter" data-level="11.2" data-path="if-else.html"><a href="if-else.html#if---else"><i class="fa fa-check"></i><b>11.2</b> if - else</a></li>
+<li class="chapter" data-level="11.3" data-path="if-else.html"><a href="if-else.html#if---else-anidados"><i class="fa fa-check"></i><b>11.3</b> if - else anidados</a></li>
+<li class="chapter" data-level="11.4" data-path="if-else.html"><a href="if-else.html#ifelse-vectorizado"><i class="fa fa-check"></i><b>11.4</b> ifelse () vectorizado</a></li>
+<li class="chapter" data-level="11.5" data-path="if-else.html"><a href="if-else.html#consejos-7"><i class="fa fa-check"></i><b>11.5</b> Consejos</a></li>
+<li class="chapter" data-level="11.6" data-path="if-else.html"><a href="if-else.html#ejercicios-8"><i class="fa fa-check"></i><b>11.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>12</b> Estructuras de control: bucles</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bucles.html"><a href="bucles.html#for"><i class="fa fa-check"></i><b>12.1</b> for</a></li>
+<li class="chapter" data-level="12.2" data-path="bucles.html"><a href="bucles.html#while"><i class="fa fa-check"></i><b>12.2</b> while</a></li>
+<li class="chapter" data-level="12.3" data-path="bucles.html"><a href="bucles.html#breaknext"><i class="fa fa-check"></i><b>12.3</b> break/next</a></li>
+<li class="chapter" data-level="12.4" data-path="bucles.html"><a href="bucles.html#repeat"><i class="fa fa-check"></i><b>12.4</b> repeat</a></li>
+<li class="chapter" data-level="12.5" data-path="bucles.html"><a href="bucles.html#consejos-8"><i class="fa fa-check"></i><b>12.5</b> Consejos</a></li>
+<li class="chapter" data-level="12.6" data-path="bucles.html"><a href="bucles.html#ejercicios-9"><i class="fa fa-check"></i><b>12.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="funs.html"><a href="funs.html"><i class="fa fa-check"></i><b>13</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="funs.html"><a href="funs.html#primera-función"><i class="fa fa-check"></i><b>13.1</b> Primera función</a></li>
+<li class="chapter" data-level="13.2" data-path="funs.html"><a href="funs.html#variables-localesglobales"><i class="fa fa-check"></i><b>13.2</b> Variables locales/globales</a></li>
+<li class="chapter" data-level="13.3" data-path="funs.html"><a href="funs.html#ejercicios-10"><i class="fa fa-check"></i><b>13.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyecto.html"><a href="proyecto.html"><i class="fa fa-check"></i><b>14</b> Proyecto de trabajo</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyecto.html"><a href="proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>14.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="14.2" data-path="proyecto.html"><a href="proyecto.html#directorios-de-trabajo-y-cabecera"><i class="fa fa-check"></i><b>14.2</b> Directorios de trabajo y cabecera</a></li>
+<li class="chapter" data-level="14.3" data-path="proyecto.html"><a href="proyecto.html#ejecución"><i class="fa fa-check"></i><b>14.3</b> Ejecución</a></li>
+<li class="chapter" data-level="14.4" data-path="proyecto.html"><a href="proyecto.html#consejos-9"><i class="fa fa-check"></i><b>14.4</b> Consejos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="importar-exportar.html"><a href="importar-exportar.html"><i class="fa fa-check"></i><b>15</b> Importar/exportar datos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="importar-exportar.html"><a href="importar-exportar.html#importar-datos"><i class="fa fa-check"></i><b>15.1</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic"><i class="fa fa-check"></i><b>15.1.1</b> Archivo .RData: pasajeros del RMS Titanic</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rda-pisos-en-boston"><i class="fa fa-check"></i><b>15.2</b> Archivo .rda: pisos en Boston</a></li>
+<li class="chapter" data-level="15.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat"><i class="fa fa-check"></i><b>15.3</b> Desde paquete: estadísticas del Eurostat</a></li>
+<li class="chapter" data-level="15.4" data-path="importar-exportar.html"><a href="importar-exportar.html#importando-datos-rectangulares"><i class="fa fa-check"></i><b>15.4</b> Importando datos RECTANGULARES</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="importar-exportar.html"><a href="importar-exportar.html#csv"><i class="fa fa-check"></i><b>15.4.1</b> CSV</a></li>
+<li class="chapter" data-level="15.4.2" data-path="importar-exportar.html"><a href="importar-exportar.html#txt"><i class="fa fa-check"></i><b>15.4.2</b> txt</a></li>
+<li class="chapter" data-level="15.4.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-web"><i class="fa fa-check"></i><b>15.4.3</b> DESDE WEB</a></li>
+<li class="chapter" data-level="15.4.4" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-readxl"><i class="fa fa-check"></i><b>15.4.4</b> EXCEL readxl</a></li>
+<li class="chapter" data-level="15.4.5" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-openxlsx"><i class="fa fa-check"></i><b>15.4.5</b> EXCEL openxlsx</a></li>
+<li class="chapter" data-level="15.4.6" data-path="importar-exportar.html"><a href="importar-exportar.html#googlesheet"><i class="fa fa-check"></i><b>15.4.6</b> googlesheet</a></li>
+<li class="chapter" data-level="15.4.7" data-path="importar-exportar.html"><a href="importar-exportar.html#sasspssstata"><i class="fa fa-check"></i><b>15.4.7</b> SAS/SPSS/STATA</a></li>
+<li class="chapter" data-level="15.4.8" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-api"><i class="fa fa-check"></i><b>15.4.8</b> desde API</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="importar-exportar.html"><a href="importar-exportar.html#exportación-de-datos"><i class="fa fa-check"></i><b>15.5</b> Exportación de datos</a></li>
+<li class="chapter" data-level="15.6" data-path="importar-exportar.html"><a href="importar-exportar.html#consejos-10"><i class="fa fa-check"></i><b>15.6</b> Consejos</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="importar-exportar.html"><a href="importar-exportar.html#exportando-datos-.rdata.rda"><i class="fa fa-check"></i><b>15.6.1</b> Exportando datos: .RData/.rda</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>16</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-una-variable-cuantitativa"><i class="fa fa-check"></i><b>16.1</b> Gráficos para una variable cuantitativa</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="gráficos.html"><a href="gráficos.html#función-stem"><i class="fa fa-check"></i><b>16.1.1</b> Función <code>stem ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.2" data-path="gráficos.html"><a href="gráficos.html#función-boxplot"><i class="fa fa-check"></i><b>16.1.2</b> Función <code>boxplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo 1</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo 2</a></li>
+<li class="chapter" data-level="16.1.3" data-path="gráficos.html"><a href="gráficos.html#función-hist"><i class="fa fa-check"></i><b>16.1.3</b> Función <code>hist ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.4" data-path="gráficos.html"><a href="gráficos.html#función-density"><i class="fa fa-check"></i><b>16.1.4</b> Función <code>density ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-dos-variables-cuantitativas"><i class="fa fa-check"></i><b>16.2</b> Gráficos para dos variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="gráficos.html"><a href="gráficos.html#función-plot"><i class="fa fa-check"></i><b>16.2.1</b> Función <code>plot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="16.2.2" data-path="gráficos.html"><a href="gráficos.html#función-pairs"><i class="fa fa-check"></i><b>16.2.2</b> Función <code>pairs ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-variables-categóricas"><i class="fa fa-check"></i><b>16.3</b> Gráficos para variables categóricas</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="gráficos.html"><a href="gráficos.html#función-barplot"><i class="fa fa-check"></i><b>16.3.1</b> Función <code>barplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.2" data-path="gráficos.html"><a href="gráficos.html#la-función-pie"><i class="fa fa-check"></i><b>16.3.2</b> La función <code>pie ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.3" data-path="gráficos.html"><a href="gráficos.html#función-dotchart"><i class="fa fa-check"></i><b>16.3.3</b> Función <code>dotchart ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="gráficos.html"><a href="gráficos.html#la-librería-lattice"><i class="fa fa-check"></i><b>16.4</b> La librería <code>lattice</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-2"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>17</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="r-markdown.html"><a href="r-markdown.html#introducción-1"><i class="fa fa-check"></i><b>17.1</b> Introducción</a></li>
+<li class="chapter" data-level="17.2" data-path="r-markdown.html"><a href="r-markdown.html#por-qué-r-markdown"><i class="fa fa-check"></i><b>17.2</b> ¿Por qué R Markdown?</a></li>
+<li class="chapter" data-level="17.3" data-path="r-markdown.html"><a href="r-markdown.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>17.3</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="17.4" data-path="r-markdown.html"><a href="r-markdown.html#cómo-crear-un-fichero-.rmd"><i class="fa fa-check"></i><b>17.4</b> ¿Cómo crear un fichero <code>.Rmd</code>?</a></li>
+<li class="chapter" data-level="17.5" data-path="r-markdown.html"><a href="r-markdown.html#cabeceras-yaml"><i class="fa fa-check"></i><b>17.5</b> Cabeceras YAML</a></li>
+<li class="chapter" data-level="17.6" data-path="r-markdown.html"><a href="r-markdown.html#sintáxis-básica-de-markdown"><i class="fa fa-check"></i><b>17.6</b> Sintáxis básica de Markdown</a></li>
+<li class="chapter" data-level="17.7" data-path="r-markdown.html"><a href="r-markdown.html#insertar-código-de-r"><i class="fa fa-check"></i><b>17.7</b> Insertar código de R</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="r-markdown.html"><a href="r-markdown.html#código-de-r-en-línea"><i class="fa fa-check"></i><b>17.7.1</b> Código de R en línea</a></li>
+<li class="chapter" data-level="17.7.2" data-path="r-markdown.html"><a href="r-markdown.html#bloques-chunks-de-código-r"><i class="fa fa-check"></i><b>17.7.2</b> Bloques (<em>chunks</em>) de código R</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="r-markdown.html"><a href="r-markdown.html#opciones-de-los-bloques-de-código-r"><i class="fa fa-check"></i><b>17.8</b> Opciones de los bloques de código R</a></li>
+<li class="chapter" data-level="17.9" data-path="r-markdown.html"><a href="r-markdown.html#figuras"><i class="fa fa-check"></i><b>17.9</b> Figuras</a></li>
+<li class="chapter" data-level="17.10" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i><b>17.10</b> Tablas</a></li>
+<li class="chapter" data-level="17.11" data-path="r-markdown.html"><a href="r-markdown.html#tabla-de-contenidos"><i class="fa fa-check"></i><b>17.11</b> Tabla de contenidos</a></li>
+<li class="chapter" data-level="17.12" data-path="r-markdown.html"><a href="r-markdown.html#caching"><i class="fa fa-check"></i><b>17.12</b> <em>Caching</em></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>18</b> Git y Github con Rstudio</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="git.html"><a href="git.html#git-y-github-junto-con-rstudio"><i class="fa fa-check"></i><b>18.1</b> Git y GitHub junto con RStudio</a></li>
+<li class="chapter" data-level="18.2" data-path="git.html"><a href="git.html#qué-es-git-qué-es-github"><i class="fa fa-check"></i><b>18.2</b> ¿Qué es Git? ¿Qué es GitHub?</a></li>
+<li class="chapter" data-level="18.3" data-path="git.html"><a href="git.html#instalar-git"><i class="fa fa-check"></i><b>18.3</b> Instalar Git</a></li>
+<li class="chapter" data-level="18.4" data-path="git.html"><a href="git.html#crear-cuenta-y-repositorio-en-github"><i class="fa fa-check"></i><b>18.4</b> Crear cuenta y repositorio en Github</a></li>
+<li class="chapter" data-level="18.5" data-path="git.html"><a href="git.html#configurar-git-editar-gitconfig-file"><i class="fa fa-check"></i><b>18.5</b> Configurar Git (Editar gitconfig file)</a></li>
+<li class="chapter" data-level="18.6" data-path="git.html"><a href="git.html#crear-un-token-de-acceso-personal-pat-en-github"><i class="fa fa-check"></i><b>18.6</b> Crear un token de acceso personal (PAT) en GitHub</a></li>
+<li class="chapter" data-level="18.7" data-path="git.html"><a href="git.html#almacenar-token-de-acceso-personal-para-conectar-rstudio-y-github"><i class="fa fa-check"></i><b>18.7</b> Almacenar token de acceso personal para conectar RStudio y GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="practica-final.html"><a href="practica-final.html"><i class="fa fa-check"></i><b>19</b> 📝 Práctica final</a></li>
+<li class="part"><span><b>III Recursos</b></span></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html"><i class="fa fa-check"></i>📝 Ejercicios recopilados</a>
+<ul>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#instalación"><i class="fa fa-check"></i>Instalación</a></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#primeros-pasos-1"><i class="fa fa-check"></i>Primeros pasos</a></li>
+<li class="chapter" data-level="19.1" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#variables-numéricas-y-de-texto"><i class="fa fa-check"></i><b>19.1</b> Variables numéricas y de texto</a></li>
+<li class="chapter" data-level="19.2" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#vectores-1"><i class="fa fa-check"></i><b>19.2</b> Vectores</a></li>
+<li class="chapter" data-level="19.3" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#operaciones-con-vectores"><i class="fa fa-check"></i><b>19.3</b> Operaciones con vectores</a></li>
+<li class="chapter" data-level="19.4" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#fechas-1"><i class="fa fa-check"></i><b>19.4</b> Fechas</a></li>
+<li class="chapter" data-level="19.5" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#datos-estructurados"><i class="fa fa-check"></i><b>19.5</b> Datos estructurados</a></li>
+<li class="chapter" data-level="19.6" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#listas-1"><i class="fa fa-check"></i><b>19.6</b> Listas</a></li>
+<li class="chapter" data-level="19.7" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-if-else"><i class="fa fa-check"></i><b>19.7</b> Estructuras if-else</a></li>
+<li class="chapter" data-level="19.8" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-for-y-while"><i class="fa fa-check"></i><b>19.8</b> Estructuras for y while</a></li>
+<li class="chapter" data-level="19.9" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#funciones"><i class="fa fa-check"></i><b>19.9</b> Funciones</a></li>
+<li class="chapter" data-level="19.10" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#practica-final-1"><i class="fa fa-check"></i><b>19.10</b> Practica final</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html"><i class="fa fa-check"></i>📚 Recursos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#aprendizajedocencia"><i class="fa fa-check"></i>Aprendizaje/docencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-datos"><i class="fa fa-check"></i>Manejo de datos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-textos"><i class="fa fa-check"></i>Manejo de textos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#datos.-importarexportar"><i class="fa fa-check"></i>Datos. Importar/exportar</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#dataviz"><i class="fa fa-check"></i>dataviz</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#mapas-y-datos-espaciales-en-r"><i class="fa fa-check"></i>Mapas y datos espaciales en R</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#colores-y-temas-en-dataviz-generales"><i class="fa fa-check"></i>Colores y temas en dataviz (generales)</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#análisis-exploratorio"><i class="fa fa-check"></i>Análisis exploratorio</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#modelización-e-inferencia"><i class="fa fa-check"></i>Modelización e inferencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#estadística-bayesiana"><i class="fa fa-check"></i>Estadística Bayesiana</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#informes-tablas-webs-libros-y-diapositivas"><i class="fa fa-check"></i>Informes, tablas, webs, libros y diapositivas</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#paquetesrecursos-curiosos"><i class="fa fa-check"></i>Paquetes/recursos curiosos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="if-else" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Estructuras de control: if-else<a href="if-else.html#if-else" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="blackbox">
+<p>Scripts usados:</p>
+<ul>
+<li><a href="https://github.com/Crisben/uleam-stat24/blob/main/scripts/script11.R"><strong>script11.R</strong></a>. Ver en <a href="https://github.com/Crisben/uleam-stat24/blob/main/scripts/script11.R" class="uri">https://github.com/Crisben/uleam-stat24/blob/main/scripts/script11.R</a></li>
+</ul>
+</div>
+<p>Hasta ahora hemos trasteado con datos: hemos empezado desde una celda, para luego construir columnas (vectores), y luego juntarlas en algo parecido a una base de datos (tablas o <em>data.frame</em>). Pero para poder manejarnos con soltura con dichos datos es importante que conozcamos cómo se usan las <mark><strong>expresiones de control más típicas</strong></mark>.</p>
+<p>Una <mark><strong>expresión de control</strong></mark> será un <mark><strong>conjunto de órdenes</strong></mark> que nos permiten decidir por dónde queremos que avance nuestro programa: ¿qué hacemos si sucede A? ¿Y si sucede B?</p>
+<p>Si has programado en algún otro lenguaje, estarás familiarizado/a con elementos como un <code>if (blabla) {...} else {...}</code> (que los usaremos a veces) o bucles <code>for</code> y <code>while</code> (que intentaremos no usarlos en <code>R</code>). Si es la primera que programas en algún lenguaje, no te preocupes, las empezamos desde cero, empezando por las <mark><strong>estructuras condicionales</strong></mark></p>
+<div id="if" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> if<a href="if-else.html#if" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una de las estructuras de control más famosas de cualquier lenguaje de programación es la estructura <code>if</code>: <mark><strong>SI las condiciones impuestas se cumplen (<code>TRUE</code>)</strong></mark>, ejecuta las órdenes que tengamos dentro.</p>
+<ul>
+<li><code>if (x == 1) { código A }</code>: si <code>condición</code> (por ejemplo, <code>x == 1</code>) es cierta, se ejecuta <code>código A</code>; en caso contrario, no hace nada.</li>
+</ul>
+<p>Definamos por ejemplo una variable sencilla, las edades de 8 personas.</p>
+<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="if-else.html#cb811-1" tabindex="-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">17</span>, <span class="dv">24</span>, <span class="dv">56</span>, <span class="dv">31</span>, <span class="dv">20</span>, <span class="dv">87</span>, <span class="dv">73</span>)</span></code></pre></div>
+<p>Para comprobar cuales son menores de edades podemos aplicar lo aprendido en temas anteriores, realizando una <strong>comparación lógica</strong>: si es menor de edad, devuelve un <code>TRUE</code>; en caso contrario, devuelve un <code>FALSE</code>.</p>
+<div class="sourceCode" id="cb812"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb812-1"><a href="if-else.html#cb812-1" tabindex="-1"></a>edades <span class="sc">&lt;</span> <span class="dv">18</span></span></code></pre></div>
+<pre><code>[1]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
+<p>Con las funciones <code>any()</code> y <code>all()</code> podemos saber si <mark><strong>todos o alguno de los elementos</strong></mark> de un vector <mark><strong>cumplen una condición</strong></mark>.</p>
+<div class="sourceCode" id="cb814"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb814-1"><a href="if-else.html#cb814-1" tabindex="-1"></a><span class="fu">all</span>(edades <span class="sc">&gt;=</span> <span class="dv">18</span>) <span class="co"># todos mayores de edad</span></span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb816"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb816-1"><a href="if-else.html#cb816-1" tabindex="-1"></a><span class="fu">any</span>(edades <span class="sc">&lt;</span> <span class="dv">18</span>) <span class="co"># existe algun menor de edad</span></span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>Con dichos elementos vamos a construir nuestra <strong>primera estructura condicional</strong>: queremos que, SI existe algún menor de edad, nos imprima un mensaje.</p>
+<div class="sourceCode" id="cb818"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb818-1"><a href="if-else.html#cb818-1" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(edades <span class="sc">&lt;</span> <span class="dv">18</span>)) { <span class="co"># TRUE si al menos una persona mayor de edad</span></span>
+<span id="cb818-2"><a href="if-else.html#cb818-2" tabindex="-1"></a>  </span>
+<span id="cb818-3"><a href="if-else.html#cb818-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;existe alguna persona mayor de edad&quot;</span>)</span>
+<span id="cb818-4"><a href="if-else.html#cb818-4" tabindex="-1"></a>  </span>
+<span id="cb818-5"><a href="if-else.html#cb818-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] &quot;existe alguna persona mayor de edad&quot;</code></pre>
+<p>En caso de que no se cumplan las condiciones dentro del <code>if()</code> (condiciones que devuelvan un <code>FALSE</code>), no sucederá nada. Podemos hacer lo mismo cambiando la condición: SI todos son mayores de edad, imprime el mensaje.</p>
+<div class="sourceCode" id="cb820"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb820-1"><a href="if-else.html#cb820-1" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">all</span>(edades <span class="sc">&gt;=</span> <span class="dv">18</span>)) { <span class="co"># TRUE si TODOS son mayores de edad</span></span>
+<span id="cb820-2"><a href="if-else.html#cb820-2" tabindex="-1"></a>  </span>
+<span id="cb820-3"><a href="if-else.html#cb820-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;todas las personas son mayores de edad&quot;</span>)</span>
+<span id="cb820-4"><a href="if-else.html#cb820-4" tabindex="-1"></a>  </span>
+<span id="cb820-5"><a href="if-else.html#cb820-5" tabindex="-1"></a>}</span></code></pre></div>
+<p>Fíjate que en este caso no hemos obtenido ningún mensaje porque la condición <code>all(edades &gt;= 18)</code> no es cierta (no son todos mayores de 18 años), así que no ha ejecutado el código interno.</p>
+</div>
+<div id="if---else" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> if - else<a href="if-else.html#if---else" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La estructura <code>if (condicion) { }</code> puede ser combinada con un <code>else { }</code>: cuando la condición del <code>if</code> no se cumpla (como en el último ejemplo), se ejecutará el código que haya dentro del <code>else { }</code>, permitiéndonos decidir que sucede cuando SÍ se cumple y cuando NO se cumple.</p>
+<ul>
+<li><code>if (x == 1) { código A } else { código B }</code>: si <code>condición</code> (por ejemplo, <code>x == 1</code>) es cierta, se ejecuta <code>código A</code>; si es falsa, se ejecuta <code>código B</code>.</li>
+</ul>
+<p>Siguiendo con el ejemplo de las edades, queremos nos imprima un mensaje SI todos son mayores de edad, y un mensaje diferente en caso de que dicha condición no se cumpla.</p>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="if-else.html#cb821-1" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">all</span>(edades <span class="sc">&gt;=</span> <span class="dv">18</span>)) { <span class="co"># TRUE si TODOS son mayores de edad</span></span>
+<span id="cb821-2"><a href="if-else.html#cb821-2" tabindex="-1"></a>  </span>
+<span id="cb821-3"><a href="if-else.html#cb821-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;todas las personas son mayores de edad&quot;</span>)</span>
+<span id="cb821-4"><a href="if-else.html#cb821-4" tabindex="-1"></a>  </span>
+<span id="cb821-5"><a href="if-else.html#cb821-5" tabindex="-1"></a>} <span class="cf">else</span> { <span class="co"># si hay alguno menor de edad </span></span>
+<span id="cb821-6"><a href="if-else.html#cb821-6" tabindex="-1"></a>  </span>
+<span id="cb821-7"><a href="if-else.html#cb821-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;existe alguna persona menor de edad&quot;</span>)</span>
+<span id="cb821-8"><a href="if-else.html#cb821-8" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] &quot;existe alguna persona menor de edad&quot;</code></pre>
+<p>Podemos ya complicar un poco el código con lo que hemos aprendido de temas anteriores. Por ejemplo, en caso de que no se cumpla (es decir, que haya alguno menor de edad), queremos extraer la edad por pantalla de esos menores (con <code>edades[edades &lt; 18]</code> extraeremos las edades que cumplen la condición de ser menor de edad).</p>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="if-else.html#cb823-1" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">all</span>(edades <span class="sc">&gt;=</span> <span class="dv">18</span>)) { <span class="co"># TRUE si TODOS son mayores de edad</span></span>
+<span id="cb823-2"><a href="if-else.html#cb823-2" tabindex="-1"></a>  </span>
+<span id="cb823-3"><a href="if-else.html#cb823-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;todas las personas son mayores de edad&quot;</span>)</span>
+<span id="cb823-4"><a href="if-else.html#cb823-4" tabindex="-1"></a>  </span>
+<span id="cb823-5"><a href="if-else.html#cb823-5" tabindex="-1"></a>} <span class="cf">else</span> { <span class="co"># si hay alguno menor de edad </span></span>
+<span id="cb823-6"><a href="if-else.html#cb823-6" tabindex="-1"></a>  </span>
+<span id="cb823-7"><a href="if-else.html#cb823-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">&quot;Existen menores de edad. Sus edades son: {paste(edades[edades &lt; 18], collapse = &#39;-&#39;)} años&quot;</span>))</span>
+<span id="cb823-8"><a href="if-else.html#cb823-8" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>Existen menores de edad. Sus edades son: 14-17 años</code></pre>
+</div>
+<div id="if---else-anidados" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> if - else anidados<a href="if-else.html#if---else-anidados" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dicha estructura <code>if - else</code> puede <mark><strong>anidarse</strong></mark>, de forma que vayamos <mark><strong>concatenando</strong></mark> dichas estructuras, como en el ejemplo que tenemos debajo. Imagina que queremos realizar una acción si todos fuesen mayores de edad; en caso contrario, pero si todos los menores de edad tienen 16 años o más, realizar otra acción; en caso contrario, otra acción</p>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="if-else.html#cb825-1" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">all</span>(edades <span class="sc">&gt;=</span> <span class="dv">18</span>)) { <span class="co"># TRUE si TODOS son mayores de edad</span></span>
+<span id="cb825-2"><a href="if-else.html#cb825-2" tabindex="-1"></a>  </span>
+<span id="cb825-3"><a href="if-else.html#cb825-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;todas las personas son mayores de edad&quot;</span>)</span>
+<span id="cb825-4"><a href="if-else.html#cb825-4" tabindex="-1"></a>  </span>
+<span id="cb825-5"><a href="if-else.html#cb825-5" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">all</span>(edades <span class="sc">&gt;=</span> <span class="dv">16</span>)) { <span class="co"># si todos los menores de edad tienen &gt;=16</span></span>
+<span id="cb825-6"><a href="if-else.html#cb825-6" tabindex="-1"></a>  </span>
+<span id="cb825-7"><a href="if-else.html#cb825-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Existe alguna persona menor de edad pero todos con 16 años o más&quot;</span>)</span>
+<span id="cb825-8"><a href="if-else.html#cb825-8" tabindex="-1"></a>  </span>
+<span id="cb825-9"><a href="if-else.html#cb825-9" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb825-10"><a href="if-else.html#cb825-10" tabindex="-1"></a>  </span>
+<span id="cb825-11"><a href="if-else.html#cb825-11" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Existe alguna persona menor de 16 años&quot;</span>)</span>
+<span id="cb825-12"><a href="if-else.html#cb825-12" tabindex="-1"></a></span>
+<span id="cb825-13"><a href="if-else.html#cb825-13" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] &quot;Existe alguna persona menor de 16 años&quot;</code></pre>
+</div>
+<div id="ifelse-vectorizado" class="section level2 hasAnchor" number="11.4">
+<h2><span class="header-section-number">11.4</span> ifelse () vectorizado<a href="if-else.html#ifelse-vectorizado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Esta <mark><strong>estructura condicional puede ser vectorizada</strong></mark>, de forma que podamos reunir en una <strong>sola fila un número elevado de estructuras de comparación</strong> la función <code>ifelse()</code>, cuyos argumentos de entrada serán la condición a evaluar, lo que sucede cuando se cumple y lo que no, que aplicará a cada elemento del vector de entrada. Con el ejemplo de las edades, vamos a <strong>dejar el dato ausente si son menores de edad</strong>, y si son mayores de edad se queda como está (recuerda: primero la condición, después lo que devuelve cuando es <code>TRUE</code>, y por último lo que devuelve cuando es <code>FALSE</code>)</p>
+<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="if-else.html#cb827-1" tabindex="-1"></a><span class="co"># NA si no cumple la condición, la edad si se cumple.</span></span>
+<span id="cb827-2"><a href="if-else.html#cb827-2" tabindex="-1"></a><span class="fu">ifelse</span>(edades <span class="sc">&gt;=</span> <span class="dv">18</span>, edades, <span class="cn">NA</span>)</span></code></pre></div>
+<pre><code>[1] NA NA 24 56 31 20 87 73</code></pre>
+<p>Todas estas estructuras no solo sirven para datos numéricos. Vamos a definir un vector de nombres con algunos ausentes (<code>NA</code>), y vamos a sustituir los ausentes por el texto <code>"nombre_desconocido"</code> (los que no sean ausentes, es decir los que <code>is.na()</code> devuelva <code>FALSE</code>, se quedan como están).</p>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="if-else.html#cb829-1" tabindex="-1"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Juan&quot;</span>, <span class="st">&quot;María&quot;</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="st">&quot;Lucía&quot;</span>, <span class="st">&quot;Carmen&quot;</span>, <span class="st">&quot;Javier&quot;</span>,</span>
+<span id="cb829-2"><a href="if-else.html#cb829-2" tabindex="-1"></a>             <span class="cn">NA</span>, <span class="st">&quot;Carlos&quot;</span>, <span class="cn">NA</span>, <span class="st">&quot;Gregorio&quot;</span>, <span class="st">&quot;Paloma&quot;</span>)</span>
+<span id="cb829-3"><a href="if-else.html#cb829-3" tabindex="-1"></a></span>
+<span id="cb829-4"><a href="if-else.html#cb829-4" tabindex="-1"></a><span class="co"># Si tiene ausente --&gt; &quot;nombre_desconocido&quot;</span></span>
+<span id="cb829-5"><a href="if-else.html#cb829-5" tabindex="-1"></a><span class="co"># Si no tiene ausente --&gt; nombres originales</span></span>
+<span id="cb829-6"><a href="if-else.html#cb829-6" tabindex="-1"></a>nombres <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(nombres), <span class="st">&quot;nombre_desconocido&quot;</span>, nombres)</span>
+<span id="cb829-7"><a href="if-else.html#cb829-7" tabindex="-1"></a>nombres</span></code></pre></div>
+<pre><code> [1] &quot;Juan&quot;               &quot;María&quot;              &quot;nombre_desconocido&quot; &quot;nombre_desconocido&quot; &quot;Lucía&quot;              &quot;Carmen&quot;            
+ [7] &quot;Javier&quot;             &quot;nombre_desconocido&quot; &quot;Carlos&quot;             &quot;nombre_desconocido&quot; &quot;Gregorio&quot;           &quot;Paloma&quot;            </code></pre>
+<p>Esta función <code>ifelse()</code> es muy util para codificar variables o averiguar cuales cumplen una condición.</p>
+</div>
+<div id="consejos-7" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Consejos<a href="if-else.html#consejos-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong><span style="color: #20935E;">CONSEJOS</span></strong></p>
+<p> </p>
+<p><strong><span style="color: #20935E;">Rainbow parentheses</span></strong></p>
+<p>Uno de los <strong>errores más habituales</strong>, y que seguirás cometiendo aunque lleves años programando, es <mark><strong>no cerrar un paréntesis que has abierto</strong></mark>, por lo que el programa no sabe si has acabado de llamar a una orden o no. Para ello en las nuevas versiones de <code>RStudio</code>, en el menú <code>Tools &lt; Global Options &lt; Code &lt; Display</code> podemos habilitar la opción <code>Rainbow Parentheses</code> que nos escribe cada par de <code>()</code> de un color distinto</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-265"></span>
+<img src="img/rainbow-parentheses.jpg" alt="Activando Rainbow Parentheses." width="80%" />
+<p class="caption">
+Figure 11.1: Activando Rainbow Parentheses.
+</p>
+</div>
+<p> </p>
+<p><strong><span style="color: #20935E;">Minimiza estructuras de control en el código</span></strong></p>
+<p>Puedes colapsar las estructuras de control pulsando en la flecha que aparece a la izquierda de ellas en tu script.</p>
+<p> </p>
+</div>
+<div id="ejercicios-8" class="section level2 hasAnchor" number="11.6">
+<h2><span class="header-section-number">11.6</span> 📝 Ejercicios<a href="#ejercicios-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(haz click en las flechas para ver soluciones)</p>
+<details>
+<summary>
+<p>📝<strong>Ejercicio 1</strong>: modifica el código inferior para imprimir un mensaje por pantalla si todos los datos del conjunto <code>airquality</code> son de meses que no sean enero.</p>
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="if-else.html#cb831-1" tabindex="-1"></a><span class="co"># install.packages(&quot;dataset&quot;) # solo la primera vez</span></span>
+<span id="cb831-2"><a href="if-else.html#cb831-2" tabindex="-1"></a><span class="fu">library</span>(datasets) <span class="co"># paquete con los datos</span></span>
+<span id="cb831-3"><a href="if-else.html#cb831-3" tabindex="-1"></a>mes <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Month</span>
+<span id="cb831-4"><a href="if-else.html#cb831-4" tabindex="-1"></a></span>
+<span id="cb831-5"><a href="if-else.html#cb831-5" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">all</span>(mes <span class="sc">!=</span> <span class="dv">1</span>)) { <span class="co"># todos con mes distinto de 1</span></span>
+<span id="cb831-6"><a href="if-else.html#cb831-6" tabindex="-1"></a>  </span>
+<span id="cb831-7"><a href="if-else.html#cb831-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Ningún dato es del mes de enero&quot;</span>)</span>
+<span id="cb831-8"><a href="if-else.html#cb831-8" tabindex="-1"></a>  </span>
+<span id="cb831-9"><a href="if-else.html#cb831-9" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] &quot;Ningún dato es del mes de enero&quot;</code></pre>
+<!-- tocstop -->
+</details>
+<div class="sourceCode" id="cb833"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb833-1"><a href="if-else.html#cb833-1" tabindex="-1"></a><span class="co"># install.packages(&quot;dataset&quot;) # solo la primera vez</span></span>
+<span id="cb833-2"><a href="if-else.html#cb833-2" tabindex="-1"></a><span class="fu">library</span>(datasets) <span class="co"># paquete con los datos</span></span>
+<span id="cb833-3"><a href="if-else.html#cb833-3" tabindex="-1"></a>mes <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Month</span>
+<span id="cb833-4"><a href="if-else.html#cb833-4" tabindex="-1"></a></span>
+<span id="cb833-5"><a href="if-else.html#cb833-5" tabindex="-1"></a><span class="cf">if</span> (mes <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb833-6"><a href="if-else.html#cb833-6" tabindex="-1"></a>  </span>
+<span id="cb833-7"><a href="if-else.html#cb833-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Ningún dato es del mes de enero&quot;</span>)</span>
+<span id="cb833-8"><a href="if-else.html#cb833-8" tabindex="-1"></a>  </span>
+<span id="cb833-9"><a href="if-else.html#cb833-9" tabindex="-1"></a>}</span></code></pre></div>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 2</strong>: modifica el código inferior para guardar en una variable <code>temperatura_alta</code> un valor <code>TRUE</code> si alguno de los registros tiene una temperatura mayor a 90 (están en Farenheit) y un <code>FALSE</code> en caso contrario.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb834"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb834-1"><a href="if-else.html#cb834-1" tabindex="-1"></a>temperatura <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
+<span id="cb834-2"><a href="if-else.html#cb834-2" tabindex="-1"></a>temperatura_alta <span class="ot">&lt;-</span> <span class="cn">FALSE</span> <span class="co"># por defecto FALSE</span></span>
+<span id="cb834-3"><a href="if-else.html#cb834-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(temperatura <span class="sc">&gt;</span> <span class="dv">90</span>)) {</span>
+<span id="cb834-4"><a href="if-else.html#cb834-4" tabindex="-1"></a>  </span>
+<span id="cb834-5"><a href="if-else.html#cb834-5" tabindex="-1"></a>  temperatura_alta <span class="ot">&lt;-</span> <span class="cn">TRUE</span> <span class="co"># si se cumple la condición, a TRUE</span></span>
+<span id="cb834-6"><a href="if-else.html#cb834-6" tabindex="-1"></a>  </span>
+<span id="cb834-7"><a href="if-else.html#cb834-7" tabindex="-1"></a>}</span></code></pre></div>
+<!-- tocstop -->
+</details>
+<div class="sourceCode" id="cb835"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb835-1"><a href="if-else.html#cb835-1" tabindex="-1"></a>temperatura <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
+<span id="cb835-2"><a href="if-else.html#cb835-2" tabindex="-1"></a></span>
+<span id="cb835-3"><a href="if-else.html#cb835-3" tabindex="-1"></a><span class="cf">if</span> (temperatura <span class="sc">==</span> <span class="dv">100</span>) {</span>
+<span id="cb835-4"><a href="if-else.html#cb835-4" tabindex="-1"></a>  </span>
+<span id="cb835-5"><a href="if-else.html#cb835-5" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Alguno de los registros tiene temperatura superior a 90 Farenheit&quot;</span>)</span>
+<span id="cb835-6"><a href="if-else.html#cb835-6" tabindex="-1"></a>  </span>
+<span id="cb835-7"><a href="if-else.html#cb835-7" tabindex="-1"></a>}</span></code></pre></div>
+<p> </p>
+<details>
+<summary>
+<p>📝<strong>Ejercicio 3</strong>: modifica el código inferior para imprimir un mensaje por pantalla si alguno de los días supera la temperatura de 100.</p>
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb836"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb836-1"><a href="if-else.html#cb836-1" tabindex="-1"></a>temperatura <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
+<span id="cb836-2"><a href="if-else.html#cb836-2" tabindex="-1"></a></span>
+<span id="cb836-3"><a href="if-else.html#cb836-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">any</span>(temperatura <span class="sc">&gt;</span> <span class="dv">100</span>)) { <span class="co"># nos basta con uno</span></span>
+<span id="cb836-4"><a href="if-else.html#cb836-4" tabindex="-1"></a>  </span>
+<span id="cb836-5"><a href="if-else.html#cb836-5" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Alguno de los registros tiene temperatura superior a 100 Farenheit&quot;</span>)</span>
+<span id="cb836-6"><a href="if-else.html#cb836-6" tabindex="-1"></a>  </span>
+<span id="cb836-7"><a href="if-else.html#cb836-7" tabindex="-1"></a>}</span></code></pre></div>
+<p>No debería imprimar nada porque ninguno cumple la condición.</p>
+<!-- tocstop -->
+</details>
+<div class="sourceCode" id="cb837"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb837-1"><a href="if-else.html#cb837-1" tabindex="-1"></a>temperatura <span class="ot">&lt;-</span> airquality<span class="sc">$</span>Temp</span>
+<span id="cb837-2"><a href="if-else.html#cb837-2" tabindex="-1"></a></span>
+<span id="cb837-3"><a href="if-else.html#cb837-3" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">all</span>(temperatura <span class="sc">&lt;</span> <span class="dv">50</span>)) {</span>
+<span id="cb837-4"><a href="if-else.html#cb837-4" tabindex="-1"></a>  </span>
+<span id="cb837-5"><a href="if-else.html#cb837-5" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Alguno de los registros tiene temperatura superior a 100 Farenheit&quot;</span>)</span>
+<span id="cb837-6"><a href="if-else.html#cb837-6" tabindex="-1"></a>  </span>
+<span id="cb837-7"><a href="if-else.html#cb837-7" tabindex="-1"></a>}</span></code></pre></div>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 4</strong>: del paquete <code>{lubridate}</code>, la función <code>hour()</code> nos devuelve la hora de una fecha dada, y la función <code>now()</code> nos devuelve fecha y hora del momento actual. Con ambas funciones, y usando <code>if</code>, imprime por pantalla <code>"buenas noches"</code> solo a partir de las 21 horas.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="if-else.html#cb838-1" tabindex="-1"></a><span class="co"># Cargamos librería</span></span>
+<span id="cb838-2"><a href="if-else.html#cb838-2" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb838-3"><a href="if-else.html#cb838-3" tabindex="-1"></a></span>
+<span id="cb838-4"><a href="if-else.html#cb838-4" tabindex="-1"></a><span class="co"># Fecha-hora actual</span></span>
+<span id="cb838-5"><a href="if-else.html#cb838-5" tabindex="-1"></a>fecha_actual <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
+<span id="cb838-6"><a href="if-else.html#cb838-6" tabindex="-1"></a></span>
+<span id="cb838-7"><a href="if-else.html#cb838-7" tabindex="-1"></a><span class="co"># Estructura if</span></span>
+<span id="cb838-8"><a href="if-else.html#cb838-8" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">hour</span>(fecha_actual) <span class="sc">&gt;</span> <span class="dv">21</span>) {</span>
+<span id="cb838-9"><a href="if-else.html#cb838-9" tabindex="-1"></a>  </span>
+<span id="cb838-10"><a href="if-else.html#cb838-10" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Buenas noches&quot;</span>) <span class="co"># print/cat dos formas de imprimir por pantalla</span></span>
+<span id="cb838-11"><a href="if-else.html#cb838-11" tabindex="-1"></a>}</span></code></pre></div>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 5</strong>: con las funciones del ejercicio anterior, y usando una estructura <code>if-else</code>, imprime por pantalla (con <code>cat()</code> o <code>print()</code>) los mensajes <code>"buenos días"</code> (de 6 a 14 horas), <code>"buenas tardes"</code> (de 14 a 21 horas) o <code>"buenas noches"</code> (de las 21 a las 6 horas).
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb839"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb839-1"><a href="if-else.html#cb839-1" tabindex="-1"></a><span class="co"># Fecha actual</span></span>
+<span id="cb839-2"><a href="if-else.html#cb839-2" tabindex="-1"></a>fecha_actual <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
+<span id="cb839-3"><a href="if-else.html#cb839-3" tabindex="-1"></a></span>
+<span id="cb839-4"><a href="if-else.html#cb839-4" tabindex="-1"></a><span class="co"># Estructura if-else</span></span>
+<span id="cb839-5"><a href="if-else.html#cb839-5" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">hour</span>(fecha_actual) <span class="sc">&gt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> <span class="fu">hour</span>(fecha_actual) <span class="sc">&lt;</span> <span class="dv">14</span>) {</span>
+<span id="cb839-6"><a href="if-else.html#cb839-6" tabindex="-1"></a>  </span>
+<span id="cb839-7"><a href="if-else.html#cb839-7" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Buenos días&quot;</span>)</span>
+<span id="cb839-8"><a href="if-else.html#cb839-8" tabindex="-1"></a>  </span>
+<span id="cb839-9"><a href="if-else.html#cb839-9" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">hour</span>(fecha_actual) <span class="sc">&gt;</span> <span class="dv">14</span> <span class="sc">&amp;</span> <span class="fu">hour</span>(fecha_actual) <span class="sc">&lt;</span> <span class="dv">21</span>) {</span>
+<span id="cb839-10"><a href="if-else.html#cb839-10" tabindex="-1"></a>  </span>
+<span id="cb839-11"><a href="if-else.html#cb839-11" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Buenas tardes&quot;</span>)</span>
+<span id="cb839-12"><a href="if-else.html#cb839-12" tabindex="-1"></a>  </span>
+<span id="cb839-13"><a href="if-else.html#cb839-13" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb839-14"><a href="if-else.html#cb839-14" tabindex="-1"></a>  </span>
+<span id="cb839-15"><a href="if-else.html#cb839-15" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;Buenas noches&quot;</span>)</span>
+<span id="cb839-16"><a href="if-else.html#cb839-16" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>Buenas noches</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 6</strong>: realiza el ejercicio anterior pero sin estructura de llaves, de forma concisa con <code>ifelse()</code>. Mira la ayuda si la necesitases poniendo <code>? ifelse</code> en consola.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb841"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb841-1"><a href="if-else.html#cb841-1" tabindex="-1"></a><span class="co"># Fecha actual</span></span>
+<span id="cb841-2"><a href="if-else.html#cb841-2" tabindex="-1"></a>fecha_actual <span class="ot">&lt;-</span> <span class="fu">now</span>()</span>
+<span id="cb841-3"><a href="if-else.html#cb841-3" tabindex="-1"></a></span>
+<span id="cb841-4"><a href="if-else.html#cb841-4" tabindex="-1"></a><span class="co"># Estructura if-else</span></span>
+<span id="cb841-5"><a href="if-else.html#cb841-5" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">ifelse</span>(<span class="fu">hour</span>(fecha_actual) <span class="sc">&gt;</span> <span class="dv">6</span> <span class="sc">&amp;</span> <span class="fu">hour</span>(fecha_actual) <span class="sc">&lt;</span> <span class="dv">14</span>,</span>
+<span id="cb841-6"><a href="if-else.html#cb841-6" tabindex="-1"></a>           <span class="st">&quot;Buenos días&quot;</span>,</span>
+<span id="cb841-7"><a href="if-else.html#cb841-7" tabindex="-1"></a>           <span class="fu">ifelse</span>(<span class="fu">hour</span>(fecha_actual) <span class="sc">&gt;</span> <span class="dv">14</span> <span class="sc">&amp;</span></span>
+<span id="cb841-8"><a href="if-else.html#cb841-8" tabindex="-1"></a>                    <span class="fu">hour</span>(fecha_actual) <span class="sc">&lt;</span> <span class="dv">21</span>,</span>
+<span id="cb841-9"><a href="if-else.html#cb841-9" tabindex="-1"></a>                  <span class="st">&quot;Buenas tardes&quot;</span>, <span class="st">&quot;Buenas noches&quot;</span>)))</span></code></pre></div>
+<pre><code>Buenas noches</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="listas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bucles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02i-estructuras_control.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

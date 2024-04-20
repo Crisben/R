@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 27 Exportando datos .orange[RECTANGULARES] | Estadística para Ciencia de Datos</title>
+  <meta name="description" content="Chapter 27 Exportando datos .orange[RECTANGULARES] | Estadística para Ciencia de Datos" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 27 Exportando datos .orange[RECTANGULARES] | Estadística para Ciencia de Datos" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 27 Exportando datos .orange[RECTANGULARES] | Estadística para Ciencia de Datos" />
+  
+  
+  
+
+<meta name="author" content="Cristian Benalcázar" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="importando-datos-.orangerectangulares-8.html"/>
+<link rel="next" href="importando-datos-.orangedesde-web.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para Ciencia de Datos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="que-es-R.html"><a href="que-es-R.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="que-es-R.html"><a href="que-es-R.html#historia-de-r"><i class="fa fa-check"></i><b>2.1</b> Historia de R</a></li>
+<li class="chapter" data-level="2.2" data-path="que-es-R.html"><a href="que-es-R.html#comunidadpaquetes"><i class="fa fa-check"></i><b>2.2</b> Comunidad de usuarios: paquetes</a></li>
+<li class="chapter" data-level="2.3" data-path="que-es-R.html"><a href="que-es-R.html#por-qué-excel-no-es-tu-amigo"><i class="fa fa-check"></i><b>2.3</b> ¿Por qué Excel no es tu amigo?</a></li>
+<li class="chapter" data-level="2.4" data-path="que-es-R.html"><a href="que-es-R.html#glosario"><i class="fa fa-check"></i><b>2.4</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="instalacionR.html"><a href="instalacionR.html"><i class="fa fa-check"></i><b>3</b> Instalación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="instalacionR.html"><a href="instalacionR.html#instalación-de-r"><i class="fa fa-check"></i><b>3.1</b> Instalación de R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="instalacionR.html"><a href="instalacionR.html#paso-1"><i class="fa fa-check"></i><b>3.1.1</b> Paso 1</a></li>
+<li class="chapter" data-level="3.1.2" data-path="instalacionR.html"><a href="instalacionR.html#paso-2"><i class="fa fa-check"></i><b>3.1.2</b> Paso 2</a></li>
+<li class="chapter" data-level="3.1.3" data-path="instalacionR.html"><a href="instalacionR.html#paso-3"><i class="fa fa-check"></i><b>3.1.3</b> Paso 3</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="instalacionR.html"><a href="instalacionR.html#primera-operación-en-consola-sumar-dos-números"><i class="fa fa-check"></i><b>3.2</b> Primera operación en consola: sumar dos números</a></li>
+<li class="chapter" data-level="3.3" data-path="instalacionR.html"><a href="instalacionR.html#instalacionRStudio"><i class="fa fa-check"></i><b>3.3</b> Instalación de RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="instalacionR.html"><a href="instalacionR.html#instalacionpaquetes"><i class="fa fa-check"></i><b>3.4</b> Instalación de paquetes</a></li>
+<li class="chapter" data-level="3.5" data-path="instalacionR.html"><a href="instalacionR.html#glosario-1"><i class="fa fa-check"></i><b>3.5</b> Glosario</a></li>
+<li class="chapter" data-level="3.6" data-path="instalacionR.html"><a href="instalacionR.html#consejos"><i class="fa fa-check"></i><b>3.6</b> Consejos</a></li>
+<li class="chapter" data-level="3.7" data-path="instalacionR.html"><a href="instalacionR.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos.html"><a href="primeros-pasos.html#primeros-pasos-en-r-calculadora"><i class="fa fa-check"></i><b>4.1</b> Primeros pasos en R: calculadora</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html#y-dónde-programamos"><i class="fa fa-check"></i><b>4.2</b> ¿Y dónde programamos?</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos.html"><a href="primeros-pasos.html#tipos_errores"><i class="fa fa-check"></i><b>4.3</b> Tipos de errores</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos.html"><a href="primeros-pasos.html#glosario-2"><i class="fa fa-check"></i><b>4.4</b> Glosario</a></li>
+<li class="chapter" data-level="4.5" data-path="primeros-pasos.html"><a href="primeros-pasos.html#consejos-1"><i class="fa fa-check"></i><b>4.5</b> Consejos</a></li>
+<li class="chapter" data-level="4.6" data-path="primeros-pasos.html"><a href="primeros-pasos.html#ejercicios-1"><i class="fa fa-check"></i><b>4.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>I Tipos de datos</b></span></li>
+<li class="chapter" data-level="5" data-path="var-num.html"><a href="var-num.html"><i class="fa fa-check"></i><b>5</b> Variables individuales: números y caracteres</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="var-num.html"><a href="var-num.html#numericas"><i class="fa fa-check"></i><b>5.1</b> Variables numéricas (individuales)</a></li>
+<li class="chapter" data-level="5.2" data-path="var-num.html"><a href="var-num.html#caracter"><i class="fa fa-check"></i><b>5.2</b> Variables de tipo caracter (texto)</a></li>
+<li class="chapter" data-level="5.3" data-path="var-num.html"><a href="var-num.html#nuestra-primera-función-paste"><i class="fa fa-check"></i><b>5.3</b> Nuestra primera función: paste</a></li>
+<li class="chapter" data-level="5.4" data-path="var-num.html"><a href="var-num.html#nuestro-primer-paquete-glue"><i class="fa fa-check"></i><b>5.4</b> Nuestro primer paquete: glue</a></li>
+<li class="chapter" data-level="5.5" data-path="var-num.html"><a href="var-num.html#manejando-textos-paquete-stringr"><i class="fa fa-check"></i><b>5.5</b> Manejando textos: paquete stringr</a></li>
+<li class="chapter" data-level="5.6" data-path="var-num.html"><a href="var-num.html#consejos-2"><i class="fa fa-check"></i><b>5.6</b> Consejos</a></li>
+<li class="chapter" data-level="5.7" data-path="var-num.html"><a href="var-num.html#ejercicios-2"><i class="fa fa-check"></i><b>5.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectores.html"><a href="vectores.html#vectores-numéricos"><i class="fa fa-check"></i><b>6.1</b> Vectores numéricos</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html#secuencias-numéricas-con-un-patrón"><i class="fa fa-check"></i><b>6.2</b> Secuencias numéricas con un patrón</a></li>
+<li class="chapter" data-level="6.3" data-path="vectores.html"><a href="vectores.html#vectores-de-caracteres-texto"><i class="fa fa-check"></i><b>6.3</b> Vectores de caracteres (texto)</a></li>
+<li class="chapter" data-level="6.4" data-path="vectores.html"><a href="vectores.html#vectores-lógicos-truefalse"><i class="fa fa-check"></i><b>6.4</b> Vectores lógicos (TRUE/FALSE)</a></li>
+<li class="chapter" data-level="6.5" data-path="vectores.html"><a href="vectores.html#consejos-3"><i class="fa fa-check"></i><b>6.5</b> Consejos</a></li>
+<li class="chapter" data-level="6.6" data-path="vectores.html"><a href="vectores.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="operacionesvectores.html"><a href="operacionesvectores.html"><i class="fa fa-check"></i><b>7</b> Operaciones con vectores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#vectores-numéricos-1"><i class="fa fa-check"></i><b>7.1</b> Vectores numéricos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-aritméticas"><i class="fa fa-check"></i><b>7.1.1</b> Operaciones aritméticas</a></li>
+<li class="chapter" data-level="7.1.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-estadísticas"><i class="fa fa-check"></i><b>7.1.2</b> Operaciones estadísticas</a></li>
+<li class="chapter" data-level="7.1.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operacionesausentes"><i class="fa fa-check"></i><b>7.1.3</b> Operaciones con ausentes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#seleccionar-elementos"><i class="fa fa-check"></i><b>7.2</b> Seleccionar elementos</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#which"><i class="fa fa-check"></i><b>7.2.1</b> which</a></li>
+<li class="chapter" data-level="7.2.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#null"><i class="fa fa-check"></i><b>7.2.2</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación"><i class="fa fa-check"></i><b>7.3</b> Nombrando vectores: añadiendo metainformación</a></li>
+<li class="chapter" data-level="7.4" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ordenar"><i class="fa fa-check"></i><b>7.4</b> Ordenar</a></li>
+<li class="chapter" data-level="7.5" data-path="operacionesvectores.html"><a href="operacionesvectores.html#consejos-4"><i class="fa fa-check"></i><b>7.5</b> Consejos</a></li>
+<li class="chapter" data-level="7.6" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ejercicios-4"><i class="fa fa-check"></i><b>7.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i><b>8</b> Fechas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="fechas.html"><a href="fechas.html#funciones-de-lubridate"><i class="fa fa-check"></i><b>8.1</b> Funciones de lubridate</a></li>
+<li class="chapter" data-level="8.2" data-path="fechas.html"><a href="fechas.html#consejos-5"><i class="fa fa-check"></i><b>8.2</b> Consejos</a></li>
+<li class="chapter" data-level="8.3" data-path="fechas.html"><a href="fechas.html#ejercicios-5"><i class="fa fa-check"></i><b>8.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>9</b> Datos estructurados</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="datos.html"><a href="datos.html#matrices"><i class="fa fa-check"></i><b>9.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="datos.html"><a href="datos.html#acceder-a-elementos"><i class="fa fa-check"></i><b>9.1.1</b> Acceder a elementos</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datos.html"><a href="datos.html#operaciones-por-filas-y-columnas-apply"><i class="fa fa-check"></i><b>9.1.2</b> Operaciones por filas y columnas (apply)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datos.html"><a href="datos.html#tablas-data.frames"><i class="fa fa-check"></i><b>9.2</b> Tablas: data.frames</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="datos.html"><a href="datos.html#selección-de-columnas-y-filas"><i class="fa fa-check"></i><b>9.2.1</b> Selección de columnas y filas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="datos.html"><a href="datos.html#primer-análisis-de-datos-arrestos-en-ee.-uu."><i class="fa fa-check"></i><b>9.2.2</b> Primer análisis de datos: arrestos en EE. UU.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="datos.html"><a href="datos.html#consejos-6"><i class="fa fa-check"></i><b>9.3</b> Consejos</a></li>
+<li class="chapter" data-level="9.4" data-path="datos.html"><a href="datos.html#ejercicios-6"><i class="fa fa-check"></i><b>9.4</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>10</b> Listas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="listas.html"><a href="listas.html#introducción-a-purrr"><i class="fa fa-check"></i><b>10.1</b> Introducción a purrr</a></li>
+<li class="chapter" data-level="10.2" data-path="listas.html"><a href="listas.html#ejercicios-7"><i class="fa fa-check"></i><b>10.2</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Haciendo el trabajo más fácil</b></span></li>
+<li class="chapter" data-level="11" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>11</b> Estructuras de control: if-else</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="if-else.html"><a href="if-else.html#if"><i class="fa fa-check"></i><b>11.1</b> if</a></li>
+<li class="chapter" data-level="11.2" data-path="if-else.html"><a href="if-else.html#if---else"><i class="fa fa-check"></i><b>11.2</b> if - else</a></li>
+<li class="chapter" data-level="11.3" data-path="if-else.html"><a href="if-else.html#if---else-anidados"><i class="fa fa-check"></i><b>11.3</b> if - else anidados</a></li>
+<li class="chapter" data-level="11.4" data-path="if-else.html"><a href="if-else.html#ifelse-vectorizado"><i class="fa fa-check"></i><b>11.4</b> ifelse () vectorizado</a></li>
+<li class="chapter" data-level="11.5" data-path="if-else.html"><a href="if-else.html#consejos-7"><i class="fa fa-check"></i><b>11.5</b> Consejos</a></li>
+<li class="chapter" data-level="11.6" data-path="if-else.html"><a href="if-else.html#ejercicios-8"><i class="fa fa-check"></i><b>11.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>12</b> Estructuras de control: bucles</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bucles.html"><a href="bucles.html#for"><i class="fa fa-check"></i><b>12.1</b> for</a></li>
+<li class="chapter" data-level="12.2" data-path="bucles.html"><a href="bucles.html#while"><i class="fa fa-check"></i><b>12.2</b> while</a></li>
+<li class="chapter" data-level="12.3" data-path="bucles.html"><a href="bucles.html#breaknext"><i class="fa fa-check"></i><b>12.3</b> break/next</a></li>
+<li class="chapter" data-level="12.4" data-path="bucles.html"><a href="bucles.html#repeat"><i class="fa fa-check"></i><b>12.4</b> repeat</a></li>
+<li class="chapter" data-level="12.5" data-path="bucles.html"><a href="bucles.html#consejos-8"><i class="fa fa-check"></i><b>12.5</b> Consejos</a></li>
+<li class="chapter" data-level="12.6" data-path="bucles.html"><a href="bucles.html#ejercicios-9"><i class="fa fa-check"></i><b>12.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="funs.html"><a href="funs.html"><i class="fa fa-check"></i><b>13</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="funs.html"><a href="funs.html#primera-función"><i class="fa fa-check"></i><b>13.1</b> Primera función</a></li>
+<li class="chapter" data-level="13.2" data-path="funs.html"><a href="funs.html#variables-localesglobales"><i class="fa fa-check"></i><b>13.2</b> Variables locales/globales</a></li>
+<li class="chapter" data-level="13.3" data-path="funs.html"><a href="funs.html#ejercicios-10"><i class="fa fa-check"></i><b>13.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyecto.html"><a href="proyecto.html"><i class="fa fa-check"></i><b>14</b> Proyecto de trabajo</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyecto.html"><a href="proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>14.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="14.2" data-path="proyecto.html"><a href="proyecto.html#directorios-de-trabajo-y-cabecera"><i class="fa fa-check"></i><b>14.2</b> Directorios de trabajo y cabecera</a></li>
+<li class="chapter" data-level="14.3" data-path="proyecto.html"><a href="proyecto.html#ejecución"><i class="fa fa-check"></i><b>14.3</b> Ejecución</a></li>
+<li class="chapter" data-level="14.4" data-path="proyecto.html"><a href="proyecto.html#consejos-9"><i class="fa fa-check"></i><b>14.4</b> Consejos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="importar-exportar.html"><a href="importar-exportar.html"><i class="fa fa-check"></i><b>15</b> Importar/exportar datos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic"><i class="fa fa-check"></i><b>15.1</b> Archivo .RData: pasajeros del RMS Titanic</a></li>
+<li class="chapter" data-level="15.2" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rda-pisos-en-boston"><i class="fa fa-check"></i><b>15.2</b> Archivo .rda: pisos en Boston</a></li>
+<li class="chapter" data-level="15.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat"><i class="fa fa-check"></i><b>15.3</b> Desde paquete: estadísticas del Eurostat</a></li>
+<li class="chapter" data-level="15.4" data-path="importar-exportar.html"><a href="importar-exportar.html#exportación-de-datos"><i class="fa fa-check"></i><b>15.4</b> Exportación de datos</a></li>
+<li class="chapter" data-level="15.5" data-path="importar-exportar.html"><a href="importar-exportar.html#consejos-10"><i class="fa fa-check"></i><b>15.5</b> Consejos</a></li>
+<li class="chapter" data-level="15.6" data-path="importar-exportar.html"><a href="importar-exportar.html#importando-datos-.orange.rdata.rda"><i class="fa fa-check"></i><b>15.6</b> Importando datos: .orange[.RData/.rda]</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="importando-datos-.orange.rdata.rda-1.html"><a href="importando-datos-.orange.rdata.rda-1.html"><i class="fa fa-check"></i><b>16</b> Importando datos: .orange[.RData/.rda]</a></li>
+<li class="chapter" data-level="17" data-path="exportando-datos-.orange.rdata.html"><a href="exportando-datos-.orange.rdata.html"><i class="fa fa-check"></i><b>17</b> Exportando datos: .orange[.RData/.rda]</a></li>
+<li class="chapter" data-level="18" data-path="importando-datos-.html"><a href="importando-datos-.html"><i class="fa fa-check"></i><b>18</b> Importando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="19" data-path="importando-datos-.orangerectangulares-1.html"><a href="importando-datos-.orangerectangulares-1.html"><i class="fa fa-check"></i><b>19</b> Importando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="20" data-path="importando-datos-.orangerectangulares-2.html"><a href="importando-datos-.orangerectangulares-2.html"><i class="fa fa-check"></i><b>20</b> Importando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="21" data-path="importando-datos-.orangerectangulares-3.html"><a href="importando-datos-.orangerectangulares-3.html"><i class="fa fa-check"></i><b>21</b> Importando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="22" data-path="importando-datos-.orangerectangulares-4.html"><a href="importando-datos-.orangerectangulares-4.html"><i class="fa fa-check"></i><b>22</b> Importando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="23" data-path="importando-datos-.orangerectangulares-5.html"><a href="importando-datos-.orangerectangulares-5.html"><i class="fa fa-check"></i><b>23</b> Importando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="24" data-path="importando-datos-.orangerectangulares-6.html"><a href="importando-datos-.orangerectangulares-6.html"><i class="fa fa-check"></i><b>24</b> Importando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="25" data-path="importando-datos-.orangerectangulares-7.html"><a href="importando-datos-.orangerectangulares-7.html"><i class="fa fa-check"></i><b>25</b> Importando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="26" data-path="importando-datos-.orangerectangulares-8.html"><a href="importando-datos-.orangerectangulares-8.html"><i class="fa fa-check"></i><b>26</b> Importando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="27" data-path="exportando-datos-.html"><a href="exportando-datos-.html"><i class="fa fa-check"></i><b>27</b> Exportando datos .orange[RECTANGULARES]</a></li>
+<li class="chapter" data-level="28" data-path="importando-datos-.orangedesde-web.html"><a href="importando-datos-.orangedesde-web.html"><i class="fa fa-check"></i><b>28</b> Importando datos .orange[DESDE WEB]</a></li>
+<li class="chapter" data-level="29" data-path="importando-datos-.orangedesde-web-1.html"><a href="importando-datos-.orangedesde-web-1.html"><i class="fa fa-check"></i><b>29</b> Importando datos .orange[DESDE WEB]</a></li>
+<li class="chapter" data-level="30" data-path="importando-datos-datos-.html"><a href="importando-datos-datos-.html"><i class="fa fa-check"></i><b>30</b> Importando datos: datos .orange[EXCEL]</a></li>
+<li class="chapter" data-level="31" data-path="importando-datos-datos-.orangeexcel-1.html"><a href="importando-datos-datos-.orangeexcel-1.html"><i class="fa fa-check"></i><b>31</b> Importando datos: datos .orange[EXCEL]</a></li>
+<li class="chapter" data-level="32" data-path="importando-datos-.html"><a href="importando-datos-.html#importando-datos-.orangeexcel"><i class="fa fa-check"></i><b>32</b> Importando datos .orange[EXCEL]</a></li>
+<li class="chapter" data-level="33" data-path="importando-datos-datos-.orangeexcel-2.html"><a href="importando-datos-datos-.orangeexcel-2.html"><i class="fa fa-check"></i><b>33</b> Importando datos: datos .orange[EXCEL]</a></li>
+<li class="chapter" data-level="34" data-path="importando-datos-datos-.orangeexcel-3.html"><a href="importando-datos-datos-.orangeexcel-3.html"><i class="fa fa-check"></i><b>34</b> Importando datos: datos .orange[EXCEL]</a></li>
+<li class="chapter" data-level="35" data-path="importando-datos-.html"><a href="importando-datos-.html#importando-datos-.orangegooglesheet"><i class="fa fa-check"></i><b>35</b> Importando datos .orange[googlesheet]</a></li>
+<li class="chapter" data-level="36" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>36</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="36.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-una-variable-cuantitativa"><i class="fa fa-check"></i><b>36.1</b> Gráficos para una variable cuantitativa</a>
+<ul>
+<li class="chapter" data-level="36.1.1" data-path="gráficos.html"><a href="gráficos.html#función-stem"><i class="fa fa-check"></i><b>36.1.1</b> Función <code>stem ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="36.1.2" data-path="gráficos.html"><a href="gráficos.html#función-boxplot"><i class="fa fa-check"></i><b>36.1.2</b> Función <code>boxplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo 1</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo 2</a></li>
+<li class="chapter" data-level="36.1.3" data-path="gráficos.html"><a href="gráficos.html#función-hist"><i class="fa fa-check"></i><b>36.1.3</b> Función <code>hist ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="36.1.4" data-path="gráficos.html"><a href="gráficos.html#función-density"><i class="fa fa-check"></i><b>36.1.4</b> Función <code>density ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="36.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-dos-variables-cuantitativas"><i class="fa fa-check"></i><b>36.2</b> Gráficos para dos variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="36.2.1" data-path="gráficos.html"><a href="gráficos.html#función-plot"><i class="fa fa-check"></i><b>36.2.1</b> Función <code>plot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="36.2.2" data-path="gráficos.html"><a href="gráficos.html#función-pairs"><i class="fa fa-check"></i><b>36.2.2</b> Función <code>pairs ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="36.3" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-variables-categóricas"><i class="fa fa-check"></i><b>36.3</b> Gráficos para variables categóricas</a>
+<ul>
+<li class="chapter" data-level="36.3.1" data-path="gráficos.html"><a href="gráficos.html#función-barplot"><i class="fa fa-check"></i><b>36.3.1</b> Función <code>barplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="36.3.2" data-path="gráficos.html"><a href="gráficos.html#la-función-pie"><i class="fa fa-check"></i><b>36.3.2</b> La función <code>pie ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="36.3.3" data-path="gráficos.html"><a href="gráficos.html#función-dotchart"><i class="fa fa-check"></i><b>36.3.3</b> Función <code>dotchart ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="36.4" data-path="gráficos.html"><a href="gráficos.html#la-librería-lattice"><i class="fa fa-check"></i><b>36.4</b> La librería <code>lattice</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-2"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="37" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>37</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="37.1" data-path="r-markdown.html"><a href="r-markdown.html#introducción-1"><i class="fa fa-check"></i><b>37.1</b> Introducción</a></li>
+<li class="chapter" data-level="37.2" data-path="r-markdown.html"><a href="r-markdown.html#por-qué-r-markdown"><i class="fa fa-check"></i><b>37.2</b> ¿Por qué R Markdown?</a></li>
+<li class="chapter" data-level="37.3" data-path="r-markdown.html"><a href="r-markdown.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>37.3</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="37.4" data-path="r-markdown.html"><a href="r-markdown.html#cómo-crear-un-fichero-.rmd"><i class="fa fa-check"></i><b>37.4</b> ¿Cómo crear un fichero <code>.Rmd</code>?</a></li>
+<li class="chapter" data-level="37.5" data-path="r-markdown.html"><a href="r-markdown.html#cabeceras-yaml"><i class="fa fa-check"></i><b>37.5</b> Cabeceras YAML</a></li>
+<li class="chapter" data-level="37.6" data-path="r-markdown.html"><a href="r-markdown.html#sintáxis-básica-de-markdown"><i class="fa fa-check"></i><b>37.6</b> Sintáxis básica de Markdown</a></li>
+<li class="chapter" data-level="37.7" data-path="r-markdown.html"><a href="r-markdown.html#insertar-código-de-r"><i class="fa fa-check"></i><b>37.7</b> Insertar código de R</a>
+<ul>
+<li class="chapter" data-level="37.7.1" data-path="r-markdown.html"><a href="r-markdown.html#código-de-r-en-línea"><i class="fa fa-check"></i><b>37.7.1</b> Código de R en línea</a></li>
+<li class="chapter" data-level="37.7.2" data-path="r-markdown.html"><a href="r-markdown.html#bloques-chunks-de-código-r"><i class="fa fa-check"></i><b>37.7.2</b> Bloques (<em>chunks</em>) de código R</a></li>
+</ul></li>
+<li class="chapter" data-level="37.8" data-path="r-markdown.html"><a href="r-markdown.html#opciones-de-los-bloques-de-código-r"><i class="fa fa-check"></i><b>37.8</b> Opciones de los bloques de código R</a></li>
+<li class="chapter" data-level="37.9" data-path="r-markdown.html"><a href="r-markdown.html#figuras"><i class="fa fa-check"></i><b>37.9</b> Figuras</a></li>
+<li class="chapter" data-level="37.10" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i><b>37.10</b> Tablas</a></li>
+<li class="chapter" data-level="37.11" data-path="r-markdown.html"><a href="r-markdown.html#tabla-de-contenidos"><i class="fa fa-check"></i><b>37.11</b> Tabla de contenidos</a></li>
+<li class="chapter" data-level="37.12" data-path="r-markdown.html"><a href="r-markdown.html#caching"><i class="fa fa-check"></i><b>37.12</b> <em>Caching</em></a></li>
+</ul></li>
+<li class="chapter" data-level="38" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>38</b> Git y Github con Rstudio</a>
+<ul>
+<li class="chapter" data-level="38.1" data-path="git.html"><a href="git.html#git-y-github-junto-con-rstudio"><i class="fa fa-check"></i><b>38.1</b> Git y GitHub junto con RStudio</a></li>
+<li class="chapter" data-level="38.2" data-path="git.html"><a href="git.html#qué-es-git-qué-es-github"><i class="fa fa-check"></i><b>38.2</b> ¿Qué es Git? ¿Qué es GitHub?</a></li>
+<li class="chapter" data-level="38.3" data-path="git.html"><a href="git.html#instalar-git"><i class="fa fa-check"></i><b>38.3</b> Instalar Git</a></li>
+<li class="chapter" data-level="38.4" data-path="git.html"><a href="git.html#crear-cuenta-y-repositorio-en-github"><i class="fa fa-check"></i><b>38.4</b> Crear cuenta y repositorio en Github</a></li>
+<li class="chapter" data-level="38.5" data-path="git.html"><a href="git.html#configurar-git-editar-gitconfig-file"><i class="fa fa-check"></i><b>38.5</b> Configurar Git (Editar gitconfig file)</a></li>
+<li class="chapter" data-level="38.6" data-path="git.html"><a href="git.html#crear-un-token-de-acceso-personal-pat-en-github"><i class="fa fa-check"></i><b>38.6</b> Crear un token de acceso personal (PAT) en GitHub</a></li>
+<li class="chapter" data-level="38.7" data-path="git.html"><a href="git.html#almacenar-token-de-acceso-personal-para-conectar-rstudio-y-github"><i class="fa fa-check"></i><b>38.7</b> Almacenar token de acceso personal para conectar RStudio y GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="39" data-path="practica-final.html"><a href="practica-final.html"><i class="fa fa-check"></i><b>39</b> 📝 Práctica final</a></li>
+<li class="part"><span><b>III Recursos</b></span></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html"><i class="fa fa-check"></i>📝 Ejercicios recopilados</a>
+<ul>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#instalación"><i class="fa fa-check"></i>Instalación</a></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#primeros-pasos-1"><i class="fa fa-check"></i>Primeros pasos</a></li>
+<li class="chapter" data-level="39.1" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#variables-numéricas-y-de-texto"><i class="fa fa-check"></i><b>39.1</b> Variables numéricas y de texto</a></li>
+<li class="chapter" data-level="39.2" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#vectores-1"><i class="fa fa-check"></i><b>39.2</b> Vectores</a></li>
+<li class="chapter" data-level="39.3" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#operaciones-con-vectores"><i class="fa fa-check"></i><b>39.3</b> Operaciones con vectores</a></li>
+<li class="chapter" data-level="39.4" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#fechas-1"><i class="fa fa-check"></i><b>39.4</b> Fechas</a></li>
+<li class="chapter" data-level="39.5" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#datos-estructurados"><i class="fa fa-check"></i><b>39.5</b> Datos estructurados</a></li>
+<li class="chapter" data-level="39.6" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#listas-1"><i class="fa fa-check"></i><b>39.6</b> Listas</a></li>
+<li class="chapter" data-level="39.7" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-if-else"><i class="fa fa-check"></i><b>39.7</b> Estructuras if-else</a></li>
+<li class="chapter" data-level="39.8" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-for-y-while"><i class="fa fa-check"></i><b>39.8</b> Estructuras for y while</a></li>
+<li class="chapter" data-level="39.9" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#funciones"><i class="fa fa-check"></i><b>39.9</b> Funciones</a></li>
+<li class="chapter" data-level="39.10" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#practica-final-1"><i class="fa fa-check"></i><b>39.10</b> Practica final</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html"><i class="fa fa-check"></i>📚 Recursos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#aprendizajedocencia"><i class="fa fa-check"></i>Aprendizaje/docencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-datos"><i class="fa fa-check"></i>Manejo de datos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-textos"><i class="fa fa-check"></i>Manejo de textos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#datos.-importarexportar"><i class="fa fa-check"></i>Datos. Importar/exportar</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#dataviz"><i class="fa fa-check"></i>dataviz</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#mapas-y-datos-espaciales-en-r"><i class="fa fa-check"></i>Mapas y datos espaciales en R</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#colores-y-temas-en-dataviz-generales"><i class="fa fa-check"></i>Colores y temas en dataviz (generales)</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#análisis-exploratorio"><i class="fa fa-check"></i>Análisis exploratorio</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#modelización-e-inferencia"><i class="fa fa-check"></i>Modelización e inferencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#estadística-bayesiana"><i class="fa fa-check"></i>Estadística Bayesiana</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#informes-tablas-webs-libros-y-diapositivas"><i class="fa fa-check"></i>Informes, tablas, webs, libros y diapositivas</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#paquetesrecursos-curiosos"><i class="fa fa-check"></i>Paquetes/recursos curiosos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística para Ciencia de Datos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exportando-datos-.orangerectangulares" class="section level1 hasAnchor" number="27">
+<h1><span class="header-section-number">Chapter 27</span> Exportando datos .orange[RECTANGULARES]<a href="exportando-datos-.html#exportando-datos-.orangerectangulares" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Para <strong>.bg-purple_light[exportar datos]</strong> rectangulares las funciones serán similares pero con el prefijo <code>write_xxx()</code> y el formato adecuado.</p>
+<p>Por ejemplo, vamos a <strong>.bg-purple_light[exportar a un .csv]</strong> el dataset de starwars (seleccionando solo las columnas que no son lista)</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="exportando-datos-.html#cb52-1" tabindex="-1"></a><span class="fu">write_csv</span>(starwars <span class="sc">%&gt;%</span> <span class="fu">select</span>(name<span class="sc">:</span>species),</span>
+<span id="cb52-2"><a href="exportando-datos-.html#cb52-2" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">&quot;./datos/starwars.csv&quot;</span>)</span>
+<span id="cb52-3"><a href="exportando-datos-.html#cb52-3" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/starwars.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 87 Columns: 11
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (8): name, hair_color, skin_color, eye_color, sex, gender, homeworld, sp...
+## dbl (3): height, mass, birth_year
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre><code>## # A tibble: 87 × 11
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+##  3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+##  4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  5 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
+##  9 Biggs D…    183    84 black      light      brown           24   male  mascu…
+## 10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+## # ℹ 77 more rows
+## # ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<hr />
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="importando-datos-.orangerectangulares-8.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="importando-datos-.orangedesde-web.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02m-carga_datos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 19 📝 Práctica final | R</title>
+  <meta name="description" content="Chapter 19 📝 Práctica final | R" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 19 📝 Práctica final | R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 19 📝 Práctica final | R" />
+  
+  
+  
+
+<meta name="author" content="Cristian Benalcázar" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="git.html"/>
+<link rel="next" href="ejercicios-recopilados.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para Ciencia de Datos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="que-es-R.html"><a href="que-es-R.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="que-es-R.html"><a href="que-es-R.html#historia-de-r"><i class="fa fa-check"></i><b>2.1</b> Historia de R</a></li>
+<li class="chapter" data-level="2.2" data-path="que-es-R.html"><a href="que-es-R.html#comunidadpaquetes"><i class="fa fa-check"></i><b>2.2</b> Comunidad de usuarios: paquetes</a></li>
+<li class="chapter" data-level="2.3" data-path="que-es-R.html"><a href="que-es-R.html#por-qué-excel-no-es-tu-amigo"><i class="fa fa-check"></i><b>2.3</b> ¿Por qué Excel no es tu amigo?</a></li>
+<li class="chapter" data-level="2.4" data-path="que-es-R.html"><a href="que-es-R.html#glosario"><i class="fa fa-check"></i><b>2.4</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="instalacionR.html"><a href="instalacionR.html"><i class="fa fa-check"></i><b>3</b> Instalación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="instalacionR.html"><a href="instalacionR.html#instalación-de-r"><i class="fa fa-check"></i><b>3.1</b> Instalación de R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="instalacionR.html"><a href="instalacionR.html#paso-1"><i class="fa fa-check"></i><b>3.1.1</b> Paso 1</a></li>
+<li class="chapter" data-level="3.1.2" data-path="instalacionR.html"><a href="instalacionR.html#paso-2"><i class="fa fa-check"></i><b>3.1.2</b> Paso 2</a></li>
+<li class="chapter" data-level="3.1.3" data-path="instalacionR.html"><a href="instalacionR.html#paso-3"><i class="fa fa-check"></i><b>3.1.3</b> Paso 3</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="instalacionR.html"><a href="instalacionR.html#primera-operación-en-consola-sumar-dos-números"><i class="fa fa-check"></i><b>3.2</b> Primera operación en consola: sumar dos números</a></li>
+<li class="chapter" data-level="3.3" data-path="instalacionR.html"><a href="instalacionR.html#instalacionRStudio"><i class="fa fa-check"></i><b>3.3</b> Instalación de RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="instalacionR.html"><a href="instalacionR.html#instalacionpaquetes"><i class="fa fa-check"></i><b>3.4</b> Instalación de paquetes</a></li>
+<li class="chapter" data-level="3.5" data-path="instalacionR.html"><a href="instalacionR.html#glosario-1"><i class="fa fa-check"></i><b>3.5</b> Glosario</a></li>
+<li class="chapter" data-level="3.6" data-path="instalacionR.html"><a href="instalacionR.html#consejos"><i class="fa fa-check"></i><b>3.6</b> Consejos</a></li>
+<li class="chapter" data-level="3.7" data-path="instalacionR.html"><a href="instalacionR.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos.html"><a href="primeros-pasos.html#primeros-pasos-en-r-calculadora"><i class="fa fa-check"></i><b>4.1</b> Primeros pasos en R: calculadora</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html#y-dónde-programamos"><i class="fa fa-check"></i><b>4.2</b> ¿Y dónde programamos?</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos.html"><a href="primeros-pasos.html#tipos_errores"><i class="fa fa-check"></i><b>4.3</b> Tipos de errores</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos.html"><a href="primeros-pasos.html#glosario-2"><i class="fa fa-check"></i><b>4.4</b> Glosario</a></li>
+<li class="chapter" data-level="4.5" data-path="primeros-pasos.html"><a href="primeros-pasos.html#consejos-1"><i class="fa fa-check"></i><b>4.5</b> Consejos</a></li>
+<li class="chapter" data-level="4.6" data-path="primeros-pasos.html"><a href="primeros-pasos.html#ejercicios-1"><i class="fa fa-check"></i><b>4.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>I Tipos de datos</b></span></li>
+<li class="chapter" data-level="5" data-path="var-num.html"><a href="var-num.html"><i class="fa fa-check"></i><b>5</b> Variables individuales: números y caracteres</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="var-num.html"><a href="var-num.html#numericas"><i class="fa fa-check"></i><b>5.1</b> Variables numéricas (individuales)</a></li>
+<li class="chapter" data-level="5.2" data-path="var-num.html"><a href="var-num.html#caracter"><i class="fa fa-check"></i><b>5.2</b> Variables de tipo caracter (texto)</a></li>
+<li class="chapter" data-level="5.3" data-path="var-num.html"><a href="var-num.html#nuestra-primera-función-paste"><i class="fa fa-check"></i><b>5.3</b> Nuestra primera función: paste</a></li>
+<li class="chapter" data-level="5.4" data-path="var-num.html"><a href="var-num.html#nuestro-primer-paquete-glue"><i class="fa fa-check"></i><b>5.4</b> Nuestro primer paquete: glue</a></li>
+<li class="chapter" data-level="5.5" data-path="var-num.html"><a href="var-num.html#manejando-textos-paquete-stringr"><i class="fa fa-check"></i><b>5.5</b> Manejando textos: paquete stringr</a></li>
+<li class="chapter" data-level="5.6" data-path="var-num.html"><a href="var-num.html#consejos-2"><i class="fa fa-check"></i><b>5.6</b> Consejos</a></li>
+<li class="chapter" data-level="5.7" data-path="var-num.html"><a href="var-num.html#ejercicios-2"><i class="fa fa-check"></i><b>5.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectores.html"><a href="vectores.html#vectores-numéricos"><i class="fa fa-check"></i><b>6.1</b> Vectores numéricos</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html#secuencias-numéricas-con-un-patrón"><i class="fa fa-check"></i><b>6.2</b> Secuencias numéricas con un patrón</a></li>
+<li class="chapter" data-level="6.3" data-path="vectores.html"><a href="vectores.html#vectores-de-caracteres-texto"><i class="fa fa-check"></i><b>6.3</b> Vectores de caracteres (texto)</a></li>
+<li class="chapter" data-level="6.4" data-path="vectores.html"><a href="vectores.html#vectores-lógicos-truefalse"><i class="fa fa-check"></i><b>6.4</b> Vectores lógicos (TRUE/FALSE)</a></li>
+<li class="chapter" data-level="6.5" data-path="vectores.html"><a href="vectores.html#consejos-3"><i class="fa fa-check"></i><b>6.5</b> Consejos</a></li>
+<li class="chapter" data-level="6.6" data-path="vectores.html"><a href="vectores.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="operacionesvectores.html"><a href="operacionesvectores.html"><i class="fa fa-check"></i><b>7</b> Operaciones con vectores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#vectores-numéricos-1"><i class="fa fa-check"></i><b>7.1</b> Vectores numéricos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-aritméticas"><i class="fa fa-check"></i><b>7.1.1</b> Operaciones aritméticas</a></li>
+<li class="chapter" data-level="7.1.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-estadísticas"><i class="fa fa-check"></i><b>7.1.2</b> Operaciones estadísticas</a></li>
+<li class="chapter" data-level="7.1.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operacionesausentes"><i class="fa fa-check"></i><b>7.1.3</b> Operaciones con ausentes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#seleccionar-elementos"><i class="fa fa-check"></i><b>7.2</b> Seleccionar elementos</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#which"><i class="fa fa-check"></i><b>7.2.1</b> which</a></li>
+<li class="chapter" data-level="7.2.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#null"><i class="fa fa-check"></i><b>7.2.2</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación"><i class="fa fa-check"></i><b>7.3</b> Nombrando vectores: añadiendo metainformación</a></li>
+<li class="chapter" data-level="7.4" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ordenar"><i class="fa fa-check"></i><b>7.4</b> Ordenar</a></li>
+<li class="chapter" data-level="7.5" data-path="operacionesvectores.html"><a href="operacionesvectores.html#consejos-4"><i class="fa fa-check"></i><b>7.5</b> Consejos</a></li>
+<li class="chapter" data-level="7.6" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ejercicios-4"><i class="fa fa-check"></i><b>7.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i><b>8</b> Fechas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="fechas.html"><a href="fechas.html#funciones-de-lubridate"><i class="fa fa-check"></i><b>8.1</b> Funciones de lubridate</a></li>
+<li class="chapter" data-level="8.2" data-path="fechas.html"><a href="fechas.html#consejos-5"><i class="fa fa-check"></i><b>8.2</b> Consejos</a></li>
+<li class="chapter" data-level="8.3" data-path="fechas.html"><a href="fechas.html#ejercicios-5"><i class="fa fa-check"></i><b>8.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>9</b> Datos estructurados</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="datos.html"><a href="datos.html#matrices"><i class="fa fa-check"></i><b>9.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="datos.html"><a href="datos.html#acceder-a-elementos"><i class="fa fa-check"></i><b>9.1.1</b> Acceder a elementos</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datos.html"><a href="datos.html#operaciones-por-filas-y-columnas-apply"><i class="fa fa-check"></i><b>9.1.2</b> Operaciones por filas y columnas (apply)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datos.html"><a href="datos.html#tablas-data.frames"><i class="fa fa-check"></i><b>9.2</b> Tablas: data.frames</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="datos.html"><a href="datos.html#selección-de-columnas-y-filas"><i class="fa fa-check"></i><b>9.2.1</b> Selección de columnas y filas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="datos.html"><a href="datos.html#primer-análisis-de-datos-arrestos-en-ee.-uu."><i class="fa fa-check"></i><b>9.2.2</b> Primer análisis de datos: arrestos en EE. UU.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="datos.html"><a href="datos.html#consejos-6"><i class="fa fa-check"></i><b>9.3</b> Consejos</a></li>
+<li class="chapter" data-level="9.4" data-path="datos.html"><a href="datos.html#ejercicios-6"><i class="fa fa-check"></i><b>9.4</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>10</b> Listas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="listas.html"><a href="listas.html#introducción-a-purrr"><i class="fa fa-check"></i><b>10.1</b> Introducción a purrr</a></li>
+<li class="chapter" data-level="10.2" data-path="listas.html"><a href="listas.html#ejercicios-7"><i class="fa fa-check"></i><b>10.2</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Haciendo el trabajo más fácil</b></span></li>
+<li class="chapter" data-level="11" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>11</b> Estructuras de control: if-else</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="if-else.html"><a href="if-else.html#if"><i class="fa fa-check"></i><b>11.1</b> if</a></li>
+<li class="chapter" data-level="11.2" data-path="if-else.html"><a href="if-else.html#if---else"><i class="fa fa-check"></i><b>11.2</b> if - else</a></li>
+<li class="chapter" data-level="11.3" data-path="if-else.html"><a href="if-else.html#if---else-anidados"><i class="fa fa-check"></i><b>11.3</b> if - else anidados</a></li>
+<li class="chapter" data-level="11.4" data-path="if-else.html"><a href="if-else.html#ifelse-vectorizado"><i class="fa fa-check"></i><b>11.4</b> ifelse () vectorizado</a></li>
+<li class="chapter" data-level="11.5" data-path="if-else.html"><a href="if-else.html#consejos-7"><i class="fa fa-check"></i><b>11.5</b> Consejos</a></li>
+<li class="chapter" data-level="11.6" data-path="if-else.html"><a href="if-else.html#ejercicios-8"><i class="fa fa-check"></i><b>11.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>12</b> Estructuras de control: bucles</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bucles.html"><a href="bucles.html#for"><i class="fa fa-check"></i><b>12.1</b> for</a></li>
+<li class="chapter" data-level="12.2" data-path="bucles.html"><a href="bucles.html#while"><i class="fa fa-check"></i><b>12.2</b> while</a></li>
+<li class="chapter" data-level="12.3" data-path="bucles.html"><a href="bucles.html#breaknext"><i class="fa fa-check"></i><b>12.3</b> break/next</a></li>
+<li class="chapter" data-level="12.4" data-path="bucles.html"><a href="bucles.html#repeat"><i class="fa fa-check"></i><b>12.4</b> repeat</a></li>
+<li class="chapter" data-level="12.5" data-path="bucles.html"><a href="bucles.html#consejos-8"><i class="fa fa-check"></i><b>12.5</b> Consejos</a></li>
+<li class="chapter" data-level="12.6" data-path="bucles.html"><a href="bucles.html#ejercicios-9"><i class="fa fa-check"></i><b>12.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="funs.html"><a href="funs.html"><i class="fa fa-check"></i><b>13</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="funs.html"><a href="funs.html#primera-función"><i class="fa fa-check"></i><b>13.1</b> Primera función</a></li>
+<li class="chapter" data-level="13.2" data-path="funs.html"><a href="funs.html#variables-localesglobales"><i class="fa fa-check"></i><b>13.2</b> Variables locales/globales</a></li>
+<li class="chapter" data-level="13.3" data-path="funs.html"><a href="funs.html#ejercicios-10"><i class="fa fa-check"></i><b>13.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyecto.html"><a href="proyecto.html"><i class="fa fa-check"></i><b>14</b> Proyecto de trabajo</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyecto.html"><a href="proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>14.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="14.2" data-path="proyecto.html"><a href="proyecto.html#directorios-de-trabajo-y-cabecera"><i class="fa fa-check"></i><b>14.2</b> Directorios de trabajo y cabecera</a></li>
+<li class="chapter" data-level="14.3" data-path="proyecto.html"><a href="proyecto.html#ejecución"><i class="fa fa-check"></i><b>14.3</b> Ejecución</a></li>
+<li class="chapter" data-level="14.4" data-path="proyecto.html"><a href="proyecto.html#consejos-9"><i class="fa fa-check"></i><b>14.4</b> Consejos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="importar-exportar.html"><a href="importar-exportar.html"><i class="fa fa-check"></i><b>15</b> Importar/exportar datos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="importar-exportar.html"><a href="importar-exportar.html#importar-datos"><i class="fa fa-check"></i><b>15.1</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic"><i class="fa fa-check"></i><b>15.1.1</b> Archivo .RData: pasajeros del RMS Titanic</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rda-pisos-en-boston"><i class="fa fa-check"></i><b>15.2</b> Archivo .rda: pisos en Boston</a></li>
+<li class="chapter" data-level="15.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat"><i class="fa fa-check"></i><b>15.3</b> Desde paquete: estadísticas del Eurostat</a></li>
+<li class="chapter" data-level="15.4" data-path="importar-exportar.html"><a href="importar-exportar.html#importando-datos-rectangulares"><i class="fa fa-check"></i><b>15.4</b> Importando datos RECTANGULARES</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="importar-exportar.html"><a href="importar-exportar.html#csv"><i class="fa fa-check"></i><b>15.4.1</b> CSV</a></li>
+<li class="chapter" data-level="15.4.2" data-path="importar-exportar.html"><a href="importar-exportar.html#txt"><i class="fa fa-check"></i><b>15.4.2</b> txt</a></li>
+<li class="chapter" data-level="15.4.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-web"><i class="fa fa-check"></i><b>15.4.3</b> DESDE WEB</a></li>
+<li class="chapter" data-level="15.4.4" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-readxl"><i class="fa fa-check"></i><b>15.4.4</b> EXCEL readxl</a></li>
+<li class="chapter" data-level="15.4.5" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-openxlsx"><i class="fa fa-check"></i><b>15.4.5</b> EXCEL openxlsx</a></li>
+<li class="chapter" data-level="15.4.6" data-path="importar-exportar.html"><a href="importar-exportar.html#googlesheet"><i class="fa fa-check"></i><b>15.4.6</b> googlesheet</a></li>
+<li class="chapter" data-level="15.4.7" data-path="importar-exportar.html"><a href="importar-exportar.html#sasspssstata"><i class="fa fa-check"></i><b>15.4.7</b> SAS/SPSS/STATA</a></li>
+<li class="chapter" data-level="15.4.8" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-api"><i class="fa fa-check"></i><b>15.4.8</b> desde API</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="importar-exportar.html"><a href="importar-exportar.html#exportación-de-datos"><i class="fa fa-check"></i><b>15.5</b> Exportación de datos</a></li>
+<li class="chapter" data-level="15.6" data-path="importar-exportar.html"><a href="importar-exportar.html#consejos-10"><i class="fa fa-check"></i><b>15.6</b> Consejos</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="importar-exportar.html"><a href="importar-exportar.html#exportando-datos-.rdata.rda"><i class="fa fa-check"></i><b>15.6.1</b> Exportando datos: .RData/.rda</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>16</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-una-variable-cuantitativa"><i class="fa fa-check"></i><b>16.1</b> Gráficos para una variable cuantitativa</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="gráficos.html"><a href="gráficos.html#función-stem"><i class="fa fa-check"></i><b>16.1.1</b> Función <code>stem ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.2" data-path="gráficos.html"><a href="gráficos.html#función-boxplot"><i class="fa fa-check"></i><b>16.1.2</b> Función <code>boxplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo 1</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo 2</a></li>
+<li class="chapter" data-level="16.1.3" data-path="gráficos.html"><a href="gráficos.html#función-hist"><i class="fa fa-check"></i><b>16.1.3</b> Función <code>hist ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.4" data-path="gráficos.html"><a href="gráficos.html#función-density"><i class="fa fa-check"></i><b>16.1.4</b> Función <code>density ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-dos-variables-cuantitativas"><i class="fa fa-check"></i><b>16.2</b> Gráficos para dos variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="gráficos.html"><a href="gráficos.html#función-plot"><i class="fa fa-check"></i><b>16.2.1</b> Función <code>plot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="16.2.2" data-path="gráficos.html"><a href="gráficos.html#función-pairs"><i class="fa fa-check"></i><b>16.2.2</b> Función <code>pairs ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-variables-categóricas"><i class="fa fa-check"></i><b>16.3</b> Gráficos para variables categóricas</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="gráficos.html"><a href="gráficos.html#función-barplot"><i class="fa fa-check"></i><b>16.3.1</b> Función <code>barplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.2" data-path="gráficos.html"><a href="gráficos.html#la-función-pie"><i class="fa fa-check"></i><b>16.3.2</b> La función <code>pie ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.3" data-path="gráficos.html"><a href="gráficos.html#función-dotchart"><i class="fa fa-check"></i><b>16.3.3</b> Función <code>dotchart ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="gráficos.html"><a href="gráficos.html#la-librería-lattice"><i class="fa fa-check"></i><b>16.4</b> La librería <code>lattice</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-2"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>17</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="r-markdown.html"><a href="r-markdown.html#introducción-1"><i class="fa fa-check"></i><b>17.1</b> Introducción</a></li>
+<li class="chapter" data-level="17.2" data-path="r-markdown.html"><a href="r-markdown.html#por-qué-r-markdown"><i class="fa fa-check"></i><b>17.2</b> ¿Por qué R Markdown?</a></li>
+<li class="chapter" data-level="17.3" data-path="r-markdown.html"><a href="r-markdown.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>17.3</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="17.4" data-path="r-markdown.html"><a href="r-markdown.html#cómo-crear-un-fichero-.rmd"><i class="fa fa-check"></i><b>17.4</b> ¿Cómo crear un fichero <code>.Rmd</code>?</a></li>
+<li class="chapter" data-level="17.5" data-path="r-markdown.html"><a href="r-markdown.html#cabeceras-yaml"><i class="fa fa-check"></i><b>17.5</b> Cabeceras YAML</a></li>
+<li class="chapter" data-level="17.6" data-path="r-markdown.html"><a href="r-markdown.html#sintáxis-básica-de-markdown"><i class="fa fa-check"></i><b>17.6</b> Sintáxis básica de Markdown</a></li>
+<li class="chapter" data-level="17.7" data-path="r-markdown.html"><a href="r-markdown.html#insertar-código-de-r"><i class="fa fa-check"></i><b>17.7</b> Insertar código de R</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="r-markdown.html"><a href="r-markdown.html#código-de-r-en-línea"><i class="fa fa-check"></i><b>17.7.1</b> Código de R en línea</a></li>
+<li class="chapter" data-level="17.7.2" data-path="r-markdown.html"><a href="r-markdown.html#bloques-chunks-de-código-r"><i class="fa fa-check"></i><b>17.7.2</b> Bloques (<em>chunks</em>) de código R</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="r-markdown.html"><a href="r-markdown.html#opciones-de-los-bloques-de-código-r"><i class="fa fa-check"></i><b>17.8</b> Opciones de los bloques de código R</a></li>
+<li class="chapter" data-level="17.9" data-path="r-markdown.html"><a href="r-markdown.html#figuras"><i class="fa fa-check"></i><b>17.9</b> Figuras</a></li>
+<li class="chapter" data-level="17.10" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i><b>17.10</b> Tablas</a></li>
+<li class="chapter" data-level="17.11" data-path="r-markdown.html"><a href="r-markdown.html#tabla-de-contenidos"><i class="fa fa-check"></i><b>17.11</b> Tabla de contenidos</a></li>
+<li class="chapter" data-level="17.12" data-path="r-markdown.html"><a href="r-markdown.html#caching"><i class="fa fa-check"></i><b>17.12</b> <em>Caching</em></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>18</b> Git y Github con Rstudio</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="git.html"><a href="git.html#git-y-github-junto-con-rstudio"><i class="fa fa-check"></i><b>18.1</b> Git y GitHub junto con RStudio</a></li>
+<li class="chapter" data-level="18.2" data-path="git.html"><a href="git.html#qué-es-git-qué-es-github"><i class="fa fa-check"></i><b>18.2</b> ¿Qué es Git? ¿Qué es GitHub?</a></li>
+<li class="chapter" data-level="18.3" data-path="git.html"><a href="git.html#instalar-git"><i class="fa fa-check"></i><b>18.3</b> Instalar Git</a></li>
+<li class="chapter" data-level="18.4" data-path="git.html"><a href="git.html#crear-cuenta-y-repositorio-en-github"><i class="fa fa-check"></i><b>18.4</b> Crear cuenta y repositorio en Github</a></li>
+<li class="chapter" data-level="18.5" data-path="git.html"><a href="git.html#configurar-git-editar-gitconfig-file"><i class="fa fa-check"></i><b>18.5</b> Configurar Git (Editar gitconfig file)</a></li>
+<li class="chapter" data-level="18.6" data-path="git.html"><a href="git.html#crear-un-token-de-acceso-personal-pat-en-github"><i class="fa fa-check"></i><b>18.6</b> Crear un token de acceso personal (PAT) en GitHub</a></li>
+<li class="chapter" data-level="18.7" data-path="git.html"><a href="git.html#almacenar-token-de-acceso-personal-para-conectar-rstudio-y-github"><i class="fa fa-check"></i><b>18.7</b> Almacenar token de acceso personal para conectar RStudio y GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="practica-final.html"><a href="practica-final.html"><i class="fa fa-check"></i><b>19</b> 📝 Práctica final</a></li>
+<li class="part"><span><b>III Recursos</b></span></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html"><i class="fa fa-check"></i>📝 Ejercicios recopilados</a>
+<ul>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#instalación"><i class="fa fa-check"></i>Instalación</a></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#primeros-pasos-1"><i class="fa fa-check"></i>Primeros pasos</a></li>
+<li class="chapter" data-level="19.1" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#variables-numéricas-y-de-texto"><i class="fa fa-check"></i><b>19.1</b> Variables numéricas y de texto</a></li>
+<li class="chapter" data-level="19.2" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#vectores-1"><i class="fa fa-check"></i><b>19.2</b> Vectores</a></li>
+<li class="chapter" data-level="19.3" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#operaciones-con-vectores"><i class="fa fa-check"></i><b>19.3</b> Operaciones con vectores</a></li>
+<li class="chapter" data-level="19.4" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#fechas-1"><i class="fa fa-check"></i><b>19.4</b> Fechas</a></li>
+<li class="chapter" data-level="19.5" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#datos-estructurados"><i class="fa fa-check"></i><b>19.5</b> Datos estructurados</a></li>
+<li class="chapter" data-level="19.6" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#listas-1"><i class="fa fa-check"></i><b>19.6</b> Listas</a></li>
+<li class="chapter" data-level="19.7" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-if-else"><i class="fa fa-check"></i><b>19.7</b> Estructuras if-else</a></li>
+<li class="chapter" data-level="19.8" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-for-y-while"><i class="fa fa-check"></i><b>19.8</b> Estructuras for y while</a></li>
+<li class="chapter" data-level="19.9" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#funciones"><i class="fa fa-check"></i><b>19.9</b> Funciones</a></li>
+<li class="chapter" data-level="19.10" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#practica-final-1"><i class="fa fa-check"></i><b>19.10</b> Practica final</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html"><i class="fa fa-check"></i>📚 Recursos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#aprendizajedocencia"><i class="fa fa-check"></i>Aprendizaje/docencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-datos"><i class="fa fa-check"></i>Manejo de datos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-textos"><i class="fa fa-check"></i>Manejo de textos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#datos.-importarexportar"><i class="fa fa-check"></i>Datos. Importar/exportar</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#dataviz"><i class="fa fa-check"></i>dataviz</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#mapas-y-datos-espaciales-en-r"><i class="fa fa-check"></i>Mapas y datos espaciales en R</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#colores-y-temas-en-dataviz-generales"><i class="fa fa-check"></i>Colores y temas en dataviz (generales)</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#análisis-exploratorio"><i class="fa fa-check"></i>Análisis exploratorio</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#modelización-e-inferencia"><i class="fa fa-check"></i>Modelización e inferencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#estadística-bayesiana"><i class="fa fa-check"></i>Estadística Bayesiana</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#informes-tablas-webs-libros-y-diapositivas"><i class="fa fa-check"></i>Informes, tablas, webs, libros y diapositivas</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#paquetesrecursos-curiosos"><i class="fa fa-check"></i>Paquetes/recursos curiosos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practica-final" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Chapter 19</span> 📝 Práctica final<a href="#practica-final" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>(haz click en las flechas para ver soluciones)</p>
+<details>
+<summary>
+<p><strong>Ejercicio 1</strong>: carga el fichero <code>titanic.RData</code> que tienes en la carpeta <code>datos</code> <a href="https://github.com/Crisben/uleam-stat24/tree/main/datos" class="uri">https://github.com/Crisben/uleam-stat24/tree/main/datos</a>.</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb1099"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1099-1"><a href="practica-final.html#cb1099-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;./DATOS/titanic.RData&quot;</span>)</span></code></pre></div>
+</details>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 2</strong>: obtén el número de individuos y de variables de nuestro dataset</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb1100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1100-1"><a href="practica-final.html#cb1100-1" tabindex="-1"></a><span class="fu">ncol</span>(titanic) <span class="co"># variables</span></span></code></pre></div>
+<pre><code>[1] 12</code></pre>
+<div class="sourceCode" id="cb1102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1102-1"><a href="practica-final.html#cb1102-1" tabindex="-1"></a><span class="fu">nrow</span>(titanic) <span class="co"># individuos</span></span></code></pre></div>
+<pre><code>[1] 891</code></pre>
+</details>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 3</strong>: ¿de qué tipo es la variable <code>Name</code>? ¿Y la variable <code>Pclass</code>? ¿Y la variable <code>Age</code>? ¿Y la variable <code>Survived</code></p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb1104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1104-1"><a href="practica-final.html#cb1104-1" tabindex="-1"></a><span class="fu">class</span>(titanic<span class="sc">$</span>Name) </span></code></pre></div>
+<pre><code>[1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb1106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1106-1"><a href="practica-final.html#cb1106-1" tabindex="-1"></a><span class="fu">class</span>(titanic<span class="sc">$</span>Pclass)</span></code></pre></div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb1108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1108-1"><a href="practica-final.html#cb1108-1" tabindex="-1"></a><span class="fu">class</span>(titanic<span class="sc">$</span>Age)</span></code></pre></div>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb1110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1110-1"><a href="practica-final.html#cb1110-1" tabindex="-1"></a><span class="fu">class</span>(titanic<span class="sc">$</span>Survived)</span></code></pre></div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+</details>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 4</strong>: internamente tenemos <code>0</code> y <code>1</code> pero la variable <code>Survived</code> en realidad debería ser variable lógica (<code>TRUE</code> si sobrevivió). Modifica la variable para ponter <code>TRUE</code> cuando vale <code>1</code> y <code>FALSE</code> en caso contrario</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb1112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1112-1"><a href="practica-final.html#cb1112-1" tabindex="-1"></a><span class="co"># Modo ifelse</span></span>
+<span id="cb1112-2"><a href="practica-final.html#cb1112-2" tabindex="-1"></a>titanic<span class="sc">$</span>Survived <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(titanic<span class="sc">$</span>Survived <span class="sc">==</span> <span class="dv">1</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb1112-3"><a href="practica-final.html#cb1112-3" tabindex="-1"></a></span>
+<span id="cb1112-4"><a href="practica-final.html#cb1112-4" tabindex="-1"></a><span class="co"># otra forma: modo bucle + if</span></span>
+<span id="cb1112-5"><a href="practica-final.html#cb1112-5" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;./DATOS/titanic.RData&quot;</span>)</span>
+<span id="cb1112-6"><a href="practica-final.html#cb1112-6" tabindex="-1"></a>nueva_variable <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="fu">length</span>(titanic<span class="sc">$</span>Survived))</span>
+<span id="cb1112-7"><a href="practica-final.html#cb1112-7" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(titanic<span class="sc">$</span>Survived)) {</span>
+<span id="cb1112-8"><a href="practica-final.html#cb1112-8" tabindex="-1"></a>  </span>
+<span id="cb1112-9"><a href="practica-final.html#cb1112-9" tabindex="-1"></a>  <span class="cf">if</span> (titanic<span class="sc">$</span>Survived[i] <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb1112-10"><a href="practica-final.html#cb1112-10" tabindex="-1"></a>    </span>
+<span id="cb1112-11"><a href="practica-final.html#cb1112-11" tabindex="-1"></a>    nueva_variable[i] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb1112-12"><a href="practica-final.html#cb1112-12" tabindex="-1"></a>    </span>
+<span id="cb1112-13"><a href="practica-final.html#cb1112-13" tabindex="-1"></a>  }</span>
+<span id="cb1112-14"><a href="practica-final.html#cb1112-14" tabindex="-1"></a>}</span>
+<span id="cb1112-15"><a href="practica-final.html#cb1112-15" tabindex="-1"></a>titanic<span class="sc">$</span>Survived <span class="ot">&lt;-</span> nueva_variable</span></code></pre></div>
+</details>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 5</strong>: en la variable <code>Name</code> tenemos guardado el nombre de los pasajeros, pero también su título (<code>Mr.</code>, <code>Mrs</code>, <code>Miss</code>, etc). Extrae los nombres de las personas con <code>Miss.</code></p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb1113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1113-1"><a href="practica-final.html#cb1113-1" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1113-2"><a href="practica-final.html#cb1113-2" tabindex="-1"></a><span class="co"># Con str_detect obtenemos un TRUE/FALSE</span></span>
+<span id="cb1113-3"><a href="practica-final.html#cb1113-3" tabindex="-1"></a>titanic<span class="sc">$</span>Name[<span class="fu">str_detect</span>(titanic<span class="sc">$</span>Name, <span class="at">pattern =</span> <span class="st">&quot;Miss.&quot;</span>)]</span></code></pre></div>
+<pre><code>  [1] &quot;Heikkinen, Miss. Laina&quot;                                               
+  [2] &quot;Sandstrom, Miss. Marguerite Rut&quot;                                      
+  [3] &quot;Bonnell, Miss. Elizabeth&quot;                                             
+  [4] &quot;Vestrom, Miss. Hulda Amanda Adolfina&quot;                                 
+  [5] &quot;McGowan, Miss. Anna \&quot;Annie\&quot;&quot;                                        
+  [6] &quot;Palsson, Miss. Torborg Danira&quot;                                        
+  [7] &quot;O&#39;Dwyer, Miss. Ellen \&quot;Nellie\&quot;&quot;                                      
+  [8] &quot;Glynn, Miss. Mary Agatha&quot;                                             
+  [9] &quot;Vander Planke, Miss. Augusta Maria&quot;                                   
+ [10] &quot;Nicola-Yarred, Miss. Jamila&quot;                                          
+ [11] &quot;Laroche, Miss. Simonne Marie Anne Andree&quot;                             
+ [12] &quot;Devaney, Miss. Margaret Delia&quot;                                        
+ [13] &quot;O&#39;Driscoll, Miss. Bridget&quot;                                            
+ [14] &quot;Rugg, Miss. Emily&quot;                                                    
+ [15] &quot;West, Miss. Constance Mirium&quot;                                         
+ [16] &quot;Icard, Miss. Amelie&quot;                                                  
+ [17] &quot;Andersson, Miss. Erna Alexandra&quot;                                      
+ [18] &quot;Goodwin, Miss. Lillian Amy&quot;                                           
+ [19] &quot;Dowdell, Miss. Elizabeth&quot;                                             
+ [20] &quot;McDermott, Miss. Brigdet Delia&quot;                                       
+ [21] &quot;Ilett, Miss. Bertha&quot;                                                  
+ [22] &quot;Fortune, Miss. Mabel Helen&quot;                                           
+ [23] &quot;Petranec, Miss. Matilda&quot;                                              
+ [24] &quot;Salkjelsvik, Miss. Anna Kristine&quot;                                     
+ [25] &quot;Moran, Miss. Bertha&quot;                                                  
+ [26] &quot;Zabour, Miss. Hileni&quot;                                                 
+ [27] &quot;Jussila, Miss. Katriina&quot;                                              
+ [28] &quot;Attalah, Miss. Malake&quot;                                                
+ [29] &quot;Andersson, Miss. Ellis Anna Maria&quot;                                    
+ [30] &quot;Webber, Miss. Susan&quot;                                                  
+ [31] &quot;Peter, Miss. Anna&quot;                                                    
+ [32] &quot;Newsom, Miss. Helen Monypeny&quot;                                         
+ [33] &quot;Nysten, Miss. Anna Sofia&quot;                                             
+ [34] &quot;Ford, Miss. Robina Maggie \&quot;Ruby\&quot;&quot;                                   
+ [35] &quot;Gilnagh, Miss. Katherine \&quot;Katie\&quot;&quot;                                   
+ [36] &quot;Johnson, Miss. Eleanor Ileen&quot;                                         
+ [37] &quot;Isham, Miss. Ann Elizabeth&quot;                                           
+ [38] &quot;Sage, Miss. Constance Gladys&quot;                                         
+ [39] &quot;Kink-Heilmann, Miss. Luise Gretchen&quot;                                  
+ [40] &quot;Andersen-Jensen, Miss. Carla Christine Nielsine&quot;                      
+ [41] &quot;Lurette, Miss. Elise&quot;                                                 
+ [42] &quot;Madigan, Miss. Margaret \&quot;Maggie\&quot;&quot;                                   
+ [43] &quot;Yrois, Miss. Henriette (\&quot;Mrs Harbeck\&quot;)&quot;                             
+ [44] &quot;Strom, Miss. Telma Matilda&quot;                                           
+ [45] &quot;Carr, Miss. Helen \&quot;Ellen\&quot;&quot;                                          
+ [46] &quot;Cameron, Miss. Clear Annie&quot;                                           
+ [47] &quot;Newell, Miss. Madeleine&quot;                                              
+ [48] &quot;Honkanen, Miss. Eliina&quot;                                               
+ [49] &quot;Bazzani, Miss. Albina&quot;                                                
+ [50] &quot;Lefebre, Miss. Mathilde&quot;                                              
+ [51] &quot;Asplund, Miss. Lillian Gertrud&quot;                                       
+ [52] &quot;Harknett, Miss. Alice Phoebe&quot;                                         
+ [53] &quot;Collyer, Miss. Marjorie \&quot;Lottie\&quot;&quot;                                   
+ [54] &quot;Zabour, Miss. Thamine&quot;                                                
+ [55] &quot;Murphy, Miss. Katherine \&quot;Kate\&quot;&quot;                                     
+ [56] &quot;Lindahl, Miss. Agda Thorilda Viktoria&quot;                                
+ [57] &quot;Cherry, Miss. Gladys&quot;                                                 
+ [58] &quot;Ward, Miss. Anna&quot;                                                     
+ [59] &quot;Henry, Miss. Delia&quot;                                                   
+ [60] &quot;Bissette, Miss. Amelia&quot;                                               
+ [61] &quot;Healy, Miss. Hanora \&quot;Nora\&quot;&quot;                                         
+ [62] &quot;Andrews, Miss. Kornelia Theodosia&quot;                                    
+ [63] &quot;Lindblom, Miss. Augusta Charlotta&quot;                                    
+ [64] &quot;Connolly, Miss. Kate&quot;                                                 
+ [65] &quot;Barber, Miss. Ellen \&quot;Nellie\&quot;&quot;                                       
+ [66] &quot;Haas, Miss. Aloisia&quot;                                                  
+ [67] &quot;Allison, Miss. Helen Loraine&quot;                                         
+ [68] &quot;Kelly, Miss. Anna Katherine \&quot;Annie Kate\&quot;&quot;                           
+ [69] &quot;Keane, Miss. Nora A&quot;                                                  
+ [70] &quot;Fleming, Miss. Margaret&quot;                                              
+ [71] &quot;Francatelli, Miss. Laura Mabel&quot;                                       
+ [72] &quot;Hays, Miss. Margaret Bechstein&quot;                                       
+ [73] &quot;Ryerson, Miss. Emily Borie&quot;                                           
+ [74] &quot;Nilsson, Miss. Helmina Josefina&quot;                                      
+ [75] &quot;Wick, Miss. Mary Natalie&quot;                                             
+ [76] &quot;Slayter, Miss. Hilda Mary&quot;                                            
+ [77] &quot;Young, Miss. Marie Grice&quot;                                             
+ [78] &quot;Hippach, Miss. Jean Gertrude&quot;                                         
+ [79] &quot;McCoy, Miss. Agnes&quot;                                                   
+ [80] &quot;Burns, Miss. Elizabeth Margaret&quot;                                      
+ [81] &quot;Fortune, Miss. Alice Elizabeth&quot;                                       
+ [82] &quot;Brown, Miss. Amelia \&quot;Mildred\&quot;&quot;                                      
+ [83] &quot;Smith, Miss. Marion Elsie&quot;                                            
+ [84] &quot;Bowerman, Miss. Elsie Edith&quot;                                          
+ [85] &quot;Funk, Miss. Annie Clemmer&quot;                                            
+ [86] &quot;McGovern, Miss. Mary&quot;                                                 
+ [87] &quot;Mockler, Miss. Helen Mary \&quot;Ellie\&quot;&quot;                                  
+ [88] &quot;Jermyn, Miss. Annie&quot;                                                  
+ [89] &quot;Palsson, Miss. Stina Viola&quot;                                           
+ [90] &quot;Landergren, Miss. Aurora Adelia&quot;                                      
+ [91] &quot;Bidois, Miss. Rosalie&quot;                                                
+ [92] &quot;Nakid, Miss. Maria (\&quot;Mary\&quot;)&quot;                                        
+ [93] &quot;Buss, Miss. Kate&quot;                                                     
+ [94] &quot;Lehmann, Miss. Bertha&quot;                                                
+ [95] &quot;Newell, Miss. Marjorie&quot;                                               
+ [96] &quot;Olsson, Miss. Elina&quot;                                                  
+ [97] &quot;Jussila, Miss. Mari Aina&quot;                                             
+ [98] &quot;Oreskovic, Miss. Marija&quot;                                              
+ [99] &quot;Lefebre, Miss. Ida&quot;                                                   
+[100] &quot;Minahan, Miss. Daisy E&quot;                                               
+[101] &quot;Silven, Miss. Lyyli Karoliina&quot;                                        
+[102] &quot;Van Impe, Miss. Catharina&quot;                                            
+[103] &quot;Phillips, Miss. Kate Florence (\&quot;Mrs Kate Louise Phillips Marshall\&quot;)&quot;
+[104] &quot;Carter, Miss. Lucile Polk&quot;                                            
+[105] &quot;Ford, Miss. Doolina Margaret \&quot;Daisy\&quot;&quot;                               
+[106] &quot;Mellinger, Miss. Madeleine Violet&quot;                                    
+[107] &quot;Baclini, Miss. Marie Catherine&quot;                                       
+[108] &quot;Toomey, Miss. Ellen&quot;                                                  
+[109] &quot;Baclini, Miss. Helene Barbara&quot;                                        
+[110] &quot;Strandberg, Miss. Ida Sofia&quot;                                          
+[111] &quot;Hirvonen, Miss. Hildur E&quot;                                             
+[112] &quot;Lefebre, Miss. Jeannie&quot;                                               
+[113] &quot;Eustis, Miss. Elizabeth Mussey&quot;                                       
+[114] &quot;Canavan, Miss. Mary&quot;                                                  
+[115] &quot;O&#39;Sullivan, Miss. Bridget Mary&quot;                                       
+[116] &quot;Laitinen, Miss. Kristina Sofia&quot;                                       
+[117] &quot;Maioni, Miss. Roberta&quot;                                                
+[118] &quot;Perreault, Miss. Anne&quot;                                                
+[119] &quot;Ridsdale, Miss. Lucy&quot;                                                 
+[120] &quot;Quick, Miss. Phyllis May&quot;                                             
+[121] &quot;Cacic, Miss. Marija&quot;                                                  
+[122] &quot;Hart, Miss. Eva Miriam&quot;                                               
+[123] &quot;LeRoy, Miss. Bertha&quot;                                                  
+[124] &quot;Frolicher, Miss. Hedwig Margaritha&quot;                                   
+[125] &quot;Crosby, Miss. Harriet R&quot;                                              
+[126] &quot;Andersson, Miss. Ingeborg Constanzia&quot;                                 
+[127] &quot;Andersson, Miss. Sigrid Elisabeth&quot;                                    
+[128] &quot;Ohman, Miss. Velin&quot;                                                   
+[129] &quot;Meanwell, Miss. (Marion Ogden)&quot;                                       
+[130] &quot;Kelly, Miss. Mary&quot;                                                    
+[131] &quot;Garside, Miss. Ethel&quot;                                                 
+[132] &quot;Christy, Miss. Julie Rachel&quot;                                          
+[133] &quot;Taussig, Miss. Ruth&quot;                                                  
+[134] &quot;Bourke, Miss. Mary&quot;                                                   
+[135] &quot;Leitch, Miss. Jessie Wills&quot;                                           
+[136] &quot;Shutes, Miss. Elizabeth W&quot;                                            
+[137] &quot;Murphy, Miss. Margaret Jane&quot;                                          
+[138] &quot;Herman, Miss. Alice&quot;                                                  
+[139] &quot;Becker, Miss. Marion Louise&quot;                                          
+[140] &quot;Longley, Miss. Gretchen Fiske&quot;                                        
+[141] &quot;Skoog, Miss. Mabel&quot;                                                   
+[142] &quot;Davis, Miss. Mary&quot;                                                    
+[143] &quot;Skoog, Miss. Margit Elizabeth&quot;                                        
+[144] &quot;Baclini, Miss. Eugenie&quot;                                               
+[145] &quot;Stanley, Miss. Amy Zillah Elsie&quot;                                      
+[146] &quot;Doling, Miss. Elsie&quot;                                                  
+[147] &quot;O&#39;Leary, Miss. Hanora \&quot;Norah\&quot;&quot;                                      
+[148] &quot;Hegarty, Miss. Hanora \&quot;Nora\&quot;&quot;                                       
+[149] &quot;Turja, Miss. Anna Sofia&quot;                                              
+[150] &quot;Peters, Miss. Katie&quot;                                                  
+[151] &quot;Madill, Miss. Georgette Alexandra&quot;                                    
+[152] &quot;Karun, Miss. Manca&quot;                                                   
+[153] &quot;Mullens, Miss. Katherine \&quot;Katie\&quot;&quot;                                   
+[154] &quot;Barbara, Miss. Saiide&quot;                                                
+[155] &quot;Cleaver, Miss. Alice&quot;                                                 
+[156] &quot;Endres, Miss. Caroline Louise&quot;                                        
+[157] &quot;Troutt, Miss. Edwina Celia \&quot;Winnie\&quot;&quot;                                
+[158] &quot;Harper, Miss. Annie Jessie \&quot;Nina\&quot;&quot;                                  
+[159] &quot;Mannion, Miss. Margareth&quot;                                             
+[160] &quot;Ilmakangas, Miss. Pieta Sofia&quot;                                        
+[161] &quot;Allen, Miss. Elisabeth Walton&quot;                                        
+[162] &quot;Ryerson, Miss. Susan Parker \&quot;Suzette\&quot;&quot;                              
+[163] &quot;Sinkkonen, Miss. Anna&quot;                                                
+[164] &quot;Wells, Miss. Joan&quot;                                                    
+[165] &quot;Mangan, Miss. Mary&quot;                                                   
+[166] &quot;Emanuel, Miss. Virginia Ethel&quot;                                        
+[167] &quot;Ayoub, Miss. Banoura&quot;                                                 
+[168] &quot;Sjoblom, Miss. Anna Sofia&quot;                                            
+[169] &quot;Sage, Miss. Stella Anna&quot;                                              
+[170] &quot;Pettersson, Miss. Ellen Natalia&quot;                                      
+[171] &quot;Andersson, Miss. Ebba Iris Alfrida&quot;                                   
+[172] &quot;Heininen, Miss. Wendla Maria&quot;                                         
+[173] &quot;Compton, Miss. Sara Rebecca&quot;                                          
+[174] &quot;Serepeca, Miss. Augusta&quot;                                              
+[175] &quot;Boulos, Miss. Nourelain&quot;                                              
+[176] &quot;Lines, Miss. Mary Conover&quot;                                            
+[177] &quot;Sage, Miss. Dorothy Edith \&quot;Dolly\&quot;&quot;                                  
+[178] &quot;Duran y More, Miss. Asuncion&quot;                                         
+[179] &quot;Najib, Miss. Adele Kiamie \&quot;Jane\&quot;&quot;                                   
+[180] &quot;Dahlberg, Miss. Gerda Ulrika&quot;                                         
+[181] &quot;Graham, Miss. Margaret Edith&quot;                                         
+[182] &quot;Johnston, Miss. Catherine Helen \&quot;Carrie\&quot;&quot;                           </code></pre>
+</details>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 6</strong>: calcula la media de edad de los pasajeros del Titanic (recuerda: si hay datos ausentes…). Haz lo mismo pero por sexos (male/female)</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb1115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1115-1"><a href="practica-final.html#cb1115-1" tabindex="-1"></a><span class="fu">mean</span>(titanic<span class="sc">$</span>Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>[1] 29.69912</code></pre>
+<div class="sourceCode" id="cb1117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1117-1"><a href="practica-final.html#cb1117-1" tabindex="-1"></a><span class="fu">mean</span>(titanic<span class="sc">$</span>Age[titanic<span class="sc">$</span>Sex <span class="sc">==</span> <span class="st">&quot;male&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>[1] 30.72664</code></pre>
+<div class="sourceCode" id="cb1119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1119-1"><a href="practica-final.html#cb1119-1" tabindex="-1"></a><span class="fu">mean</span>(titanic<span class="sc">$</span>Age[titanic<span class="sc">$</span>Sex <span class="sc">==</span> <span class="st">&quot;female&quot;</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>[1] 27.91571</code></pre>
+</details>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 7</strong>: ordena la edad de los pasajeros del Titanic de menor a mayor, y de mayor a menor</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb1121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1121-1"><a href="practica-final.html#cb1121-1" tabindex="-1"></a><span class="fu">sort</span>(titanic<span class="sc">$</span>Age) <span class="co"># menor a mayor</span></span></code></pre></div>
+<pre><code>  [1]  0.42  0.67  0.75  0.75  0.83  0.83  0.92  1.00  1.00  1.00  1.00  1.00  1.00  1.00  2.00  2.00  2.00  2.00  2.00  2.00  2.00
+ [22]  2.00  2.00  2.00  3.00  3.00  3.00  3.00  3.00  3.00  4.00  4.00  4.00  4.00  4.00  4.00  4.00  4.00  4.00  4.00  5.00  5.00
+ [43]  5.00  5.00  6.00  6.00  6.00  7.00  7.00  7.00  8.00  8.00  8.00  8.00  9.00  9.00  9.00  9.00  9.00  9.00  9.00  9.00 10.00
+ [64] 10.00 11.00 11.00 11.00 11.00 12.00 13.00 13.00 14.00 14.00 14.00 14.00 14.00 14.00 14.50 15.00 15.00 15.00 15.00 15.00 16.00
+ [85] 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 17.00 17.00 17.00 17.00 17.00
+[106] 17.00 17.00 17.00 17.00 17.00 17.00 17.00 17.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00
+[127] 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00
+[148] 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 20.00 20.00 20.00 20.00
+[169] 20.00 20.00 20.00 20.00 20.00 20.00 20.00 20.00 20.00 20.00 20.00 20.50 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00
+[190] 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 22.00 22.00 22.00 22.00 22.00 22.00
+[211] 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00
+[232] 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.50 24.00 24.00 24.00 24.00 24.00
+[253] 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00
+[274] 24.00 24.00 24.00 24.00 24.50 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00
+[295] 25.00 25.00 25.00 25.00 25.00 25.00 25.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00
+[316] 26.00 26.00 26.00 26.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00
+[337] 27.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00
+[358] 28.00 28.00 28.00 28.00 28.00 28.50 28.50 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00
+[379] 29.00 29.00 29.00 29.00 29.00 29.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00
+[400] 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.50 30.50 31.00 31.00 31.00 31.00 31.00 31.00 31.00 31.00 31.00
+[421] 31.00 31.00 31.00 31.00 31.00 31.00 31.00 31.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00
+[442] 32.00 32.00 32.00 32.00 32.00 32.50 32.50 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00
+[463] 33.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.50 35.00 35.00 35.00 35.00
+[484] 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00
+[505] 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.50 37.00 37.00 37.00 37.00 37.00
+[526] 37.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 39.00 39.00 39.00 39.00 39.00 39.00 39.00 39.00 39.00
+[547] 39.00 39.00 39.00 39.00 39.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.50 40.50 41.00
+[568] 41.00 41.00 41.00 41.00 41.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 43.00 43.00 43.00
+[589] 43.00 43.00 44.00 44.00 44.00 44.00 44.00 44.00 44.00 44.00 44.00 45.00 45.00 45.00 45.00 45.00 45.00 45.00 45.00 45.00 45.00
+[610] 45.00 45.00 45.50 45.50 46.00 46.00 46.00 47.00 47.00 47.00 47.00 47.00 47.00 47.00 47.00 47.00 48.00 48.00 48.00 48.00 48.00
+[631] 48.00 48.00 48.00 48.00 49.00 49.00 49.00 49.00 49.00 49.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 51.00
+[652] 51.00 51.00 51.00 51.00 51.00 51.00 52.00 52.00 52.00 52.00 52.00 52.00 53.00 54.00 54.00 54.00 54.00 54.00 54.00 54.00 54.00
+[673] 55.00 55.00 55.50 56.00 56.00 56.00 56.00 57.00 57.00 58.00 58.00 58.00 58.00 58.00 59.00 59.00 60.00 60.00 60.00 60.00 61.00
+[694] 61.00 61.00 62.00 62.00 62.00 62.00 63.00 63.00 64.00 64.00 65.00 65.00 65.00 66.00 70.00 70.00 70.50 71.00 71.00 74.00 80.00</code></pre>
+<div class="sourceCode" id="cb1123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1123-1"><a href="practica-final.html#cb1123-1" tabindex="-1"></a><span class="fu">sort</span>(titanic<span class="sc">$</span>Age, <span class="at">decreasing =</span> <span class="cn">TRUE</span>) <span class="co"># mayor a menor</span></span></code></pre></div>
+<pre><code>  [1] 80.00 74.00 71.00 71.00 70.50 70.00 70.00 66.00 65.00 65.00 65.00 64.00 64.00 63.00 63.00 62.00 62.00 62.00 62.00 61.00 61.00
+ [22] 61.00 60.00 60.00 60.00 60.00 59.00 59.00 58.00 58.00 58.00 58.00 58.00 57.00 57.00 56.00 56.00 56.00 56.00 55.50 55.00 55.00
+ [43] 54.00 54.00 54.00 54.00 54.00 54.00 54.00 54.00 53.00 52.00 52.00 52.00 52.00 52.00 52.00 51.00 51.00 51.00 51.00 51.00 51.00
+ [64] 51.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 50.00 49.00 49.00 49.00 49.00 49.00 49.00 48.00 48.00 48.00 48.00
+ [85] 48.00 48.00 48.00 48.00 48.00 47.00 47.00 47.00 47.00 47.00 47.00 47.00 47.00 47.00 46.00 46.00 46.00 45.50 45.50 45.00 45.00
+[106] 45.00 45.00 45.00 45.00 45.00 45.00 45.00 45.00 45.00 45.00 44.00 44.00 44.00 44.00 44.00 44.00 44.00 44.00 44.00 43.00 43.00
+[127] 43.00 43.00 43.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 42.00 41.00 41.00 41.00 41.00 41.00
+[148] 41.00 40.50 40.50 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 40.00 39.00 39.00 39.00 39.00 39.00
+[169] 39.00 39.00 39.00 39.00 39.00 39.00 39.00 39.00 39.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 38.00 37.00
+[190] 37.00 37.00 37.00 37.00 37.00 36.50 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00 36.00
+[211] 36.00 36.00 36.00 36.00 36.00 36.00 36.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00 35.00
+[232] 35.00 35.00 35.00 35.00 34.50 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 34.00 33.00
+[253] 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 33.00 32.50 32.50 32.00 32.00 32.00 32.00 32.00
+[274] 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 32.00 31.00 31.00 31.00 31.00 31.00 31.00 31.00 31.00
+[295] 31.00 31.00 31.00 31.00 31.00 31.00 31.00 31.00 31.00 30.50 30.50 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00
+[316] 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 30.00 29.00 29.00 29.00 29.00 29.00 29.00
+[337] 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 29.00 28.50 28.50 28.00 28.00 28.00 28.00 28.00
+[358] 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 28.00 27.00
+[379] 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 27.00 26.00 26.00 26.00 26.00
+[400] 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 26.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00
+[421] 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 25.00 24.50 24.00 24.00 24.00 24.00
+[442] 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00 24.00
+[463] 24.00 24.00 24.00 24.00 24.00 23.50 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00 23.00
+[484] 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00 22.00
+[505] 22.00 22.00 22.00 22.00 22.00 22.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00
+[526] 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 21.00 20.50 20.00 20.00 20.00 20.00 20.00 20.00 20.00 20.00 20.00 20.00 20.00
+[547] 20.00 20.00 20.00 20.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00
+[568] 19.00 19.00 19.00 19.00 19.00 19.00 19.00 19.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00
+[589] 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 18.00 17.00 17.00 17.00 17.00 17.00 17.00 17.00 17.00
+[610] 17.00 17.00 17.00 17.00 17.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00 16.00
+[631] 16.00 15.00 15.00 15.00 15.00 15.00 14.50 14.00 14.00 14.00 14.00 14.00 14.00 13.00 13.00 12.00 11.00 11.00 11.00 11.00 10.00
+[652] 10.00  9.00  9.00  9.00  9.00  9.00  9.00  9.00  9.00  8.00  8.00  8.00  8.00  7.00  7.00  7.00  6.00  6.00  6.00  5.00  5.00
+[673]  5.00  5.00  4.00  4.00  4.00  4.00  4.00  4.00  4.00  4.00  4.00  4.00  3.00  3.00  3.00  3.00  3.00  3.00  2.00  2.00  2.00
+[694]  2.00  2.00  2.00  2.00  2.00  2.00  2.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  0.92  0.83  0.83  0.75  0.75  0.67  0.42</code></pre>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 8</strong>: vamos a clasificar a los pasajeros según su edad en <code>"mayores de edad"</code> y <code>"menores de edad"</code>. Crea un función que, dada una edad, nos diga si es mayor o menor de edad. Aplícala después a nuestra variable <code>Age</code> y guarda el resultado en una variable <code>edad_recodificada</code> que añadamos a los datos originales</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb1125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1125-1"><a href="practica-final.html#cb1125-1" tabindex="-1"></a><span class="co"># Definimos función</span></span>
+<span id="cb1125-2"><a href="practica-final.html#cb1125-2" tabindex="-1"></a>menor_edad <span class="ot">&lt;-</span> <span class="cf">function</span>(edad) {</span>
+<span id="cb1125-3"><a href="practica-final.html#cb1125-3" tabindex="-1"></a>  </span>
+<span id="cb1125-4"><a href="practica-final.html#cb1125-4" tabindex="-1"></a>  salida <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(edad <span class="sc">&lt;</span> <span class="dv">18</span>, <span class="st">&quot;menores de edad&quot;</span>, <span class="st">&quot;mayores de edad&quot;</span>)</span>
+<span id="cb1125-5"><a href="practica-final.html#cb1125-5" tabindex="-1"></a>  <span class="fu">return</span>(salida)</span>
+<span id="cb1125-6"><a href="practica-final.html#cb1125-6" tabindex="-1"></a>}</span>
+<span id="cb1125-7"><a href="practica-final.html#cb1125-7" tabindex="-1"></a></span>
+<span id="cb1125-8"><a href="practica-final.html#cb1125-8" tabindex="-1"></a><span class="co"># Creamos nueva variable</span></span>
+<span id="cb1125-9"><a href="practica-final.html#cb1125-9" tabindex="-1"></a>titanic<span class="sc">$</span>edad_recodificada <span class="ot">&lt;-</span> <span class="fu">menor_edad</span>(titanic<span class="sc">$</span>Age) <span class="co"># se aplica elemento a elemento</span></span>
+<span id="cb1125-10"><a href="practica-final.html#cb1125-10" tabindex="-1"></a>titanic<span class="sc">$</span>edad_recodificada <span class="co"># habrá NA</span></span></code></pre></div>
+<pre><code>  [1] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+  [8] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+ [15] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+ [22] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+ [29] NA                NA                &quot;mayores de edad&quot; NA                NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+ [36] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+ [43] NA                &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                NA                NA                NA               
+ [50] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+ [57] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+ [64] &quot;menores de edad&quot; NA                NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot;
+ [71] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+ [78] NA                &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+ [85] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+ [92] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+ [99] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[106] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;menores de edad&quot;
+[113] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[120] &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot;
+[127] NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[134] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot;
+[141] NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[148] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[155] NA                &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                NA                &quot;mayores de edad&quot;
+[162] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; NA                &quot;mayores de edad&quot;
+[169] NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[176] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                NA               
+[183] &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; NA                NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[190] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[197] NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[204] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot;
+[211] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[218] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[225] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[232] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;menores de edad&quot;
+[239] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[246] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[253] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[260] &quot;mayores de edad&quot; NA                &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[267] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[274] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;menores de edad&quot; &quot;mayores de edad&quot;
+[281] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[288] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[295] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; NA               
+[302] NA                &quot;mayores de edad&quot; NA                NA                &quot;menores de edad&quot; NA                &quot;menores de edad&quot;
+[309] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[316] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[323] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[330] &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; NA                NA               
+[337] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[344] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;menores de edad&quot; &quot;mayores de edad&quot;
+[351] &quot;mayores de edad&quot; NA                &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[358] &quot;mayores de edad&quot; NA                NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[365] NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[372] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[379] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[386] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[393] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[400] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[407] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                NA                NA                &quot;mayores de edad&quot;
+[414] NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot;
+[421] NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[428] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;menores de edad&quot;
+[435] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[442] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot;
+[449] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[456] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[463] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA               
+[470] &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[477] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; NA                &quot;mayores de edad&quot;
+[484] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot;
+[491] NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[498] NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[505] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[512] NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[519] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA               
+[526] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; NA               
+[533] &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[540] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[547] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA               
+[554] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[561] NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[568] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[575] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[582] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[589] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[596] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[603] NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[610] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                NA                NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[617] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[624] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[631] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[638] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; NA               
+[645] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA               
+[652] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[659] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[666] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[673] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[680] &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[687] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; NA               
+[694] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[701] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[708] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[715] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;menores de edad&quot;
+[722] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[729] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[736] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                NA                NA                &quot;mayores de edad&quot;
+[743] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[750] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot;
+[757] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[764] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[771] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[778] &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA               
+[785] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA               
+[792] &quot;menores de edad&quot; NA                NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[799] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot;
+[806] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[813] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[820] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; NA               
+[827] NA                &quot;menores de edad&quot; NA                &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot; NA               
+[834] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; NA               
+[841] &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;mayores de edad&quot; NA               
+[848] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;menores de edad&quot; &quot;menores de edad&quot;
+[855] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot;
+[862] &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[869] NA                &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[876] &quot;menores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA                &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot;
+[883] &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; &quot;mayores de edad&quot; NA               
+[890] &quot;mayores de edad&quot; &quot;mayores de edad&quot;</code></pre>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 9</strong>: el accidente del Titanic se produjo el 15 de abril de 1912. Tomando dicha fecha como referencia, usa la edad de los pasajeros para añadir una nueva variable que sea la fecha de nacimiento.</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb1127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1127-1"><a href="practica-final.html#cb1127-1" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1127-2"><a href="practica-final.html#cb1127-2" tabindex="-1"></a><span class="co"># Fecha accidente</span></span>
+<span id="cb1127-3"><a href="practica-final.html#cb1127-3" tabindex="-1"></a>accidente <span class="ot">&lt;-</span> <span class="fu">as_date</span>(<span class="st">&quot;1912/04/15&quot;</span>)</span>
+<span id="cb1127-4"><a href="practica-final.html#cb1127-4" tabindex="-1"></a></span>
+<span id="cb1127-5"><a href="practica-final.html#cb1127-5" tabindex="-1"></a><span class="co"># Creamos nueva variable: fecha del accidente - años</span></span>
+<span id="cb1127-6"><a href="practica-final.html#cb1127-6" tabindex="-1"></a><span class="co"># (saldrán todos nacidos el 15 de abril, ya que no sabemos</span></span>
+<span id="cb1127-7"><a href="practica-final.html#cb1127-7" tabindex="-1"></a><span class="co"># cuantos meses cumplían en el momento del accidente)</span></span>
+<span id="cb1127-8"><a href="practica-final.html#cb1127-8" tabindex="-1"></a>titanic<span class="sc">$</span>fecha_nacimiento <span class="ot">&lt;-</span> accidente <span class="sc">-</span> titanic<span class="sc">$</span>Age</span>
+<span id="cb1127-9"><a href="practica-final.html#cb1127-9" tabindex="-1"></a>titanic<span class="sc">$</span>fecha_nacimiento </span></code></pre></div>
+<pre><code>  [1] &quot;1912-03-24&quot; &quot;1912-03-08&quot; &quot;1912-03-20&quot; &quot;1912-03-11&quot; &quot;1912-03-11&quot; NA           &quot;1912-02-21&quot; &quot;1912-04-13&quot; &quot;1912-03-19&quot; &quot;1912-04-01&quot;
+ [11] &quot;1912-04-11&quot; &quot;1912-02-17&quot; &quot;1912-03-26&quot; &quot;1912-03-07&quot; &quot;1912-04-01&quot; &quot;1912-02-20&quot; &quot;1912-04-13&quot; NA           &quot;1912-03-15&quot; NA          
+ [21] &quot;1912-03-11&quot; &quot;1912-03-12&quot; &quot;1912-03-31&quot; &quot;1912-03-18&quot; &quot;1912-04-07&quot; &quot;1912-03-08&quot; NA           &quot;1912-03-27&quot; NA           NA          
+ [31] &quot;1912-03-06&quot; NA           NA           &quot;1912-02-09&quot; &quot;1912-03-18&quot; &quot;1912-03-04&quot; NA           &quot;1912-03-25&quot; &quot;1912-03-28&quot; &quot;1912-04-01&quot;
+ [41] &quot;1912-03-06&quot; &quot;1912-03-19&quot; NA           &quot;1912-04-12&quot; &quot;1912-03-27&quot; NA           NA           NA           NA           &quot;1912-03-28&quot;
+ [51] &quot;1912-04-08&quot; &quot;1912-03-25&quot; &quot;1912-02-26&quot; &quot;1912-03-17&quot; &quot;1912-02-10&quot; NA           &quot;1912-03-25&quot; &quot;1912-03-17&quot; &quot;1912-04-10&quot; &quot;1912-04-04&quot;
+ [61] &quot;1912-03-24&quot; &quot;1912-03-08&quot; &quot;1912-03-01&quot; &quot;1912-04-11&quot; NA           NA           &quot;1912-03-17&quot; &quot;1912-03-27&quot; &quot;1912-03-29&quot; &quot;1912-03-20&quot;
+ [71] &quot;1912-03-14&quot; &quot;1912-03-30&quot; &quot;1912-03-25&quot; &quot;1912-03-20&quot; &quot;1912-03-14&quot; &quot;1912-03-21&quot; NA           NA           &quot;1912-04-14&quot; &quot;1912-03-16&quot;
+ [81] &quot;1912-03-24&quot; &quot;1912-03-17&quot; NA           &quot;1912-03-18&quot; &quot;1912-03-29&quot; &quot;1912-03-13&quot; &quot;1912-03-30&quot; NA           &quot;1912-03-23&quot; &quot;1912-03-22&quot;
+ [91] &quot;1912-03-17&quot; &quot;1912-03-26&quot; &quot;1912-02-29&quot; &quot;1912-03-20&quot; &quot;1912-02-16&quot; NA           &quot;1912-02-04&quot; &quot;1912-03-23&quot; &quot;1912-03-12&quot; &quot;1912-03-12&quot;
+[101] &quot;1912-03-18&quot; NA           &quot;1912-03-25&quot; &quot;1912-03-13&quot; &quot;1912-03-09&quot; &quot;1912-03-18&quot; &quot;1912-03-25&quot; NA           &quot;1912-03-08&quot; NA          
+[111] &quot;1912-02-28&quot; &quot;1912-03-31&quot; &quot;1912-03-24&quot; &quot;1912-03-26&quot; &quot;1912-03-29&quot; &quot;1912-03-25&quot; &quot;1912-02-04&quot; &quot;1912-03-17&quot; &quot;1912-03-22&quot; &quot;1912-04-13&quot;
+[121] &quot;1912-03-25&quot; NA           &quot;1912-03-13&quot; &quot;1912-03-13&quot; &quot;1912-02-21&quot; &quot;1912-04-03&quot; NA           &quot;1912-03-22&quot; NA           &quot;1912-03-01&quot;
+[131] &quot;1912-03-13&quot; &quot;1912-03-26&quot; &quot;1912-02-28&quot; &quot;1912-03-17&quot; &quot;1912-03-21&quot; &quot;1912-03-23&quot; &quot;1912-03-27&quot; &quot;1912-03-09&quot; &quot;1912-03-30&quot; &quot;1912-03-22&quot;
+[141] NA           &quot;1912-03-24&quot; &quot;1912-03-22&quot; &quot;1912-03-27&quot; &quot;1912-03-28&quot; &quot;1912-03-27&quot; &quot;1912-03-19&quot; &quot;1912-04-06&quot; &quot;1912-03-09&quot; &quot;1912-03-04&quot;
+[151] &quot;1912-02-24&quot; &quot;1912-03-24&quot; &quot;1912-02-19&quot; &quot;1912-03-05&quot; NA           &quot;1912-02-24&quot; &quot;1912-03-30&quot; &quot;1912-03-16&quot; NA           NA          
+[161] &quot;1912-03-02&quot; &quot;1912-03-06&quot; &quot;1912-03-20&quot; &quot;1912-03-29&quot; &quot;1912-04-14&quot; &quot;1912-04-06&quot; NA           &quot;1912-03-01&quot; NA           &quot;1912-03-18&quot;
+[171] &quot;1912-02-14&quot; &quot;1912-04-11&quot; &quot;1912-04-14&quot; &quot;1912-03-25&quot; &quot;1912-02-19&quot; &quot;1912-03-28&quot; NA           &quot;1912-02-25&quot; &quot;1912-03-16&quot; &quot;1912-03-10&quot;
+[181] NA           NA           &quot;1912-04-06&quot; &quot;1912-04-14&quot; &quot;1912-04-11&quot; NA           NA           &quot;1912-03-01&quot; &quot;1912-03-06&quot; &quot;1912-03-10&quot;
+[191] &quot;1912-03-14&quot; &quot;1912-03-27&quot; &quot;1912-03-27&quot; &quot;1912-04-12&quot; &quot;1912-03-02&quot; &quot;1912-02-17&quot; NA           &quot;1912-03-04&quot; NA           &quot;1912-03-22&quot;
+[201] &quot;1912-03-18&quot; NA           &quot;1912-03-12&quot; &quot;1912-02-29&quot; &quot;1912-03-28&quot; &quot;1912-04-13&quot; &quot;1912-03-14&quot; &quot;1912-03-20&quot; &quot;1912-03-30&quot; &quot;1912-03-06&quot;
+[211] &quot;1912-03-22&quot; &quot;1912-03-11&quot; &quot;1912-03-24&quot; &quot;1912-03-16&quot; NA           &quot;1912-03-15&quot; &quot;1912-03-19&quot; &quot;1912-03-04&quot; &quot;1912-03-14&quot; &quot;1912-03-16&quot;
+[221] &quot;1912-03-30&quot; &quot;1912-03-19&quot; &quot;1912-02-24&quot; NA           &quot;1912-03-08&quot; &quot;1912-03-24&quot; &quot;1912-03-27&quot; &quot;1912-03-25&quot; &quot;1912-03-28&quot; NA          
+[231] &quot;1912-03-11&quot; &quot;1912-03-17&quot; &quot;1912-02-16&quot; &quot;1912-04-10&quot; &quot;1912-03-22&quot; NA           &quot;1912-03-02&quot; &quot;1912-04-07&quot; &quot;1912-03-27&quot; &quot;1912-03-13&quot;
+[241] NA           NA           &quot;1912-03-17&quot; &quot;1912-03-24&quot; &quot;1912-03-16&quot; &quot;1912-03-02&quot; &quot;1912-03-21&quot; &quot;1912-03-22&quot; &quot;1912-03-09&quot; &quot;1912-02-21&quot;
+[251] NA           &quot;1912-03-17&quot; &quot;1912-02-13&quot; &quot;1912-03-16&quot; &quot;1912-03-05&quot; &quot;1912-03-17&quot; NA           &quot;1912-03-16&quot; &quot;1912-03-11&quot; &quot;1912-02-25&quot;
+[261] NA           &quot;1912-04-12&quot; &quot;1912-02-23&quot; &quot;1912-03-06&quot; NA           &quot;1912-03-10&quot; &quot;1912-03-30&quot; &quot;1912-03-21&quot; &quot;1912-02-17&quot; &quot;1912-03-11&quot;
+[271] NA           &quot;1912-03-21&quot; &quot;1912-03-05&quot; &quot;1912-03-09&quot; NA           &quot;1912-02-12&quot; &quot;1912-03-01&quot; NA           &quot;1912-04-08&quot; &quot;1912-03-11&quot;
+[281] &quot;1912-02-10&quot; &quot;1912-03-18&quot; &quot;1912-03-30&quot; &quot;1912-03-27&quot; NA           &quot;1912-03-13&quot; &quot;1912-03-16&quot; &quot;1912-03-24&quot; &quot;1912-03-04&quot; &quot;1912-03-24&quot;
+[291] &quot;1912-03-20&quot; &quot;1912-03-27&quot; &quot;1912-03-10&quot; &quot;1912-03-22&quot; &quot;1912-03-22&quot; NA           &quot;1912-03-22&quot; &quot;1912-04-13&quot; NA           &quot;1912-02-25&quot;
+[301] NA           NA           &quot;1912-03-27&quot; NA           NA           &quot;1912-04-14&quot; NA           &quot;1912-03-29&quot; &quot;1912-03-16&quot; &quot;1912-03-16&quot;
+[311] &quot;1912-03-22&quot; &quot;1912-03-28&quot; &quot;1912-03-20&quot; &quot;1912-03-18&quot; &quot;1912-03-03&quot; &quot;1912-03-20&quot; &quot;1912-03-22&quot; &quot;1912-02-21&quot; &quot;1912-03-15&quot; &quot;1912-03-06&quot;
+[321] &quot;1912-03-24&quot; &quot;1912-03-19&quot; &quot;1912-03-16&quot; &quot;1912-03-24&quot; NA           &quot;1912-03-10&quot; &quot;1912-02-14&quot; &quot;1912-03-10&quot; &quot;1912-03-15&quot; &quot;1912-03-30&quot;
+[331] NA           &quot;1912-02-29&quot; &quot;1912-03-08&quot; &quot;1912-03-30&quot; NA           NA           &quot;1912-03-17&quot; &quot;1912-03-05&quot; &quot;1912-03-01&quot; &quot;1912-03-01&quot;
+[341] &quot;1912-04-13&quot; &quot;1912-03-22&quot; &quot;1912-03-18&quot; &quot;1912-03-21&quot; &quot;1912-03-10&quot; &quot;1912-03-22&quot; &quot;1912-03-06&quot; NA           &quot;1912-04-12&quot; &quot;1912-03-04&quot;
+[351] &quot;1912-03-23&quot; NA           &quot;1912-03-31&quot; &quot;1912-03-21&quot; NA           &quot;1912-03-18&quot; &quot;1912-03-24&quot; &quot;1912-03-08&quot; NA           NA          
+[361] &quot;1912-03-06&quot; &quot;1912-03-17&quot; &quot;1912-03-01&quot; &quot;1912-03-11&quot; NA           &quot;1912-03-16&quot; &quot;1912-02-15&quot; NA           NA           &quot;1912-03-22&quot;
+[371] &quot;1912-03-21&quot; &quot;1912-03-28&quot; &quot;1912-03-27&quot; &quot;1912-03-24&quot; &quot;1912-04-12&quot; NA           &quot;1912-03-24&quot; &quot;1912-03-19&quot; &quot;1912-03-26&quot; &quot;1912-03-27&quot;
+[381] &quot;1912-03-04&quot; &quot;1912-04-14&quot; &quot;1912-03-14&quot; &quot;1912-03-11&quot; NA           &quot;1912-03-28&quot; &quot;1912-04-14&quot; &quot;1912-03-10&quot; NA           &quot;1912-03-29&quot;
+[391] &quot;1912-03-10&quot; &quot;1912-03-25&quot; &quot;1912-03-18&quot; &quot;1912-03-23&quot; &quot;1912-03-22&quot; &quot;1912-03-24&quot; &quot;1912-03-15&quot; &quot;1912-02-29&quot; &quot;1912-03-23&quot; &quot;1912-03-18&quot;
+[401] &quot;1912-03-07&quot; &quot;1912-03-20&quot; &quot;1912-03-25&quot; &quot;1912-03-18&quot; &quot;1912-03-26&quot; &quot;1912-03-12&quot; &quot;1912-02-24&quot; &quot;1912-04-12&quot; &quot;1912-03-25&quot; NA          
+[411] NA           NA           &quot;1912-03-13&quot; NA           &quot;1912-03-02&quot; NA           &quot;1912-03-12&quot; &quot;1912-03-28&quot; &quot;1912-03-16&quot; &quot;1912-04-05&quot;
+[421] NA           &quot;1912-03-25&quot; &quot;1912-03-17&quot; &quot;1912-03-18&quot; &quot;1912-03-28&quot; NA           &quot;1912-03-18&quot; &quot;1912-03-27&quot; NA           &quot;1912-03-14&quot;
+[431] &quot;1912-03-18&quot; NA           &quot;1912-03-04&quot; &quot;1912-03-29&quot; &quot;1912-02-25&quot; &quot;1912-04-01&quot; &quot;1912-03-25&quot; &quot;1912-03-22&quot; &quot;1912-02-11&quot; &quot;1912-03-15&quot;
+[441] &quot;1912-03-01&quot; &quot;1912-03-26&quot; &quot;1912-03-21&quot; &quot;1912-03-18&quot; NA           &quot;1912-04-11&quot; &quot;1912-04-02&quot; &quot;1912-03-12&quot; &quot;1912-04-10&quot; &quot;1912-02-23&quot;
+[451] &quot;1912-03-10&quot; NA           &quot;1912-03-16&quot; &quot;1912-02-26&quot; NA           &quot;1912-03-17&quot; &quot;1912-02-10&quot; NA           &quot;1912-02-25&quot; NA          
+[461] &quot;1912-02-27&quot; &quot;1912-03-12&quot; &quot;1912-02-28&quot; &quot;1912-02-27&quot; NA           &quot;1912-03-08&quot; NA           &quot;1912-02-19&quot; NA           &quot;1912-04-14&quot;
+[471] NA           &quot;1912-03-08&quot; &quot;1912-03-13&quot; &quot;1912-03-23&quot; &quot;1912-03-24&quot; NA           &quot;1912-03-12&quot; &quot;1912-03-17&quot; &quot;1912-03-24&quot; &quot;1912-04-13&quot;
+[481] &quot;1912-04-06&quot; NA           &quot;1912-02-25&quot; &quot;1912-02-12&quot; &quot;1912-03-21&quot; NA           &quot;1912-03-11&quot; &quot;1912-02-17&quot; &quot;1912-03-16&quot; &quot;1912-04-06&quot;
+[491] NA           &quot;1912-03-25&quot; &quot;1912-02-20&quot; &quot;1912-02-04&quot; &quot;1912-03-25&quot; NA           &quot;1912-02-21&quot; NA           &quot;1912-03-21&quot; &quot;1912-03-22&quot;
+[501] &quot;1912-03-29&quot; &quot;1912-03-25&quot; NA           &quot;1912-03-09&quot; &quot;1912-03-30&quot; &quot;1912-03-28&quot; &quot;1912-03-13&quot; NA           &quot;1912-03-18&quot; &quot;1912-03-20&quot;
+[511] &quot;1912-03-17&quot; NA           &quot;1912-03-10&quot; &quot;1912-02-21&quot; &quot;1912-03-22&quot; &quot;1912-02-28&quot; &quot;1912-03-12&quot; NA           &quot;1912-03-10&quot; &quot;1912-03-14&quot;
+[521] &quot;1912-03-16&quot; &quot;1912-03-24&quot; NA           &quot;1912-03-02&quot; NA           &quot;1912-03-05&quot; &quot;1912-02-25&quot; NA           &quot;1912-03-07&quot; &quot;1912-03-23&quot;
+[531] &quot;1912-04-13&quot; NA           &quot;1912-03-29&quot; NA           &quot;1912-03-16&quot; &quot;1912-04-08&quot; &quot;1912-03-01&quot; &quot;1912-03-16&quot; NA           &quot;1912-03-24&quot;
+[541] &quot;1912-03-10&quot; &quot;1912-04-06&quot; &quot;1912-04-04&quot; &quot;1912-03-14&quot; &quot;1912-02-25&quot; &quot;1912-02-11&quot; &quot;1912-03-27&quot; NA           &quot;1912-03-13&quot; &quot;1912-04-07&quot;
+[551] &quot;1912-03-29&quot; &quot;1912-03-19&quot; NA           &quot;1912-03-24&quot; &quot;1912-03-24&quot; &quot;1912-02-13&quot; &quot;1912-02-27&quot; NA           &quot;1912-03-07&quot; &quot;1912-03-10&quot;
+[561] NA           &quot;1912-03-06&quot; &quot;1912-03-18&quot; NA           NA           &quot;1912-03-22&quot; &quot;1912-03-27&quot; &quot;1912-03-17&quot; NA           &quot;1912-03-14&quot;
+[571] &quot;1912-02-13&quot; &quot;1912-02-22&quot; &quot;1912-03-10&quot; NA           &quot;1912-03-30&quot; &quot;1912-03-27&quot; &quot;1912-03-12&quot; &quot;1912-03-07&quot; NA           &quot;1912-03-14&quot;
+[581] &quot;1912-03-21&quot; &quot;1912-03-07&quot; &quot;1912-02-21&quot; &quot;1912-03-10&quot; NA           &quot;1912-03-28&quot; &quot;1912-02-28&quot; &quot;1912-02-15&quot; &quot;1912-03-24&quot; NA          
+[591] &quot;1912-03-11&quot; &quot;1912-02-23&quot; &quot;1912-02-28&quot; NA           &quot;1912-03-09&quot; &quot;1912-03-10&quot; NA           &quot;1912-02-26&quot; NA           &quot;1912-02-26&quot;
+[601] &quot;1912-03-22&quot; NA           NA           &quot;1912-03-02&quot; &quot;1912-03-11&quot; &quot;1912-03-10&quot; &quot;1912-03-16&quot; &quot;1912-03-19&quot; &quot;1912-03-24&quot; &quot;1912-03-06&quot;
+[611] &quot;1912-03-07&quot; NA           NA           NA           &quot;1912-03-11&quot; &quot;1912-03-22&quot; &quot;1912-03-12&quot; &quot;1912-03-20&quot; &quot;1912-04-11&quot; &quot;1912-03-20&quot;
+[621] &quot;1912-03-19&quot; &quot;1912-03-04&quot; &quot;1912-03-26&quot; &quot;1912-03-25&quot; &quot;1912-03-25&quot; &quot;1912-02-14&quot; &quot;1912-02-18&quot; &quot;1912-03-25&quot; &quot;1912-03-20&quot; NA          
+[631] &quot;1912-01-26&quot; &quot;1912-02-24&quot; &quot;1912-03-14&quot; NA           &quot;1912-04-06&quot; &quot;1912-03-18&quot; &quot;1912-03-14&quot; &quot;1912-03-15&quot; &quot;1912-03-05&quot; NA          
+[641] &quot;1912-03-26&quot; &quot;1912-03-22&quot; &quot;1912-04-13&quot; NA           &quot;1912-04-14&quot; &quot;1912-02-27&quot; &quot;1912-03-27&quot; &quot;1912-02-19&quot; NA           &quot;1912-03-23&quot;
+[651] NA           &quot;1912-03-28&quot; &quot;1912-03-25&quot; NA           &quot;1912-03-28&quot; &quot;1912-03-22&quot; NA           &quot;1912-03-14&quot; &quot;1912-03-23&quot; &quot;1912-02-17&quot;
+[661] &quot;1912-02-25&quot; &quot;1912-03-06&quot; &quot;1912-02-28&quot; &quot;1912-03-10&quot; &quot;1912-03-26&quot; &quot;1912-03-14&quot; &quot;1912-03-21&quot; NA           &quot;1912-03-03&quot; NA          
+[671] &quot;1912-03-06&quot; &quot;1912-03-15&quot; &quot;1912-02-05&quot; &quot;1912-03-15&quot; NA           &quot;1912-03-28&quot; &quot;1912-03-21&quot; &quot;1912-03-28&quot; &quot;1912-03-03&quot; &quot;1912-03-10&quot;
+[681] NA           &quot;1912-03-19&quot; &quot;1912-03-26&quot; &quot;1912-04-01&quot; &quot;1912-02-15&quot; &quot;1912-03-21&quot; &quot;1912-04-01&quot; &quot;1912-03-27&quot; &quot;1912-03-28&quot; &quot;1912-03-31&quot;
+[691] &quot;1912-03-15&quot; &quot;1912-04-11&quot; NA           &quot;1912-03-21&quot; &quot;1912-02-15&quot; &quot;1912-02-23&quot; &quot;1912-03-02&quot; NA           &quot;1912-02-26&quot; &quot;1912-03-04&quot;
+[701] &quot;1912-03-28&quot; &quot;1912-03-11&quot; &quot;1912-03-28&quot; &quot;1912-03-21&quot; &quot;1912-03-20&quot; &quot;1912-03-07&quot; &quot;1912-03-01&quot; &quot;1912-03-04&quot; &quot;1912-03-24&quot; NA          
+[711] &quot;1912-03-22&quot; NA           &quot;1912-02-27&quot; &quot;1912-03-17&quot; &quot;1912-02-23&quot; &quot;1912-03-27&quot; &quot;1912-03-08&quot; &quot;1912-03-19&quot; NA           &quot;1912-03-13&quot;
+[721] &quot;1912-04-09&quot; &quot;1912-03-29&quot; &quot;1912-03-12&quot; &quot;1912-02-25&quot; &quot;1912-03-19&quot; &quot;1912-03-26&quot; &quot;1912-03-16&quot; NA           &quot;1912-03-21&quot; &quot;1912-03-21&quot;
+[731] &quot;1912-03-17&quot; &quot;1912-04-04&quot; NA           &quot;1912-03-23&quot; &quot;1912-03-23&quot; &quot;1912-03-17&quot; &quot;1912-02-27&quot; &quot;1912-03-11&quot; NA           NA          
+[741] NA           &quot;1912-03-10&quot; &quot;1912-03-25&quot; &quot;1912-03-22&quot; &quot;1912-03-15&quot; &quot;1912-02-05&quot; &quot;1912-03-30&quot; &quot;1912-03-16&quot; &quot;1912-03-27&quot; &quot;1912-03-15&quot;
+[751] &quot;1912-04-11&quot; &quot;1912-04-09&quot; &quot;1912-03-13&quot; &quot;1912-03-23&quot; &quot;1912-02-27&quot; &quot;1912-04-14&quot; &quot;1912-03-18&quot; &quot;1912-03-28&quot; &quot;1912-03-12&quot; &quot;1912-03-13&quot;
+[761] NA           &quot;1912-03-05&quot; &quot;1912-03-26&quot; &quot;1912-03-10&quot; &quot;1912-03-30&quot; &quot;1912-02-24&quot; NA           &quot;1912-03-15&quot; NA           &quot;1912-03-14&quot;
+[771] &quot;1912-03-22&quot; &quot;1912-02-27&quot; &quot;1912-02-18&quot; NA           &quot;1912-02-21&quot; &quot;1912-03-28&quot; NA           &quot;1912-04-10&quot; NA           &quot;1912-03-03&quot;
+[781] &quot;1912-04-02&quot; &quot;1912-03-29&quot; &quot;1912-03-17&quot; NA           &quot;1912-03-21&quot; &quot;1912-03-21&quot; &quot;1912-03-28&quot; &quot;1912-04-07&quot; &quot;1912-04-14&quot; &quot;1912-02-29&quot;
+[791] NA           &quot;1912-03-30&quot; NA           NA           &quot;1912-03-21&quot; &quot;1912-03-07&quot; &quot;1912-02-26&quot; &quot;1912-03-15&quot; &quot;1912-03-16&quot; &quot;1912-03-16&quot;
+[801] &quot;1912-03-12&quot; &quot;1912-03-15&quot; &quot;1912-04-04&quot; &quot;1912-04-14&quot; &quot;1912-03-19&quot; &quot;1912-03-15&quot; &quot;1912-03-07&quot; &quot;1912-03-28&quot; &quot;1912-03-07&quot; &quot;1912-03-13&quot;
+[811] &quot;1912-03-20&quot; &quot;1912-03-07&quot; &quot;1912-03-11&quot; &quot;1912-04-09&quot; &quot;1912-03-15&quot; NA           &quot;1912-03-23&quot; &quot;1912-03-15&quot; &quot;1912-03-03&quot; &quot;1912-04-05&quot;
+[821] &quot;1912-02-23&quot; &quot;1912-03-19&quot; &quot;1912-03-08&quot; &quot;1912-03-19&quot; &quot;1912-04-13&quot; NA           NA           &quot;1912-04-14&quot; NA           &quot;1912-02-13&quot;
+[831] &quot;1912-03-31&quot; &quot;1912-04-14&quot; NA           &quot;1912-03-23&quot; &quot;1912-03-28&quot; &quot;1912-03-07&quot; &quot;1912-03-25&quot; NA           &quot;1912-03-14&quot; NA          
+[841] &quot;1912-03-26&quot; &quot;1912-03-30&quot; &quot;1912-03-16&quot; &quot;1912-03-11&quot; &quot;1912-03-29&quot; &quot;1912-03-04&quot; NA           &quot;1912-03-11&quot; &quot;1912-03-18&quot; NA          
+[851] &quot;1912-04-11&quot; &quot;1912-02-01&quot; &quot;1912-04-06&quot; &quot;1912-03-30&quot; &quot;1912-03-02&quot; &quot;1912-03-28&quot; &quot;1912-03-01&quot; &quot;1912-02-24&quot; &quot;1912-03-22&quot; NA          
+[861] &quot;1912-03-05&quot; &quot;1912-03-25&quot; &quot;1912-02-27&quot; NA           &quot;1912-03-22&quot; &quot;1912-03-04&quot; &quot;1912-03-19&quot; &quot;1912-03-15&quot; NA           &quot;1912-04-11&quot;
+[871] &quot;1912-03-20&quot; &quot;1912-02-28&quot; &quot;1912-03-13&quot; &quot;1912-02-28&quot; &quot;1912-03-18&quot; &quot;1912-03-31&quot; &quot;1912-03-26&quot; &quot;1912-03-27&quot; NA           &quot;1912-02-19&quot;
+[881] &quot;1912-03-21&quot; &quot;1912-03-13&quot; &quot;1912-03-24&quot; &quot;1912-03-18&quot; &quot;1912-03-21&quot; &quot;1912-03-07&quot; &quot;1912-03-19&quot; &quot;1912-03-27&quot; NA           &quot;1912-03-20&quot;
+[891] &quot;1912-03-14&quot;</code></pre>
+
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="git.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ejercicios-recopilados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/17-practica_final.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

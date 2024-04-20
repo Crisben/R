@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 Funciones | R</title>
+  <meta name="description" content="Chapter 13 Funciones | R" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 Funciones | R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 Funciones | R" />
+  
+  
+  
+
+<meta name="author" content="Cristian Benalcázar" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="bucles.html"/>
+<link rel="next" href="proyecto.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para Ciencia de Datos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="que-es-R.html"><a href="que-es-R.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="que-es-R.html"><a href="que-es-R.html#historia-de-r"><i class="fa fa-check"></i><b>2.1</b> Historia de R</a></li>
+<li class="chapter" data-level="2.2" data-path="que-es-R.html"><a href="que-es-R.html#comunidadpaquetes"><i class="fa fa-check"></i><b>2.2</b> Comunidad de usuarios: paquetes</a></li>
+<li class="chapter" data-level="2.3" data-path="que-es-R.html"><a href="que-es-R.html#por-qué-excel-no-es-tu-amigo"><i class="fa fa-check"></i><b>2.3</b> ¿Por qué Excel no es tu amigo?</a></li>
+<li class="chapter" data-level="2.4" data-path="que-es-R.html"><a href="que-es-R.html#glosario"><i class="fa fa-check"></i><b>2.4</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="instalacionR.html"><a href="instalacionR.html"><i class="fa fa-check"></i><b>3</b> Instalación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="instalacionR.html"><a href="instalacionR.html#instalación-de-r"><i class="fa fa-check"></i><b>3.1</b> Instalación de R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="instalacionR.html"><a href="instalacionR.html#paso-1"><i class="fa fa-check"></i><b>3.1.1</b> Paso 1</a></li>
+<li class="chapter" data-level="3.1.2" data-path="instalacionR.html"><a href="instalacionR.html#paso-2"><i class="fa fa-check"></i><b>3.1.2</b> Paso 2</a></li>
+<li class="chapter" data-level="3.1.3" data-path="instalacionR.html"><a href="instalacionR.html#paso-3"><i class="fa fa-check"></i><b>3.1.3</b> Paso 3</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="instalacionR.html"><a href="instalacionR.html#primera-operación-en-consola-sumar-dos-números"><i class="fa fa-check"></i><b>3.2</b> Primera operación en consola: sumar dos números</a></li>
+<li class="chapter" data-level="3.3" data-path="instalacionR.html"><a href="instalacionR.html#instalacionRStudio"><i class="fa fa-check"></i><b>3.3</b> Instalación de RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="instalacionR.html"><a href="instalacionR.html#instalacionpaquetes"><i class="fa fa-check"></i><b>3.4</b> Instalación de paquetes</a></li>
+<li class="chapter" data-level="3.5" data-path="instalacionR.html"><a href="instalacionR.html#glosario-1"><i class="fa fa-check"></i><b>3.5</b> Glosario</a></li>
+<li class="chapter" data-level="3.6" data-path="instalacionR.html"><a href="instalacionR.html#consejos"><i class="fa fa-check"></i><b>3.6</b> Consejos</a></li>
+<li class="chapter" data-level="3.7" data-path="instalacionR.html"><a href="instalacionR.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos.html"><a href="primeros-pasos.html#primeros-pasos-en-r-calculadora"><i class="fa fa-check"></i><b>4.1</b> Primeros pasos en R: calculadora</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html#y-dónde-programamos"><i class="fa fa-check"></i><b>4.2</b> ¿Y dónde programamos?</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos.html"><a href="primeros-pasos.html#tipos_errores"><i class="fa fa-check"></i><b>4.3</b> Tipos de errores</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos.html"><a href="primeros-pasos.html#glosario-2"><i class="fa fa-check"></i><b>4.4</b> Glosario</a></li>
+<li class="chapter" data-level="4.5" data-path="primeros-pasos.html"><a href="primeros-pasos.html#consejos-1"><i class="fa fa-check"></i><b>4.5</b> Consejos</a></li>
+<li class="chapter" data-level="4.6" data-path="primeros-pasos.html"><a href="primeros-pasos.html#ejercicios-1"><i class="fa fa-check"></i><b>4.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>I Tipos de datos</b></span></li>
+<li class="chapter" data-level="5" data-path="var-num.html"><a href="var-num.html"><i class="fa fa-check"></i><b>5</b> Variables individuales: números y caracteres</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="var-num.html"><a href="var-num.html#numericas"><i class="fa fa-check"></i><b>5.1</b> Variables numéricas (individuales)</a></li>
+<li class="chapter" data-level="5.2" data-path="var-num.html"><a href="var-num.html#caracter"><i class="fa fa-check"></i><b>5.2</b> Variables de tipo caracter (texto)</a></li>
+<li class="chapter" data-level="5.3" data-path="var-num.html"><a href="var-num.html#nuestra-primera-función-paste"><i class="fa fa-check"></i><b>5.3</b> Nuestra primera función: paste</a></li>
+<li class="chapter" data-level="5.4" data-path="var-num.html"><a href="var-num.html#nuestro-primer-paquete-glue"><i class="fa fa-check"></i><b>5.4</b> Nuestro primer paquete: glue</a></li>
+<li class="chapter" data-level="5.5" data-path="var-num.html"><a href="var-num.html#manejando-textos-paquete-stringr"><i class="fa fa-check"></i><b>5.5</b> Manejando textos: paquete stringr</a></li>
+<li class="chapter" data-level="5.6" data-path="var-num.html"><a href="var-num.html#consejos-2"><i class="fa fa-check"></i><b>5.6</b> Consejos</a></li>
+<li class="chapter" data-level="5.7" data-path="var-num.html"><a href="var-num.html#ejercicios-2"><i class="fa fa-check"></i><b>5.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectores.html"><a href="vectores.html#vectores-numéricos"><i class="fa fa-check"></i><b>6.1</b> Vectores numéricos</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html#secuencias-numéricas-con-un-patrón"><i class="fa fa-check"></i><b>6.2</b> Secuencias numéricas con un patrón</a></li>
+<li class="chapter" data-level="6.3" data-path="vectores.html"><a href="vectores.html#vectores-de-caracteres-texto"><i class="fa fa-check"></i><b>6.3</b> Vectores de caracteres (texto)</a></li>
+<li class="chapter" data-level="6.4" data-path="vectores.html"><a href="vectores.html#vectores-lógicos-truefalse"><i class="fa fa-check"></i><b>6.4</b> Vectores lógicos (TRUE/FALSE)</a></li>
+<li class="chapter" data-level="6.5" data-path="vectores.html"><a href="vectores.html#consejos-3"><i class="fa fa-check"></i><b>6.5</b> Consejos</a></li>
+<li class="chapter" data-level="6.6" data-path="vectores.html"><a href="vectores.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="operacionesvectores.html"><a href="operacionesvectores.html"><i class="fa fa-check"></i><b>7</b> Operaciones con vectores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#vectores-numéricos-1"><i class="fa fa-check"></i><b>7.1</b> Vectores numéricos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-aritméticas"><i class="fa fa-check"></i><b>7.1.1</b> Operaciones aritméticas</a></li>
+<li class="chapter" data-level="7.1.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-estadísticas"><i class="fa fa-check"></i><b>7.1.2</b> Operaciones estadísticas</a></li>
+<li class="chapter" data-level="7.1.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operacionesausentes"><i class="fa fa-check"></i><b>7.1.3</b> Operaciones con ausentes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#seleccionar-elementos"><i class="fa fa-check"></i><b>7.2</b> Seleccionar elementos</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#which"><i class="fa fa-check"></i><b>7.2.1</b> which</a></li>
+<li class="chapter" data-level="7.2.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#null"><i class="fa fa-check"></i><b>7.2.2</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación"><i class="fa fa-check"></i><b>7.3</b> Nombrando vectores: añadiendo metainformación</a></li>
+<li class="chapter" data-level="7.4" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ordenar"><i class="fa fa-check"></i><b>7.4</b> Ordenar</a></li>
+<li class="chapter" data-level="7.5" data-path="operacionesvectores.html"><a href="operacionesvectores.html#consejos-4"><i class="fa fa-check"></i><b>7.5</b> Consejos</a></li>
+<li class="chapter" data-level="7.6" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ejercicios-4"><i class="fa fa-check"></i><b>7.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i><b>8</b> Fechas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="fechas.html"><a href="fechas.html#funciones-de-lubridate"><i class="fa fa-check"></i><b>8.1</b> Funciones de lubridate</a></li>
+<li class="chapter" data-level="8.2" data-path="fechas.html"><a href="fechas.html#consejos-5"><i class="fa fa-check"></i><b>8.2</b> Consejos</a></li>
+<li class="chapter" data-level="8.3" data-path="fechas.html"><a href="fechas.html#ejercicios-5"><i class="fa fa-check"></i><b>8.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>9</b> Datos estructurados</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="datos.html"><a href="datos.html#matrices"><i class="fa fa-check"></i><b>9.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="datos.html"><a href="datos.html#acceder-a-elementos"><i class="fa fa-check"></i><b>9.1.1</b> Acceder a elementos</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datos.html"><a href="datos.html#operaciones-por-filas-y-columnas-apply"><i class="fa fa-check"></i><b>9.1.2</b> Operaciones por filas y columnas (apply)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datos.html"><a href="datos.html#tablas-data.frames"><i class="fa fa-check"></i><b>9.2</b> Tablas: data.frames</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="datos.html"><a href="datos.html#selección-de-columnas-y-filas"><i class="fa fa-check"></i><b>9.2.1</b> Selección de columnas y filas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="datos.html"><a href="datos.html#primer-análisis-de-datos-arrestos-en-ee.-uu."><i class="fa fa-check"></i><b>9.2.2</b> Primer análisis de datos: arrestos en EE. UU.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="datos.html"><a href="datos.html#consejos-6"><i class="fa fa-check"></i><b>9.3</b> Consejos</a></li>
+<li class="chapter" data-level="9.4" data-path="datos.html"><a href="datos.html#ejercicios-6"><i class="fa fa-check"></i><b>9.4</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>10</b> Listas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="listas.html"><a href="listas.html#introducción-a-purrr"><i class="fa fa-check"></i><b>10.1</b> Introducción a purrr</a></li>
+<li class="chapter" data-level="10.2" data-path="listas.html"><a href="listas.html#ejercicios-7"><i class="fa fa-check"></i><b>10.2</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Haciendo el trabajo más fácil</b></span></li>
+<li class="chapter" data-level="11" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>11</b> Estructuras de control: if-else</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="if-else.html"><a href="if-else.html#if"><i class="fa fa-check"></i><b>11.1</b> if</a></li>
+<li class="chapter" data-level="11.2" data-path="if-else.html"><a href="if-else.html#if---else"><i class="fa fa-check"></i><b>11.2</b> if - else</a></li>
+<li class="chapter" data-level="11.3" data-path="if-else.html"><a href="if-else.html#if---else-anidados"><i class="fa fa-check"></i><b>11.3</b> if - else anidados</a></li>
+<li class="chapter" data-level="11.4" data-path="if-else.html"><a href="if-else.html#ifelse-vectorizado"><i class="fa fa-check"></i><b>11.4</b> ifelse () vectorizado</a></li>
+<li class="chapter" data-level="11.5" data-path="if-else.html"><a href="if-else.html#consejos-7"><i class="fa fa-check"></i><b>11.5</b> Consejos</a></li>
+<li class="chapter" data-level="11.6" data-path="if-else.html"><a href="if-else.html#ejercicios-8"><i class="fa fa-check"></i><b>11.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>12</b> Estructuras de control: bucles</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bucles.html"><a href="bucles.html#for"><i class="fa fa-check"></i><b>12.1</b> for</a></li>
+<li class="chapter" data-level="12.2" data-path="bucles.html"><a href="bucles.html#while"><i class="fa fa-check"></i><b>12.2</b> while</a></li>
+<li class="chapter" data-level="12.3" data-path="bucles.html"><a href="bucles.html#breaknext"><i class="fa fa-check"></i><b>12.3</b> break/next</a></li>
+<li class="chapter" data-level="12.4" data-path="bucles.html"><a href="bucles.html#repeat"><i class="fa fa-check"></i><b>12.4</b> repeat</a></li>
+<li class="chapter" data-level="12.5" data-path="bucles.html"><a href="bucles.html#consejos-8"><i class="fa fa-check"></i><b>12.5</b> Consejos</a></li>
+<li class="chapter" data-level="12.6" data-path="bucles.html"><a href="bucles.html#ejercicios-9"><i class="fa fa-check"></i><b>12.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="funs.html"><a href="funs.html"><i class="fa fa-check"></i><b>13</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="funs.html"><a href="funs.html#primera-función"><i class="fa fa-check"></i><b>13.1</b> Primera función</a></li>
+<li class="chapter" data-level="13.2" data-path="funs.html"><a href="funs.html#variables-localesglobales"><i class="fa fa-check"></i><b>13.2</b> Variables locales/globales</a></li>
+<li class="chapter" data-level="13.3" data-path="funs.html"><a href="funs.html#ejercicios-10"><i class="fa fa-check"></i><b>13.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyecto.html"><a href="proyecto.html"><i class="fa fa-check"></i><b>14</b> Proyecto de trabajo</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyecto.html"><a href="proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>14.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="14.2" data-path="proyecto.html"><a href="proyecto.html#directorios-de-trabajo-y-cabecera"><i class="fa fa-check"></i><b>14.2</b> Directorios de trabajo y cabecera</a></li>
+<li class="chapter" data-level="14.3" data-path="proyecto.html"><a href="proyecto.html#ejecución"><i class="fa fa-check"></i><b>14.3</b> Ejecución</a></li>
+<li class="chapter" data-level="14.4" data-path="proyecto.html"><a href="proyecto.html#consejos-9"><i class="fa fa-check"></i><b>14.4</b> Consejos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="importar-exportar.html"><a href="importar-exportar.html"><i class="fa fa-check"></i><b>15</b> Importar/exportar datos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="importar-exportar.html"><a href="importar-exportar.html#importar-datos"><i class="fa fa-check"></i><b>15.1</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic"><i class="fa fa-check"></i><b>15.1.1</b> Archivo .RData: pasajeros del RMS Titanic</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rda-pisos-en-boston"><i class="fa fa-check"></i><b>15.2</b> Archivo .rda: pisos en Boston</a></li>
+<li class="chapter" data-level="15.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat"><i class="fa fa-check"></i><b>15.3</b> Desde paquete: estadísticas del Eurostat</a></li>
+<li class="chapter" data-level="15.4" data-path="importar-exportar.html"><a href="importar-exportar.html#importando-datos-rectangulares"><i class="fa fa-check"></i><b>15.4</b> Importando datos RECTANGULARES</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="importar-exportar.html"><a href="importar-exportar.html#csv"><i class="fa fa-check"></i><b>15.4.1</b> CSV</a></li>
+<li class="chapter" data-level="15.4.2" data-path="importar-exportar.html"><a href="importar-exportar.html#txt"><i class="fa fa-check"></i><b>15.4.2</b> txt</a></li>
+<li class="chapter" data-level="15.4.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-web"><i class="fa fa-check"></i><b>15.4.3</b> DESDE WEB</a></li>
+<li class="chapter" data-level="15.4.4" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-readxl"><i class="fa fa-check"></i><b>15.4.4</b> EXCEL readxl</a></li>
+<li class="chapter" data-level="15.4.5" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-openxlsx"><i class="fa fa-check"></i><b>15.4.5</b> EXCEL openxlsx</a></li>
+<li class="chapter" data-level="15.4.6" data-path="importar-exportar.html"><a href="importar-exportar.html#googlesheet"><i class="fa fa-check"></i><b>15.4.6</b> googlesheet</a></li>
+<li class="chapter" data-level="15.4.7" data-path="importar-exportar.html"><a href="importar-exportar.html#sasspssstata"><i class="fa fa-check"></i><b>15.4.7</b> SAS/SPSS/STATA</a></li>
+<li class="chapter" data-level="15.4.8" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-api"><i class="fa fa-check"></i><b>15.4.8</b> desde API</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="importar-exportar.html"><a href="importar-exportar.html#exportación-de-datos"><i class="fa fa-check"></i><b>15.5</b> Exportación de datos</a></li>
+<li class="chapter" data-level="15.6" data-path="importar-exportar.html"><a href="importar-exportar.html#consejos-10"><i class="fa fa-check"></i><b>15.6</b> Consejos</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="importar-exportar.html"><a href="importar-exportar.html#exportando-datos-.rdata.rda"><i class="fa fa-check"></i><b>15.6.1</b> Exportando datos: .RData/.rda</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>16</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-una-variable-cuantitativa"><i class="fa fa-check"></i><b>16.1</b> Gráficos para una variable cuantitativa</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="gráficos.html"><a href="gráficos.html#función-stem"><i class="fa fa-check"></i><b>16.1.1</b> Función <code>stem ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.2" data-path="gráficos.html"><a href="gráficos.html#función-boxplot"><i class="fa fa-check"></i><b>16.1.2</b> Función <code>boxplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo 1</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo 2</a></li>
+<li class="chapter" data-level="16.1.3" data-path="gráficos.html"><a href="gráficos.html#función-hist"><i class="fa fa-check"></i><b>16.1.3</b> Función <code>hist ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.4" data-path="gráficos.html"><a href="gráficos.html#función-density"><i class="fa fa-check"></i><b>16.1.4</b> Función <code>density ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-dos-variables-cuantitativas"><i class="fa fa-check"></i><b>16.2</b> Gráficos para dos variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="gráficos.html"><a href="gráficos.html#función-plot"><i class="fa fa-check"></i><b>16.2.1</b> Función <code>plot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="16.2.2" data-path="gráficos.html"><a href="gráficos.html#función-pairs"><i class="fa fa-check"></i><b>16.2.2</b> Función <code>pairs ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-variables-categóricas"><i class="fa fa-check"></i><b>16.3</b> Gráficos para variables categóricas</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="gráficos.html"><a href="gráficos.html#función-barplot"><i class="fa fa-check"></i><b>16.3.1</b> Función <code>barplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.2" data-path="gráficos.html"><a href="gráficos.html#la-función-pie"><i class="fa fa-check"></i><b>16.3.2</b> La función <code>pie ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.3" data-path="gráficos.html"><a href="gráficos.html#función-dotchart"><i class="fa fa-check"></i><b>16.3.3</b> Función <code>dotchart ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="gráficos.html"><a href="gráficos.html#la-librería-lattice"><i class="fa fa-check"></i><b>16.4</b> La librería <code>lattice</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-2"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>17</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="r-markdown.html"><a href="r-markdown.html#introducción-1"><i class="fa fa-check"></i><b>17.1</b> Introducción</a></li>
+<li class="chapter" data-level="17.2" data-path="r-markdown.html"><a href="r-markdown.html#por-qué-r-markdown"><i class="fa fa-check"></i><b>17.2</b> ¿Por qué R Markdown?</a></li>
+<li class="chapter" data-level="17.3" data-path="r-markdown.html"><a href="r-markdown.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>17.3</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="17.4" data-path="r-markdown.html"><a href="r-markdown.html#cómo-crear-un-fichero-.rmd"><i class="fa fa-check"></i><b>17.4</b> ¿Cómo crear un fichero <code>.Rmd</code>?</a></li>
+<li class="chapter" data-level="17.5" data-path="r-markdown.html"><a href="r-markdown.html#cabeceras-yaml"><i class="fa fa-check"></i><b>17.5</b> Cabeceras YAML</a></li>
+<li class="chapter" data-level="17.6" data-path="r-markdown.html"><a href="r-markdown.html#sintáxis-básica-de-markdown"><i class="fa fa-check"></i><b>17.6</b> Sintáxis básica de Markdown</a></li>
+<li class="chapter" data-level="17.7" data-path="r-markdown.html"><a href="r-markdown.html#insertar-código-de-r"><i class="fa fa-check"></i><b>17.7</b> Insertar código de R</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="r-markdown.html"><a href="r-markdown.html#código-de-r-en-línea"><i class="fa fa-check"></i><b>17.7.1</b> Código de R en línea</a></li>
+<li class="chapter" data-level="17.7.2" data-path="r-markdown.html"><a href="r-markdown.html#bloques-chunks-de-código-r"><i class="fa fa-check"></i><b>17.7.2</b> Bloques (<em>chunks</em>) de código R</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="r-markdown.html"><a href="r-markdown.html#opciones-de-los-bloques-de-código-r"><i class="fa fa-check"></i><b>17.8</b> Opciones de los bloques de código R</a></li>
+<li class="chapter" data-level="17.9" data-path="r-markdown.html"><a href="r-markdown.html#figuras"><i class="fa fa-check"></i><b>17.9</b> Figuras</a></li>
+<li class="chapter" data-level="17.10" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i><b>17.10</b> Tablas</a></li>
+<li class="chapter" data-level="17.11" data-path="r-markdown.html"><a href="r-markdown.html#tabla-de-contenidos"><i class="fa fa-check"></i><b>17.11</b> Tabla de contenidos</a></li>
+<li class="chapter" data-level="17.12" data-path="r-markdown.html"><a href="r-markdown.html#caching"><i class="fa fa-check"></i><b>17.12</b> <em>Caching</em></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>18</b> Git y Github con Rstudio</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="git.html"><a href="git.html#git-y-github-junto-con-rstudio"><i class="fa fa-check"></i><b>18.1</b> Git y GitHub junto con RStudio</a></li>
+<li class="chapter" data-level="18.2" data-path="git.html"><a href="git.html#qué-es-git-qué-es-github"><i class="fa fa-check"></i><b>18.2</b> ¿Qué es Git? ¿Qué es GitHub?</a></li>
+<li class="chapter" data-level="18.3" data-path="git.html"><a href="git.html#instalar-git"><i class="fa fa-check"></i><b>18.3</b> Instalar Git</a></li>
+<li class="chapter" data-level="18.4" data-path="git.html"><a href="git.html#crear-cuenta-y-repositorio-en-github"><i class="fa fa-check"></i><b>18.4</b> Crear cuenta y repositorio en Github</a></li>
+<li class="chapter" data-level="18.5" data-path="git.html"><a href="git.html#configurar-git-editar-gitconfig-file"><i class="fa fa-check"></i><b>18.5</b> Configurar Git (Editar gitconfig file)</a></li>
+<li class="chapter" data-level="18.6" data-path="git.html"><a href="git.html#crear-un-token-de-acceso-personal-pat-en-github"><i class="fa fa-check"></i><b>18.6</b> Crear un token de acceso personal (PAT) en GitHub</a></li>
+<li class="chapter" data-level="18.7" data-path="git.html"><a href="git.html#almacenar-token-de-acceso-personal-para-conectar-rstudio-y-github"><i class="fa fa-check"></i><b>18.7</b> Almacenar token de acceso personal para conectar RStudio y GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="practica-final.html"><a href="practica-final.html"><i class="fa fa-check"></i><b>19</b> 📝 Práctica final</a></li>
+<li class="part"><span><b>III Recursos</b></span></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html"><i class="fa fa-check"></i>📝 Ejercicios recopilados</a>
+<ul>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#instalación"><i class="fa fa-check"></i>Instalación</a></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#primeros-pasos-1"><i class="fa fa-check"></i>Primeros pasos</a></li>
+<li class="chapter" data-level="19.1" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#variables-numéricas-y-de-texto"><i class="fa fa-check"></i><b>19.1</b> Variables numéricas y de texto</a></li>
+<li class="chapter" data-level="19.2" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#vectores-1"><i class="fa fa-check"></i><b>19.2</b> Vectores</a></li>
+<li class="chapter" data-level="19.3" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#operaciones-con-vectores"><i class="fa fa-check"></i><b>19.3</b> Operaciones con vectores</a></li>
+<li class="chapter" data-level="19.4" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#fechas-1"><i class="fa fa-check"></i><b>19.4</b> Fechas</a></li>
+<li class="chapter" data-level="19.5" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#datos-estructurados"><i class="fa fa-check"></i><b>19.5</b> Datos estructurados</a></li>
+<li class="chapter" data-level="19.6" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#listas-1"><i class="fa fa-check"></i><b>19.6</b> Listas</a></li>
+<li class="chapter" data-level="19.7" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-if-else"><i class="fa fa-check"></i><b>19.7</b> Estructuras if-else</a></li>
+<li class="chapter" data-level="19.8" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-for-y-while"><i class="fa fa-check"></i><b>19.8</b> Estructuras for y while</a></li>
+<li class="chapter" data-level="19.9" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#funciones"><i class="fa fa-check"></i><b>19.9</b> Funciones</a></li>
+<li class="chapter" data-level="19.10" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#practica-final-1"><i class="fa fa-check"></i><b>19.10</b> Practica final</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html"><i class="fa fa-check"></i>📚 Recursos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#aprendizajedocencia"><i class="fa fa-check"></i>Aprendizaje/docencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-datos"><i class="fa fa-check"></i>Manejo de datos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-textos"><i class="fa fa-check"></i>Manejo de textos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#datos.-importarexportar"><i class="fa fa-check"></i>Datos. Importar/exportar</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#dataviz"><i class="fa fa-check"></i>dataviz</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#mapas-y-datos-espaciales-en-r"><i class="fa fa-check"></i>Mapas y datos espaciales en R</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#colores-y-temas-en-dataviz-generales"><i class="fa fa-check"></i>Colores y temas en dataviz (generales)</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#análisis-exploratorio"><i class="fa fa-check"></i>Análisis exploratorio</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#modelización-e-inferencia"><i class="fa fa-check"></i>Modelización e inferencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#estadística-bayesiana"><i class="fa fa-check"></i>Estadística Bayesiana</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#informes-tablas-webs-libros-y-diapositivas"><i class="fa fa-check"></i>Informes, tablas, webs, libros y diapositivas</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#paquetesrecursos-curiosos"><i class="fa fa-check"></i>Paquetes/recursos curiosos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="funs" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Funciones<a href="funs.html#funs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="blackbox">
+<p>Scripts usados:</p>
+<ul>
+<li><a href="https://github.com/Crisben/uleam-stat24/blob/main/scripts/script13.R"><strong>script13.R</strong></a>. Ver en <a href="https://github.com/Crisben/uleam-stat24/blob/main/scripts/script13.R" class="uri">https://github.com/Crisben/uleam-stat24/blob/main/scripts/script13.R</a></li>
+</ul>
+</div>
+<p>En <code>R</code> no solo podemos usar las funciones predeterminadas que vienen ya cargadas, o las de los paquetes que instalamos, como <code>sum()</code> o <code>mean()</code>. Además podemos <mark><strong>crear nuestras propias funciones</strong></mark> para automatizar tareas que vayamos a repetir a lo largo de nuestro código.</p>
+<p><mark><strong>¿Cómo crear nuestra propia función?</strong></mark> Veamos su esquema básico. Para crear una función necesitamos</p>
+<ul>
+<li>Un <mark><strong>nombre</strong></mark>, por ejemplo <code>nombre_funcion</code> (sin espacios ni caracteres extraños)</li>
+<li>A dicho nombre le asignamos <code>&lt;-</code> la palabra reservada <code>function()</code>.</li>
+<li>Dentro de <code>function()</code> definimos los <mark><strong>argumentos de entrada</strong></mark> que usará la función.</li>
+<li>Dentro de <code>{}</code> incluiremos la órdenes.</li>
+<li>Finalizaremos la función con <code>return()</code> indicando los <mark><strong>argumentos de salida</strong></mark></li>
+</ul>
+<div class="sourceCode" id="cb903"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb903-1"><a href="funs.html#cb903-1" tabindex="-1"></a><span class="co"># No ejecutar --&gt; esquema conceptual</span></span>
+<span id="cb903-2"><a href="funs.html#cb903-2" tabindex="-1"></a>nombre_funcion <span class="ot">&lt;-</span> <span class="cf">function</span>(argumento_1, argumento_2, ... ) {</span>
+<span id="cb903-3"><a href="funs.html#cb903-3" tabindex="-1"></a>  </span>
+<span id="cb903-4"><a href="funs.html#cb903-4" tabindex="-1"></a>  <span class="co"># Código que queramos ejecutar en la función</span></span>
+<span id="cb903-5"><a href="funs.html#cb903-5" tabindex="-1"></a>  código</span>
+<span id="cb903-6"><a href="funs.html#cb903-6" tabindex="-1"></a>  </span>
+<span id="cb903-7"><a href="funs.html#cb903-7" tabindex="-1"></a>  <span class="co"># Salida</span></span>
+<span id="cb903-8"><a href="funs.html#cb903-8" tabindex="-1"></a>  <span class="fu">return</span>(variable_salida)</span>
+<span id="cb903-9"><a href="funs.html#cb903-9" tabindex="-1"></a>}</span></code></pre></div>
+<p>En el esquema anterior</p>
+<ul>
+<li><mark><strong>argumento_1, argumento_2, …</strong></mark>: serán los <mark><strong>argumentos de entrada</strong></mark>, los argumentos que toma la función para ejecutar el código que tiene dentro</li>
+<li><mark><strong>código</strong></mark>: líneas de código que queramos que ejecute la función. <strong>IMPORTANTE</strong>: todas las variables que definamos dentro de la función son variables locales, solo existirán dentro de la función salvo que especifiquemos lo contrario.</li>
+<li><mark><strong><code>return(variable_salida)</code></strong></mark>: dentro del comando <code>return()</code> se introducirán los <mark><strong>argumentos de salida</strong></mark>, que puede ser un número, un <code>data.frame</code>, un caracter, una gráfica, una matriz…</li>
+</ul>
+<div id="primera-función" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Primera función<a href="funs.html#primera-función" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Veamos un <strong>ejemplo muy simple de función</strong> para <mark><strong>calcular el área de un rectángulo</strong></mark>.</p>
+<p><mark><strong>¿Qué se necesita para calcular el área?</strong></mark> Dado que el área de un rectángulo se calcula como el producto de sus lados, necesitaremos precisamente eso, sus lados: esos serán los argumentos de entrada (<code>lado_1</code> y <code>lado_2</code>). el valor a devolver será justo su área, calculada como <code>lado_1 * lado_2</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Nombre –&gt; <code>calcular_area</code></li>
+<li>Argumentos –&gt; <code>lado_1, lado_2</code></li>
+<li>Código –&gt; <code>area &lt;- lado_1 * lado_2</code></li>
+<li>Salida –&gt; <code>return(area)</code></li>
+</ol>
+<div class="sourceCode" id="cb904"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb904-1"><a href="funs.html#cb904-1" tabindex="-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
+<span id="cb904-2"><a href="funs.html#cb904-2" tabindex="-1"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, lado_2) {</span>
+<span id="cb904-3"><a href="funs.html#cb904-3" tabindex="-1"></a>  </span>
+<span id="cb904-4"><a href="funs.html#cb904-4" tabindex="-1"></a>  <span class="co"># Cuerpo de la función (lo que hace)</span></span>
+<span id="cb904-5"><a href="funs.html#cb904-5" tabindex="-1"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
+<span id="cb904-6"><a href="funs.html#cb904-6" tabindex="-1"></a>  </span>
+<span id="cb904-7"><a href="funs.html#cb904-7" tabindex="-1"></a>  <span class="co"># Resultado (lo que devuelve)</span></span>
+<span id="cb904-8"><a href="funs.html#cb904-8" tabindex="-1"></a>  <span class="fu">return</span>(area)</span>
+<span id="cb904-9"><a href="funs.html#cb904-9" tabindex="-1"></a>  </span>
+<span id="cb904-10"><a href="funs.html#cb904-10" tabindex="-1"></a>}</span></code></pre></div>
+<p>También podemos hacer una definición directa, sin almacenar variables por el camino</p>
+<div class="sourceCode" id="cb905"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb905-1"><a href="funs.html#cb905-1" tabindex="-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
+<span id="cb905-2"><a href="funs.html#cb905-2" tabindex="-1"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, lado_2) {</span>
+<span id="cb905-3"><a href="funs.html#cb905-3" tabindex="-1"></a></span>
+<span id="cb905-4"><a href="funs.html#cb905-4" tabindex="-1"></a>  <span class="co"># Resultado que devolvemos</span></span>
+<span id="cb905-5"><a href="funs.html#cb905-5" tabindex="-1"></a>  <span class="fu">return</span>(lado_1 <span class="sc">*</span> lado_2)</span>
+<span id="cb905-6"><a href="funs.html#cb905-6" tabindex="-1"></a>  </span>
+<span id="cb905-7"><a href="funs.html#cb905-7" tabindex="-1"></a>}</span></code></pre></div>
+<p><mark><strong>¿Cómo aplicar la función?</strong></mark> Haciendo uso del nombre y los valores de los argumentos, usamos <code>calcular_area()</code> y le pasamos los dos argumentos de entrada.</p>
+<div class="sourceCode" id="cb906"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb906-1"><a href="funs.html#cb906-1" tabindex="-1"></a><span class="co"># Aplicación de la función con los parámetros por defecto</span></span>
+<span id="cb906-2"><a href="funs.html#cb906-2" tabindex="-1"></a><span class="fu">calcular_area</span>(<span class="dv">5</span>, <span class="dv">3</span>) <span class="co"># área de un rectángulo 5 x 3 </span></span></code></pre></div>
+<pre><code>[1] 15</code></pre>
+<div class="sourceCode" id="cb908"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb908-1"><a href="funs.html#cb908-1" tabindex="-1"></a><span class="fu">calcular_area</span>(<span class="dv">1</span>, <span class="dv">5</span>) <span class="co"># área de un rectángulo 1 x 5</span></span></code></pre></div>
+<pre><code>[1] 5</code></pre>
+<div class="sourceCode" id="cb910"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb910-1"><a href="funs.html#cb910-1" tabindex="-1"></a><span class="fu">calcular_area</span>(<span class="dv">3</span>, <span class="dv">3</span>) <span class="co"># área de un rectángulo 3 x 3 </span></span></code></pre></div>
+<pre><code>[1] 9</code></pre>
+<p>Imagina ahora que nos damos cuenta que el 90% de las veces usamos dicha función para calcular el área de un cuadrado (es decir, solo necesitamos un argumento, un lado, ya que en un cuadrado <code>lado_1 = lado_2</code>). Para ello, <code>R</code> nos permite definir <mark><strong>argumentos por defecto en la función</strong></mark> (tomarán dicho valor salvo que le asignemos otro, como nos ha pasado con el argumento <code>na.rm</code> para operar con datos ausentes). ¿<strong>Por qué no asignar <code>lado_2 = lado_1</code> por defecto</strong>, para ahorrar líneas de código y tiempo?</p>
+<div class="sourceCode" id="cb912"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb912-1"><a href="funs.html#cb912-1" tabindex="-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
+<span id="cb912-2"><a href="funs.html#cb912-2" tabindex="-1"></a><span class="co"># por defecto lado_2 = lado_1</span></span>
+<span id="cb912-3"><a href="funs.html#cb912-3" tabindex="-1"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, <span class="at">lado_2 =</span> lado_1) {</span>
+<span id="cb912-4"><a href="funs.html#cb912-4" tabindex="-1"></a>  </span>
+<span id="cb912-5"><a href="funs.html#cb912-5" tabindex="-1"></a>  <span class="co"># Cuerpo de la función</span></span>
+<span id="cb912-6"><a href="funs.html#cb912-6" tabindex="-1"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
+<span id="cb912-7"><a href="funs.html#cb912-7" tabindex="-1"></a>  </span>
+<span id="cb912-8"><a href="funs.html#cb912-8" tabindex="-1"></a>  <span class="co"># Resultado que devolvemos</span></span>
+<span id="cb912-9"><a href="funs.html#cb912-9" tabindex="-1"></a>  <span class="fu">return</span>(area)</span>
+<span id="cb912-10"><a href="funs.html#cb912-10" tabindex="-1"></a>  </span>
+<span id="cb912-11"><a href="funs.html#cb912-11" tabindex="-1"></a>}</span></code></pre></div>
+<p>Ahora, si no indicamos nada, por defecto el segundo lado será igual al primero (un cuadrado), y si se lo añadimos usará ambos.</p>
+<div class="sourceCode" id="cb913"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb913-1"><a href="funs.html#cb913-1" tabindex="-1"></a><span class="fu">calcular_area</span>(<span class="at">lado_1 =</span> <span class="dv">5</span>) <span class="co"># cuadrado: si no indicamos nada, lado_2 = lado_1</span></span></code></pre></div>
+<pre><code>[1] 25</code></pre>
+<div class="sourceCode" id="cb915"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb915-1"><a href="funs.html#cb915-1" tabindex="-1"></a><span class="fu">calcular_area</span>(<span class="at">lado_1 =</span> <span class="dv">5</span>, <span class="at">lado_2 =</span> <span class="dv">7</span>) <span class="co"># rectángulo</span></span></code></pre></div>
+<pre><code>[1] 35</code></pre>
+<p> </p>
+<p>Compliquemos un poco la función y añadamos en la salida los valores de cada lado, etiquetados como <code>lado_1</code> y <code>lado_2</code>, <mark><strong>empaquetando la salida en una lista</strong></mark>.</p>
+<div class="sourceCode" id="cb917"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb917-1"><a href="funs.html#cb917-1" tabindex="-1"></a><span class="co"># Definición del nombre de función y argumentos de entrada</span></span>
+<span id="cb917-2"><a href="funs.html#cb917-2" tabindex="-1"></a>calcular_area <span class="ot">&lt;-</span> <span class="cf">function</span>(lado_1, <span class="at">lado_2 =</span> lado_1) {</span>
+<span id="cb917-3"><a href="funs.html#cb917-3" tabindex="-1"></a>  </span>
+<span id="cb917-4"><a href="funs.html#cb917-4" tabindex="-1"></a>  <span class="co"># Cuerpo de la función</span></span>
+<span id="cb917-5"><a href="funs.html#cb917-5" tabindex="-1"></a>  area <span class="ot">&lt;-</span> lado_1 <span class="sc">*</span> lado_2</span>
+<span id="cb917-6"><a href="funs.html#cb917-6" tabindex="-1"></a>  </span>
+<span id="cb917-7"><a href="funs.html#cb917-7" tabindex="-1"></a>  <span class="co"># Resultado</span></span>
+<span id="cb917-8"><a href="funs.html#cb917-8" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="st">&quot;area&quot;</span> <span class="ot">=</span> area, <span class="st">&quot;lado_1&quot;</span> <span class="ot">=</span> lado_1, <span class="st">&quot;lado_2&quot;</span> <span class="ot">=</span> lado_2))</span>
+<span id="cb917-9"><a href="funs.html#cb917-9" tabindex="-1"></a>  </span>
+<span id="cb917-10"><a href="funs.html#cb917-10" tabindex="-1"></a>}</span></code></pre></div>
+<p>Veamos que nos devuelve ahora</p>
+<div class="sourceCode" id="cb918"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb918-1"><a href="funs.html#cb918-1" tabindex="-1"></a>salida <span class="ot">&lt;-</span> <span class="fu">calcular_area</span>(<span class="dv">5</span>, <span class="dv">3</span>)</span>
+<span id="cb918-2"><a href="funs.html#cb918-2" tabindex="-1"></a>salida</span></code></pre></div>
+<pre><code>$area
+[1] 15
+
+$lado_1
+[1] 5
+
+$lado_2
+[1] 3</code></pre>
+<div class="sourceCode" id="cb920"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb920-1"><a href="funs.html#cb920-1" tabindex="-1"></a>salida[<span class="st">&quot;area&quot;</span>]</span></code></pre></div>
+<pre><code>$area
+[1] 15</code></pre>
+<div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb922-1"><a href="funs.html#cb922-1" tabindex="-1"></a>salida[<span class="st">&quot;lado_1&quot;</span>]</span></code></pre></div>
+<pre><code>$lado_1
+[1] 5</code></pre>
+<div class="sourceCode" id="cb924"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb924-1"><a href="funs.html#cb924-1" tabindex="-1"></a>salida[<span class="st">&quot;lado_2&quot;</span>]</span></code></pre></div>
+<pre><code>$lado_2
+[1] 3</code></pre>
+<p>Antes nos daba igual el orden de los argumentos pero ahora no, ya que en la salida incluimos <code>lado_1</code> y <code>lado_2</code>. Es <strong>altamente recomendable</strong> hacer la llamada a la función indicando explícitamente los argumentos <code>argumento_1 = valor_1</code> para <strong>mejorar la legibilidad e interpretabilidad de nuestro código</strong> (recuerda: programa como escribirías en castellano).</p>
+<div class="sourceCode" id="cb926"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb926-1"><a href="funs.html#cb926-1" tabindex="-1"></a><span class="co"># Equivalente a calcular_area(5, 3)</span></span>
+<span id="cb926-2"><a href="funs.html#cb926-2" tabindex="-1"></a><span class="fu">calcular_area</span>(<span class="at">lado_1 =</span> <span class="dv">5</span>, <span class="at">lado_2 =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>$area
+[1] 15
+
+$lado_1
+[1] 5
+
+$lado_2
+[1] 3</code></pre>
+<p>Parece una tontería lo que hemos hecho pero hemos cruzado una frontera importante: hemos pasado de <mark><strong>consumir conocimiento</strong></mark> (código de otros paquetes, elaborado por otros/as), a <mark><strong>generar conocimiento</strong></mark>, creando nuestras propias funciones. En este caso no ganaremos el Nobel por nuestro aporte, pero en un futuro… Si la Unión Europea lo ganó, hay opciones :)</p>
+</div>
+<div id="variables-localesglobales" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Variables locales/globales<a href="funs.html#variables-localesglobales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un <mark><strong>aspecto importante sobre el que reflexionar</strong></mark> con las funciones: ¿qué sucede si nombramos a una variable dentro de una función que se nos ha olvidado asignar un valor dentro de la misma? Debemos ser cautos al usar funciones en <code>R</code>, ya que debido a la <mark><strong>«regla lexicográfica»</strong></mark>, si una variable no se define dentro de la función, <code>R</code> buscará dicha variable en el entorno de variables.</p>
+<p>Construyamos una función de ejemplo que no toma ningún argumento de entrada: solo imprime el valor de <code>x</code>. Como dentro de la función <code>x</code> no está definida, usará el valor definido fuera de la función.</p>
+<div class="sourceCode" id="cb928"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb928-1"><a href="funs.html#cb928-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb928-2"><a href="funs.html#cb928-2" tabindex="-1"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb928-3"><a href="funs.html#cb928-3" tabindex="-1"></a>    </span>
+<span id="cb928-4"><a href="funs.html#cb928-4" tabindex="-1"></a>  <span class="fu">print</span>(x) <span class="co"># No devuelve nada per se, solo realiza la acción de imprimir en consola</span></span>
+<span id="cb928-5"><a href="funs.html#cb928-5" tabindex="-1"></a>}</span>
+<span id="cb928-6"><a href="funs.html#cb928-6" tabindex="-1"></a><span class="fu">funcion_ejemplo</span>()</span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<p>Si una <strong>variable ya está definida fuera de la función (entorno global)</strong>, y además es usada dentro de la misma cambiando su valor, el valor de dicha variable solo cambia dentro de la función pero no en el entorno global.</p>
+<div class="sourceCode" id="cb930"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb930-1"><a href="funs.html#cb930-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb930-2"><a href="funs.html#cb930-2" tabindex="-1"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb930-3"><a href="funs.html#cb930-3" tabindex="-1"></a>    </span>
+<span id="cb930-4"><a href="funs.html#cb930-4" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb930-5"><a href="funs.html#cb930-5" tabindex="-1"></a>  <span class="fu">print</span>(x) <span class="co"># lo que vale dentro</span></span>
+<span id="cb930-6"><a href="funs.html#cb930-6" tabindex="-1"></a>}</span>
+<span id="cb930-7"><a href="funs.html#cb930-7" tabindex="-1"></a><span class="fu">funcion_ejemplo</span>() <span class="co"># lo que vale dentro</span></span></code></pre></div>
+<pre><code>[1] 2</code></pre>
+<div class="sourceCode" id="cb932"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb932-1"><a href="funs.html#cb932-1" tabindex="-1"></a><span class="fu">print</span>(x) <span class="co"># lo que vale fuera</span></span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<p>Si queremos que <strong>además de cambiar localmente lo haga globalmente</strong> deberemos usar la <strong>doble asignación</strong> (<code>&lt;&lt;-</code>).</p>
+<div class="sourceCode" id="cb934"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb934-1"><a href="funs.html#cb934-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb934-2"><a href="funs.html#cb934-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb934-3"><a href="funs.html#cb934-3" tabindex="-1"></a>funcion_ejemplo <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb934-4"><a href="funs.html#cb934-4" tabindex="-1"></a>  </span>
+<span id="cb934-5"><a href="funs.html#cb934-5" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="co"># no cambia globalmente, solo localmente</span></span>
+<span id="cb934-6"><a href="funs.html#cb934-6" tabindex="-1"></a>  y <span class="ot">&lt;&lt;-</span> <span class="dv">0</span> <span class="co"># cambia globalmente</span></span>
+<span id="cb934-7"><a href="funs.html#cb934-7" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb934-8"><a href="funs.html#cb934-8" tabindex="-1"></a>  <span class="fu">print</span>(y)</span>
+<span id="cb934-9"><a href="funs.html#cb934-9" tabindex="-1"></a>}</span>
+<span id="cb934-10"><a href="funs.html#cb934-10" tabindex="-1"></a></span>
+<span id="cb934-11"><a href="funs.html#cb934-11" tabindex="-1"></a><span class="fu">funcion_ejemplo</span>() <span class="co"># lo que vale dentro</span></span></code></pre></div>
+<pre><code>[1] 3
+[1] 0</code></pre>
+<div class="sourceCode" id="cb936"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb936-1"><a href="funs.html#cb936-1" tabindex="-1"></a>x <span class="co"># lo que vale fuera</span></span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb938-1"><a href="funs.html#cb938-1" tabindex="-1"></a>y <span class="co"># lo que vale fuera</span></span></code></pre></div>
+<pre><code>[1] 0</code></pre>
+</div>
+<div id="ejercicios-10" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> 📝 Ejercicios<a href="#ejercicios-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(haz click en las flechas para ver soluciones)</p>
+<details>
+<summary>
+<p><strong>Ejercicio 1</strong>: modifica el código inferior para definir una función llamada <code>funcion_suma</code>, de forma que dados dos elementos, devuelve su suma.</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb940"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb940-1"><a href="funs.html#cb940-1" tabindex="-1"></a><span class="co"># Definimos función</span></span>
+<span id="cb940-2"><a href="funs.html#cb940-2" tabindex="-1"></a>funcion_suma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb940-3"><a href="funs.html#cb940-3" tabindex="-1"></a>  </span>
+<span id="cb940-4"><a href="funs.html#cb940-4" tabindex="-1"></a>  <span class="co"># Sumamos</span></span>
+<span id="cb940-5"><a href="funs.html#cb940-5" tabindex="-1"></a>  suma <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb940-6"><a href="funs.html#cb940-6" tabindex="-1"></a>  </span>
+<span id="cb940-7"><a href="funs.html#cb940-7" tabindex="-1"></a>  <span class="co"># Devolvemos la salida</span></span>
+<span id="cb940-8"><a href="funs.html#cb940-8" tabindex="-1"></a>  <span class="fu">return</span>(suma)</span>
+<span id="cb940-9"><a href="funs.html#cb940-9" tabindex="-1"></a>}</span>
+<span id="cb940-10"><a href="funs.html#cb940-10" tabindex="-1"></a></span>
+<span id="cb940-11"><a href="funs.html#cb940-11" tabindex="-1"></a><span class="co"># Aplicamos la función</span></span>
+<span id="cb940-12"><a href="funs.html#cb940-12" tabindex="-1"></a><span class="fu">funcion_suma</span>(<span class="dv">3</span>, <span class="dv">7</span>)</span></code></pre></div>
+<pre><code>[1] 10</code></pre>
+</details>
+<div class="sourceCode" id="cb942"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb942-1"><a href="funs.html#cb942-1" tabindex="-1"></a><span class="co"># Definimos función</span></span>
+<span id="cb942-2"><a href="funs.html#cb942-2" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb942-3"><a href="funs.html#cb942-3" tabindex="-1"></a>  </span>
+<span id="cb942-4"><a href="funs.html#cb942-4" tabindex="-1"></a>  <span class="co"># Sumamos</span></span>
+<span id="cb942-5"><a href="funs.html#cb942-5" tabindex="-1"></a>  suma <span class="ot">&lt;-</span> <span class="co"># código a ejecutar</span></span>
+<span id="cb942-6"><a href="funs.html#cb942-6" tabindex="-1"></a>  </span>
+<span id="cb942-7"><a href="funs.html#cb942-7" tabindex="-1"></a>  <span class="co"># ¿Qué devolvemos?</span></span>
+<span id="cb942-8"><a href="funs.html#cb942-8" tabindex="-1"></a>  <span class="fu">return</span>()</span>
+<span id="cb942-9"><a href="funs.html#cb942-9" tabindex="-1"></a>}</span>
+<span id="cb942-10"><a href="funs.html#cb942-10" tabindex="-1"></a></span>
+<span id="cb942-11"><a href="funs.html#cb942-11" tabindex="-1"></a><span class="co"># Aplicamos la función</span></span>
+<span id="cb942-12"><a href="funs.html#cb942-12" tabindex="-1"></a><span class="fu">suma</span>(<span class="dv">3</span>, <span class="dv">7</span>)</span></code></pre></div>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 2</strong>: modifica el código inferior para definir una función llamada <code>funcion_producto</code>, de forma que dados dos elementos, devuelve su producto.</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb943"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb943-1"><a href="funs.html#cb943-1" tabindex="-1"></a><span class="co"># Definimos función</span></span>
+<span id="cb943-2"><a href="funs.html#cb943-2" tabindex="-1"></a>funcion_producto <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb943-3"><a href="funs.html#cb943-3" tabindex="-1"></a>  </span>
+<span id="cb943-4"><a href="funs.html#cb943-4" tabindex="-1"></a>  <span class="co"># Multiplicamos</span></span>
+<span id="cb943-5"><a href="funs.html#cb943-5" tabindex="-1"></a>  producto <span class="ot">&lt;-</span> x <span class="sc">*</span> y</span>
+<span id="cb943-6"><a href="funs.html#cb943-6" tabindex="-1"></a>  </span>
+<span id="cb943-7"><a href="funs.html#cb943-7" tabindex="-1"></a>  <span class="co"># Devolvemos la salida</span></span>
+<span id="cb943-8"><a href="funs.html#cb943-8" tabindex="-1"></a>  <span class="fu">return</span>(producto)</span>
+<span id="cb943-9"><a href="funs.html#cb943-9" tabindex="-1"></a>}</span>
+<span id="cb943-10"><a href="funs.html#cb943-10" tabindex="-1"></a></span>
+<span id="cb943-11"><a href="funs.html#cb943-11" tabindex="-1"></a><span class="co"># Aplicamos la función</span></span>
+<span id="cb943-12"><a href="funs.html#cb943-12" tabindex="-1"></a><span class="fu">funcion_producto</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span></code></pre></div>
+<pre><code>[1] -21</code></pre>
+</details>
+<div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb945-1"><a href="funs.html#cb945-1" tabindex="-1"></a><span class="co"># Definimos función</span></span>
+<span id="cb945-2"><a href="funs.html#cb945-2" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb945-3"><a href="funs.html#cb945-3" tabindex="-1"></a>  </span>
+<span id="cb945-4"><a href="funs.html#cb945-4" tabindex="-1"></a>  <span class="co"># Multiplicamos</span></span>
+<span id="cb945-5"><a href="funs.html#cb945-5" tabindex="-1"></a>  producto <span class="ot">&lt;-</span> <span class="co"># código de la multiplicación</span></span>
+<span id="cb945-6"><a href="funs.html#cb945-6" tabindex="-1"></a>  </span>
+<span id="cb945-7"><a href="funs.html#cb945-7" tabindex="-1"></a>  <span class="co"># ¿Qué devolvemos?</span></span>
+<span id="cb945-8"><a href="funs.html#cb945-8" tabindex="-1"></a>  <span class="fu">return</span>()</span>
+<span id="cb945-9"><a href="funs.html#cb945-9" tabindex="-1"></a>}</span>
+<span id="cb945-10"><a href="funs.html#cb945-10" tabindex="-1"></a></span>
+<span id="cb945-11"><a href="funs.html#cb945-11" tabindex="-1"></a><span class="co"># Aplicamos la función</span></span>
+<span id="cb945-12"><a href="funs.html#cb945-12" tabindex="-1"></a><span class="fu">producto</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span></code></pre></div>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 3</strong>: modifica el código inferior para definir una función llamada <code>funcion_producto</code>, de forma que dados dos elementos, devuelve su producto, pero que por defecto calcule el cuadrado (es decir, por defecto un solo argumento, y el resultado sea el número por sí mismo)</p>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb946"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb946-1"><a href="funs.html#cb946-1" tabindex="-1"></a><span class="co"># Definimos función</span></span>
+<span id="cb946-2"><a href="funs.html#cb946-2" tabindex="-1"></a>funcion_producto <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">y =</span> x) {</span>
+<span id="cb946-3"><a href="funs.html#cb946-3" tabindex="-1"></a>  </span>
+<span id="cb946-4"><a href="funs.html#cb946-4" tabindex="-1"></a>  <span class="co"># Multiplicamos</span></span>
+<span id="cb946-5"><a href="funs.html#cb946-5" tabindex="-1"></a>  producto <span class="ot">&lt;-</span> x <span class="sc">*</span> y</span>
+<span id="cb946-6"><a href="funs.html#cb946-6" tabindex="-1"></a>  </span>
+<span id="cb946-7"><a href="funs.html#cb946-7" tabindex="-1"></a>  <span class="co"># Devolvemos la salida</span></span>
+<span id="cb946-8"><a href="funs.html#cb946-8" tabindex="-1"></a>  <span class="fu">return</span>(producto)</span>
+<span id="cb946-9"><a href="funs.html#cb946-9" tabindex="-1"></a>}</span>
+<span id="cb946-10"><a href="funs.html#cb946-10" tabindex="-1"></a></span>
+<span id="cb946-11"><a href="funs.html#cb946-11" tabindex="-1"></a><span class="co"># Aplicamos la función</span></span>
+<span id="cb946-12"><a href="funs.html#cb946-12" tabindex="-1"></a><span class="fu">funcion_producto</span>(<span class="dv">3</span>) <span class="co"># por defecto x = 3, y = 3</span></span></code></pre></div>
+<pre><code>[1] 9</code></pre>
+<div class="sourceCode" id="cb948"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb948-1"><a href="funs.html#cb948-1" tabindex="-1"></a><span class="fu">funcion_producto</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span></code></pre></div>
+<pre><code>[1] -21</code></pre>
+</details>
+<div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb950-1"><a href="funs.html#cb950-1" tabindex="-1"></a><span class="co"># Definimos función</span></span>
+<span id="cb950-2"><a href="funs.html#cb950-2" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb950-3"><a href="funs.html#cb950-3" tabindex="-1"></a>  </span>
+<span id="cb950-4"><a href="funs.html#cb950-4" tabindex="-1"></a>  <span class="co"># Multiplicamos</span></span>
+<span id="cb950-5"><a href="funs.html#cb950-5" tabindex="-1"></a>  producto <span class="ot">&lt;-</span> <span class="co"># código de la multiplicación</span></span>
+<span id="cb950-6"><a href="funs.html#cb950-6" tabindex="-1"></a>  </span>
+<span id="cb950-7"><a href="funs.html#cb950-7" tabindex="-1"></a>  <span class="co"># ¿Qué devolvemos?</span></span>
+<span id="cb950-8"><a href="funs.html#cb950-8" tabindex="-1"></a>  <span class="fu">return</span>()</span>
+<span id="cb950-9"><a href="funs.html#cb950-9" tabindex="-1"></a>}</span>
+<span id="cb950-10"><a href="funs.html#cb950-10" tabindex="-1"></a></span>
+<span id="cb950-11"><a href="funs.html#cb950-11" tabindex="-1"></a><span class="co"># Aplicamos la función solo con un argumento</span></span>
+<span id="cb950-12"><a href="funs.html#cb950-12" tabindex="-1"></a><span class="fu">producto</span>(<span class="dv">3</span>)</span>
+<span id="cb950-13"><a href="funs.html#cb950-13" tabindex="-1"></a></span>
+<span id="cb950-14"><a href="funs.html#cb950-14" tabindex="-1"></a><span class="co"># Aplicamos la función con dos argumentos</span></span>
+<span id="cb950-15"><a href="funs.html#cb950-15" tabindex="-1"></a><span class="fu">producto</span>(<span class="dv">3</span>, <span class="sc">-</span><span class="dv">7</span>)</span></code></pre></div>
+<p> </p>
+<details>
+<summary>
+<strong>Ejercicio 4</strong>: define una función llamada <code>igualdad_nombres</code> que, dados dos nombres <code>persona_1</code> e <code>persona_2</code>, nos diga si son iguales o no. Hazlo considerando importantes las mayúsculas, y sin que importen las mayúsculas. Recuerda que con <code>toupper()</code> podemos pasar todo un texto a mayúscula.
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb951-1"><a href="funs.html#cb951-1" tabindex="-1"></a><span class="co"># Distinguiendo mayúsculas</span></span>
+<span id="cb951-2"><a href="funs.html#cb951-2" tabindex="-1"></a>igualdad_nombres <span class="ot">&lt;-</span> <span class="cf">function</span>(persona_1, persona_2) {</span>
+<span id="cb951-3"><a href="funs.html#cb951-3" tabindex="-1"></a>  </span>
+<span id="cb951-4"><a href="funs.html#cb951-4" tabindex="-1"></a>  <span class="fu">return</span>(persona_1 <span class="sc">==</span> persona_2)</span>
+<span id="cb951-5"><a href="funs.html#cb951-5" tabindex="-1"></a>}</span>
+<span id="cb951-6"><a href="funs.html#cb951-6" tabindex="-1"></a><span class="fu">igualdad_nombres</span>(<span class="st">&quot;Javi&quot;</span>, <span class="st">&quot;javi&quot;</span>)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb953-1"><a href="funs.html#cb953-1" tabindex="-1"></a><span class="fu">igualdad_nombres</span>(<span class="st">&quot;Javi&quot;</span>, <span class="st">&quot;Lucía&quot;</span>)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb955-1"><a href="funs.html#cb955-1" tabindex="-1"></a><span class="co"># Sin importar mayúsculas</span></span>
+<span id="cb955-2"><a href="funs.html#cb955-2" tabindex="-1"></a>igualdad_nombres <span class="ot">&lt;-</span> <span class="cf">function</span>(persona_1, persona_2) {</span>
+<span id="cb955-3"><a href="funs.html#cb955-3" tabindex="-1"></a>  </span>
+<span id="cb955-4"><a href="funs.html#cb955-4" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">toupper</span>(persona_1) <span class="sc">==</span> <span class="fu">toupper</span>(persona_2))</span>
+<span id="cb955-5"><a href="funs.html#cb955-5" tabindex="-1"></a>}</span>
+<span id="cb955-6"><a href="funs.html#cb955-6" tabindex="-1"></a><span class="fu">igualdad_nombres</span>(<span class="st">&quot;Javi&quot;</span>, <span class="st">&quot;javi&quot;</span>)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb957"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb957-1"><a href="funs.html#cb957-1" tabindex="-1"></a><span class="fu">igualdad_nombres</span>(<span class="st">&quot;Javi&quot;</span>, <span class="st">&quot;Lucía&quot;</span>)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+</details>
+<p> </p>
+<details>
+<summary>
+<p><strong>Ejercicio 5</strong>: define una función llamada <code>pares</code> que, dados dos números <code>x</code> e <code>y</code>, nos diga si la suma de ambos es par o no.</p>
+<p>Recuerda que con <code>%%</code> podemos obtener el resto de un número al dividir entre 2.</p>
+<div class="sourceCode" id="cb959"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb959-1"><a href="funs.html#cb959-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">%%</span> <span class="dv">2</span> <span class="co"># par, resto 0</span></span></code></pre></div>
+<pre><code>[1] 0</code></pre>
+<div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb961-1"><a href="funs.html#cb961-1" tabindex="-1"></a><span class="dv">3</span> <span class="sc">%%</span> <span class="dv">2</span> <span class="co"># impar, resto 1</span></span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb963-1"><a href="funs.html#cb963-1" tabindex="-1"></a><span class="co"># Definimos función</span></span>
+<span id="cb963-2"><a href="funs.html#cb963-2" tabindex="-1"></a>pares <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb963-3"><a href="funs.html#cb963-3" tabindex="-1"></a>  </span>
+<span id="cb963-4"><a href="funs.html#cb963-4" tabindex="-1"></a>  <span class="co"># Sumamos</span></span>
+<span id="cb963-5"><a href="funs.html#cb963-5" tabindex="-1"></a>  suma <span class="ot">&lt;-</span> x <span class="sc">+</span> y</span>
+<span id="cb963-6"><a href="funs.html#cb963-6" tabindex="-1"></a>  </span>
+<span id="cb963-7"><a href="funs.html#cb963-7" tabindex="-1"></a>  <span class="co"># Comprobamos si es par</span></span>
+<span id="cb963-8"><a href="funs.html#cb963-8" tabindex="-1"></a>  par <span class="ot">&lt;-</span> suma <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span></span>
+<span id="cb963-9"><a href="funs.html#cb963-9" tabindex="-1"></a>  </span>
+<span id="cb963-10"><a href="funs.html#cb963-10" tabindex="-1"></a>  <span class="co"># Devolvemos la salida</span></span>
+<span id="cb963-11"><a href="funs.html#cb963-11" tabindex="-1"></a>  <span class="fu">return</span>(par)</span>
+<span id="cb963-12"><a href="funs.html#cb963-12" tabindex="-1"></a>}</span>
+<span id="cb963-13"><a href="funs.html#cb963-13" tabindex="-1"></a></span>
+<span id="cb963-14"><a href="funs.html#cb963-14" tabindex="-1"></a><span class="co"># Aplicamos la función</span></span>
+<span id="cb963-15"><a href="funs.html#cb963-15" tabindex="-1"></a><span class="fu">pares</span>(<span class="dv">1</span>, <span class="dv">3</span>) <span class="co"># suma 4 (par)</span></span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb965"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb965-1"><a href="funs.html#cb965-1" tabindex="-1"></a><span class="fu">pares</span>(<span class="dv">2</span>, <span class="dv">7</span>) <span class="co"># suma 9 (impar)</span></span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+</details>
+<p> </p>
+<details>
+<summary>
+<strong>Ejercicio 6</strong>: define una función llamada <code>pasar_a_celsius</code> que, dada una temperatura <span class="math inline">\(x\)</span> en Fahrenheit, la convierta a grados Celsius (<span class="math inline">\(ºC = (ºF - 32) * \frac{5}{9}\)</span>). Aplica la función a la columna <code>Temp</code> del conjunto <code>airquality</code>, e incorpórala al fichero en una nueva columna <code>Temp_Celsius</code>.
+</summary>
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb967"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb967-1"><a href="funs.html#cb967-1" tabindex="-1"></a><span class="co"># Definimos función</span></span>
+<span id="cb967-2"><a href="funs.html#cb967-2" tabindex="-1"></a>pasar_a_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb967-3"><a href="funs.html#cb967-3" tabindex="-1"></a>  </span>
+<span id="cb967-4"><a href="funs.html#cb967-4" tabindex="-1"></a>  <span class="co"># Temperatura en Celsius</span></span>
+<span id="cb967-5"><a href="funs.html#cb967-5" tabindex="-1"></a>  x_celsius <span class="ot">&lt;-</span> (x <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">*</span> (<span class="dv">5</span> <span class="sc">/</span> <span class="dv">9</span>)</span>
+<span id="cb967-6"><a href="funs.html#cb967-6" tabindex="-1"></a>  </span>
+<span id="cb967-7"><a href="funs.html#cb967-7" tabindex="-1"></a>  <span class="co"># Devolvemos la salida</span></span>
+<span id="cb967-8"><a href="funs.html#cb967-8" tabindex="-1"></a>  <span class="fu">return</span>(x_celsius)</span>
+<span id="cb967-9"><a href="funs.html#cb967-9" tabindex="-1"></a>}</span>
+<span id="cb967-10"><a href="funs.html#cb967-10" tabindex="-1"></a></span>
+<span id="cb967-11"><a href="funs.html#cb967-11" tabindex="-1"></a><span class="co"># Aplicamos la función</span></span>
+<span id="cb967-12"><a href="funs.html#cb967-12" tabindex="-1"></a><span class="fu">pasar_a_celsius</span>(<span class="dv">0</span>)</span></code></pre></div>
+<pre><code>[1] -17.77778</code></pre>
+<div class="sourceCode" id="cb969"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb969-1"><a href="funs.html#cb969-1" tabindex="-1"></a><span class="fu">pasar_a_celsius</span>(<span class="dv">80</span>)</span></code></pre></div>
+<pre><code>[1] 26.66667</code></pre>
+<div class="sourceCode" id="cb971"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb971-1"><a href="funs.html#cb971-1" tabindex="-1"></a><span class="co"># Aplicamos</span></span>
+<span id="cb971-2"><a href="funs.html#cb971-2" tabindex="-1"></a><span class="fu">data.frame</span>(airquality,</span>
+<span id="cb971-3"><a href="funs.html#cb971-3" tabindex="-1"></a>           <span class="st">&quot;Temp_Celsius&quot;</span> <span class="ot">=</span> <span class="fu">pasar_a_celsius</span>(airquality<span class="sc">$</span>Temp))</span></code></pre></div>
+<pre><code>    Ozone Solar.R Wind Temp Month Day Temp_Celsius
+1      41     190  7.4   67     5   1     19.44444
+2      36     118  8.0   72     5   2     22.22222
+3      12     149 12.6   74     5   3     23.33333
+4      18     313 11.5   62     5   4     16.66667
+5      NA      NA 14.3   56     5   5     13.33333
+6      28      NA 14.9   66     5   6     18.88889
+7      23     299  8.6   65     5   7     18.33333
+8      19      99 13.8   59     5   8     15.00000
+9       8      19 20.1   61     5   9     16.11111
+10     NA     194  8.6   69     5  10     20.55556
+11      7      NA  6.9   74     5  11     23.33333
+12     16     256  9.7   69     5  12     20.55556
+13     11     290  9.2   66     5  13     18.88889
+14     14     274 10.9   68     5  14     20.00000
+15     18      65 13.2   58     5  15     14.44444
+16     14     334 11.5   64     5  16     17.77778
+17     34     307 12.0   66     5  17     18.88889
+18      6      78 18.4   57     5  18     13.88889
+19     30     322 11.5   68     5  19     20.00000
+20     11      44  9.7   62     5  20     16.66667
+21      1       8  9.7   59     5  21     15.00000
+22     11     320 16.6   73     5  22     22.77778
+23      4      25  9.7   61     5  23     16.11111
+24     32      92 12.0   61     5  24     16.11111
+25     NA      66 16.6   57     5  25     13.88889
+26     NA     266 14.9   58     5  26     14.44444
+27     NA      NA  8.0   57     5  27     13.88889
+28     23      13 12.0   67     5  28     19.44444
+29     45     252 14.9   81     5  29     27.22222
+30    115     223  5.7   79     5  30     26.11111
+31     37     279  7.4   76     5  31     24.44444
+32     NA     286  8.6   78     6   1     25.55556
+33     NA     287  9.7   74     6   2     23.33333
+34     NA     242 16.1   67     6   3     19.44444
+35     NA     186  9.2   84     6   4     28.88889
+36     NA     220  8.6   85     6   5     29.44444
+37     NA     264 14.3   79     6   6     26.11111
+38     29     127  9.7   82     6   7     27.77778
+39     NA     273  6.9   87     6   8     30.55556
+40     71     291 13.8   90     6   9     32.22222
+41     39     323 11.5   87     6  10     30.55556
+42     NA     259 10.9   93     6  11     33.88889
+43     NA     250  9.2   92     6  12     33.33333
+44     23     148  8.0   82     6  13     27.77778
+45     NA     332 13.8   80     6  14     26.66667
+46     NA     322 11.5   79     6  15     26.11111
+47     21     191 14.9   77     6  16     25.00000
+48     37     284 20.7   72     6  17     22.22222
+49     20      37  9.2   65     6  18     18.33333
+50     12     120 11.5   73     6  19     22.77778
+51     13     137 10.3   76     6  20     24.44444
+52     NA     150  6.3   77     6  21     25.00000
+53     NA      59  1.7   76     6  22     24.44444
+54     NA      91  4.6   76     6  23     24.44444
+55     NA     250  6.3   76     6  24     24.44444
+56     NA     135  8.0   75     6  25     23.88889
+57     NA     127  8.0   78     6  26     25.55556
+58     NA      47 10.3   73     6  27     22.77778
+59     NA      98 11.5   80     6  28     26.66667
+60     NA      31 14.9   77     6  29     25.00000
+61     NA     138  8.0   83     6  30     28.33333
+62    135     269  4.1   84     7   1     28.88889
+63     49     248  9.2   85     7   2     29.44444
+64     32     236  9.2   81     7   3     27.22222
+65     NA     101 10.9   84     7   4     28.88889
+66     64     175  4.6   83     7   5     28.33333
+67     40     314 10.9   83     7   6     28.33333
+68     77     276  5.1   88     7   7     31.11111
+69     97     267  6.3   92     7   8     33.33333
+70     97     272  5.7   92     7   9     33.33333
+71     85     175  7.4   89     7  10     31.66667
+72     NA     139  8.6   82     7  11     27.77778
+73     10     264 14.3   73     7  12     22.77778
+74     27     175 14.9   81     7  13     27.22222
+75     NA     291 14.9   91     7  14     32.77778
+76      7      48 14.3   80     7  15     26.66667
+77     48     260  6.9   81     7  16     27.22222
+78     35     274 10.3   82     7  17     27.77778
+79     61     285  6.3   84     7  18     28.88889
+80     79     187  5.1   87     7  19     30.55556
+81     63     220 11.5   85     7  20     29.44444
+82     16       7  6.9   74     7  21     23.33333
+83     NA     258  9.7   81     7  22     27.22222
+84     NA     295 11.5   82     7  23     27.77778
+85     80     294  8.6   86     7  24     30.00000
+86    108     223  8.0   85     7  25     29.44444
+87     20      81  8.6   82     7  26     27.77778
+88     52      82 12.0   86     7  27     30.00000
+89     82     213  7.4   88     7  28     31.11111
+90     50     275  7.4   86     7  29     30.00000
+91     64     253  7.4   83     7  30     28.33333
+92     59     254  9.2   81     7  31     27.22222
+93     39      83  6.9   81     8   1     27.22222
+94      9      24 13.8   81     8   2     27.22222
+95     16      77  7.4   82     8   3     27.77778
+96     78      NA  6.9   86     8   4     30.00000
+97     35      NA  7.4   85     8   5     29.44444
+98     66      NA  4.6   87     8   6     30.55556
+99    122     255  4.0   89     8   7     31.66667
+100    89     229 10.3   90     8   8     32.22222
+101   110     207  8.0   90     8   9     32.22222
+102    NA     222  8.6   92     8  10     33.33333
+103    NA     137 11.5   86     8  11     30.00000
+104    44     192 11.5   86     8  12     30.00000
+105    28     273 11.5   82     8  13     27.77778
+106    65     157  9.7   80     8  14     26.66667
+107    NA      64 11.5   79     8  15     26.11111
+108    22      71 10.3   77     8  16     25.00000
+109    59      51  6.3   79     8  17     26.11111
+110    23     115  7.4   76     8  18     24.44444
+111    31     244 10.9   78     8  19     25.55556
+112    44     190 10.3   78     8  20     25.55556
+113    21     259 15.5   77     8  21     25.00000
+114     9      36 14.3   72     8  22     22.22222
+115    NA     255 12.6   75     8  23     23.88889
+116    45     212  9.7   79     8  24     26.11111
+117   168     238  3.4   81     8  25     27.22222
+118    73     215  8.0   86     8  26     30.00000
+119    NA     153  5.7   88     8  27     31.11111
+120    76     203  9.7   97     8  28     36.11111
+121   118     225  2.3   94     8  29     34.44444
+122    84     237  6.3   96     8  30     35.55556
+123    85     188  6.3   94     8  31     34.44444
+124    96     167  6.9   91     9   1     32.77778
+125    78     197  5.1   92     9   2     33.33333
+126    73     183  2.8   93     9   3     33.88889
+127    91     189  4.6   93     9   4     33.88889
+128    47      95  7.4   87     9   5     30.55556
+129    32      92 15.5   84     9   6     28.88889
+130    20     252 10.9   80     9   7     26.66667
+131    23     220 10.3   78     9   8     25.55556
+132    21     230 10.9   75     9   9     23.88889
+133    24     259  9.7   73     9  10     22.77778
+134    44     236 14.9   81     9  11     27.22222
+135    21     259 15.5   76     9  12     24.44444
+136    28     238  6.3   77     9  13     25.00000
+137     9      24 10.9   71     9  14     21.66667
+138    13     112 11.5   71     9  15     21.66667
+139    46     237  6.9   78     9  16     25.55556
+140    18     224 13.8   67     9  17     19.44444
+141    13      27 10.3   76     9  18     24.44444
+142    24     238 10.3   68     9  19     20.00000
+ [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 11 rows ]</code></pre>
+</details>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="bucles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="proyecto.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02k-funs.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 18 Importando datos RECTANGULARES | Estadística para Ciencia de Datos</title>
+  <meta name="description" content="Chapter 18 Importando datos RECTANGULARES | Estadística para Ciencia de Datos" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 18 Importando datos RECTANGULARES | Estadística para Ciencia de Datos" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 18 Importando datos RECTANGULARES | Estadística para Ciencia de Datos" />
+  
+  
+  
+
+<meta name="author" content="Cristian Benalcázar" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exportando-datos-.rdata.html"/>
+<link rel="next" href="gráficos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para Ciencia de Datos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="que-es-R.html"><a href="que-es-R.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="que-es-R.html"><a href="que-es-R.html#historia-de-r"><i class="fa fa-check"></i><b>2.1</b> Historia de R</a></li>
+<li class="chapter" data-level="2.2" data-path="que-es-R.html"><a href="que-es-R.html#comunidadpaquetes"><i class="fa fa-check"></i><b>2.2</b> Comunidad de usuarios: paquetes</a></li>
+<li class="chapter" data-level="2.3" data-path="que-es-R.html"><a href="que-es-R.html#por-qué-excel-no-es-tu-amigo"><i class="fa fa-check"></i><b>2.3</b> ¿Por qué Excel no es tu amigo?</a></li>
+<li class="chapter" data-level="2.4" data-path="que-es-R.html"><a href="que-es-R.html#glosario"><i class="fa fa-check"></i><b>2.4</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="instalacionR.html"><a href="instalacionR.html"><i class="fa fa-check"></i><b>3</b> Instalación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="instalacionR.html"><a href="instalacionR.html#instalación-de-r"><i class="fa fa-check"></i><b>3.1</b> Instalación de R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="instalacionR.html"><a href="instalacionR.html#paso-1"><i class="fa fa-check"></i><b>3.1.1</b> Paso 1</a></li>
+<li class="chapter" data-level="3.1.2" data-path="instalacionR.html"><a href="instalacionR.html#paso-2"><i class="fa fa-check"></i><b>3.1.2</b> Paso 2</a></li>
+<li class="chapter" data-level="3.1.3" data-path="instalacionR.html"><a href="instalacionR.html#paso-3"><i class="fa fa-check"></i><b>3.1.3</b> Paso 3</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="instalacionR.html"><a href="instalacionR.html#primera-operación-en-consola-sumar-dos-números"><i class="fa fa-check"></i><b>3.2</b> Primera operación en consola: sumar dos números</a></li>
+<li class="chapter" data-level="3.3" data-path="instalacionR.html"><a href="instalacionR.html#instalacionRStudio"><i class="fa fa-check"></i><b>3.3</b> Instalación de RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="instalacionR.html"><a href="instalacionR.html#instalacionpaquetes"><i class="fa fa-check"></i><b>3.4</b> Instalación de paquetes</a></li>
+<li class="chapter" data-level="3.5" data-path="instalacionR.html"><a href="instalacionR.html#glosario-1"><i class="fa fa-check"></i><b>3.5</b> Glosario</a></li>
+<li class="chapter" data-level="3.6" data-path="instalacionR.html"><a href="instalacionR.html#consejos"><i class="fa fa-check"></i><b>3.6</b> Consejos</a></li>
+<li class="chapter" data-level="3.7" data-path="instalacionR.html"><a href="instalacionR.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos.html"><a href="primeros-pasos.html#primeros-pasos-en-r-calculadora"><i class="fa fa-check"></i><b>4.1</b> Primeros pasos en R: calculadora</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html#y-dónde-programamos"><i class="fa fa-check"></i><b>4.2</b> ¿Y dónde programamos?</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos.html"><a href="primeros-pasos.html#tipos_errores"><i class="fa fa-check"></i><b>4.3</b> Tipos de errores</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos.html"><a href="primeros-pasos.html#glosario-2"><i class="fa fa-check"></i><b>4.4</b> Glosario</a></li>
+<li class="chapter" data-level="4.5" data-path="primeros-pasos.html"><a href="primeros-pasos.html#consejos-1"><i class="fa fa-check"></i><b>4.5</b> Consejos</a></li>
+<li class="chapter" data-level="4.6" data-path="primeros-pasos.html"><a href="primeros-pasos.html#ejercicios-1"><i class="fa fa-check"></i><b>4.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>I Tipos de datos</b></span></li>
+<li class="chapter" data-level="5" data-path="var-num.html"><a href="var-num.html"><i class="fa fa-check"></i><b>5</b> Variables individuales: números y caracteres</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="var-num.html"><a href="var-num.html#numericas"><i class="fa fa-check"></i><b>5.1</b> Variables numéricas (individuales)</a></li>
+<li class="chapter" data-level="5.2" data-path="var-num.html"><a href="var-num.html#caracter"><i class="fa fa-check"></i><b>5.2</b> Variables de tipo caracter (texto)</a></li>
+<li class="chapter" data-level="5.3" data-path="var-num.html"><a href="var-num.html#nuestra-primera-función-paste"><i class="fa fa-check"></i><b>5.3</b> Nuestra primera función: paste</a></li>
+<li class="chapter" data-level="5.4" data-path="var-num.html"><a href="var-num.html#nuestro-primer-paquete-glue"><i class="fa fa-check"></i><b>5.4</b> Nuestro primer paquete: glue</a></li>
+<li class="chapter" data-level="5.5" data-path="var-num.html"><a href="var-num.html#manejando-textos-paquete-stringr"><i class="fa fa-check"></i><b>5.5</b> Manejando textos: paquete stringr</a></li>
+<li class="chapter" data-level="5.6" data-path="var-num.html"><a href="var-num.html#consejos-2"><i class="fa fa-check"></i><b>5.6</b> Consejos</a></li>
+<li class="chapter" data-level="5.7" data-path="var-num.html"><a href="var-num.html#ejercicios-2"><i class="fa fa-check"></i><b>5.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectores.html"><a href="vectores.html#vectores-numéricos"><i class="fa fa-check"></i><b>6.1</b> Vectores numéricos</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html#secuencias-numéricas-con-un-patrón"><i class="fa fa-check"></i><b>6.2</b> Secuencias numéricas con un patrón</a></li>
+<li class="chapter" data-level="6.3" data-path="vectores.html"><a href="vectores.html#vectores-de-caracteres-texto"><i class="fa fa-check"></i><b>6.3</b> Vectores de caracteres (texto)</a></li>
+<li class="chapter" data-level="6.4" data-path="vectores.html"><a href="vectores.html#vectores-lógicos-truefalse"><i class="fa fa-check"></i><b>6.4</b> Vectores lógicos (TRUE/FALSE)</a></li>
+<li class="chapter" data-level="6.5" data-path="vectores.html"><a href="vectores.html#consejos-3"><i class="fa fa-check"></i><b>6.5</b> Consejos</a></li>
+<li class="chapter" data-level="6.6" data-path="vectores.html"><a href="vectores.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="operacionesvectores.html"><a href="operacionesvectores.html"><i class="fa fa-check"></i><b>7</b> Operaciones con vectores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#vectores-numéricos-1"><i class="fa fa-check"></i><b>7.1</b> Vectores numéricos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-aritméticas"><i class="fa fa-check"></i><b>7.1.1</b> Operaciones aritméticas</a></li>
+<li class="chapter" data-level="7.1.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-estadísticas"><i class="fa fa-check"></i><b>7.1.2</b> Operaciones estadísticas</a></li>
+<li class="chapter" data-level="7.1.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operacionesausentes"><i class="fa fa-check"></i><b>7.1.3</b> Operaciones con ausentes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#seleccionar-elementos"><i class="fa fa-check"></i><b>7.2</b> Seleccionar elementos</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#which"><i class="fa fa-check"></i><b>7.2.1</b> which</a></li>
+<li class="chapter" data-level="7.2.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#null"><i class="fa fa-check"></i><b>7.2.2</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación"><i class="fa fa-check"></i><b>7.3</b> Nombrando vectores: añadiendo metainformación</a></li>
+<li class="chapter" data-level="7.4" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ordenar"><i class="fa fa-check"></i><b>7.4</b> Ordenar</a></li>
+<li class="chapter" data-level="7.5" data-path="operacionesvectores.html"><a href="operacionesvectores.html#consejos-4"><i class="fa fa-check"></i><b>7.5</b> Consejos</a></li>
+<li class="chapter" data-level="7.6" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ejercicios-4"><i class="fa fa-check"></i><b>7.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i><b>8</b> Fechas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="fechas.html"><a href="fechas.html#funciones-de-lubridate"><i class="fa fa-check"></i><b>8.1</b> Funciones de lubridate</a></li>
+<li class="chapter" data-level="8.2" data-path="fechas.html"><a href="fechas.html#consejos-5"><i class="fa fa-check"></i><b>8.2</b> Consejos</a></li>
+<li class="chapter" data-level="8.3" data-path="fechas.html"><a href="fechas.html#ejercicios-5"><i class="fa fa-check"></i><b>8.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>9</b> Datos estructurados</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="datos.html"><a href="datos.html#matrices"><i class="fa fa-check"></i><b>9.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="datos.html"><a href="datos.html#acceder-a-elementos"><i class="fa fa-check"></i><b>9.1.1</b> Acceder a elementos</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datos.html"><a href="datos.html#operaciones-por-filas-y-columnas-apply"><i class="fa fa-check"></i><b>9.1.2</b> Operaciones por filas y columnas (apply)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datos.html"><a href="datos.html#tablas-data.frames"><i class="fa fa-check"></i><b>9.2</b> Tablas: data.frames</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="datos.html"><a href="datos.html#selección-de-columnas-y-filas"><i class="fa fa-check"></i><b>9.2.1</b> Selección de columnas y filas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="datos.html"><a href="datos.html#primer-análisis-de-datos-arrestos-en-ee.-uu."><i class="fa fa-check"></i><b>9.2.2</b> Primer análisis de datos: arrestos en EE. UU.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="datos.html"><a href="datos.html#consejos-6"><i class="fa fa-check"></i><b>9.3</b> Consejos</a></li>
+<li class="chapter" data-level="9.4" data-path="datos.html"><a href="datos.html#ejercicios-6"><i class="fa fa-check"></i><b>9.4</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>10</b> Listas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="listas.html"><a href="listas.html#introducción-a-purrr"><i class="fa fa-check"></i><b>10.1</b> Introducción a purrr</a></li>
+<li class="chapter" data-level="10.2" data-path="listas.html"><a href="listas.html#ejercicios-7"><i class="fa fa-check"></i><b>10.2</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Haciendo el trabajo más fácil</b></span></li>
+<li class="chapter" data-level="11" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>11</b> Estructuras de control: if-else</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="if-else.html"><a href="if-else.html#if"><i class="fa fa-check"></i><b>11.1</b> if</a></li>
+<li class="chapter" data-level="11.2" data-path="if-else.html"><a href="if-else.html#if---else"><i class="fa fa-check"></i><b>11.2</b> if - else</a></li>
+<li class="chapter" data-level="11.3" data-path="if-else.html"><a href="if-else.html#if---else-anidados"><i class="fa fa-check"></i><b>11.3</b> if - else anidados</a></li>
+<li class="chapter" data-level="11.4" data-path="if-else.html"><a href="if-else.html#ifelse-vectorizado"><i class="fa fa-check"></i><b>11.4</b> ifelse () vectorizado</a></li>
+<li class="chapter" data-level="11.5" data-path="if-else.html"><a href="if-else.html#consejos-7"><i class="fa fa-check"></i><b>11.5</b> Consejos</a></li>
+<li class="chapter" data-level="11.6" data-path="if-else.html"><a href="if-else.html#ejercicios-8"><i class="fa fa-check"></i><b>11.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>12</b> Estructuras de control: bucles</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bucles.html"><a href="bucles.html#for"><i class="fa fa-check"></i><b>12.1</b> for</a></li>
+<li class="chapter" data-level="12.2" data-path="bucles.html"><a href="bucles.html#while"><i class="fa fa-check"></i><b>12.2</b> while</a></li>
+<li class="chapter" data-level="12.3" data-path="bucles.html"><a href="bucles.html#breaknext"><i class="fa fa-check"></i><b>12.3</b> break/next</a></li>
+<li class="chapter" data-level="12.4" data-path="bucles.html"><a href="bucles.html#repeat"><i class="fa fa-check"></i><b>12.4</b> repeat</a></li>
+<li class="chapter" data-level="12.5" data-path="bucles.html"><a href="bucles.html#consejos-8"><i class="fa fa-check"></i><b>12.5</b> Consejos</a></li>
+<li class="chapter" data-level="12.6" data-path="bucles.html"><a href="bucles.html#ejercicios-9"><i class="fa fa-check"></i><b>12.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="funs.html"><a href="funs.html"><i class="fa fa-check"></i><b>13</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="funs.html"><a href="funs.html#primera-función"><i class="fa fa-check"></i><b>13.1</b> Primera función</a></li>
+<li class="chapter" data-level="13.2" data-path="funs.html"><a href="funs.html#variables-localesglobales"><i class="fa fa-check"></i><b>13.2</b> Variables locales/globales</a></li>
+<li class="chapter" data-level="13.3" data-path="funs.html"><a href="funs.html#ejercicios-10"><i class="fa fa-check"></i><b>13.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyecto.html"><a href="proyecto.html"><i class="fa fa-check"></i><b>14</b> Proyecto de trabajo</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyecto.html"><a href="proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>14.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="14.2" data-path="proyecto.html"><a href="proyecto.html#directorios-de-trabajo-y-cabecera"><i class="fa fa-check"></i><b>14.2</b> Directorios de trabajo y cabecera</a></li>
+<li class="chapter" data-level="14.3" data-path="proyecto.html"><a href="proyecto.html#ejecución"><i class="fa fa-check"></i><b>14.3</b> Ejecución</a></li>
+<li class="chapter" data-level="14.4" data-path="proyecto.html"><a href="proyecto.html#consejos-9"><i class="fa fa-check"></i><b>14.4</b> Consejos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="importar-exportar.html"><a href="importar-exportar.html"><i class="fa fa-check"></i><b>15</b> Importar/exportar datos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic"><i class="fa fa-check"></i><b>15.1</b> Archivo .RData: pasajeros del RMS Titanic</a></li>
+<li class="chapter" data-level="15.2" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rda-pisos-en-boston"><i class="fa fa-check"></i><b>15.2</b> Archivo .rda: pisos en Boston</a></li>
+<li class="chapter" data-level="15.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat"><i class="fa fa-check"></i><b>15.3</b> Desde paquete: estadísticas del Eurostat</a></li>
+<li class="chapter" data-level="15.4" data-path="importar-exportar.html"><a href="importar-exportar.html#exportación-de-datos"><i class="fa fa-check"></i><b>15.4</b> Exportación de datos</a></li>
+<li class="chapter" data-level="15.5" data-path="importar-exportar.html"><a href="importar-exportar.html#consejos-10"><i class="fa fa-check"></i><b>15.5</b> Consejos</a></li>
+<li class="chapter" data-level="15.6" data-path="importar-exportar.html"><a href="importar-exportar.html#importando-datos-.rdata.rda"><i class="fa fa-check"></i><b>15.6</b> Importando datos: .RData/.rda</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="importando-datos-.rdata.rda-1.html"><a href="importando-datos-.rdata.rda-1.html"><i class="fa fa-check"></i><b>16</b> Importando datos: .RData/.rda</a></li>
+<li class="chapter" data-level="17" data-path="exportando-datos-.rdata.html"><a href="exportando-datos-.rdata.html"><i class="fa fa-check"></i><b>17</b> Exportando datos: .RData/.rda</a></li>
+<li class="chapter" data-level="18" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html"><i class="fa fa-check"></i><b>18</b> Importando datos RECTANGULARES</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-rectangulares-1"><i class="fa fa-check"></i><b>18.1</b> Importando datos RECTANGULARES</a></li>
+<li class="chapter" data-level="18.2" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-rectangulares-2"><i class="fa fa-check"></i><b>18.2</b> Importando datos RECTANGULARES</a></li>
+<li class="chapter" data-level="18.3" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-rectangulares-3"><i class="fa fa-check"></i><b>18.3</b> Importando datos RECTANGULARES</a></li>
+<li class="chapter" data-level="18.4" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-rectangulares-4"><i class="fa fa-check"></i><b>18.4</b> Importando datos RECTANGULARES</a></li>
+<li class="chapter" data-level="18.5" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-rectangulares-5"><i class="fa fa-check"></i><b>18.5</b> Importando datos RECTANGULARES</a></li>
+<li class="chapter" data-level="18.6" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-rectangulares-6"><i class="fa fa-check"></i><b>18.6</b> Importando datos RECTANGULARES</a></li>
+<li class="chapter" data-level="18.7" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-rectangulares-7"><i class="fa fa-check"></i><b>18.7</b> Importando datos RECTANGULARES</a></li>
+<li class="chapter" data-level="18.8" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-rectangulares-8"><i class="fa fa-check"></i><b>18.8</b> Importando datos RECTANGULARES</a></li>
+<li class="chapter" data-level="18.9" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#exportando-datos-rectangulares"><i class="fa fa-check"></i><b>18.9</b> Exportando datos RECTANGULARES</a></li>
+<li class="chapter" data-level="18.10" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-desde-web"><i class="fa fa-check"></i><b>18.10</b> Importando datos DESDE WEB</a></li>
+<li class="chapter" data-level="18.11" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-desde-web-1"><i class="fa fa-check"></i><b>18.11</b> Importando datos DESDE WEB</a></li>
+<li class="chapter" data-level="18.12" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-datos-excel"><i class="fa fa-check"></i><b>18.12</b> Importando datos: datos EXCEL</a></li>
+<li class="chapter" data-level="18.13" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-datos-excel-1"><i class="fa fa-check"></i><b>18.13</b> Importando datos: datos EXCEL</a></li>
+<li class="chapter" data-level="18.14" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-excel"><i class="fa fa-check"></i><b>18.14</b> Importando datos EXCEL</a></li>
+<li class="chapter" data-level="18.15" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-datos-excel-2"><i class="fa fa-check"></i><b>18.15</b> Importando datos: datos EXCEL</a></li>
+<li class="chapter" data-level="18.16" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-datos-excel-3"><i class="fa fa-check"></i><b>18.16</b> Importando datos: datos EXCEL</a></li>
+<li class="chapter" data-level="18.17" data-path="importando-datos-rectangulares.html"><a href="importando-datos-rectangulares.html#importando-datos-googlesheet"><i class="fa fa-check"></i><b>18.17</b> Importando datos googlesheet</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>19</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-una-variable-cuantitativa"><i class="fa fa-check"></i><b>19.1</b> Gráficos para una variable cuantitativa</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="gráficos.html"><a href="gráficos.html#función-stem"><i class="fa fa-check"></i><b>19.1.1</b> Función <code>stem ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="19.1.2" data-path="gráficos.html"><a href="gráficos.html#función-boxplot"><i class="fa fa-check"></i><b>19.1.2</b> Función <code>boxplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo 1</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo 2</a></li>
+<li class="chapter" data-level="19.1.3" data-path="gráficos.html"><a href="gráficos.html#función-hist"><i class="fa fa-check"></i><b>19.1.3</b> Función <code>hist ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="19.1.4" data-path="gráficos.html"><a href="gráficos.html#función-density"><i class="fa fa-check"></i><b>19.1.4</b> Función <code>density ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-dos-variables-cuantitativas"><i class="fa fa-check"></i><b>19.2</b> Gráficos para dos variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="gráficos.html"><a href="gráficos.html#función-plot"><i class="fa fa-check"></i><b>19.2.1</b> Función <code>plot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="19.2.2" data-path="gráficos.html"><a href="gráficos.html#función-pairs"><i class="fa fa-check"></i><b>19.2.2</b> Función <code>pairs ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-variables-categóricas"><i class="fa fa-check"></i><b>19.3</b> Gráficos para variables categóricas</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="gráficos.html"><a href="gráficos.html#función-barplot"><i class="fa fa-check"></i><b>19.3.1</b> Función <code>barplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="19.3.2" data-path="gráficos.html"><a href="gráficos.html#la-función-pie"><i class="fa fa-check"></i><b>19.3.2</b> La función <code>pie ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="19.3.3" data-path="gráficos.html"><a href="gráficos.html#función-dotchart"><i class="fa fa-check"></i><b>19.3.3</b> Función <code>dotchart ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="gráficos.html"><a href="gráficos.html#la-librería-lattice"><i class="fa fa-check"></i><b>19.4</b> La librería <code>lattice</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-2"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>20</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="r-markdown.html"><a href="r-markdown.html#introducción-1"><i class="fa fa-check"></i><b>20.1</b> Introducción</a></li>
+<li class="chapter" data-level="20.2" data-path="r-markdown.html"><a href="r-markdown.html#por-qué-r-markdown"><i class="fa fa-check"></i><b>20.2</b> ¿Por qué R Markdown?</a></li>
+<li class="chapter" data-level="20.3" data-path="r-markdown.html"><a href="r-markdown.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>20.3</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="20.4" data-path="r-markdown.html"><a href="r-markdown.html#cómo-crear-un-fichero-.rmd"><i class="fa fa-check"></i><b>20.4</b> ¿Cómo crear un fichero <code>.Rmd</code>?</a></li>
+<li class="chapter" data-level="20.5" data-path="r-markdown.html"><a href="r-markdown.html#cabeceras-yaml"><i class="fa fa-check"></i><b>20.5</b> Cabeceras YAML</a></li>
+<li class="chapter" data-level="20.6" data-path="r-markdown.html"><a href="r-markdown.html#sintáxis-básica-de-markdown"><i class="fa fa-check"></i><b>20.6</b> Sintáxis básica de Markdown</a></li>
+<li class="chapter" data-level="20.7" data-path="r-markdown.html"><a href="r-markdown.html#insertar-código-de-r"><i class="fa fa-check"></i><b>20.7</b> Insertar código de R</a>
+<ul>
+<li class="chapter" data-level="20.7.1" data-path="r-markdown.html"><a href="r-markdown.html#código-de-r-en-línea"><i class="fa fa-check"></i><b>20.7.1</b> Código de R en línea</a></li>
+<li class="chapter" data-level="20.7.2" data-path="r-markdown.html"><a href="r-markdown.html#bloques-chunks-de-código-r"><i class="fa fa-check"></i><b>20.7.2</b> Bloques (<em>chunks</em>) de código R</a></li>
+</ul></li>
+<li class="chapter" data-level="20.8" data-path="r-markdown.html"><a href="r-markdown.html#opciones-de-los-bloques-de-código-r"><i class="fa fa-check"></i><b>20.8</b> Opciones de los bloques de código R</a></li>
+<li class="chapter" data-level="20.9" data-path="r-markdown.html"><a href="r-markdown.html#figuras"><i class="fa fa-check"></i><b>20.9</b> Figuras</a></li>
+<li class="chapter" data-level="20.10" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i><b>20.10</b> Tablas</a></li>
+<li class="chapter" data-level="20.11" data-path="r-markdown.html"><a href="r-markdown.html#tabla-de-contenidos"><i class="fa fa-check"></i><b>20.11</b> Tabla de contenidos</a></li>
+<li class="chapter" data-level="20.12" data-path="r-markdown.html"><a href="r-markdown.html#caching"><i class="fa fa-check"></i><b>20.12</b> <em>Caching</em></a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>21</b> Git y Github con Rstudio</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="git.html"><a href="git.html#git-y-github-junto-con-rstudio"><i class="fa fa-check"></i><b>21.1</b> Git y GitHub junto con RStudio</a></li>
+<li class="chapter" data-level="21.2" data-path="git.html"><a href="git.html#qué-es-git-qué-es-github"><i class="fa fa-check"></i><b>21.2</b> ¿Qué es Git? ¿Qué es GitHub?</a></li>
+<li class="chapter" data-level="21.3" data-path="git.html"><a href="git.html#instalar-git"><i class="fa fa-check"></i><b>21.3</b> Instalar Git</a></li>
+<li class="chapter" data-level="21.4" data-path="git.html"><a href="git.html#crear-cuenta-y-repositorio-en-github"><i class="fa fa-check"></i><b>21.4</b> Crear cuenta y repositorio en Github</a></li>
+<li class="chapter" data-level="21.5" data-path="git.html"><a href="git.html#configurar-git-editar-gitconfig-file"><i class="fa fa-check"></i><b>21.5</b> Configurar Git (Editar gitconfig file)</a></li>
+<li class="chapter" data-level="21.6" data-path="git.html"><a href="git.html#crear-un-token-de-acceso-personal-pat-en-github"><i class="fa fa-check"></i><b>21.6</b> Crear un token de acceso personal (PAT) en GitHub</a></li>
+<li class="chapter" data-level="21.7" data-path="git.html"><a href="git.html#almacenar-token-de-acceso-personal-para-conectar-rstudio-y-github"><i class="fa fa-check"></i><b>21.7</b> Almacenar token de acceso personal para conectar RStudio y GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="practica-final.html"><a href="practica-final.html"><i class="fa fa-check"></i><b>22</b> 📝 Práctica final</a></li>
+<li class="part"><span><b>III Recursos</b></span></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html"><i class="fa fa-check"></i>📝 Ejercicios recopilados</a>
+<ul>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#instalación"><i class="fa fa-check"></i>Instalación</a></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#primeros-pasos-1"><i class="fa fa-check"></i>Primeros pasos</a></li>
+<li class="chapter" data-level="22.1" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#variables-numéricas-y-de-texto"><i class="fa fa-check"></i><b>22.1</b> Variables numéricas y de texto</a></li>
+<li class="chapter" data-level="22.2" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#vectores-1"><i class="fa fa-check"></i><b>22.2</b> Vectores</a></li>
+<li class="chapter" data-level="22.3" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#operaciones-con-vectores"><i class="fa fa-check"></i><b>22.3</b> Operaciones con vectores</a></li>
+<li class="chapter" data-level="22.4" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#fechas-1"><i class="fa fa-check"></i><b>22.4</b> Fechas</a></li>
+<li class="chapter" data-level="22.5" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#datos-estructurados"><i class="fa fa-check"></i><b>22.5</b> Datos estructurados</a></li>
+<li class="chapter" data-level="22.6" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#listas-1"><i class="fa fa-check"></i><b>22.6</b> Listas</a></li>
+<li class="chapter" data-level="22.7" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-if-else"><i class="fa fa-check"></i><b>22.7</b> Estructuras if-else</a></li>
+<li class="chapter" data-level="22.8" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-for-y-while"><i class="fa fa-check"></i><b>22.8</b> Estructuras for y while</a></li>
+<li class="chapter" data-level="22.9" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#funciones"><i class="fa fa-check"></i><b>22.9</b> Funciones</a></li>
+<li class="chapter" data-level="22.10" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#practica-final-1"><i class="fa fa-check"></i><b>22.10</b> Practica final</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html"><i class="fa fa-check"></i>📚 Recursos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#aprendizajedocencia"><i class="fa fa-check"></i>Aprendizaje/docencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-datos"><i class="fa fa-check"></i>Manejo de datos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-textos"><i class="fa fa-check"></i>Manejo de textos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#datos.-importarexportar"><i class="fa fa-check"></i>Datos. Importar/exportar</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#dataviz"><i class="fa fa-check"></i>dataviz</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#mapas-y-datos-espaciales-en-r"><i class="fa fa-check"></i>Mapas y datos espaciales en R</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#colores-y-temas-en-dataviz-generales"><i class="fa fa-check"></i>Colores y temas en dataviz (generales)</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#análisis-exploratorio"><i class="fa fa-check"></i>Análisis exploratorio</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#modelización-e-inferencia"><i class="fa fa-check"></i>Modelización e inferencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#estadística-bayesiana"><i class="fa fa-check"></i>Estadística Bayesiana</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#informes-tablas-webs-libros-y-diapositivas"><i class="fa fa-check"></i>Informes, tablas, webs, libros y diapositivas</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#paquetesrecursos-curiosos"><i class="fa fa-check"></i>Paquetes/recursos curiosos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Estadística para Ciencia de Datos</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importando-datos-rectangulares" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">Chapter 18</span> Importando datos RECTANGULARES<a href="importando-datos-rectangulares.html#importando-datos-rectangulares" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>El paquete <code>{readr}</code> dentro del entorno <code>{tidyverse}</code> contiene distintas funciones útiles para la carga de <strong>.bg-purple_light[datos rectangulares]</strong> (sin formatear).</p>
+<p>.pull-left[</p>
+<ul>
+<li><code>read_csv()</code>: archivos <code>.csv</code> cuyo separador sea la <strong>.bg-purple_light[coma]</strong> <code>,</code></li>
+<li><code>read_csv2()</code>: archivos <code>.csv</code> cuyo separador sea el <strong>.bg-purple_light[punto y coma]</strong> <code>;</code></li>
+<li><code>read_tsv()</code>: archivos cuyos valores estén separados por un <strong>.bg-purple_light[tabulador]</strong>.</li>
+<li><code>read_table()</code>: archivos cuyos valores estén separados por un <strong>.bg-purple_light[espacio]</strong>.</li>
+<li><code>read_delim()</code>: <strong>función general</strong> para leer archivos delimitados por caracteres.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:readr"></span>
+<img src="https://github.com/rstudio/cheatsheets/raw/main/pngs/thumbnails/data-import-cheatsheet-thumbs.png" alt="Ver más en https://readr.tidyverse.org/" width="110%" />
+<p class="caption">
+Figure 18.1: Ver más en <a href="https://readr.tidyverse.org/" class="uri">https://readr.tidyverse.org/</a>
+</p>
+</div>
+<p>Todos necesitan como argumento la <strong>.bg-purple_light[ruta del archivo]</strong> (que podemos simplificar teniendo una carpeta de datos en nuestro proyecto), amén de otros argumentos opcionales (saltar o no cabecera, decimales son con punto o coma, etc)</p>
+<div id="importando-datos-rectangulares-1" class="section level2 hasAnchor" number="18.1">
+<h2><span class="header-section-number">18.1</span> Importando datos RECTANGULARES<a href="importando-datos-rectangulares.html#importando-datos-rectangulares-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La principal ventaja de <code>{readr}</code> es que <strong>.bg-purple_light[automatiza el formateo]</strong> necesario para pasar de un archivo plano (sin formato) a un <code>tibble</code> (en filas y columnas, con formato).</p>
+<p>En <code>read_csv()</code> necesitaremos pasar como argumento la ruta del archivo en <code>file</code></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="importando-datos-rectangulares.html#cb21-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code></pre></div>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 4.3.3</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="importando-datos-rectangulares.html#cb23-1" tabindex="-1"></a>chickens <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 5 Columns: 4
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (3): chicken, sex, motto
+## dbl (1): eggs_laid
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="importando-datos-rectangulares.html#cb25-1" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 4
+##   chicken                 sex     eggs_laid motto                               
+##   &lt;chr&gt;                   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;                               
+## 1 Foghorn Leghorn         rooster         0 That&#39;s a joke, ah say, that&#39;s a jok…
+## 2 Chicken Little          hen             3 The sky is falling!                 
+## 3 Ginger                  hen            12 Listen. We&#39;ll either die free chick…
+## 4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                
+## 5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold.</code></pre>
+</div>
+<div id="importando-datos-rectangulares-2" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> Importando datos RECTANGULARES<a href="importando-datos-rectangulares.html#importando-datos-rectangulares-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El formato de las columnas normalmente lo hará <code>read_csv()</code> de forma automática, y podemos consultarlo con <code>spec()</code></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="importando-datos-rectangulares.html#cb27-1" tabindex="-1"></a><span class="fu">spec</span>(chickens)</span></code></pre></div>
+<pre><code>## cols(
+##   chicken = col_character(),
+##   sex = col_character(),
+##   eggs_laid = col_double(),
+##   motto = col_character()
+## )</code></pre>
+</div>
+<div id="importando-datos-rectangulares-3" class="section level2 hasAnchor" number="18.3">
+<h2><span class="header-section-number">18.3</span> Importando datos RECTANGULARES<a href="importando-datos-rectangulares.html#importando-datos-rectangulares-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Aunque lo haga normalmente bien de forma automática podemos <strong>.bg-purple_light[especificar el formato explícitamente]</strong> en <code>col_types = list()</code> (en formato lista, con <code>col_xxx()</code> para el formateo de cada tipo de variable, por ejemplo una la pondremos como factor).</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="importando-datos-rectangulares.html#cb29-1" tabindex="-1"></a>chickens <span class="ot">&lt;-</span></span>
+<span id="cb29-2"><a href="importando-datos-rectangulares.html#cb29-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>,</span>
+<span id="cb29-3"><a href="importando-datos-rectangulares.html#cb29-3" tabindex="-1"></a>           <span class="at">col_types =</span> <span class="fu">list</span>(<span class="fu">col_character</span>(), <span class="fu">col_factor</span>(),</span>
+<span id="cb29-4"><a href="importando-datos-rectangulares.html#cb29-4" tabindex="-1"></a>                            <span class="fu">col_double</span>(), <span class="fu">col_character</span>()))</span>
+<span id="cb29-5"><a href="importando-datos-rectangulares.html#cb29-5" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 4
+##   chicken                 sex     eggs_laid motto                               
+##   &lt;chr&gt;                   &lt;fct&gt;       &lt;dbl&gt; &lt;chr&gt;                               
+## 1 Foghorn Leghorn         rooster         0 That&#39;s a joke, ah say, that&#39;s a jok…
+## 2 Chicken Little          hen             3 The sky is falling!                 
+## 3 Ginger                  hen            12 Listen. We&#39;ll either die free chick…
+## 4 Camilla the Chicken     hen             7 Bawk, buck, ba-gawk.                
+## 5 Ernie The Giant Chicken rooster         0 Put Captain Solo in the cargo hold.</code></pre>
+</div>
+<div id="importando-datos-rectangulares-4" class="section level2 hasAnchor" number="18.4">
+<h2><span class="header-section-number">18.4</span> Importando datos RECTANGULARES<a href="importando-datos-rectangulares.html#importando-datos-rectangulares-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Incluso podemos <strong>.bg-purple_light[indicar que columnas que queremos]</strong> (imagina que no quieres cargar todas, y quieres seleccionar ya en la carga para que no te ocupe en memoria), indicándoselo en <code>col_select = ...</code>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="importando-datos-rectangulares.html#cb31-1" tabindex="-1"></a>chickens <span class="ot">&lt;-</span></span>
+<span id="cb31-2"><a href="importando-datos-rectangulares.html#cb31-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>,</span>
+<span id="cb31-3"><a href="importando-datos-rectangulares.html#cb31-3" tabindex="-1"></a>           <span class="at">col_select =</span> <span class="fu">c</span>(chicken, eggs_laid))</span></code></pre></div>
+<pre><code>## Rows: 5 Columns: 2
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (1): chicken
+## dbl (1): eggs_laid
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="importando-datos-rectangulares.html#cb33-1" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   chicken                 eggs_laid
+##   &lt;chr&gt;                       &lt;dbl&gt;
+## 1 Foghorn Leghorn                 0
+## 2 Chicken Little                  3
+## 3 Ginger                         12
+## 4 Camilla the Chicken             7
+## 5 Ernie The Giant Chicken         0</code></pre>
+</div>
+<div id="importando-datos-rectangulares-5" class="section level2 hasAnchor" number="18.5">
+<h2><span class="header-section-number">18.5</span> Importando datos RECTANGULARES<a href="importando-datos-rectangulares.html#importando-datos-rectangulares-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dentro de <code>col_select = ...</code> podemos <strong>.bg-purple_light[usar sentencias tidyverse]</strong> como <code>starts_with(...)</code></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="importando-datos-rectangulares.html#cb35-1" tabindex="-1"></a>chickens <span class="ot">&lt;-</span></span>
+<span id="cb35-2"><a href="importando-datos-rectangulares.html#cb35-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>,</span>
+<span id="cb35-3"><a href="importando-datos-rectangulares.html#cb35-3" tabindex="-1"></a>           <span class="at">col_select =</span> <span class="fu">c</span>(<span class="fu">starts_with</span>(<span class="st">&quot;c&quot;</span>), <span class="fu">last_col</span>()))</span></code></pre></div>
+<pre><code>## Rows: 5 Columns: 2
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (2): chicken, motto
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="importando-datos-rectangulares.html#cb37-1" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   chicken                 motto                                                 
+##   &lt;chr&gt;                   &lt;chr&gt;                                                 
+## 1 Foghorn Leghorn         That&#39;s a joke, ah say, that&#39;s a joke, son.            
+## 2 Chicken Little          The sky is falling!                                   
+## 3 Ginger                  Listen. We&#39;ll either die free chickens or we die tryi…
+## 4 Camilla the Chicken     Bawk, buck, ba-gawk.                                  
+## 5 Ernie The Giant Chicken Put Captain Solo in the cargo hold.</code></pre>
+</div>
+<div id="importando-datos-rectangulares-6" class="section level2 hasAnchor" number="18.6">
+<h2><span class="header-section-number">18.6</span> Importando datos RECTANGULARES<a href="importando-datos-rectangulares.html#importando-datos-rectangulares-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>También podemos <strong>.bg-purple_light[decidir nosotros los nombres]</strong> de las variables indicándoselo en <code>col_names = ...</code> (incluso si los decimales están codificados con punto o coma)</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="importando-datos-rectangulares.html#cb39-1" tabindex="-1"></a>chickens <span class="ot">&lt;-</span></span>
+<span id="cb39-2"><a href="importando-datos-rectangulares.html#cb39-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/chickens.csv&quot;</span>,</span>
+<span id="cb39-3"><a href="importando-datos-rectangulares.html#cb39-3" tabindex="-1"></a>           <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&quot;var1&quot;</span>, <span class="st">&quot;var2&quot;</span>, <span class="st">&quot;var3&quot;</span>, <span class="st">&quot;var4&quot;</span>))</span></code></pre></div>
+<pre><code>## Rows: 6 Columns: 4
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (4): var1, var2, var3, var4
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="importando-datos-rectangulares.html#cb41-1" tabindex="-1"></a>chickens</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 4
+##   var1                    var2    var3      var4                                
+##   &lt;chr&gt;                   &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;                               
+## 1 chicken                 sex     eggs_laid motto                               
+## 2 Foghorn Leghorn         rooster 0         That&#39;s a joke, ah say, that&#39;s a jok…
+## 3 Chicken Little          hen     3         The sky is falling!                 
+## 4 Ginger                  hen     12        Listen. We&#39;ll either die free chick…
+## 5 Camilla the Chicken     hen     7         Bawk, buck, ba-gawk.                
+## 6 Ernie The Giant Chicken rooster 0         Put Captain Solo in the cargo hold.</code></pre>
+</div>
+<div id="importando-datos-rectangulares-7" class="section level2 hasAnchor" number="18.7">
+<h2><span class="header-section-number">18.7</span> Importando datos RECTANGULARES<a href="importando-datos-rectangulares.html#importando-datos-rectangulares-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>¿Qué sucede cuando el separador no el correcto? Como puedes ver en la carga del siguiente <code>.txt</code>, nos interpreta todo como una sola columna, ya que no le hemos indicado donde separar</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="importando-datos-rectangulares.html#cb43-1" tabindex="-1"></a>datos_txt <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/massey-rating.txt&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 10 Columns: 1
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (1): UCC PAY LAZ KPK  RT   COF BIH DII ENG ACU Rank Team            Conf
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="importando-datos-rectangulares.html#cb45-1" tabindex="-1"></a><span class="fu">as_tibble</span>(datos_txt)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 1
+##    `UCC PAY LAZ KPK  RT   COF BIH DII ENG ACU Rank Team            Conf`
+##    &lt;chr&gt;                                                                
+##  1 1   1   1   1   1     1   1   1   1   1    1 Ohio St          B10    
+##  2 2   2   2   2   2     2   2   2   4   2    2 Oregon           P12    
+##  3 3   4   3   4   3     4   3   4   2   3    3 Alabama          SEC    
+##  4 4   3   4   3   4     3   5   3   3   4    4 TCU              B12    
+##  5 6   6   6   5   5     7   6   5   6  11    5 Michigan St      B10    
+##  6 7   7   7   6   7     6  11   8   7   8    6 Georgia          SEC    
+##  7 5   5   5   7   6     8   4   6   5   5    7 Florida St       ACC    
+##  8 8   8   9   9  10     5   7   7  10   7    8 Baylor           B12    
+##  9 9  11   8  13  11    11  12   9  14   9    9 Georgia Tech     ACC    
+## 10 13  10  13  11   8     9  10  11   9  10   10 Mississippi      SEC</code></pre>
+</div>
+<div id="importando-datos-rectangulares-8" class="section level2 hasAnchor" number="18.8">
+<h2><span class="header-section-number">18.8</span> Importando datos RECTANGULARES<a href="importando-datos-rectangulares.html#importando-datos-rectangulares-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para ello tenemos <code>read_csv2()</code> cuando el separador sea el <strong>.bg-purple_light[punto y coma]</strong>, <code>read_tsv()</code> cuando el separador sea un <strong>.bg-purple_light[tabulador]</strong>, <code>read_table()</code> cuando el separador sea un <strong>.bg-purple_light[espacio]</strong> y <code>read_delim()</code> en general</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="importando-datos-rectangulares.html#cb47-1" tabindex="-1"></a>datos_txt <span class="ot">&lt;-</span> <span class="fu">read_table</span>(<span class="at">file =</span> <span class="st">&quot;./datos/massey-rating.txt&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ── Column specification ────────────────────────────────────────────────────────
+## cols(
+##   UCC = col_double(),
+##   PAY = col_double(),
+##   LAZ = col_double(),
+##   KPK = col_double(),
+##   RT = col_double(),
+##   COF = col_double(),
+##   BIH = col_double(),
+##   DII = col_double(),
+##   ENG = col_double(),
+##   ACU = col_double(),
+##   Rank = col_double(),
+##   Team = col_character(),
+##   Conf = col_character()
+## )</code></pre>
+<pre><code>## Warning: 10 parsing failures.
+## row col   expected     actual                        file
+##   1  -- 13 columns 15 columns &#39;./datos/massey-rating.txt&#39;
+##   2  -- 13 columns 14 columns &#39;./datos/massey-rating.txt&#39;
+##   3  -- 13 columns 14 columns &#39;./datos/massey-rating.txt&#39;
+##   4  -- 13 columns 14 columns &#39;./datos/massey-rating.txt&#39;
+##   5  -- 13 columns 15 columns &#39;./datos/massey-rating.txt&#39;
+## ... ... .......... .......... ...........................
+## See problems(...) for more details.</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="importando-datos-rectangulares.html#cb50-1" tabindex="-1"></a><span class="fu">as_tibble</span>(datos_txt)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 13
+##      UCC   PAY   LAZ   KPK    RT   COF   BIH   DII   ENG   ACU  Rank Team  Conf 
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
+##  1     1     1     1     1     1     1     1     1     1     1     1 Ohio  St   
+##  2     2     2     2     2     2     2     2     2     4     2     2 Oreg… P12  
+##  3     3     4     3     4     3     4     3     4     2     3     3 Alab… SEC  
+##  4     4     3     4     3     4     3     5     3     3     4     4 TCU   B12  
+##  5     6     6     6     5     5     7     6     5     6    11     5 Mich… St   
+##  6     7     7     7     6     7     6    11     8     7     8     6 Geor… SEC  
+##  7     5     5     5     7     6     8     4     6     5     5     7 Flor… St   
+##  8     8     8     9     9    10     5     7     7    10     7     8 Bayl… B12  
+##  9     9    11     8    13    11    11    12     9    14     9     9 Geor… Tech 
+## 10    13    10    13    11     8     9    10    11     9    10    10 Miss… SEC</code></pre>
+</div>
+<div id="exportando-datos-rectangulares" class="section level2 hasAnchor" number="18.9">
+<h2><span class="header-section-number">18.9</span> Exportando datos RECTANGULARES<a href="importando-datos-rectangulares.html#exportando-datos-rectangulares" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para <strong>.bg-purple_light[exportar datos]</strong> rectangulares las funciones serán similares pero con el prefijo <code>write_xxx()</code> y el formato adecuado.</p>
+<p>Por ejemplo, vamos a <strong>.bg-purple_light[exportar a un .csv]</strong> el dataset de starwars (seleccionando solo las columnas que no son lista)</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="importando-datos-rectangulares.html#cb52-1" tabindex="-1"></a><span class="fu">write_csv</span>(starwars <span class="sc">%&gt;%</span> <span class="fu">select</span>(name<span class="sc">:</span>species),</span>
+<span id="cb52-2"><a href="importando-datos-rectangulares.html#cb52-2" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">&quot;./datos/starwars.csv&quot;</span>)</span>
+<span id="cb52-3"><a href="importando-datos-rectangulares.html#cb52-3" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;./datos/starwars.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 87 Columns: 11
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (8): name, hair_color, skin_color, eye_color, sex, gender, homeworld, sp...
+## dbl (3): height, mass, birth_year
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre><code>## # A tibble: 87 × 11
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+##  3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+##  4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  5 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
+##  9 Biggs D…    183    84 black      light      brown           24   male  mascu…
+## 10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+## # ℹ 77 more rows
+## # ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+</div>
+<div id="importando-datos-desde-web" class="section level2 hasAnchor" number="18.10">
+<h2><span class="header-section-number">18.10</span> Importando datos DESDE WEB<a href="importando-datos-rectangulares.html#importando-datos-desde-web" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una de las principales ventajas de <code>R</code> es que podemos <strong>.bg-purple_light[importar datos desde una web]</strong>, sin necesidad de realizar la descarga manual del archivo. Y lo mejor es que se hará igual que hemos importado todo: en lugar de pasarle la ruta local de nuestro PC, le <strong>.bg-purple_light[indicaremos el enlace (permalink)]</strong>.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="importando-datos-rectangulares.html#cb55-1" tabindex="-1"></a>momo_datos <span class="ot">&lt;-</span></span>
+<span id="cb55-2"><a href="importando-datos-rectangulares.html#cb55-2" tabindex="-1"></a>  <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;https://momo.isciii.es/public/momo/data&quot;</span>,</span>
+<span id="cb55-3"><a href="importando-datos-rectangulares.html#cb55-3" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">500000</span>)</span></code></pre></div>
+<pre><code>## Rows: 500000 Columns: 15
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (7): ambito, cod_ambito, nombre_ambito, cod_sexo, nombre_sexo, cod_geda...
+## dbl  (7): cod_ine_ambito, defunciones_observadas, defunciones_estimadas_base...
+## date (1): fecha_defuncion
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="importando-datos-rectangulares.html#cb57-1" tabindex="-1"></a>momo_datos</span></code></pre></div>
+<pre><code>## # A tibble: 500,000 × 15
+##    ambito cod_ambito cod_ine_ambito nombre_ambito cod_sexo nombre_sexo cod_gedad
+##    &lt;chr&gt;  &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;       &lt;chr&gt;    
+##  1 ccaa   AN                      1 Andalucía     1        hombres     +65      
+##  2 ccaa   AN                      1 Andalucía     1        hombres     +85      
+##  3 ccaa   AN                      1 Andalucía     1        hombres     0-14     
+##  4 ccaa   AN                      1 Andalucía     1        hombres     15-44    
+##  5 ccaa   AN                      1 Andalucía     1        hombres     45-64    
+##  6 ccaa   AN                      1 Andalucía     1        hombres     65-74    
+##  7 ccaa   AN                      1 Andalucía     1        hombres     75-84    
+##  8 ccaa   AN                      1 Andalucía     1        hombres     all      
+##  9 ccaa   AN                      1 Andalucía     6        mujeres     +65      
+## 10 ccaa   AN                      1 Andalucía     6        mujeres     +85      
+## # ℹ 499,990 more rows
+## # ℹ 8 more variables: nombre_gedad &lt;chr&gt;, fecha_defuncion &lt;date&gt;,
+## #   defunciones_observadas &lt;dbl&gt;, defunciones_estimadas_base &lt;dbl&gt;,
+## #   defunciones_estimadas_base_q01 &lt;dbl&gt;, defunciones_estimadas_base_q99 &lt;dbl&gt;,
+## #   defunciones_atrib_exc_temp &lt;dbl&gt;, defunciones_atrib_def_temp &lt;dbl&gt;</code></pre>
+</div>
+<div id="importando-datos-desde-web-1" class="section level2 hasAnchor" number="18.11">
+<h2><span class="header-section-number">18.11</span> Importando datos DESDE WEB<a href="importando-datos-rectangulares.html#importando-datos-desde-web-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una de las principales ventajas de <code>R</code> es que podemos <strong>.bg-purple_light[importar datos desde una web]</strong>, sin necesidad de realizar la descarga manual del archivo. Y lo mejor es que se hará igual que hemos importado todo: en lugar de pasarle la ruta local de nuestro PC, le <strong>.bg-purple_light[indicaremos el enlace (permalink)]</strong>.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="importando-datos-rectangulares.html#cb59-1" tabindex="-1"></a>discurso_2021 <span class="ot">&lt;-</span></span>
+<span id="cb59-2"><a href="importando-datos-rectangulares.html#cb59-2" tabindex="-1"></a>  <span class="fu">read_delim</span>(<span class="at">file =</span> <span class="st">&quot;https://raw.githubusercontent.com/lirondos/discursos-de-navidad/master/data/speeches/2021.txt&quot;</span>, <span class="at">delim =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 26 Columns: 1
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;\t&quot;
+## chr (1): Buenas noches,
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="importando-datos-rectangulares.html#cb61-1" tabindex="-1"></a>discurso_2021</span></code></pre></div>
+<pre><code>## # A tibble: 26 × 1
+##    `Buenas noches,`                                                             
+##    &lt;chr&gt;                                                                        
+##  1 Mis primeras palabras en esta Nochebuena quiero dedicarlas a quienes vivís e…
+##  2 Hoy nuestro corazón y nuestro pensamiento siguen con vosotros. Nos sentimos …
+##  3 El año pasado, en mi mensaje de Navidad, compartí con vosotros la necesidad …
+##  4 Un año después —y siempre con toda la prudencia necesaria— la situación es d…
+##  5 Aun así, estamos viendo que el virus todavía tiene la capacidad de hacernos …
+##  6 También en este último año muchos ciudadanos continúan padeciendo las consec…
+##  7 Y junto a todo ello, es verdad que en el mundo es un hecho que los países de…
+##  8 También, las nuevas tecnologías están cambiando los tradicionales modos de p…
+##  9 Estos son algunos ejemplos de los retos que tenemos por delante y que muestr…
+## 10 Ante esta situación ¿qué hacer?, ¿tenemos que dejarnos llevar por el pesimis…
+## # ℹ 16 more rows</code></pre>
+</div>
+<div id="importando-datos-datos-excel" class="section level2 hasAnchor" number="18.12">
+<h2><span class="header-section-number">18.12</span> Importando datos: datos EXCEL<a href="importando-datos-rectangulares.html#importando-datos-datos-excel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Otro de los paquetes fundamentales de importación será el paquete <code>{readxl}</code> para <strong>.bg-purple_light[importar datos desde una Excel]</strong> (y <code>{openxlsx}</code> para exportar, aunque se recomienda <code>.csv</code>)</p>
+<p>Tres funciones serán claves: <code>read_xls()</code> (especifica para extensión <code>.xls</code>), <code>read_xlsx()</code> (especifica para extensión <code>.xlsx</code>) y <code>read_excel()</code> (para ambas).</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="importando-datos-rectangulares.html#cb63-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb63-2"><a href="importando-datos-rectangulares.html#cb63-2" tabindex="-1"></a>deaths <span class="ot">&lt;-</span></span>
+<span id="cb63-3"><a href="importando-datos-rectangulares.html#cb63-3" tabindex="-1"></a>  <span class="fu">read_xls</span>(<span class="at">path =</span> <span class="st">&quot;./datos/deaths.xls&quot;</span>,</span>
+<span id="cb63-4"><a href="importando-datos-rectangulares.html#cb63-4" tabindex="-1"></a>           <span class="at">skip =</span> <span class="dv">4</span>)</span>
+<span id="cb63-5"><a href="importando-datos-rectangulares.html#cb63-5" tabindex="-1"></a>deaths</span></code></pre></div>
+<pre><code>## # A tibble: 14 × 6
+##    Name          Profession Age   `Has kids` `Date of birth`     `Date of death`
+##    &lt;chr&gt;         &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;      &lt;dttm&gt;              &lt;chr&gt;          
+##  1 David Bowie   musician   69    TRUE       1947-01-08 00:00:00 42379          
+##  2 Carrie Fisher actor      60    TRUE       1956-10-21 00:00:00 42731          
+##  3 Chuck Berry   musician   90    TRUE       1926-10-18 00:00:00 42812          
+##  4 Bill Paxton   actor      61    TRUE       1955-05-17 00:00:00 42791          
+##  5 Prince        musician   57    TRUE       1958-06-07 00:00:00 42481          
+##  6 Alan Rickman  actor      69    FALSE      1946-02-21 00:00:00 42383          
+##  7 Florence Hen… actor      82    TRUE       1934-02-14 00:00:00 42698          
+##  8 Harper Lee    author     89    FALSE      1926-04-28 00:00:00 42419          
+##  9 Zsa Zsa Gábor actor      99    TRUE       1917-02-06 00:00:00 42722          
+## 10 George Micha… musician   53    FALSE      1963-06-25 00:00:00 42729          
+## 11 Some          &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;       NA                  &lt;NA&gt;           
+## 12 &lt;NA&gt;          also like… &lt;NA&gt;  &lt;NA&gt;       NA                  &lt;NA&gt;           
+## 13 &lt;NA&gt;          &lt;NA&gt;       at t… bottom,    NA                  &lt;NA&gt;           
+## 14 &lt;NA&gt;          &lt;NA&gt;       &lt;NA&gt;  &lt;NA&gt;       NA                  too!</code></pre>
+</div>
+<div id="importando-datos-datos-excel-1" class="section level2 hasAnchor" number="18.13">
+<h2><span class="header-section-number">18.13</span> Importando datos: datos EXCEL<a href="importando-datos-rectangulares.html#importando-datos-datos-excel-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Otro de los paquetes fundamentales de importación será el paquete <code>{readxl}</code> para <strong>.bg-purple_light[importar datos desde una Excel]</strong> (y <code>{openxlsx}</code> para exportar, aunque se recomienda <code>.csv</code>)</p>
+<p>Tres funciones serán claves: <code>read_xls()</code> (especifica para extensión <code>.xls</code>), <code>read_xlsx()</code> (especifica para extensión <code>.xlsx</code>) y <code>read_excel()</code> (para ambas).</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="importando-datos-rectangulares.html#cb65-1" tabindex="-1"></a>deaths <span class="ot">&lt;-</span></span>
+<span id="cb65-2"><a href="importando-datos-rectangulares.html#cb65-2" tabindex="-1"></a>  <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">&quot;./datos/deaths.xlsx&quot;</span>,</span>
+<span id="cb65-3"><a href="importando-datos-rectangulares.html#cb65-3" tabindex="-1"></a>            <span class="at">skip =</span> <span class="dv">5</span>,</span>
+<span id="cb65-4"><a href="importando-datos-rectangulares.html#cb65-4" tabindex="-1"></a>            <span class="at">col_names =</span></span>
+<span id="cb65-5"><a href="importando-datos-rectangulares.html#cb65-5" tabindex="-1"></a>              <span class="fu">c</span>(<span class="st">&quot;name&quot;</span>, <span class="st">&quot;profession&quot;</span>,</span>
+<span id="cb65-6"><a href="importando-datos-rectangulares.html#cb65-6" tabindex="-1"></a>                <span class="st">&quot;age&quot;</span>, <span class="st">&quot;kids&quot;</span>,</span>
+<span id="cb65-7"><a href="importando-datos-rectangulares.html#cb65-7" tabindex="-1"></a>                <span class="st">&quot;birth&quot;</span>, <span class="st">&quot;death&quot;</span>))</span>
+<span id="cb65-8"><a href="importando-datos-rectangulares.html#cb65-8" tabindex="-1"></a>deaths</span></code></pre></div>
+<pre><code>## # A tibble: 14 × 6
+##    name               profession           age   kids  birth               death
+##    &lt;chr&gt;              &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt; &lt;dttm&gt;              &lt;chr&gt;
+##  1 David Bowie        musician             69    TRUE  1947-01-08 00:00:00 42379
+##  2 Carrie Fisher      actor                60    TRUE  1956-10-21 00:00:00 42731
+##  3 Chuck Berry        musician             90    TRUE  1926-10-18 00:00:00 42812
+##  4 Bill Paxton        actor                61    TRUE  1955-05-17 00:00:00 42791
+##  5 Prince             musician             57    TRUE  1958-06-07 00:00:00 42481
+##  6 Alan Rickman       actor                69    FALSE 1946-02-21 00:00:00 42383
+##  7 Florence Henderson actor                82    TRUE  1934-02-14 00:00:00 42698
+##  8 Harper Lee         author               89    FALSE 1926-04-28 00:00:00 42419
+##  9 Zsa Zsa Gábor      actor                99    TRUE  1917-02-06 00:00:00 42722
+## 10 George Michael     musician             53    FALSE 1963-06-25 00:00:00 42729
+## 11 Some               &lt;NA&gt;                 &lt;NA&gt;  &lt;NA&gt;  NA                  &lt;NA&gt; 
+## 12 &lt;NA&gt;               also like to write … &lt;NA&gt;  &lt;NA&gt;  NA                  &lt;NA&gt; 
+## 13 &lt;NA&gt;               &lt;NA&gt;                 at t… bott… NA                  &lt;NA&gt; 
+## 14 &lt;NA&gt;               &lt;NA&gt;                 &lt;NA&gt;  &lt;NA&gt;  NA                  too!</code></pre>
+</div>
+<div id="importando-datos-excel" class="section level2 hasAnchor" number="18.14">
+<h2><span class="header-section-number">18.14</span> Importando datos EXCEL<a href="importando-datos-rectangulares.html#importando-datos-excel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si te fijas las <strong>.bg-purple_light[fechas de Excel están mal formateadas]</strong> (sorpresa) así que podemos hacer uso de <code>convertToDate()</code> del paquete <code>{openxlsx}</code> para convertirlo</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="importando-datos-rectangulares.html#cb67-1" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb67-2"><a href="importando-datos-rectangulares.html#cb67-2" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
+<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 4.3.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     date, intersect, setdiff, union</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="importando-datos-rectangulares.html#cb71-1" tabindex="-1"></a>deaths <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">birth =</span> <span class="fu">as_date</span>(birth),</span>
+<span id="cb71-2"><a href="importando-datos-rectangulares.html#cb71-2" tabindex="-1"></a>                  <span class="at">death =</span> <span class="fu">convertToDate</span>(death))</span></code></pre></div>
+<pre><code>## Warning: There was 1 warning in `mutate()`.
+## ℹ In argument: `death = convertToDate(death)`.
+## Caused by warning in `convertToDate()`:
+## ! NAs introducidos por coerción</code></pre>
+<pre><code>## # A tibble: 14 × 6
+##    name               profession               age   kids  birth      death     
+##    &lt;chr&gt;              &lt;chr&gt;                    &lt;chr&gt; &lt;chr&gt; &lt;date&gt;     &lt;date&gt;    
+##  1 David Bowie        musician                 69    TRUE  1947-01-08 2016-01-10
+##  2 Carrie Fisher      actor                    60    TRUE  1956-10-21 2016-12-27
+##  3 Chuck Berry        musician                 90    TRUE  1926-10-18 2017-03-18
+##  4 Bill Paxton        actor                    61    TRUE  1955-05-17 2017-02-25
+##  5 Prince             musician                 57    TRUE  1958-06-07 2016-04-21
+##  6 Alan Rickman       actor                    69    FALSE 1946-02-21 2016-01-14
+##  7 Florence Henderson actor                    82    TRUE  1934-02-14 2016-11-24
+##  8 Harper Lee         author                   89    FALSE 1926-04-28 2016-02-19
+##  9 Zsa Zsa Gábor      actor                    99    TRUE  1917-02-06 2016-12-18
+## 10 George Michael     musician                 53    FALSE 1963-06-25 2016-12-25
+## 11 Some               &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;  NA         NA        
+## 12 &lt;NA&gt;               also like to write stuff &lt;NA&gt;  &lt;NA&gt;  NA         NA        
+## 13 &lt;NA&gt;               &lt;NA&gt;                     at t… bott… NA         NA        
+## 14 &lt;NA&gt;               &lt;NA&gt;                     &lt;NA&gt;  &lt;NA&gt;  NA         NA</code></pre>
+</div>
+<div id="importando-datos-datos-excel-2" class="section level2 hasAnchor" number="18.15">
+<h2><span class="header-section-number">18.15</span> Importando datos: datos EXCEL<a href="importando-datos-rectangulares.html#importando-datos-datos-excel-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>También podemos <strong>.bg-purple_light[cargar un Excel con varias hojas]</strong>, pero por defecto nos carga solo la primera hoja. Para indicarle la hoja (bien por su nombre bien por su número) usaremos el argumento <code>sheet = ...</code></p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="importando-datos-rectangulares.html#cb74-1" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">&quot;./datos/datasets.xlsx&quot;</span>,</span>
+<span id="cb74-2"><a href="importando-datos-rectangulares.html#cb74-2" tabindex="-1"></a>                      <span class="at">sheet =</span> <span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb74-3"><a href="importando-datos-rectangulares.html#cb74-3" tabindex="-1"></a>mtcars</span></code></pre></div>
+<pre><code>## # A tibble: 32 × 11
+##      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1  21       6  160    110  3.9   2.62  16.5     0     1     4     4
+##  2  21       6  160    110  3.9   2.88  17.0     0     1     4     4
+##  3  22.8     4  108     93  3.85  2.32  18.6     1     1     4     1
+##  4  21.4     6  258    110  3.08  3.22  19.4     1     0     3     1
+##  5  18.7     8  360    175  3.15  3.44  17.0     0     0     3     2
+##  6  18.1     6  225    105  2.76  3.46  20.2     1     0     3     1
+##  7  14.3     8  360    245  3.21  3.57  15.8     0     0     3     4
+##  8  24.4     4  147.    62  3.69  3.19  20       1     0     4     2
+##  9  22.8     4  141.    95  3.92  3.15  22.9     1     0     4     2
+## 10  19.2     6  168.   123  3.92  3.44  18.3     1     0     4     4
+## # ℹ 22 more rows</code></pre>
+</div>
+<div id="importando-datos-datos-excel-3" class="section level2 hasAnchor" number="18.16">
+<h2><span class="header-section-number">18.16</span> Importando datos: datos EXCEL<a href="importando-datos-rectangulares.html#importando-datos-datos-excel-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Incluso podemos <strong>.bg-purple_light[indicarle el rango de celdas]</strong> del Excel que queremos caergar, haciendo uso del argumento <code>range = ...</code></p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="importando-datos-rectangulares.html#cb76-1" tabindex="-1"></a>iris <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="at">path =</span> <span class="st">&quot;./datos/datasets.xlsx&quot;</span>,</span>
+<span id="cb76-2"><a href="importando-datos-rectangulares.html#cb76-2" tabindex="-1"></a>                  <span class="at">sheet =</span> <span class="st">&quot;iris&quot;</span>,</span>
+<span id="cb76-3"><a href="importando-datos-rectangulares.html#cb76-3" tabindex="-1"></a>                  <span class="at">range =</span> <span class="st">&quot;C1:E4&quot;</span>)</span>
+<span id="cb76-4"><a href="importando-datos-rectangulares.html#cb76-4" tabindex="-1"></a>iris</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   Petal.Length Petal.Width Species
+##          &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;  
+## 1          1.4         0.2 setosa 
+## 2          1.4         0.2 setosa 
+## 3          1.3         0.2 setosa</code></pre>
+</div>
+<div id="importando-datos-googlesheet" class="section level2 hasAnchor" number="18.17">
+<h2><span class="header-section-number">18.17</span> Importando datos googlesheet<a href="importando-datos-rectangulares.html#importando-datos-googlesheet" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Otra opción disponible (sobre todo si trabajamos con otras personas que trabajan en Google Drive) es <strong>.bg-purple_light[importar desde una hoja de cálculo Google Drive]</strong>, haciendo uso de <code>read_sheet()</code> del paquete <code>{googlesheets4}</code> (os pedirá un permiso de tidyverse para interactuar con vuestro drive)</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="importando-datos-rectangulares.html#cb78-1" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
+<span id="cb78-2"><a href="importando-datos-rectangulares.html#cb78-2" tabindex="-1"></a>google_sheet <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(<span class="st">&quot;https://docs.google.com/spreadsheets/d/1AxHm5qndAQXT77HUjbB7h4rbUVe48Doe1iNIxwk05L4/edit?usp=sharing&quot;</span>)</span>
+<span id="cb78-3"><a href="importando-datos-rectangulares.html#cb78-3" tabindex="-1"></a>google_sheet</span></code></pre></div>
+<!-- name: sas-data -->
+<!-- # Importando SAS/SPSS/STATA] -->
+<!-- El paquete `{haven}` dentro de la órbita tidyverse nos permitirá importar archivos de los 3 software de pago de gestión y análisis de datos más importantes y usados: nos permite **.bg-purple_light[importar desde SAS, SPSS y Stata]** -->
+<!-- ```{r} -->
+<!-- library(haven) -->
+<!-- # SAS -->
+<!-- iris_sas <- read_sas(data_file = "./datos/iris.sas7bdat") -->
+<!-- write_sas(iris_sas, path = "./datos/iris_exportado.sas7bdat") -->
+<!-- iris_sas -->
+<!-- ``` -->
+<!--  -->
+<!-- # Importando SAS/SPSS/STATA] -->
+<!-- El paquete `{haven}` dentro de la órbita tidyverse nos permitirá importar archivos de los 3 software de pago de gestión y análisis de datos más importantes y usados: nos permite **.bg-purple_light[importar desde SAS, SPSS y Stata]** -->
+<!-- ```{r} -->
+<!-- # SPSS -->
+<!-- iris_spss <- read_sav(file = "./datos/iris.sav") -->
+<!-- write_sav(iris_spss, path = "./datos/iris_exportado.sav") -->
+<!-- iris_spss -->
+<!-- ``` -->
+<!--  -->
+<!-- # Importando SAS/SPSS/STATA] -->
+<!-- El paquete `{haven}` dentro de la órbita tidyverse nos permitirá importar archivos de los 3 software de pago de gestión y análisis de datos más importantes y usados: nos permite **.bg-purple_light[importar desde SAS, SPSS y Stata]** -->
+<!-- ```{r} -->
+<!-- # Stata -->
+<!-- iris_stata <- read_dta(file = "./datos/iris.dta") -->
+<!-- write_dta(iris_stata, path = "./datos/iris_exportado.dta") -->
+<!-- iris_stata -->
+<!-- ``` -->
+<!--  -->
+<!-- # Importando datos: desde API] -->
+<!-- Por último, una opción muy interesante es la **.bg-purple_light[carga desde una API]**: un intermediario entre una app o proveedor datos y nuestro `R`. Por ejemplo, vamos a cargar la librería `{owidR}`, que nos permite la descarga de datos de uno de los mayores referentes durante la pandemia, la web <https://ourworldindata.org/> -->
+<!-- ```{r} -->
+<!-- # install.packages("owidR") -->
+<!-- library(owidR) -->
+<!-- owid_covid() -->
+<!-- ``` -->
+<!-- La función `owid_covid()` nos ha cargado sin darnos cuenta **.bg-purple_light[más de 200 000 registros]** con más de 50 variables  de 238 países diferentes, desde casos, hospitalizados, pacientes en UCI, fallecidos, etc. -->
+<!-- # Importando datos: desde API] -->
+<!-- Este paquete tiene la función `owid_search()` para **.bg-purple_light[buscar datasets por palabras clave]**, por ejemplo, por `emissions`, dándonos un dataset con el título de la base de datos y su id para luego usarla. -->
+<!-- ```{r eval = FALSE} -->
+<!-- as_tibble(owid_search("emissions")) -->
+<!-- ``` -->
+<!--  -->
+<!-- # Importando datos: desde API] -->
+<!-- Vamos a pedirle por ejemplo las emisiones per cápita de gases de efecto invernadero -->
+<!-- ```{r eval = FALSE} -->
+<!-- emissions <- owid("per-capita-ghg-emissions") -->
+<!-- emissions -->
+<!-- ``` -->
+<!--  -->
+<!-- # Importando datos: desde API] -->
+<!-- En muchas ocasiones para **.bg-purple_light[conectar con la API tendremos antes que registrarnos y obtener una clave]**, es el caso del paquete `{climaemet}` para acceder a datos meteorológicos (ver documentación en <https://ropenspain.github.io/climaemet/). Dicha clave se puede obtener de manera inmediata en <https://opendata.aemet.es/centrodedescargas/altaUsuario> -->
+<!-- Una vez que tenemos la clave la registramos en nuestro RStudio para poder usarla a futuro -->
+<!-- ```{r eval = FALSE} -->
+<!-- # install.packages("climaemet") -->
+<!-- library(climaemet) -->
+<!-- # Definir la clave -->
+<!-- apikey <- "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYXZhbHYwOUB1Y20uZXMiLCJqdGkiOiI4YTU1ODUxMS01MTE3LTQ4MTYtYmM4OS1hYmVkNDhiODBkYzkiLCJpc3MiOiJBRU1FVCIsImlhdCI6MTY2NjQ2OTcxNSwidXNlcklkIjoiOGE1NTg1MTEtNTExNy00ODE2LWJjODktYWJlZDQ4YjgwZGM5Iiwicm9sZSI6IiJ9.HEMR77lZy2ASjmOxJa8ppx2J8Za1IViurMX3p1reVBU" -->
+<!-- aemet_api_key(apikey, install = TRUE) -->
+<!-- ``` -->
+<!--  -->
+<!-- # Importando datos: desde API] -->
+<!-- Con dicho paquete podemos hacer una **.bg-purple_light[búsqueda de las estaciones meteorológicas]** para conocer tanto su código postal como su código identificador dentro de la red AEMET (por ejemplo, para acceder a la estación de el aeropuerto de El Prat, Barcelona, es el código 0076) -->
+<!-- ```{r eval=FALSE} -->
+<!-- library(climaemet) -->
+<!-- stations <- aemet_stations() -->
+<!-- stations -->
+<!-- ``` -->
+<!--  -->
+<!-- # Importando datos: desde API] -->
+<!-- Una vez que tenemos el identificador podemos obtener los **.bg-purple_light[datos horarios de las últimas 24 horas]**, incluyendo no solo temperatura sino estadísticas del viento, la presión, etc -->
+<!-- ```{r eval = FALSE} -->
+<!-- aemet_last_obs("0076") -->
+<!-- ``` -->
+<!-- ```{r echo = FALSE, eval=F} -->
+<!-- knitr::kable(aemet_last_obs("0076")) -->
+<!-- ``` -->
+<!--  -->
+<!-- # Importando datos: desde API] -->
+<!-- También podemos extraer los **.bg-purple_light[datos diarios en un intervalo de fechas]** que le proporciones con `aemet_daily_clim()` -->
+<!-- ```{r eval = FALSE} -->
+<!-- aemet_daily_clim("0076", start = "2022-01-01", end = "2022-09-30") -->
+<!-- ``` -->
+<!-- ```{r echo = FALSE, eval=FALSE} -->
+<!-- knitr::kable(aemet_daily_clim("0076", start = "2022-01-01", end = "2022-09-30")) -->
+<!-- ``` -->
+<!-- <!-- # Importando datos: desde API] -->
+<p>–&gt;</p>
+<!-- <!-- También se pueden importar datos desde las API de spotify (ver <https://www.rcharlie.com/spotifyr/>) como de Twitter (ver <https://github.com/ropensci/rtweet>) -->
+<p>–&gt;</p>
+<!-- <!-- ```{r eval = FALSE} -->
+<p>–&gt;
+<!-- <!-- # install.packages("rtweet") --> –&gt;
+<!-- <!-- library(rtweet) --> –&gt;
+<!-- <!-- # install.packages("spotifyr") --> –&gt;
+<!-- <!-- library(spotifyr) --> –&gt;
+<!-- <!-- ``` --> –&gt;</p>
+<!-- <!-- ```{r eval = FALSE} -->
+<p>–&gt;
+<!-- <!-- # install.packages("rtweet") --> –&gt;
+<!-- <!-- library(rtweet) --> –&gt;
+<!-- <!-- auth_setup_default() --> –&gt;
+<!-- <!-- rt <- search_tweets("#pedrosanchez", n = 100, include_rts = FALSE) --> –&gt;
+<!-- <!-- rt --> –&gt;
+<!-- <!-- ``` --> –&gt;</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exportando-datos-.rdata.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gráficos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02m-carga_datos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

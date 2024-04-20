@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Variables individuales: números y caracteres | R</title>
+  <meta name="description" content="Chapter 5 Variables individuales: números y caracteres | R" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Variables individuales: números y caracteres | R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Variables individuales: números y caracteres | R" />
+  
+  
+  
+
+<meta name="author" content="Cristian Benalcázar" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="primeros-pasos.html"/>
+<link rel="next" href="vectores.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para Ciencia de Datos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="que-es-R.html"><a href="que-es-R.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="que-es-R.html"><a href="que-es-R.html#historia-de-r"><i class="fa fa-check"></i><b>2.1</b> Historia de R</a></li>
+<li class="chapter" data-level="2.2" data-path="que-es-R.html"><a href="que-es-R.html#comunidadpaquetes"><i class="fa fa-check"></i><b>2.2</b> Comunidad de usuarios: paquetes</a></li>
+<li class="chapter" data-level="2.3" data-path="que-es-R.html"><a href="que-es-R.html#por-qué-excel-no-es-tu-amigo"><i class="fa fa-check"></i><b>2.3</b> ¿Por qué Excel no es tu amigo?</a></li>
+<li class="chapter" data-level="2.4" data-path="que-es-R.html"><a href="que-es-R.html#glosario"><i class="fa fa-check"></i><b>2.4</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="instalacionR.html"><a href="instalacionR.html"><i class="fa fa-check"></i><b>3</b> Instalación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="instalacionR.html"><a href="instalacionR.html#instalación-de-r"><i class="fa fa-check"></i><b>3.1</b> Instalación de R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="instalacionR.html"><a href="instalacionR.html#paso-1"><i class="fa fa-check"></i><b>3.1.1</b> Paso 1</a></li>
+<li class="chapter" data-level="3.1.2" data-path="instalacionR.html"><a href="instalacionR.html#paso-2"><i class="fa fa-check"></i><b>3.1.2</b> Paso 2</a></li>
+<li class="chapter" data-level="3.1.3" data-path="instalacionR.html"><a href="instalacionR.html#paso-3"><i class="fa fa-check"></i><b>3.1.3</b> Paso 3</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="instalacionR.html"><a href="instalacionR.html#primera-operación-en-consola-sumar-dos-números"><i class="fa fa-check"></i><b>3.2</b> Primera operación en consola: sumar dos números</a></li>
+<li class="chapter" data-level="3.3" data-path="instalacionR.html"><a href="instalacionR.html#instalacionRStudio"><i class="fa fa-check"></i><b>3.3</b> Instalación de RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="instalacionR.html"><a href="instalacionR.html#instalacionpaquetes"><i class="fa fa-check"></i><b>3.4</b> Instalación de paquetes</a></li>
+<li class="chapter" data-level="3.5" data-path="instalacionR.html"><a href="instalacionR.html#glosario-1"><i class="fa fa-check"></i><b>3.5</b> Glosario</a></li>
+<li class="chapter" data-level="3.6" data-path="instalacionR.html"><a href="instalacionR.html#consejos"><i class="fa fa-check"></i><b>3.6</b> Consejos</a></li>
+<li class="chapter" data-level="3.7" data-path="instalacionR.html"><a href="instalacionR.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos.html"><a href="primeros-pasos.html#primeros-pasos-en-r-calculadora"><i class="fa fa-check"></i><b>4.1</b> Primeros pasos en R: calculadora</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html#y-dónde-programamos"><i class="fa fa-check"></i><b>4.2</b> ¿Y dónde programamos?</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos.html"><a href="primeros-pasos.html#tipos_errores"><i class="fa fa-check"></i><b>4.3</b> Tipos de errores</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos.html"><a href="primeros-pasos.html#glosario-2"><i class="fa fa-check"></i><b>4.4</b> Glosario</a></li>
+<li class="chapter" data-level="4.5" data-path="primeros-pasos.html"><a href="primeros-pasos.html#consejos-1"><i class="fa fa-check"></i><b>4.5</b> Consejos</a></li>
+<li class="chapter" data-level="4.6" data-path="primeros-pasos.html"><a href="primeros-pasos.html#ejercicios-1"><i class="fa fa-check"></i><b>4.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>I Tipos de datos</b></span></li>
+<li class="chapter" data-level="5" data-path="var-num.html"><a href="var-num.html"><i class="fa fa-check"></i><b>5</b> Variables individuales: números y caracteres</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="var-num.html"><a href="var-num.html#numericas"><i class="fa fa-check"></i><b>5.1</b> Variables numéricas (individuales)</a></li>
+<li class="chapter" data-level="5.2" data-path="var-num.html"><a href="var-num.html#caracter"><i class="fa fa-check"></i><b>5.2</b> Variables de tipo caracter (texto)</a></li>
+<li class="chapter" data-level="5.3" data-path="var-num.html"><a href="var-num.html#nuestra-primera-función-paste"><i class="fa fa-check"></i><b>5.3</b> Nuestra primera función: paste</a></li>
+<li class="chapter" data-level="5.4" data-path="var-num.html"><a href="var-num.html#nuestro-primer-paquete-glue"><i class="fa fa-check"></i><b>5.4</b> Nuestro primer paquete: glue</a></li>
+<li class="chapter" data-level="5.5" data-path="var-num.html"><a href="var-num.html#manejando-textos-paquete-stringr"><i class="fa fa-check"></i><b>5.5</b> Manejando textos: paquete stringr</a></li>
+<li class="chapter" data-level="5.6" data-path="var-num.html"><a href="var-num.html#consejos-2"><i class="fa fa-check"></i><b>5.6</b> Consejos</a></li>
+<li class="chapter" data-level="5.7" data-path="var-num.html"><a href="var-num.html#ejercicios-2"><i class="fa fa-check"></i><b>5.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectores.html"><a href="vectores.html#vectores-numéricos"><i class="fa fa-check"></i><b>6.1</b> Vectores numéricos</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html#secuencias-numéricas-con-un-patrón"><i class="fa fa-check"></i><b>6.2</b> Secuencias numéricas con un patrón</a></li>
+<li class="chapter" data-level="6.3" data-path="vectores.html"><a href="vectores.html#vectores-de-caracteres-texto"><i class="fa fa-check"></i><b>6.3</b> Vectores de caracteres (texto)</a></li>
+<li class="chapter" data-level="6.4" data-path="vectores.html"><a href="vectores.html#vectores-lógicos-truefalse"><i class="fa fa-check"></i><b>6.4</b> Vectores lógicos (TRUE/FALSE)</a></li>
+<li class="chapter" data-level="6.5" data-path="vectores.html"><a href="vectores.html#consejos-3"><i class="fa fa-check"></i><b>6.5</b> Consejos</a></li>
+<li class="chapter" data-level="6.6" data-path="vectores.html"><a href="vectores.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="operacionesvectores.html"><a href="operacionesvectores.html"><i class="fa fa-check"></i><b>7</b> Operaciones con vectores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#vectores-numéricos-1"><i class="fa fa-check"></i><b>7.1</b> Vectores numéricos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-aritméticas"><i class="fa fa-check"></i><b>7.1.1</b> Operaciones aritméticas</a></li>
+<li class="chapter" data-level="7.1.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-estadísticas"><i class="fa fa-check"></i><b>7.1.2</b> Operaciones estadísticas</a></li>
+<li class="chapter" data-level="7.1.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operacionesausentes"><i class="fa fa-check"></i><b>7.1.3</b> Operaciones con ausentes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#seleccionar-elementos"><i class="fa fa-check"></i><b>7.2</b> Seleccionar elementos</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#which"><i class="fa fa-check"></i><b>7.2.1</b> which</a></li>
+<li class="chapter" data-level="7.2.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#null"><i class="fa fa-check"></i><b>7.2.2</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación"><i class="fa fa-check"></i><b>7.3</b> Nombrando vectores: añadiendo metainformación</a></li>
+<li class="chapter" data-level="7.4" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ordenar"><i class="fa fa-check"></i><b>7.4</b> Ordenar</a></li>
+<li class="chapter" data-level="7.5" data-path="operacionesvectores.html"><a href="operacionesvectores.html#consejos-4"><i class="fa fa-check"></i><b>7.5</b> Consejos</a></li>
+<li class="chapter" data-level="7.6" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ejercicios-4"><i class="fa fa-check"></i><b>7.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i><b>8</b> Fechas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="fechas.html"><a href="fechas.html#funciones-de-lubridate"><i class="fa fa-check"></i><b>8.1</b> Funciones de lubridate</a></li>
+<li class="chapter" data-level="8.2" data-path="fechas.html"><a href="fechas.html#consejos-5"><i class="fa fa-check"></i><b>8.2</b> Consejos</a></li>
+<li class="chapter" data-level="8.3" data-path="fechas.html"><a href="fechas.html#ejercicios-5"><i class="fa fa-check"></i><b>8.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>9</b> Datos estructurados</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="datos.html"><a href="datos.html#matrices"><i class="fa fa-check"></i><b>9.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="datos.html"><a href="datos.html#acceder-a-elementos"><i class="fa fa-check"></i><b>9.1.1</b> Acceder a elementos</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datos.html"><a href="datos.html#operaciones-por-filas-y-columnas-apply"><i class="fa fa-check"></i><b>9.1.2</b> Operaciones por filas y columnas (apply)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datos.html"><a href="datos.html#tablas-data.frames"><i class="fa fa-check"></i><b>9.2</b> Tablas: data.frames</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="datos.html"><a href="datos.html#selección-de-columnas-y-filas"><i class="fa fa-check"></i><b>9.2.1</b> Selección de columnas y filas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="datos.html"><a href="datos.html#primer-análisis-de-datos-arrestos-en-ee.-uu."><i class="fa fa-check"></i><b>9.2.2</b> Primer análisis de datos: arrestos en EE. UU.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="datos.html"><a href="datos.html#consejos-6"><i class="fa fa-check"></i><b>9.3</b> Consejos</a></li>
+<li class="chapter" data-level="9.4" data-path="datos.html"><a href="datos.html#ejercicios-6"><i class="fa fa-check"></i><b>9.4</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>10</b> Listas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="listas.html"><a href="listas.html#introducción-a-purrr"><i class="fa fa-check"></i><b>10.1</b> Introducción a purrr</a></li>
+<li class="chapter" data-level="10.2" data-path="listas.html"><a href="listas.html#ejercicios-7"><i class="fa fa-check"></i><b>10.2</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Haciendo el trabajo más fácil</b></span></li>
+<li class="chapter" data-level="11" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>11</b> Estructuras de control: if-else</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="if-else.html"><a href="if-else.html#if"><i class="fa fa-check"></i><b>11.1</b> if</a></li>
+<li class="chapter" data-level="11.2" data-path="if-else.html"><a href="if-else.html#if---else"><i class="fa fa-check"></i><b>11.2</b> if - else</a></li>
+<li class="chapter" data-level="11.3" data-path="if-else.html"><a href="if-else.html#if---else-anidados"><i class="fa fa-check"></i><b>11.3</b> if - else anidados</a></li>
+<li class="chapter" data-level="11.4" data-path="if-else.html"><a href="if-else.html#ifelse-vectorizado"><i class="fa fa-check"></i><b>11.4</b> ifelse () vectorizado</a></li>
+<li class="chapter" data-level="11.5" data-path="if-else.html"><a href="if-else.html#consejos-7"><i class="fa fa-check"></i><b>11.5</b> Consejos</a></li>
+<li class="chapter" data-level="11.6" data-path="if-else.html"><a href="if-else.html#ejercicios-8"><i class="fa fa-check"></i><b>11.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>12</b> Estructuras de control: bucles</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bucles.html"><a href="bucles.html#for"><i class="fa fa-check"></i><b>12.1</b> for</a></li>
+<li class="chapter" data-level="12.2" data-path="bucles.html"><a href="bucles.html#while"><i class="fa fa-check"></i><b>12.2</b> while</a></li>
+<li class="chapter" data-level="12.3" data-path="bucles.html"><a href="bucles.html#breaknext"><i class="fa fa-check"></i><b>12.3</b> break/next</a></li>
+<li class="chapter" data-level="12.4" data-path="bucles.html"><a href="bucles.html#repeat"><i class="fa fa-check"></i><b>12.4</b> repeat</a></li>
+<li class="chapter" data-level="12.5" data-path="bucles.html"><a href="bucles.html#consejos-8"><i class="fa fa-check"></i><b>12.5</b> Consejos</a></li>
+<li class="chapter" data-level="12.6" data-path="bucles.html"><a href="bucles.html#ejercicios-9"><i class="fa fa-check"></i><b>12.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="funs.html"><a href="funs.html"><i class="fa fa-check"></i><b>13</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="funs.html"><a href="funs.html#primera-función"><i class="fa fa-check"></i><b>13.1</b> Primera función</a></li>
+<li class="chapter" data-level="13.2" data-path="funs.html"><a href="funs.html#variables-localesglobales"><i class="fa fa-check"></i><b>13.2</b> Variables locales/globales</a></li>
+<li class="chapter" data-level="13.3" data-path="funs.html"><a href="funs.html#ejercicios-10"><i class="fa fa-check"></i><b>13.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyecto.html"><a href="proyecto.html"><i class="fa fa-check"></i><b>14</b> Proyecto de trabajo</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyecto.html"><a href="proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>14.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="14.2" data-path="proyecto.html"><a href="proyecto.html#directorios-de-trabajo-y-cabecera"><i class="fa fa-check"></i><b>14.2</b> Directorios de trabajo y cabecera</a></li>
+<li class="chapter" data-level="14.3" data-path="proyecto.html"><a href="proyecto.html#ejecución"><i class="fa fa-check"></i><b>14.3</b> Ejecución</a></li>
+<li class="chapter" data-level="14.4" data-path="proyecto.html"><a href="proyecto.html#consejos-9"><i class="fa fa-check"></i><b>14.4</b> Consejos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="importar-exportar.html"><a href="importar-exportar.html"><i class="fa fa-check"></i><b>15</b> Importar/exportar datos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="importar-exportar.html"><a href="importar-exportar.html#importar-datos"><i class="fa fa-check"></i><b>15.1</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic"><i class="fa fa-check"></i><b>15.1.1</b> Archivo .RData: pasajeros del RMS Titanic</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rda-pisos-en-boston"><i class="fa fa-check"></i><b>15.2</b> Archivo .rda: pisos en Boston</a></li>
+<li class="chapter" data-level="15.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat"><i class="fa fa-check"></i><b>15.3</b> Desde paquete: estadísticas del Eurostat</a></li>
+<li class="chapter" data-level="15.4" data-path="importar-exportar.html"><a href="importar-exportar.html#importando-datos-rectangulares"><i class="fa fa-check"></i><b>15.4</b> Importando datos RECTANGULARES</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="importar-exportar.html"><a href="importar-exportar.html#csv"><i class="fa fa-check"></i><b>15.4.1</b> CSV</a></li>
+<li class="chapter" data-level="15.4.2" data-path="importar-exportar.html"><a href="importar-exportar.html#txt"><i class="fa fa-check"></i><b>15.4.2</b> txt</a></li>
+<li class="chapter" data-level="15.4.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-web"><i class="fa fa-check"></i><b>15.4.3</b> DESDE WEB</a></li>
+<li class="chapter" data-level="15.4.4" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-readxl"><i class="fa fa-check"></i><b>15.4.4</b> EXCEL readxl</a></li>
+<li class="chapter" data-level="15.4.5" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-openxlsx"><i class="fa fa-check"></i><b>15.4.5</b> EXCEL openxlsx</a></li>
+<li class="chapter" data-level="15.4.6" data-path="importar-exportar.html"><a href="importar-exportar.html#googlesheet"><i class="fa fa-check"></i><b>15.4.6</b> googlesheet</a></li>
+<li class="chapter" data-level="15.4.7" data-path="importar-exportar.html"><a href="importar-exportar.html#sasspssstata"><i class="fa fa-check"></i><b>15.4.7</b> SAS/SPSS/STATA</a></li>
+<li class="chapter" data-level="15.4.8" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-api"><i class="fa fa-check"></i><b>15.4.8</b> desde API</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="importar-exportar.html"><a href="importar-exportar.html#exportación-de-datos"><i class="fa fa-check"></i><b>15.5</b> Exportación de datos</a></li>
+<li class="chapter" data-level="15.6" data-path="importar-exportar.html"><a href="importar-exportar.html#consejos-10"><i class="fa fa-check"></i><b>15.6</b> Consejos</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="importar-exportar.html"><a href="importar-exportar.html#exportando-datos-.rdata.rda"><i class="fa fa-check"></i><b>15.6.1</b> Exportando datos: .RData/.rda</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>16</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-una-variable-cuantitativa"><i class="fa fa-check"></i><b>16.1</b> Gráficos para una variable cuantitativa</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="gráficos.html"><a href="gráficos.html#función-stem"><i class="fa fa-check"></i><b>16.1.1</b> Función <code>stem ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.2" data-path="gráficos.html"><a href="gráficos.html#función-boxplot"><i class="fa fa-check"></i><b>16.1.2</b> Función <code>boxplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo 1</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo 2</a></li>
+<li class="chapter" data-level="16.1.3" data-path="gráficos.html"><a href="gráficos.html#función-hist"><i class="fa fa-check"></i><b>16.1.3</b> Función <code>hist ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.4" data-path="gráficos.html"><a href="gráficos.html#función-density"><i class="fa fa-check"></i><b>16.1.4</b> Función <code>density ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-dos-variables-cuantitativas"><i class="fa fa-check"></i><b>16.2</b> Gráficos para dos variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="gráficos.html"><a href="gráficos.html#función-plot"><i class="fa fa-check"></i><b>16.2.1</b> Función <code>plot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="16.2.2" data-path="gráficos.html"><a href="gráficos.html#función-pairs"><i class="fa fa-check"></i><b>16.2.2</b> Función <code>pairs ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-variables-categóricas"><i class="fa fa-check"></i><b>16.3</b> Gráficos para variables categóricas</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="gráficos.html"><a href="gráficos.html#función-barplot"><i class="fa fa-check"></i><b>16.3.1</b> Función <code>barplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.2" data-path="gráficos.html"><a href="gráficos.html#la-función-pie"><i class="fa fa-check"></i><b>16.3.2</b> La función <code>pie ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.3" data-path="gráficos.html"><a href="gráficos.html#función-dotchart"><i class="fa fa-check"></i><b>16.3.3</b> Función <code>dotchart ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="gráficos.html"><a href="gráficos.html#la-librería-lattice"><i class="fa fa-check"></i><b>16.4</b> La librería <code>lattice</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-2"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>17</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="r-markdown.html"><a href="r-markdown.html#introducción-1"><i class="fa fa-check"></i><b>17.1</b> Introducción</a></li>
+<li class="chapter" data-level="17.2" data-path="r-markdown.html"><a href="r-markdown.html#por-qué-r-markdown"><i class="fa fa-check"></i><b>17.2</b> ¿Por qué R Markdown?</a></li>
+<li class="chapter" data-level="17.3" data-path="r-markdown.html"><a href="r-markdown.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>17.3</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="17.4" data-path="r-markdown.html"><a href="r-markdown.html#cómo-crear-un-fichero-.rmd"><i class="fa fa-check"></i><b>17.4</b> ¿Cómo crear un fichero <code>.Rmd</code>?</a></li>
+<li class="chapter" data-level="17.5" data-path="r-markdown.html"><a href="r-markdown.html#cabeceras-yaml"><i class="fa fa-check"></i><b>17.5</b> Cabeceras YAML</a></li>
+<li class="chapter" data-level="17.6" data-path="r-markdown.html"><a href="r-markdown.html#sintáxis-básica-de-markdown"><i class="fa fa-check"></i><b>17.6</b> Sintáxis básica de Markdown</a></li>
+<li class="chapter" data-level="17.7" data-path="r-markdown.html"><a href="r-markdown.html#insertar-código-de-r"><i class="fa fa-check"></i><b>17.7</b> Insertar código de R</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="r-markdown.html"><a href="r-markdown.html#código-de-r-en-línea"><i class="fa fa-check"></i><b>17.7.1</b> Código de R en línea</a></li>
+<li class="chapter" data-level="17.7.2" data-path="r-markdown.html"><a href="r-markdown.html#bloques-chunks-de-código-r"><i class="fa fa-check"></i><b>17.7.2</b> Bloques (<em>chunks</em>) de código R</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="r-markdown.html"><a href="r-markdown.html#opciones-de-los-bloques-de-código-r"><i class="fa fa-check"></i><b>17.8</b> Opciones de los bloques de código R</a></li>
+<li class="chapter" data-level="17.9" data-path="r-markdown.html"><a href="r-markdown.html#figuras"><i class="fa fa-check"></i><b>17.9</b> Figuras</a></li>
+<li class="chapter" data-level="17.10" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i><b>17.10</b> Tablas</a></li>
+<li class="chapter" data-level="17.11" data-path="r-markdown.html"><a href="r-markdown.html#tabla-de-contenidos"><i class="fa fa-check"></i><b>17.11</b> Tabla de contenidos</a></li>
+<li class="chapter" data-level="17.12" data-path="r-markdown.html"><a href="r-markdown.html#caching"><i class="fa fa-check"></i><b>17.12</b> <em>Caching</em></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>18</b> Git y Github con Rstudio</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="git.html"><a href="git.html#git-y-github-junto-con-rstudio"><i class="fa fa-check"></i><b>18.1</b> Git y GitHub junto con RStudio</a></li>
+<li class="chapter" data-level="18.2" data-path="git.html"><a href="git.html#qué-es-git-qué-es-github"><i class="fa fa-check"></i><b>18.2</b> ¿Qué es Git? ¿Qué es GitHub?</a></li>
+<li class="chapter" data-level="18.3" data-path="git.html"><a href="git.html#instalar-git"><i class="fa fa-check"></i><b>18.3</b> Instalar Git</a></li>
+<li class="chapter" data-level="18.4" data-path="git.html"><a href="git.html#crear-cuenta-y-repositorio-en-github"><i class="fa fa-check"></i><b>18.4</b> Crear cuenta y repositorio en Github</a></li>
+<li class="chapter" data-level="18.5" data-path="git.html"><a href="git.html#configurar-git-editar-gitconfig-file"><i class="fa fa-check"></i><b>18.5</b> Configurar Git (Editar gitconfig file)</a></li>
+<li class="chapter" data-level="18.6" data-path="git.html"><a href="git.html#crear-un-token-de-acceso-personal-pat-en-github"><i class="fa fa-check"></i><b>18.6</b> Crear un token de acceso personal (PAT) en GitHub</a></li>
+<li class="chapter" data-level="18.7" data-path="git.html"><a href="git.html#almacenar-token-de-acceso-personal-para-conectar-rstudio-y-github"><i class="fa fa-check"></i><b>18.7</b> Almacenar token de acceso personal para conectar RStudio y GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="practica-final.html"><a href="practica-final.html"><i class="fa fa-check"></i><b>19</b> 📝 Práctica final</a></li>
+<li class="part"><span><b>III Recursos</b></span></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html"><i class="fa fa-check"></i>📝 Ejercicios recopilados</a>
+<ul>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#instalación"><i class="fa fa-check"></i>Instalación</a></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#primeros-pasos-1"><i class="fa fa-check"></i>Primeros pasos</a></li>
+<li class="chapter" data-level="19.1" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#variables-numéricas-y-de-texto"><i class="fa fa-check"></i><b>19.1</b> Variables numéricas y de texto</a></li>
+<li class="chapter" data-level="19.2" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#vectores-1"><i class="fa fa-check"></i><b>19.2</b> Vectores</a></li>
+<li class="chapter" data-level="19.3" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#operaciones-con-vectores"><i class="fa fa-check"></i><b>19.3</b> Operaciones con vectores</a></li>
+<li class="chapter" data-level="19.4" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#fechas-1"><i class="fa fa-check"></i><b>19.4</b> Fechas</a></li>
+<li class="chapter" data-level="19.5" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#datos-estructurados"><i class="fa fa-check"></i><b>19.5</b> Datos estructurados</a></li>
+<li class="chapter" data-level="19.6" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#listas-1"><i class="fa fa-check"></i><b>19.6</b> Listas</a></li>
+<li class="chapter" data-level="19.7" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-if-else"><i class="fa fa-check"></i><b>19.7</b> Estructuras if-else</a></li>
+<li class="chapter" data-level="19.8" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-for-y-while"><i class="fa fa-check"></i><b>19.8</b> Estructuras for y while</a></li>
+<li class="chapter" data-level="19.9" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#funciones"><i class="fa fa-check"></i><b>19.9</b> Funciones</a></li>
+<li class="chapter" data-level="19.10" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#practica-final-1"><i class="fa fa-check"></i><b>19.10</b> Practica final</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html"><i class="fa fa-check"></i>📚 Recursos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#aprendizajedocencia"><i class="fa fa-check"></i>Aprendizaje/docencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-datos"><i class="fa fa-check"></i>Manejo de datos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-textos"><i class="fa fa-check"></i>Manejo de textos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#datos.-importarexportar"><i class="fa fa-check"></i>Datos. Importar/exportar</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#dataviz"><i class="fa fa-check"></i>dataviz</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#mapas-y-datos-espaciales-en-r"><i class="fa fa-check"></i>Mapas y datos espaciales en R</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#colores-y-temas-en-dataviz-generales"><i class="fa fa-check"></i>Colores y temas en dataviz (generales)</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#análisis-exploratorio"><i class="fa fa-check"></i>Análisis exploratorio</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#modelización-e-inferencia"><i class="fa fa-check"></i>Modelización e inferencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#estadística-bayesiana"><i class="fa fa-check"></i>Estadística Bayesiana</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#informes-tablas-webs-libros-y-diapositivas"><i class="fa fa-check"></i>Informes, tablas, webs, libros y diapositivas</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#paquetesrecursos-curiosos"><i class="fa fa-check"></i>Paquetes/recursos curiosos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="var-num" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Variables individuales: números y caracteres<a href="var-num.html#var-num" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p> </p>
+<p>Tras los primeros ejercicios planteados deberíamos saber más o menos usar <code>R</code> como una calculadora, definiendo variables que nos guardan números, como <code>a &lt;- 1</code>. Vamos a ir más allá: <mark><strong>¿existen variables más allá de los números?</strong></mark> En este capítulo vamos a empezar a familiarizarnos con los <mark><strong>tipos de datos</strong></mark> que podemos necesitar. Piensa por ejemplo en los datos guardados de una persona en cualquier registro:</p>
+<ul>
+<li>La edad será un <mark><strong>número (sin decimales)</strong></mark></li>
+<li>Su peso o estatura será otro <mark><strong>número (ahora con decimales)</strong></mark>.</li>
+<li>Su nombre será una <mark><strong>cadena de texto</strong></mark>.</li>
+<li>Su fecha de nacimiento será precisamente eso, un <mark><strong>dato de tipo fecha</strong></mark>.</li>
+<li>A la pregunta «¿está usted soltero/a?» la respuesta será lo que llamamos una <mark><strong>variable binaria o lógica</strong></mark>: una variable que solo puede valer <code>TRUE</code> (si está soltero/a) y <code>FALSE</code> (en otro caso), guarada internamente como un <code>1</code> o <code>0</code>.</li>
+</ul>
+<p>Existen <strong>más tipos de datos</strong> (por ejemplo, números complejos, listas, etc) pero con estos nos valdrá de momento.</p>
+<div id="numericas" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Variables numéricas (individuales)<a href="var-num.html#numericas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Probablemente el dato <strong>más sencillo y obvio</strong> de entender sean los datos numéricos, datos que ya hemos usado en nuestros primeros pasos como calculadora.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="var-num.html#cb55-1" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb55-2"><a href="var-num.html#cb55-2" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb55-3"><a href="var-num.html#cb55-3" tabindex="-1"></a>a <span class="sc">+</span> b</span></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<p>En el código anterior, tanto <code>a</code> como <code>b</code>, como la suma <code>a + b</code>, son de <mark><strong>tipo numérico</strong></mark>, algo que podemos comprobar con la función <code>class()</code> (nos devuelve <em>numeric</em>).</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="var-num.html#cb57-1" tabindex="-1"></a><span class="co"># Clase de las variables</span></span>
+<span id="cb57-2"><a href="var-num.html#cb57-2" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="var-num.html#cb59-1" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="var-num.html#cb61-1" tabindex="-1"></a><span class="fu">class</span>(a <span class="sc">+</span> b)</span></code></pre></div>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<p>También podemos comprobar su naturaleza con <code>typeof()</code>, que nos devuelve la naturaleza del dato tal cual es guardada en <code>R</code>.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="var-num.html#cb63-1" tabindex="-1"></a><span class="co"># Tipología interna</span></span>
+<span id="cb63-2"><a href="var-num.html#cb63-2" tabindex="-1"></a><span class="fu">typeof</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;double&quot;</code></pre>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="var-num.html#cb65-1" tabindex="-1"></a><span class="fu">typeof</span>(b)</span></code></pre></div>
+<pre><code>[1] &quot;double&quot;</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="var-num.html#cb67-1" tabindex="-1"></a><span class="fu">typeof</span>(a <span class="sc">+</span> b)</span></code></pre></div>
+<pre><code>[1] &quot;double&quot;</code></pre>
+<p>Aunque no es especialmente relevante profundizar en ello de momento, fíjate que ambas órdenes combinadas nos dicen que las variables son de tipo numérico pero concretamente de tipo <mark><strong>double</strong></mark>: dichas variables son entendidas internamente como números con decimales (aunque no los veamos), lo que en <strong>matemáticas se llaman números reales</strong> (por curiosidad: el término <em>double</em> viene de lenguajes de programación antiguos como <code>C</code>, que significa «doble precisión», para indicarle que reserve 8 bytes - 64 bits - de memoria). Durante el curso no distinguiremos entre distintos tipos de números, para nosotros serán siempre de clase <em>numeric</em> y de tipo <em>double</em>, pero podríamos definir números enteros o <em>integer</em> (sin decimales, ahorrando huecos en memoria).</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="var-num.html#cb69-1" tabindex="-1"></a><span class="co"># Dato numérico (entero)</span></span>
+<span id="cb69-2"><a href="var-num.html#cb69-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> 1L</span>
+<span id="cb69-3"><a href="var-num.html#cb69-3" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="var-num.html#cb71-1" tabindex="-1"></a><span class="fu">typeof</span>(a)</span></code></pre></div>
+<pre><code>[1] &quot;integer&quot;</code></pre>
+<p>Con los <mark><strong>datos numéricos</strong></mark> podemos realizar todas las <mark><strong>operaciones</strong></mark> que se nos ocurriría hacer en una <strong>calculadora</strong>, como sumar (<code>+</code>), restar (<code>-</code>), multiplicar (<code>*</code>), dividir (<code>/</code>), raíz cuadrada (<code>sqrt()</code>), valor absoluto (<code>abs()</code>), elevar al cuadrado (<code>^2</code>), elevar al cubo (<code>^3</code>), etc.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="var-num.html#cb73-1" tabindex="-1"></a><span class="co"># Definimos dos variables numéricas</span></span>
+<span id="cb73-2"><a href="var-num.html#cb73-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb73-3"><a href="var-num.html#cb73-3" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span></span>
+<span id="cb73-4"><a href="var-num.html#cb73-4" tabindex="-1"></a></span>
+<span id="cb73-5"><a href="var-num.html#cb73-5" tabindex="-1"></a><span class="co"># Suma y resta</span></span>
+<span id="cb73-6"><a href="var-num.html#cb73-6" tabindex="-1"></a>a <span class="sc">+</span> b</span></code></pre></div>
+<pre><code>[1] -1</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="var-num.html#cb75-1" tabindex="-1"></a>a <span class="sc">-</span> b</span></code></pre></div>
+<pre><code>[1] 3</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="var-num.html#cb77-1" tabindex="-1"></a><span class="co"># Multiplicación y división</span></span>
+<span id="cb77-2"><a href="var-num.html#cb77-2" tabindex="-1"></a>a <span class="sc">*</span> b</span></code></pre></div>
+<pre><code>[1] -2</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="var-num.html#cb79-1" tabindex="-1"></a>a <span class="sc">/</span> b</span></code></pre></div>
+<pre><code>[1] -0.5</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="var-num.html#cb81-1" tabindex="-1"></a><span class="co"># Raíz cuadrada</span></span>
+<span id="cb81-2"><a href="var-num.html#cb81-2" tabindex="-1"></a><span class="fu">sqrt</span>(a)</span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="var-num.html#cb83-1" tabindex="-1"></a><span class="co"># Potencias</span></span>
+<span id="cb83-2"><a href="var-num.html#cb83-2" tabindex="-1"></a>a<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="var-num.html#cb85-1" tabindex="-1"></a>b<span class="sc">^</span><span class="dv">3</span></span></code></pre></div>
+<pre><code>[1] -8</code></pre>
+</div>
+<div id="caracter" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Variables de tipo caracter (texto)<a href="var-num.html#caracter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pero no solo de números viven los datos: imagina que además de la edad de una persona queremos guardar su nombre.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="var-num.html#cb87-1" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">32</span></span>
+<span id="cb87-2"><a href="var-num.html#cb87-2" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="st">&quot;Javier&quot;</span></span>
+<span id="cb87-3"><a href="var-num.html#cb87-3" tabindex="-1"></a></span>
+<span id="cb87-4"><a href="var-num.html#cb87-4" tabindex="-1"></a><span class="fu">class</span>(nombre)</span></code></pre></div>
+<pre><code>[1] &quot;character&quot;</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="var-num.html#cb89-1" tabindex="-1"></a><span class="fu">typeof</span>(nombre)</span></code></pre></div>
+<pre><code>[1] &quot;character&quot;</code></pre>
+<p>Fíjate que ahora tenemos guardado en la variable <code>nombre</code> una variable de tipo <em>character</em>, es decir, una <mark><strong>cadena de texto</strong></mark> (conocido en otros lenguajes como <em>string</em> o <em>char</em>): <mark><strong>caracteres entre comillas</strong></mark>.</p>
+<p>Es importante el concepto de las comillas, ya que todo lo que vaya entre comillas será un texto: <code>"1"</code> no representa un número, representa un texto (igual que <code>"hola"</code> o <code>"adios"</code>)</p>
+</div>
+<div id="nuestra-primera-función-paste" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Nuestra primera función: paste<a href="var-num.html#nuestra-primera-función-paste" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las <mark><strong>cadenas de texto</strong></mark> son un tipo especial de dato, con los que obviamente no podremos hacer operaciones aritméticas, pero si podemos hacer operaciones propias de cadenas de texto como puede ser la <mark><strong>función <code>paste()</code></strong></mark>. Dicha función nos permite <strong>pegar dos cadenas de caracteres</strong>.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="var-num.html#cb91-1" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="st">&quot;Cristian&quot;</span></span>
+<span id="cb91-2"><a href="var-num.html#cb91-2" tabindex="-1"></a>apellido <span class="ot">&lt;-</span> <span class="st">&quot;Crisben&quot;</span></span>
+<span id="cb91-3"><a href="var-num.html#cb91-3" tabindex="-1"></a><span class="fu">paste</span>(nombre)</span></code></pre></div>
+<pre><code>[1] &quot;Cristian&quot;</code></pre>
+<p>Si queremos pegar cadenas de texto sin ningún tipo de caracter en medio (ahora tenemos un espacio), existe una forma más abreviada y limpia de ejecutar la orden, usando la <mark><strong>función <code>paste0()</code></strong></mark></p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="var-num.html#cb93-1" tabindex="-1"></a><span class="fu">paste0</span>(nombre, apellido) <span class="co"># todo junto sin espacio</span></span></code></pre></div>
+<pre><code>[1] &quot;CristianCrisben&quot;</code></pre>
+<p>Cuando hemos ejecutado <code>paste()</code> y <code>paste0()</code> estamos ejecutando lo que se conoce como una <mark><strong>función</strong></mark>: una palabra reservada que representa un <strong>conjunto de órdenes encapsuladas</strong>, y que se ejecuta a partir de unos <mark><strong>argumentos de entrada</strong></mark>. En este caso, solo hemos introducido como argumentos las cadenas de texto.</p>
+<p><mark><strong>¿Qué sucededería si queremos pegar cadenas de texto usando el punto o la coma o cualquier otro caracter</strong></mark> En el caso de la función <code>paste()</code>, podremos hacer uso de lo que se conoce como <strong>argumento opcional</strong> llamado <code>sep</code>, que podemos darle un valor en concreto o dejarlo sin especificar. Lo que hará <code>R</code> será tomar su <mark><strong>valor por defecto</strong></mark> igual a <code>sep = " "</code> (por defecto, la función <code>paste()</code> pega cadenas de texto con un espacio entre ellas porque en realidad ejecuta por defecto <code>paste(..., sep = " ")</code>).</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="var-num.html#cb95-1" tabindex="-1"></a><span class="fu">paste</span>(nombre, apellido, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>) <span class="co"># todo junto</span></span></code></pre></div>
+<pre><code>[1] &quot;CristianCrisben&quot;</code></pre>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="var-num.html#cb97-1" tabindex="-1"></a><span class="fu">paste</span>(nombre, apellido, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>) <span class="co"># separados por un espacio</span></span></code></pre></div>
+<pre><code>[1] &quot;Cristian Crisben&quot;</code></pre>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="var-num.html#cb99-1" tabindex="-1"></a><span class="fu">paste</span>(nombre, apellido, <span class="at">sep =</span> <span class="st">&quot;.&quot;</span>) <span class="co"># separados por un punto .</span></span></code></pre></div>
+<pre><code>[1] &quot;Cristian.Crisben&quot;</code></pre>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="var-num.html#cb101-1" tabindex="-1"></a><span class="fu">paste</span>(nombre, apellido, <span class="at">sep =</span> <span class="st">&quot;,,&quot;</span>) <span class="co"># separados por dos comas.</span></span></code></pre></div>
+<pre><code>[1] &quot;Cristian,,Crisben&quot;</code></pre>
+<p>Prueba a ejecutar <code>? paste</code> en consola para ver las opciones de la función en el <strong>panel de ayuda</strong>.</p>
+</div>
+<div id="nuestro-primer-paquete-glue" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Nuestro primer paquete: glue<a href="var-num.html#nuestro-primer-paquete-glue" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Otra forma más <strong>intuitiva de trabajar con textos y variables numéricas</strong> es usar el paquete <code>{glue}</code>, que nos permite <mark><strong>pegar cadenas de texto a variables numéricas de forma simbólica</strong></mark>.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="var-num.html#cb103-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;glue&quot;</span>) <span class="co"># solo la primera vez</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="var-num.html#cb104-1" tabindex="-1"></a><span class="fu">library</span>(glue)</span></code></pre></div>
+<p>Recuerda que <code>install.packages()</code> es solo necesario la primera que «compramos el libro»: nos bajamos una serie de archivos a nuestro ordenador. Una vez que hemos comprado el libro, cada vez que queramos usarlo bastará con indicarle que nos traiga ese libro concreto con <code>library()</code>.</p>
+<p>El paquete <code>{glue}</code> nos permite pegar de una forma mucho más legible cadenas de texto. Por ejemplo, supongamos que queremos construir la frase <code>"La edad es de X años"</code>, donde <code>X</code> será la edad guardada e una variable.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="var-num.html#cb105-1" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">32</span></span>
+<span id="cb105-2"><a href="var-num.html#cb105-2" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;La edad es de&quot;</span>, edad, <span class="st">&quot;años&quot;</span>)</span></code></pre></div>
+<pre><code>[1] &quot;La edad es de 32 años&quot;</code></pre>
+<p>Con <code>paste()</code> podemos mezclar texto y números pero de una forma un poco aparatosa ya que debemos de ir cerrando la frase con comillas. Para evitarlo, <code>glue()</code> nos proporciona una forma más cómoda, sin salirnos de la cadena de texto, encapsulando las variables en llaves.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="var-num.html#cb107-1" tabindex="-1"></a><span class="fu">glue</span>(<span class="st">&quot;La edad es de {edad} años&quot;</span>)</span></code></pre></div>
+<pre><code>La edad es de 32 años</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="var-num.html#cb109-1" tabindex="-1"></a>unidades <span class="ot">&lt;-</span> <span class="st">&quot;años&quot;</span></span>
+<span id="cb109-2"><a href="var-num.html#cb109-2" tabindex="-1"></a><span class="fu">glue</span>(<span class="st">&quot;La edad es de {edad} {unidades}&quot;</span>)</span></code></pre></div>
+<pre><code>La edad es de 32 años</code></pre>
+<p>También podemos hacer uso de dicha función sin tener los valores numéricos previamente guardados en variables.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="var-num.html#cb111-1" tabindex="-1"></a><span class="co"># Otra forma sin definir variables a priori</span></span>
+<span id="cb111-2"><a href="var-num.html#cb111-2" tabindex="-1"></a><span class="fu">glue</span>(<span class="st">&quot;La edad es de {32} años&quot;</span>)</span></code></pre></div>
+<pre><code>La edad es de 32 años</code></pre>
+</div>
+<div id="manejando-textos-paquete-stringr" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Manejando textos: paquete stringr<a href="var-num.html#manejando-textos-paquete-stringr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:stringr"></span>
+<img src="img/stringr.png" alt="Paquete stringr https://github.com/rstudio/cheatsheets/blob/main/strings.pdf" width="70%" />
+<p class="caption">
+Figure 5.1: Paquete stringr <a href="https://github.com/rstudio/cheatsheets/blob/main/strings.pdf" class="uri">https://github.com/rstudio/cheatsheets/blob/main/strings.pdf</a>
+</p>
+</div>
+<p>El paquete <code>{stringr}</code> nos proporciona un <mark><strong>abanico de funciones y utilidades para poder trabajar con variables de tipo texto</strong></mark>, permitiendo desde la búsqueda hasta la extracción de cadenas de texto dentro de la variable.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="var-num.html#cb113-1" tabindex="-1"></a><span class="co"># install.packages(&quot;stringr&quot;) # solo la primera vez</span></span>
+<span id="cb113-2"><a href="var-num.html#cb113-2" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code></pre></div>
+<p>Aunque no es el objetivo de este manual introductorio adentrarnos en lo que se conoce como <em>text mining</em> o minería de textos, he aquí una lista de funciones útiles que podemos encontrar en dicho paquete</p>
+<ul>
+<li>La función <code>str_length()</code> nos proporciona la <mark><strong>longitud de una cadena</strong></mark> de caracteres (reminder: un espacio cuenta como caracter).</li>
+</ul>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="var-num.html#cb114-1" tabindex="-1"></a><span class="fu">str_length</span>(<span class="st">&quot;hola&quot;</span>)</span></code></pre></div>
+<pre><code>[1] 4</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="var-num.html#cb116-1" tabindex="-1"></a><span class="fu">str_length</span>(<span class="st">&quot;espejo&quot;</span>)</span></code></pre></div>
+<pre><code>[1] 6</code></pre>
+<ul>
+<li>La función <code>str_sub()</code> nos permite <mark><strong>extraer subcadenas</strong></mark> de caracteres, indicándole no solo la cadena sino las posiciones iniciales y finales.</li>
+</ul>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="var-num.html#cb118-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;ornitorrinco&quot;</span></span>
+<span id="cb118-2"><a href="var-num.html#cb118-2" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="dv">3</span>, <span class="dv">3</span>) <span class="co"># tercer caracter</span></span></code></pre></div>
+<pre><code>[1] &quot;n&quot;</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="var-num.html#cb120-1" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="dv">3</span>, <span class="dv">5</span>) <span class="co"># del tercero al quinto (ambos inclusive)</span></span></code></pre></div>
+<pre><code>[1] &quot;nit&quot;</code></pre>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="var-num.html#cb122-1" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">3</span>) <span class="co"># del segundo al antepenúltimo caracter</span></span></code></pre></div>
+<pre><code>[1] &quot;rnitorrin&quot;</code></pre>
+<p>Dicha función se puede usar incluso para <mark><strong>modificar subcadenas</strong></mark></p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="var-num.html#cb124-1" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="dv">3</span>, <span class="dv">6</span>) <span class="ot">&lt;-</span> <span class="st">&quot;jeje&quot;</span> <span class="co"># del tercero al sexto colamos un &quot;jeje&quot;</span></span>
+<span id="cb124-2"><a href="var-num.html#cb124-2" tabindex="-1"></a>x</span></code></pre></div>
+<pre><code>[1] &quot;orjejerrinco&quot;</code></pre>
+<ul>
+<li>La función <code>str_dup()</code> nos permite <mark><strong>duplicar cadenas</strong></mark> de caracteres</li>
+</ul>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="var-num.html#cb126-1" tabindex="-1"></a><span class="fu">str_sub</span>(<span class="st">&quot;ja&quot;</span>, <span class="dv">2</span>) <span class="co"># duplicamos 2 veces &quot;ja&quot;</span></span></code></pre></div>
+<pre><code>[1] &quot;a&quot;</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="var-num.html#cb128-1" tabindex="-1"></a><span class="fu">str_sub</span>(<span class="st">&quot;ja&quot;</span>, <span class="dv">5</span>) <span class="co"># duplicamos 5 veces &quot;ja&quot;</span></span></code></pre></div>
+<pre><code>[1] &quot;&quot;</code></pre>
+<ul>
+<li>La función <code>str_remove()</code> nos permite <mark><strong>eliminar subcadenas</strong></mark> de caracteres (reminder: el espacio porque cuenta como caracter)</li>
+</ul>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="var-num.html#cb130-1" tabindex="-1"></a><span class="co"># eliminamos de la variable la subcadena o patrón &quot;DNI:&quot;</span></span>
+<span id="cb130-2"><a href="var-num.html#cb130-2" tabindex="-1"></a><span class="fu">str_remove</span>(<span class="st">&quot;DNI: 41378292&quot;</span>, <span class="st">&quot;DNI:&quot;</span>) <span class="co"># nos deja ese espacio</span></span></code></pre></div>
+<pre><code>[1] &quot; 41378292&quot;</code></pre>
+<ul>
+<li>La función <code>str_trim()</code> nos permite <mark><strong>eliminar espacios en blanco</strong></mark> que nos hayan quedado en el texto, algo bastante habitual cuando lees cadenas de caracteres de archivos o de internet.</li>
+</ul>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="var-num.html#cb132-1" tabindex="-1"></a><span class="co"># eliminamos de la variable la subcadena o patrón &quot;DNI:&quot;</span></span>
+<span id="cb132-2"><a href="var-num.html#cb132-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">str_remove</span>(<span class="st">&quot;DNI: 41378292&quot;</span>, <span class="st">&quot;DNI:&quot;</span>) <span class="co"># nos deja ese espacio</span></span>
+<span id="cb132-3"><a href="var-num.html#cb132-3" tabindex="-1"></a><span class="fu">str_trim</span>(x) <span class="co"># eliminamos ese espacio</span></span></code></pre></div>
+<pre><code>[1] &quot;41378292&quot;</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="var-num.html#cb134-1" tabindex="-1"></a><span class="fu">str_trim</span>(<span class="st">&quot;  calle mayor &quot;</span>, <span class="at">side =</span> <span class="st">&quot;left&quot;</span>) <span class="co"># solo los de la izquierda</span></span></code></pre></div>
+<pre><code>[1] &quot;calle mayor &quot;</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="var-num.html#cb136-1" tabindex="-1"></a><span class="fu">str_trim</span>(<span class="st">&quot;  calle mayor &quot;</span>, <span class="at">side =</span> <span class="st">&quot;right&quot;</span>) <span class="co"># solo los de la derecha</span></span></code></pre></div>
+<pre><code>[1] &quot;  calle mayor&quot;</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="var-num.html#cb138-1" tabindex="-1"></a><span class="fu">str_trim</span>(<span class="st">&quot;  calle mayor &quot;</span>, <span class="at">side =</span> <span class="st">&quot;both&quot;</span>) <span class="co"># ambos (pro defecto)</span></span></code></pre></div>
+<pre><code>[1] &quot;calle mayor&quot;</code></pre>
+<ul>
+<li>La función <code>str_pad()</code> nos permite <mark><strong>añadir espacios en blanco</strong></mark></li>
+</ul>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="var-num.html#cb140-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;mochila&quot;</span></span>
+<span id="cb140-2"><a href="var-num.html#cb140-2" tabindex="-1"></a><span class="co"># un espacio en la izquierda (cadena resultante de longitud dada)</span></span>
+<span id="cb140-3"><a href="var-num.html#cb140-3" tabindex="-1"></a><span class="fu">str_pad</span>(x, <span class="dv">8</span>) <span class="co"># longitud 8 ==&gt; mochila tiene 7, así que añade un espacio</span></span></code></pre></div>
+<pre><code>[1] &quot; mochila&quot;</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="var-num.html#cb142-1" tabindex="-1"></a><span class="fu">str_pad</span>(x, <span class="dv">15</span>) <span class="co"># longitud 15 ==&gt; mochila tiene 7, así que añade 8 espacios</span></span></code></pre></div>
+<pre><code>[1] &quot;        mochila&quot;</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="var-num.html#cb144-1" tabindex="-1"></a><span class="fu">str_pad</span>(x, <span class="dv">12</span>, <span class="st">&quot;right&quot;</span>) <span class="co"># a la derecha</span></span></code></pre></div>
+<pre><code>[1] &quot;mochila     &quot;</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="var-num.html#cb146-1" tabindex="-1"></a><span class="fu">str_pad</span>(x, <span class="dv">13</span>, <span class="st">&quot;both&quot;</span>) <span class="co"># a ambos lados</span></span></code></pre></div>
+<pre><code>[1] &quot;   mochila   &quot;</code></pre>
+<ul>
+<li>La función <code>str_to_upper()</code> nos permite <mark><strong>convertir un texto a mayúscula</strong></mark> y <code>str_to_title()</code> pone en mayúscula solo la primera letra de cada palabra. La función <code>str_to_lower()</code> nos permite <mark><strong>convertir un texto a minúscula</strong></mark></li>
+</ul>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="var-num.html#cb148-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;Hola, me llamo Javi&quot;</span></span>
+<span id="cb148-2"><a href="var-num.html#cb148-2" tabindex="-1"></a><span class="fu">str_to_upper</span>(x)</span></code></pre></div>
+<pre><code>[1] &quot;HOLA, ME LLAMO JAVI&quot;</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="var-num.html#cb150-1" tabindex="-1"></a><span class="fu">str_to_title</span>(x)</span></code></pre></div>
+<pre><code>[1] &quot;Hola, Me Llamo Javi&quot;</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="var-num.html#cb152-1" tabindex="-1"></a><span class="fu">str_to_lower</span>(<span class="st">&quot;¡PARA! No puedes pasar&quot;</span>)</span></code></pre></div>
+<pre><code>[1] &quot;¡para! no puedes pasar&quot;</code></pre>
+<ul>
+<li>La función <code>str_detect()</code> nos permite <mark><strong>detectar subcadenas</strong></mark> de caracteres</li>
+</ul>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="var-num.html#cb154-1" tabindex="-1"></a>subcadena <span class="ot">&lt;-</span> <span class="st">&quot;ministerio&quot;</span></span>
+<span id="cb154-2"><a href="var-num.html#cb154-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;En un documento del Ministerio del Interior...&quot;</span></span>
+<span id="cb154-3"><a href="var-num.html#cb154-3" tabindex="-1"></a><span class="fu">str_detect</span>(x, subcadena) <span class="co"># no lo detecta porque se sensitive a mayúsculas</span></span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="var-num.html#cb156-1" tabindex="-1"></a><span class="fu">str_detect</span>(<span class="fu">str_to_lower</span>(x), subcadena)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<p>Haciendo además uso de expresiones regulares podemos afinar nuestra búsqueda</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="var-num.html#cb158-1" tabindex="-1"></a>telefono <span class="ot">&lt;-</span> <span class="st">&quot;([2-9][0-9]{2})[- .]([0-9]{3})[- .]([0-9]{4})&quot;</span></span>
+<span id="cb158-2"><a href="var-num.html#cb158-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;mi telefono es 219 733 8965&quot;</span></span>
+<span id="cb158-3"><a href="var-num.html#cb158-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">&quot;mi telefono es 329-293-8753&quot;</span></span>
+<span id="cb158-4"><a href="var-num.html#cb158-4" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="st">&quot;mi telefono es 32-293-87&quot;</span></span>
+<span id="cb158-5"><a href="var-num.html#cb158-5" tabindex="-1"></a><span class="fu">str_detect</span>(x, telefono)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="var-num.html#cb160-1" tabindex="-1"></a><span class="fu">str_detect</span>(y, telefono)</span></code></pre></div>
+<pre><code>[1] TRUE</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="var-num.html#cb162-1" tabindex="-1"></a><span class="fu">str_detect</span>(z, telefono)</span></code></pre></div>
+<pre><code>[1] FALSE</code></pre>
+<ul>
+<li>La función <code>str_locate()</code> nos permite <mark><strong>localizar inicio y final donde se sitúan cadenas</strong></mark> de caracteres</li>
+</ul>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="var-num.html#cb164-1" tabindex="-1"></a><span class="fu">str_locate</span>(<span class="st">&quot;hola me llamo Javi&quot;</span>, <span class="st">&quot;Javi&quot;</span>)</span></code></pre></div>
+<pre><code>     start end
+[1,]    15  18</code></pre>
+<ul>
+<li>La función <code>str_replace()</code> nos permite <mark><strong>reemplazar subcadenas en base a un patrón</strong></mark> pero solo lo hace con la primera que detecta. Con <code>str_replace_all()</code> podemos reemplazar todos</li>
+</ul>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="var-num.html#cb166-1" tabindex="-1"></a><span class="fu">str_replace</span>(<span class="st">&quot;la vida del oso panda&quot;</span>, <span class="st">&quot;panda&quot;</span>, <span class="st">&quot;pardo&quot;</span>) <span class="co"># reemplazamos panda por pardo</span></span></code></pre></div>
+<pre><code>[1] &quot;la vida del oso pardo&quot;</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="var-num.html#cb168-1" tabindex="-1"></a><span class="fu">str_replace</span>(<span class="st">&quot;la vida del oso pardo y el oso polar&quot;</span>, <span class="st">&quot;oso&quot;</span>, <span class="st">&quot;delfín&quot;</span>)</span></code></pre></div>
+<pre><code>[1] &quot;la vida del delfín pardo y el oso polar&quot;</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="var-num.html#cb170-1" tabindex="-1"></a><span class="fu">str_replace_all</span>(<span class="st">&quot;la vida del oso pardo y el oso polar&quot;</span>, <span class="st">&quot;oso&quot;</span>, <span class="st">&quot;delfín&quot;</span>)</span></code></pre></div>
+<pre><code>[1] &quot;la vida del delfín pardo y el delfín polar&quot;</code></pre>
+</div>
+<div id="consejos-2" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Consejos<a href="var-num.html#consejos-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong><span style="color: #20935E;">CONSEJOS</span></strong></p>
+<p> </p>
+<p><strong><span style="color: #20935E;">Recuperar un comando y autocompletar</span></strong></p>
+<p>Si haces click con el ratón en la consola y pulsas la flecha «arriba» del teclado, te irá apareciendo todo el <mark><strong>historial de órdenes ejecutadas</strong></mark>. Es una manera de ahorrar tiempo para ejecutar órdenes similares a las ya ejecutadas. Si empiezas a escribir el nombre de una variable pero no te acuerdas exactamente de su nombre, pulsando <strong>tabulador</strong> te <strong>autocompletará</strong> solo.</p>
+<p> </p>
+<p><strong><span style="color: #20935E;">Convertir tipos de datos</span></strong></p>
+<p>A veces la lectura de variables numéricas de nuestros archivos puede hacer que un número, por ejemplo <code>1</code>, sea leído como la cadena de texto <code>"1"</code>, con la que no podemos operar como un número. Las funciones <code>as.numeric()</code>, o <code>as.character()</code> nos permiten convertir una variable en tipo numérico, caracter o lógico, respectivamente.</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="var-num.html#cb172-1" tabindex="-1"></a><span class="st">&quot;1&quot;</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>Error in &quot;1&quot; + 1: argumento no-numérico para operador binario</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="var-num.html#cb174-1" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="st">&quot;1&quot;</span>) <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>[1] 2</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="var-num.html#cb176-1" tabindex="-1"></a><span class="fu">as.character</span>(<span class="dv">1</span>)</span></code></pre></div>
+<pre><code>[1] &quot;1&quot;</code></pre>
+<p> </p>
+</div>
+<div id="ejercicios-2" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> 📝 Ejercicios<a href="#ejercicios-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(haz click en las flechas para ver soluciones)</p>
+<details>
+<summary>
+📝<strong>Ejercicio 1</strong>: define una variable <code>edad</code> que guarde tu edad y otra <code>nombre</code> con tu nombre.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="var-num.html#cb178-1" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">32</span> <span class="co"># tipo numeric</span></span>
+<span id="cb178-2"><a href="var-num.html#cb178-2" tabindex="-1"></a>nombre <span class="ot">&lt;-</span> <span class="st">&quot;Javier&quot;</span> <span class="co"># tipo caracter</span></span>
+<span id="cb178-3"><a href="var-num.html#cb178-3" tabindex="-1"></a></span>
+<span id="cb178-4"><a href="var-num.html#cb178-4" tabindex="-1"></a>edad</span></code></pre></div>
+<pre><code>[1] 32</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="var-num.html#cb180-1" tabindex="-1"></a>nombre</span></code></pre></div>
+<pre><code>[1] &quot;Javier&quot;</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 2</strong>: define otra variable con tus apellidos y junta las variables <code>nombre</code> y <code>apellidos</code> en una sola cadena de texto que guardes en <code>nombre_completo</code>.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="var-num.html#cb182-1" tabindex="-1"></a><span class="co"># Apellidos</span></span>
+<span id="cb182-2"><a href="var-num.html#cb182-2" tabindex="-1"></a>apellidos <span class="ot">&lt;-</span> <span class="st">&quot;Crisben&quot;</span></span>
+<span id="cb182-3"><a href="var-num.html#cb182-3" tabindex="-1"></a></span>
+<span id="cb182-4"><a href="var-num.html#cb182-4" tabindex="-1"></a><span class="co"># Pegamos</span></span>
+<span id="cb182-5"><a href="var-num.html#cb182-5" tabindex="-1"></a>nombre_completo <span class="ot">&lt;-</span> <span class="fu">glue</span>(<span class="st">&quot;{nombre} {apellidos}&quot;</span>)</span>
+<span id="cb182-6"><a href="var-num.html#cb182-6" tabindex="-1"></a>nombre_completo</span></code></pre></div>
+<pre><code>Javier Crisben</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="var-num.html#cb184-1" tabindex="-1"></a><span class="co"># Otra forma</span></span>
+<span id="cb184-2"><a href="var-num.html#cb184-2" tabindex="-1"></a>nombre_completo <span class="ot">&lt;-</span> <span class="fu">paste</span>(nombre, apellidos)</span>
+<span id="cb184-3"><a href="var-num.html#cb184-3" tabindex="-1"></a>nombre_completo</span></code></pre></div>
+<pre><code>[1] &quot;Javier Crisben&quot;</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 3</strong>: define dos variables numéricas y realiza la suma de ambas. Obtén con <code>class()</code> la clase de dicha variable suma
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="var-num.html#cb186-1" tabindex="-1"></a><span class="co"># Definimos dos variables numéricas</span></span>
+<span id="cb186-2"><a href="var-num.html#cb186-2" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb186-3"><a href="var-num.html#cb186-3" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span></span>
+<span id="cb186-4"><a href="var-num.html#cb186-4" tabindex="-1"></a></span>
+<span id="cb186-5"><a href="var-num.html#cb186-5" tabindex="-1"></a>a <span class="sc">+</span> b</span></code></pre></div>
+<pre><code>[1] -1</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="var-num.html#cb188-1" tabindex="-1"></a><span class="fu">class</span>(a <span class="sc">+</span> b)</span></code></pre></div>
+<pre><code>[1] &quot;numeric&quot;</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 4</strong>: construye una frase que diga «Hola, me llamo … y tengo … años».
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="var-num.html#cb190-1" tabindex="-1"></a>edad <span class="ot">&lt;-</span> <span class="dv">32</span></span>
+<span id="cb190-2"><a href="var-num.html#cb190-2" tabindex="-1"></a><span class="fu">glue</span>(<span class="st">&quot;Hola, me llamo {nombre_completo} y tengo {edad} años&quot;</span>)</span></code></pre></div>
+<pre><code>Hola, me llamo Javier Crisben y tengo 32 años</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 5</strong>: define una cadena de texto con <code>"mi código postal es 28045"</code>. Calcula la longitud de la cadena y extrae la subcadena del lugar 3 al 17 con <code>str_sub()</code> (guarda dicha subcadena en una variable <code>y</code>)
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="var-num.html#cb192-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">&quot;mi código postal es 28045&quot;</span></span>
+<span id="cb192-2"><a href="var-num.html#cb192-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">str_sub</span>(x, <span class="dv">3</span>, <span class="dv">17</span>)</span>
+<span id="cb192-3"><a href="var-num.html#cb192-3" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>[1] &quot; código postal &quot;</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 6</strong>: con la subcadena <code>y</code> del ejercicio anterior, elimina los espacios solo de la izquierda y convierte a mayúsculas
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="var-num.html#cb194-1" tabindex="-1"></a><span class="co"># Todo en una línea</span></span>
+<span id="cb194-2"><a href="var-num.html#cb194-2" tabindex="-1"></a><span class="fu">str_to_upper</span>(<span class="fu">str_trim</span>(y, <span class="at">side =</span> <span class="st">&quot;left&quot;</span>))</span></code></pre></div>
+<pre><code>[1] &quot;CÓDIGO POSTAL &quot;</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="var-num.html#cb196-1" tabindex="-1"></a><span class="co"># Paso a paso</span></span>
+<span id="cb196-2"><a href="var-num.html#cb196-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">str_trim</span>(y, <span class="at">side =</span> <span class="st">&quot;left&quot;</span>)</span>
+<span id="cb196-3"><a href="var-num.html#cb196-3" tabindex="-1"></a><span class="fu">str_to_upper</span>(z)</span></code></pre></div>
+<pre><code>[1] &quot;CÓDIGO POSTAL &quot;</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 7</strong>: con la cadena <code>x</code> original, sustituye la subcadena “código postal” por “cp”.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="var-num.html#cb198-1" tabindex="-1"></a><span class="fu">str_sub</span>(x, <span class="dv">4</span>, <span class="dv">16</span>) <span class="ot">&lt;-</span> <span class="st">&quot;cp&quot;</span></span></code></pre></div>
+<!-- tocstop -->
+</details>
+<p> </p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="primeros-pasos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vectores.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02c-var_num.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Estructuras de control: bucles | R</title>
+  <meta name="description" content="Chapter 12 Estructuras de control: bucles | R" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Estructuras de control: bucles | R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Estructuras de control: bucles | R" />
+  
+  
+  
+
+<meta name="author" content="Cristian Benalcázar" />
+
+
+<meta name="date" content="2024-04-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="if-else.html"/>
+<link rel="next" href="funs.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Estadística para Ciencia de Datos</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="que-es-R.html"><a href="que-es-R.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="que-es-R.html"><a href="que-es-R.html#historia-de-r"><i class="fa fa-check"></i><b>2.1</b> Historia de R</a></li>
+<li class="chapter" data-level="2.2" data-path="que-es-R.html"><a href="que-es-R.html#comunidadpaquetes"><i class="fa fa-check"></i><b>2.2</b> Comunidad de usuarios: paquetes</a></li>
+<li class="chapter" data-level="2.3" data-path="que-es-R.html"><a href="que-es-R.html#por-qué-excel-no-es-tu-amigo"><i class="fa fa-check"></i><b>2.3</b> ¿Por qué Excel no es tu amigo?</a></li>
+<li class="chapter" data-level="2.4" data-path="que-es-R.html"><a href="que-es-R.html#glosario"><i class="fa fa-check"></i><b>2.4</b> Glosario</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="instalacionR.html"><a href="instalacionR.html"><i class="fa fa-check"></i><b>3</b> Instalación</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="instalacionR.html"><a href="instalacionR.html#instalación-de-r"><i class="fa fa-check"></i><b>3.1</b> Instalación de R</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="instalacionR.html"><a href="instalacionR.html#paso-1"><i class="fa fa-check"></i><b>3.1.1</b> Paso 1</a></li>
+<li class="chapter" data-level="3.1.2" data-path="instalacionR.html"><a href="instalacionR.html#paso-2"><i class="fa fa-check"></i><b>3.1.2</b> Paso 2</a></li>
+<li class="chapter" data-level="3.1.3" data-path="instalacionR.html"><a href="instalacionR.html#paso-3"><i class="fa fa-check"></i><b>3.1.3</b> Paso 3</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="instalacionR.html"><a href="instalacionR.html#primera-operación-en-consola-sumar-dos-números"><i class="fa fa-check"></i><b>3.2</b> Primera operación en consola: sumar dos números</a></li>
+<li class="chapter" data-level="3.3" data-path="instalacionR.html"><a href="instalacionR.html#instalacionRStudio"><i class="fa fa-check"></i><b>3.3</b> Instalación de RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="instalacionR.html"><a href="instalacionR.html#instalacionpaquetes"><i class="fa fa-check"></i><b>3.4</b> Instalación de paquetes</a></li>
+<li class="chapter" data-level="3.5" data-path="instalacionR.html"><a href="instalacionR.html#glosario-1"><i class="fa fa-check"></i><b>3.5</b> Glosario</a></li>
+<li class="chapter" data-level="3.6" data-path="instalacionR.html"><a href="instalacionR.html#consejos"><i class="fa fa-check"></i><b>3.6</b> Consejos</a></li>
+<li class="chapter" data-level="3.7" data-path="instalacionR.html"><a href="instalacionR.html#ejercicios"><i class="fa fa-check"></i><b>3.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="primeros-pasos.html"><a href="primeros-pasos.html"><i class="fa fa-check"></i><b>4</b> Primeros pasos</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="primeros-pasos.html"><a href="primeros-pasos.html#primeros-pasos-en-r-calculadora"><i class="fa fa-check"></i><b>4.1</b> Primeros pasos en R: calculadora</a></li>
+<li class="chapter" data-level="4.2" data-path="primeros-pasos.html"><a href="primeros-pasos.html#y-dónde-programamos"><i class="fa fa-check"></i><b>4.2</b> ¿Y dónde programamos?</a></li>
+<li class="chapter" data-level="4.3" data-path="primeros-pasos.html"><a href="primeros-pasos.html#tipos_errores"><i class="fa fa-check"></i><b>4.3</b> Tipos de errores</a></li>
+<li class="chapter" data-level="4.4" data-path="primeros-pasos.html"><a href="primeros-pasos.html#glosario-2"><i class="fa fa-check"></i><b>4.4</b> Glosario</a></li>
+<li class="chapter" data-level="4.5" data-path="primeros-pasos.html"><a href="primeros-pasos.html#consejos-1"><i class="fa fa-check"></i><b>4.5</b> Consejos</a></li>
+<li class="chapter" data-level="4.6" data-path="primeros-pasos.html"><a href="primeros-pasos.html#ejercicios-1"><i class="fa fa-check"></i><b>4.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>I Tipos de datos</b></span></li>
+<li class="chapter" data-level="5" data-path="var-num.html"><a href="var-num.html"><i class="fa fa-check"></i><b>5</b> Variables individuales: números y caracteres</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="var-num.html"><a href="var-num.html#numericas"><i class="fa fa-check"></i><b>5.1</b> Variables numéricas (individuales)</a></li>
+<li class="chapter" data-level="5.2" data-path="var-num.html"><a href="var-num.html#caracter"><i class="fa fa-check"></i><b>5.2</b> Variables de tipo caracter (texto)</a></li>
+<li class="chapter" data-level="5.3" data-path="var-num.html"><a href="var-num.html#nuestra-primera-función-paste"><i class="fa fa-check"></i><b>5.3</b> Nuestra primera función: paste</a></li>
+<li class="chapter" data-level="5.4" data-path="var-num.html"><a href="var-num.html#nuestro-primer-paquete-glue"><i class="fa fa-check"></i><b>5.4</b> Nuestro primer paquete: glue</a></li>
+<li class="chapter" data-level="5.5" data-path="var-num.html"><a href="var-num.html#manejando-textos-paquete-stringr"><i class="fa fa-check"></i><b>5.5</b> Manejando textos: paquete stringr</a></li>
+<li class="chapter" data-level="5.6" data-path="var-num.html"><a href="var-num.html#consejos-2"><i class="fa fa-check"></i><b>5.6</b> Consejos</a></li>
+<li class="chapter" data-level="5.7" data-path="var-num.html"><a href="var-num.html#ejercicios-2"><i class="fa fa-check"></i><b>5.7</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="vectores.html"><a href="vectores.html"><i class="fa fa-check"></i><b>6</b> Vectores</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="vectores.html"><a href="vectores.html#vectores-numéricos"><i class="fa fa-check"></i><b>6.1</b> Vectores numéricos</a></li>
+<li class="chapter" data-level="6.2" data-path="vectores.html"><a href="vectores.html#secuencias-numéricas-con-un-patrón"><i class="fa fa-check"></i><b>6.2</b> Secuencias numéricas con un patrón</a></li>
+<li class="chapter" data-level="6.3" data-path="vectores.html"><a href="vectores.html#vectores-de-caracteres-texto"><i class="fa fa-check"></i><b>6.3</b> Vectores de caracteres (texto)</a></li>
+<li class="chapter" data-level="6.4" data-path="vectores.html"><a href="vectores.html#vectores-lógicos-truefalse"><i class="fa fa-check"></i><b>6.4</b> Vectores lógicos (TRUE/FALSE)</a></li>
+<li class="chapter" data-level="6.5" data-path="vectores.html"><a href="vectores.html#consejos-3"><i class="fa fa-check"></i><b>6.5</b> Consejos</a></li>
+<li class="chapter" data-level="6.6" data-path="vectores.html"><a href="vectores.html#ejercicios-3"><i class="fa fa-check"></i><b>6.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="operacionesvectores.html"><a href="operacionesvectores.html"><i class="fa fa-check"></i><b>7</b> Operaciones con vectores</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#vectores-numéricos-1"><i class="fa fa-check"></i><b>7.1</b> Vectores numéricos</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-aritméticas"><i class="fa fa-check"></i><b>7.1.1</b> Operaciones aritméticas</a></li>
+<li class="chapter" data-level="7.1.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operaciones-estadísticas"><i class="fa fa-check"></i><b>7.1.2</b> Operaciones estadísticas</a></li>
+<li class="chapter" data-level="7.1.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#operacionesausentes"><i class="fa fa-check"></i><b>7.1.3</b> Operaciones con ausentes</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#seleccionar-elementos"><i class="fa fa-check"></i><b>7.2</b> Seleccionar elementos</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="operacionesvectores.html"><a href="operacionesvectores.html#which"><i class="fa fa-check"></i><b>7.2.1</b> which</a></li>
+<li class="chapter" data-level="7.2.2" data-path="operacionesvectores.html"><a href="operacionesvectores.html#null"><i class="fa fa-check"></i><b>7.2.2</b> NULL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="operacionesvectores.html"><a href="operacionesvectores.html#nombrando-vectores-añadiendo-metainformación"><i class="fa fa-check"></i><b>7.3</b> Nombrando vectores: añadiendo metainformación</a></li>
+<li class="chapter" data-level="7.4" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ordenar"><i class="fa fa-check"></i><b>7.4</b> Ordenar</a></li>
+<li class="chapter" data-level="7.5" data-path="operacionesvectores.html"><a href="operacionesvectores.html#consejos-4"><i class="fa fa-check"></i><b>7.5</b> Consejos</a></li>
+<li class="chapter" data-level="7.6" data-path="operacionesvectores.html"><a href="operacionesvectores.html#ejercicios-4"><i class="fa fa-check"></i><b>7.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="fechas.html"><a href="fechas.html"><i class="fa fa-check"></i><b>8</b> Fechas</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="fechas.html"><a href="fechas.html#funciones-de-lubridate"><i class="fa fa-check"></i><b>8.1</b> Funciones de lubridate</a></li>
+<li class="chapter" data-level="8.2" data-path="fechas.html"><a href="fechas.html#consejos-5"><i class="fa fa-check"></i><b>8.2</b> Consejos</a></li>
+<li class="chapter" data-level="8.3" data-path="fechas.html"><a href="fechas.html#ejercicios-5"><i class="fa fa-check"></i><b>8.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="datos.html"><a href="datos.html"><i class="fa fa-check"></i><b>9</b> Datos estructurados</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="datos.html"><a href="datos.html#matrices"><i class="fa fa-check"></i><b>9.1</b> Matrices</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="datos.html"><a href="datos.html#acceder-a-elementos"><i class="fa fa-check"></i><b>9.1.1</b> Acceder a elementos</a></li>
+<li class="chapter" data-level="9.1.2" data-path="datos.html"><a href="datos.html#operaciones-por-filas-y-columnas-apply"><i class="fa fa-check"></i><b>9.1.2</b> Operaciones por filas y columnas (apply)</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="datos.html"><a href="datos.html#tablas-data.frames"><i class="fa fa-check"></i><b>9.2</b> Tablas: data.frames</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="datos.html"><a href="datos.html#selección-de-columnas-y-filas"><i class="fa fa-check"></i><b>9.2.1</b> Selección de columnas y filas</a></li>
+<li class="chapter" data-level="9.2.2" data-path="datos.html"><a href="datos.html#primer-análisis-de-datos-arrestos-en-ee.-uu."><i class="fa fa-check"></i><b>9.2.2</b> Primer análisis de datos: arrestos en EE. UU.</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="datos.html"><a href="datos.html#consejos-6"><i class="fa fa-check"></i><b>9.3</b> Consejos</a></li>
+<li class="chapter" data-level="9.4" data-path="datos.html"><a href="datos.html#ejercicios-6"><i class="fa fa-check"></i><b>9.4</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="listas.html"><a href="listas.html"><i class="fa fa-check"></i><b>10</b> Listas</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="listas.html"><a href="listas.html#introducción-a-purrr"><i class="fa fa-check"></i><b>10.1</b> Introducción a purrr</a></li>
+<li class="chapter" data-level="10.2" data-path="listas.html"><a href="listas.html#ejercicios-7"><i class="fa fa-check"></i><b>10.2</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="part"><span><b>II Haciendo el trabajo más fácil</b></span></li>
+<li class="chapter" data-level="11" data-path="if-else.html"><a href="if-else.html"><i class="fa fa-check"></i><b>11</b> Estructuras de control: if-else</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="if-else.html"><a href="if-else.html#if"><i class="fa fa-check"></i><b>11.1</b> if</a></li>
+<li class="chapter" data-level="11.2" data-path="if-else.html"><a href="if-else.html#if---else"><i class="fa fa-check"></i><b>11.2</b> if - else</a></li>
+<li class="chapter" data-level="11.3" data-path="if-else.html"><a href="if-else.html#if---else-anidados"><i class="fa fa-check"></i><b>11.3</b> if - else anidados</a></li>
+<li class="chapter" data-level="11.4" data-path="if-else.html"><a href="if-else.html#ifelse-vectorizado"><i class="fa fa-check"></i><b>11.4</b> ifelse () vectorizado</a></li>
+<li class="chapter" data-level="11.5" data-path="if-else.html"><a href="if-else.html#consejos-7"><i class="fa fa-check"></i><b>11.5</b> Consejos</a></li>
+<li class="chapter" data-level="11.6" data-path="if-else.html"><a href="if-else.html#ejercicios-8"><i class="fa fa-check"></i><b>11.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="bucles.html"><a href="bucles.html"><i class="fa fa-check"></i><b>12</b> Estructuras de control: bucles</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="bucles.html"><a href="bucles.html#for"><i class="fa fa-check"></i><b>12.1</b> for</a></li>
+<li class="chapter" data-level="12.2" data-path="bucles.html"><a href="bucles.html#while"><i class="fa fa-check"></i><b>12.2</b> while</a></li>
+<li class="chapter" data-level="12.3" data-path="bucles.html"><a href="bucles.html#breaknext"><i class="fa fa-check"></i><b>12.3</b> break/next</a></li>
+<li class="chapter" data-level="12.4" data-path="bucles.html"><a href="bucles.html#repeat"><i class="fa fa-check"></i><b>12.4</b> repeat</a></li>
+<li class="chapter" data-level="12.5" data-path="bucles.html"><a href="bucles.html#consejos-8"><i class="fa fa-check"></i><b>12.5</b> Consejos</a></li>
+<li class="chapter" data-level="12.6" data-path="bucles.html"><a href="bucles.html#ejercicios-9"><i class="fa fa-check"></i><b>12.6</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="funs.html"><a href="funs.html"><i class="fa fa-check"></i><b>13</b> Funciones</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="funs.html"><a href="funs.html#primera-función"><i class="fa fa-check"></i><b>13.1</b> Primera función</a></li>
+<li class="chapter" data-level="13.2" data-path="funs.html"><a href="funs.html#variables-localesglobales"><i class="fa fa-check"></i><b>13.2</b> Variables locales/globales</a></li>
+<li class="chapter" data-level="13.3" data-path="funs.html"><a href="funs.html#ejercicios-10"><i class="fa fa-check"></i><b>13.3</b> 📝 Ejercicios</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="proyecto.html"><a href="proyecto.html"><i class="fa fa-check"></i><b>14</b> Proyecto de trabajo</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="proyecto.html"><a href="proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>14.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="14.2" data-path="proyecto.html"><a href="proyecto.html#directorios-de-trabajo-y-cabecera"><i class="fa fa-check"></i><b>14.2</b> Directorios de trabajo y cabecera</a></li>
+<li class="chapter" data-level="14.3" data-path="proyecto.html"><a href="proyecto.html#ejecución"><i class="fa fa-check"></i><b>14.3</b> Ejecución</a></li>
+<li class="chapter" data-level="14.4" data-path="proyecto.html"><a href="proyecto.html#consejos-9"><i class="fa fa-check"></i><b>14.4</b> Consejos</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="importar-exportar.html"><a href="importar-exportar.html"><i class="fa fa-check"></i><b>15</b> Importar/exportar datos</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="importar-exportar.html"><a href="importar-exportar.html#importar-datos"><i class="fa fa-check"></i><b>15.1</b> Importar datos</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rdata-pasajeros-del-rms-titanic"><i class="fa fa-check"></i><b>15.1.1</b> Archivo .RData: pasajeros del RMS Titanic</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="importar-exportar.html"><a href="importar-exportar.html#archivo-.rda-pisos-en-boston"><i class="fa fa-check"></i><b>15.2</b> Archivo .rda: pisos en Boston</a></li>
+<li class="chapter" data-level="15.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-paquete-estadísticas-del-eurostat"><i class="fa fa-check"></i><b>15.3</b> Desde paquete: estadísticas del Eurostat</a></li>
+<li class="chapter" data-level="15.4" data-path="importar-exportar.html"><a href="importar-exportar.html#importando-datos-rectangulares"><i class="fa fa-check"></i><b>15.4</b> Importando datos RECTANGULARES</a>
+<ul>
+<li class="chapter" data-level="15.4.1" data-path="importar-exportar.html"><a href="importar-exportar.html#csv"><i class="fa fa-check"></i><b>15.4.1</b> CSV</a></li>
+<li class="chapter" data-level="15.4.2" data-path="importar-exportar.html"><a href="importar-exportar.html#txt"><i class="fa fa-check"></i><b>15.4.2</b> txt</a></li>
+<li class="chapter" data-level="15.4.3" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-web"><i class="fa fa-check"></i><b>15.4.3</b> DESDE WEB</a></li>
+<li class="chapter" data-level="15.4.4" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-readxl"><i class="fa fa-check"></i><b>15.4.4</b> EXCEL readxl</a></li>
+<li class="chapter" data-level="15.4.5" data-path="importar-exportar.html"><a href="importar-exportar.html#excel-openxlsx"><i class="fa fa-check"></i><b>15.4.5</b> EXCEL openxlsx</a></li>
+<li class="chapter" data-level="15.4.6" data-path="importar-exportar.html"><a href="importar-exportar.html#googlesheet"><i class="fa fa-check"></i><b>15.4.6</b> googlesheet</a></li>
+<li class="chapter" data-level="15.4.7" data-path="importar-exportar.html"><a href="importar-exportar.html#sasspssstata"><i class="fa fa-check"></i><b>15.4.7</b> SAS/SPSS/STATA</a></li>
+<li class="chapter" data-level="15.4.8" data-path="importar-exportar.html"><a href="importar-exportar.html#desde-api"><i class="fa fa-check"></i><b>15.4.8</b> desde API</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="importar-exportar.html"><a href="importar-exportar.html#exportación-de-datos"><i class="fa fa-check"></i><b>15.5</b> Exportación de datos</a></li>
+<li class="chapter" data-level="15.6" data-path="importar-exportar.html"><a href="importar-exportar.html#consejos-10"><i class="fa fa-check"></i><b>15.6</b> Consejos</a>
+<ul>
+<li class="chapter" data-level="15.6.1" data-path="importar-exportar.html"><a href="importar-exportar.html#exportando-datos-.rdata.rda"><i class="fa fa-check"></i><b>15.6.1</b> Exportando datos: .RData/.rda</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="gráficos.html"><a href="gráficos.html"><i class="fa fa-check"></i><b>16</b> Gráficos</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-una-variable-cuantitativa"><i class="fa fa-check"></i><b>16.1</b> Gráficos para una variable cuantitativa</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="gráficos.html"><a href="gráficos.html#función-stem"><i class="fa fa-check"></i><b>16.1.1</b> Función <code>stem ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.2" data-path="gráficos.html"><a href="gráficos.html#función-boxplot"><i class="fa fa-check"></i><b>16.1.2</b> Función <code>boxplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo 1</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo 2</a></li>
+<li class="chapter" data-level="16.1.3" data-path="gráficos.html"><a href="gráficos.html#función-hist"><i class="fa fa-check"></i><b>16.1.3</b> Función <code>hist ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.1.4" data-path="gráficos.html"><a href="gráficos.html#función-density"><i class="fa fa-check"></i><b>16.1.4</b> Función <code>density ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-dos-variables-cuantitativas"><i class="fa fa-check"></i><b>16.2</b> Gráficos para dos variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="gráficos.html"><a href="gráficos.html#función-plot"><i class="fa fa-check"></i><b>16.2.1</b> Función <code>plot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="16.2.2" data-path="gráficos.html"><a href="gráficos.html#función-pairs"><i class="fa fa-check"></i><b>16.2.2</b> Función <code>pairs ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="gráficos.html"><a href="gráficos.html#gráficos-para-variables-categóricas"><i class="fa fa-check"></i><b>16.3</b> Gráficos para variables categóricas</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="gráficos.html"><a href="gráficos.html#función-barplot"><i class="fa fa-check"></i><b>16.3.1</b> Función <code>barplot ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.2" data-path="gráficos.html"><a href="gráficos.html#la-función-pie"><i class="fa fa-check"></i><b>16.3.2</b> La función <code>pie ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="16.3.3" data-path="gráficos.html"><a href="gráficos.html#función-dotchart"><i class="fa fa-check"></i><b>16.3.3</b> Función <code>dotchart ()</code></a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="gráficos.html"><a href="gráficos.html#la-librería-lattice"><i class="fa fa-check"></i><b>16.4</b> La librería <code>lattice</code></a>
+<ul>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-1"><i class="fa fa-check"></i>Ejemplos</a></li>
+<li class="chapter" data-level="" data-path="gráficos.html"><a href="gráficos.html#ejemplos-2"><i class="fa fa-check"></i>Ejemplos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>17</b> R Markdown</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="r-markdown.html"><a href="r-markdown.html#introducción-1"><i class="fa fa-check"></i><b>17.1</b> Introducción</a></li>
+<li class="chapter" data-level="17.2" data-path="r-markdown.html"><a href="r-markdown.html#por-qué-r-markdown"><i class="fa fa-check"></i><b>17.2</b> ¿Por qué R Markdown?</a></li>
+<li class="chapter" data-level="17.3" data-path="r-markdown.html"><a href="r-markdown.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>17.3</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="17.4" data-path="r-markdown.html"><a href="r-markdown.html#cómo-crear-un-fichero-.rmd"><i class="fa fa-check"></i><b>17.4</b> ¿Cómo crear un fichero <code>.Rmd</code>?</a></li>
+<li class="chapter" data-level="17.5" data-path="r-markdown.html"><a href="r-markdown.html#cabeceras-yaml"><i class="fa fa-check"></i><b>17.5</b> Cabeceras YAML</a></li>
+<li class="chapter" data-level="17.6" data-path="r-markdown.html"><a href="r-markdown.html#sintáxis-básica-de-markdown"><i class="fa fa-check"></i><b>17.6</b> Sintáxis básica de Markdown</a></li>
+<li class="chapter" data-level="17.7" data-path="r-markdown.html"><a href="r-markdown.html#insertar-código-de-r"><i class="fa fa-check"></i><b>17.7</b> Insertar código de R</a>
+<ul>
+<li class="chapter" data-level="17.7.1" data-path="r-markdown.html"><a href="r-markdown.html#código-de-r-en-línea"><i class="fa fa-check"></i><b>17.7.1</b> Código de R en línea</a></li>
+<li class="chapter" data-level="17.7.2" data-path="r-markdown.html"><a href="r-markdown.html#bloques-chunks-de-código-r"><i class="fa fa-check"></i><b>17.7.2</b> Bloques (<em>chunks</em>) de código R</a></li>
+</ul></li>
+<li class="chapter" data-level="17.8" data-path="r-markdown.html"><a href="r-markdown.html#opciones-de-los-bloques-de-código-r"><i class="fa fa-check"></i><b>17.8</b> Opciones de los bloques de código R</a></li>
+<li class="chapter" data-level="17.9" data-path="r-markdown.html"><a href="r-markdown.html#figuras"><i class="fa fa-check"></i><b>17.9</b> Figuras</a></li>
+<li class="chapter" data-level="17.10" data-path="r-markdown.html"><a href="r-markdown.html#tablas"><i class="fa fa-check"></i><b>17.10</b> Tablas</a></li>
+<li class="chapter" data-level="17.11" data-path="r-markdown.html"><a href="r-markdown.html#tabla-de-contenidos"><i class="fa fa-check"></i><b>17.11</b> Tabla de contenidos</a></li>
+<li class="chapter" data-level="17.12" data-path="r-markdown.html"><a href="r-markdown.html#caching"><i class="fa fa-check"></i><b>17.12</b> <em>Caching</em></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>18</b> Git y Github con Rstudio</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="git.html"><a href="git.html#git-y-github-junto-con-rstudio"><i class="fa fa-check"></i><b>18.1</b> Git y GitHub junto con RStudio</a></li>
+<li class="chapter" data-level="18.2" data-path="git.html"><a href="git.html#qué-es-git-qué-es-github"><i class="fa fa-check"></i><b>18.2</b> ¿Qué es Git? ¿Qué es GitHub?</a></li>
+<li class="chapter" data-level="18.3" data-path="git.html"><a href="git.html#instalar-git"><i class="fa fa-check"></i><b>18.3</b> Instalar Git</a></li>
+<li class="chapter" data-level="18.4" data-path="git.html"><a href="git.html#crear-cuenta-y-repositorio-en-github"><i class="fa fa-check"></i><b>18.4</b> Crear cuenta y repositorio en Github</a></li>
+<li class="chapter" data-level="18.5" data-path="git.html"><a href="git.html#configurar-git-editar-gitconfig-file"><i class="fa fa-check"></i><b>18.5</b> Configurar Git (Editar gitconfig file)</a></li>
+<li class="chapter" data-level="18.6" data-path="git.html"><a href="git.html#crear-un-token-de-acceso-personal-pat-en-github"><i class="fa fa-check"></i><b>18.6</b> Crear un token de acceso personal (PAT) en GitHub</a></li>
+<li class="chapter" data-level="18.7" data-path="git.html"><a href="git.html#almacenar-token-de-acceso-personal-para-conectar-rstudio-y-github"><i class="fa fa-check"></i><b>18.7</b> Almacenar token de acceso personal para conectar RStudio y GitHub</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="practica-final.html"><a href="practica-final.html"><i class="fa fa-check"></i><b>19</b> 📝 Práctica final</a></li>
+<li class="part"><span><b>III Recursos</b></span></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html"><i class="fa fa-check"></i>📝 Ejercicios recopilados</a>
+<ul>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#instalación"><i class="fa fa-check"></i>Instalación</a></li>
+<li class="chapter" data-level="" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#primeros-pasos-1"><i class="fa fa-check"></i>Primeros pasos</a></li>
+<li class="chapter" data-level="19.1" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#variables-numéricas-y-de-texto"><i class="fa fa-check"></i><b>19.1</b> Variables numéricas y de texto</a></li>
+<li class="chapter" data-level="19.2" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#vectores-1"><i class="fa fa-check"></i><b>19.2</b> Vectores</a></li>
+<li class="chapter" data-level="19.3" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#operaciones-con-vectores"><i class="fa fa-check"></i><b>19.3</b> Operaciones con vectores</a></li>
+<li class="chapter" data-level="19.4" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#fechas-1"><i class="fa fa-check"></i><b>19.4</b> Fechas</a></li>
+<li class="chapter" data-level="19.5" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#datos-estructurados"><i class="fa fa-check"></i><b>19.5</b> Datos estructurados</a></li>
+<li class="chapter" data-level="19.6" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#listas-1"><i class="fa fa-check"></i><b>19.6</b> Listas</a></li>
+<li class="chapter" data-level="19.7" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-if-else"><i class="fa fa-check"></i><b>19.7</b> Estructuras if-else</a></li>
+<li class="chapter" data-level="19.8" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#estructuras-for-y-while"><i class="fa fa-check"></i><b>19.8</b> Estructuras for y while</a></li>
+<li class="chapter" data-level="19.9" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#funciones"><i class="fa fa-check"></i><b>19.9</b> Funciones</a></li>
+<li class="chapter" data-level="19.10" data-path="ejercicios-recopilados.html"><a href="ejercicios-recopilados.html#practica-final-1"><i class="fa fa-check"></i><b>19.10</b> Practica final</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html"><i class="fa fa-check"></i>📚 Recursos de aprendizaje</a>
+<ul>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#aprendizajedocencia"><i class="fa fa-check"></i>Aprendizaje/docencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-datos"><i class="fa fa-check"></i>Manejo de datos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#manejo-de-textos"><i class="fa fa-check"></i>Manejo de textos</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#datos.-importarexportar"><i class="fa fa-check"></i>Datos. Importar/exportar</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#dataviz"><i class="fa fa-check"></i>dataviz</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#mapas-y-datos-espaciales-en-r"><i class="fa fa-check"></i>Mapas y datos espaciales en R</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#colores-y-temas-en-dataviz-generales"><i class="fa fa-check"></i>Colores y temas en dataviz (generales)</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#análisis-exploratorio"><i class="fa fa-check"></i>Análisis exploratorio</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#modelización-e-inferencia"><i class="fa fa-check"></i>Modelización e inferencia</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#estadística-bayesiana"><i class="fa fa-check"></i>Estadística Bayesiana</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#informes-tablas-webs-libros-y-diapositivas"><i class="fa fa-check"></i>Informes, tablas, webs, libros y diapositivas</a></li>
+<li class="chapter" data-level="" data-path="recursos-de-aprendizaje.html"><a href="recursos-de-aprendizaje.html#paquetesrecursos-curiosos"><i class="fa fa-check"></i>Paquetes/recursos curiosos</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bucles" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Estructuras de control: bucles<a href="bucles.html#bucles" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="blackbox">
+<p>Scripts usados:</p>
+<ul>
+<li><a href="https://github.com/Crisben/uleam-stat24/blob/main/scripts/script12.R"><strong>script12.R</strong></a>. Ver en <a href="https://github.com/Crisben/uleam-stat24/blob/main/scripts/script12.R" class="uri">https://github.com/Crisben/uleam-stat24/blob/main/scripts/script12.R</a></li>
+</ul>
+</div>
+<p>Aunque la mayoría de veces son sustituibles por otras expresiones más legibles y eficientes, es importante que conozcamos otra archiconocida <strong>expresion de control</strong>: <mark><strong>los bucles</strong></mark>.</p>
+<ul>
+<li><code>for</code>: permite <mark><strong>repetir el mismo código un número fijo (y conocido a priori) de veces</strong></mark> (normalmente en función de un índice).</li>
+<li><code>while</code>: permite <mark><strong>repetir el mismo código un número indeterminado</strong></mark> de veces, hasta que una condición dada se deje de cumplir.</li>
+</ul>
+<div id="for" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> for<a href="bucles.html#for" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Aunque la mayoría de las veces los <mark><strong>bucles pueden ser sustituidos</strong></mark> por expresiones mucho más eficientes (fíjate que ya hemos filtrado columnas, filas y aplicado operaciones por filas y columnas, sin necesitarlo), a veces no nos quedará más remedio que usarlos por lo que nunca viene mal conocer su estructura.</p>
+<p>Un <mark><strong>bucle <code>for{}</code></strong></mark> es una estructura que nos permite <mark><strong>repetir un conjunto de órdenes un número finito y conocido de veces</strong></mark>: dado un conjunto de índices, el bucle irá <mark><strong>recorriendo cada uno de ellos</strong></mark>, y para cada uno ejecutará lo que tenga dentro de las llaves.</p>
+<p>Veamos un ejemplo muy sencillo. Vamos a definir un vector de números de longitud 4, por ejemplo <code>x &lt;- c(0, -7, 1, 4)</code>. Si quisiéramos devolver el primer elemento al cuadrado escribiríamos <code>x[1]^2</code> (accedemos con <code>[1]</code> al primer elemento y lo elevamos al cuadrado). Si quisiéramos devolver el segundo elemento al cuadrado escribiríamos <code>x[2]^2</code>. Si lo quisiéramos hacer en general, para el elemento i-ésimo (el que ocupa la posición <code>i</code>), escribiríamos <code>x[i]^2</code>. Lo que haremos dentro del <code>for (...) {}</code> es indicarle que valores irá tomando <code>i</code>: creamos un vector de índices, en este caso <code>1:4</code>, para que <code>i</code> vaya tomando sus valores (primero <code>i=1</code>, luego <code>i=2</code>, etc)</p>
+<div class="sourceCode" id="cb843"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb843-1"><a href="bucles.html#cb843-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="sc">-</span><span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb843-2"><a href="bucles.html#cb843-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb843-3"><a href="bucles.html#cb843-3" tabindex="-1"></a>  </span>
+<span id="cb843-4"><a href="bucles.html#cb843-4" tabindex="-1"></a>  <span class="fu">print</span>(x[i]<span class="sc">^</span><span class="dv">2</span>) <span class="co"># que lo imprima</span></span>
+<span id="cb843-5"><a href="bucles.html#cb843-5" tabindex="-1"></a>  </span>
+<span id="cb843-6"><a href="bucles.html#cb843-6" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] 0
+[1] 49
+[1] 1
+[1] 16</code></pre>
+<p>Lo que tenemos <strong>dentro de los paréntesis</strong>, en la línea del <code>for</code>, no es más que la secuencia de números que hemos aprendido a construir.</p>
+<div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb845-1"><a href="bucles.html#cb845-1" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span></code></pre></div>
+<pre><code>[1] 1 2 3 4</code></pre>
+<p>Si quisiéramos que haga lo mismo pero excluyendo por ejemplo el segundo elemento bastaría con definir los índices a recorrer como <code>c(1, 3, 4)</code> o <code>c(1, 3:4)</code></p>
+<div class="sourceCode" id="cb847"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb847-1"><a href="bucles.html#cb847-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>)) {</span>
+<span id="cb847-2"><a href="bucles.html#cb847-2" tabindex="-1"></a>  </span>
+<span id="cb847-3"><a href="bucles.html#cb847-3" tabindex="-1"></a>  <span class="fu">print</span>(x[i]<span class="sc">^</span><span class="dv">2</span>) <span class="co"># que lo imprima</span></span>
+<span id="cb847-4"><a href="bucles.html#cb847-4" tabindex="-1"></a>  </span>
+<span id="cb847-5"><a href="bucles.html#cb847-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] 0
+[1] 1
+[1] 16</code></pre>
+<p>Podemos definir también una variable <code>y &lt;- rep(0, 4)</code> (un vector de la misma longitud pero, de momento, lleno de ceros), y hacer que elemento i-ésimo del vector <code>y</code> se defina como <code>x[i]^2</code></p>
+<div class="sourceCode" id="cb849"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb849-1"><a href="bucles.html#cb849-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">4</span>)</span>
+<span id="cb849-2"><a href="bucles.html#cb849-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb849-3"><a href="bucles.html#cb849-3" tabindex="-1"></a>  </span>
+<span id="cb849-4"><a href="bucles.html#cb849-4" tabindex="-1"></a>  y[i] <span class="ot">&lt;-</span> x[i]<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb849-5"><a href="bucles.html#cb849-5" tabindex="-1"></a>  </span>
+<span id="cb849-6"><a href="bucles.html#cb849-6" tabindex="-1"></a>}</span>
+<span id="cb849-7"><a href="bucles.html#cb849-7" tabindex="-1"></a></span>
+<span id="cb849-8"><a href="bucles.html#cb849-8" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>[1]  0 49  1 16</code></pre>
+<p>Fíjate que, dado que las operaciones en <code>R</code> ya se hacen por defecto de forma vectorial, elemento a elemento, lo anterior es equivalente a esto</p>
+<div class="sourceCode" id="cb851"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb851-1"><a href="bucles.html#cb851-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb851-2"><a href="bucles.html#cb851-2" tabindex="-1"></a>y</span></code></pre></div>
+<pre><code>[1]  0 49  1 16</code></pre>
+<p>No solo es equivalente sino que además, haciendo uso del paquete <code>{microbenchmark}</code> podemos comprobar como el bucle, amén de no ser necesario, es <mark><strong>menos eficiente</strong></mark> (de ahí que la mayoría de veces los intentemos evitar si existe otra alternativa)</p>
+<div class="sourceCode" id="cb853"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb853-1"><a href="bucles.html#cb853-1" tabindex="-1"></a><span class="co"># install.packages(&quot;microbenchmark)</span></span>
+<span id="cb853-2"><a href="bucles.html#cb853-2" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
+<span id="cb853-3"><a href="bucles.html#cb853-3" tabindex="-1"></a></span>
+<span id="cb853-4"><a href="bucles.html#cb853-4" tabindex="-1"></a><span class="co"># Le pasamos dos conjuntos de códigos, y le indicamos con</span></span>
+<span id="cb853-5"><a href="bucles.html#cb853-5" tabindex="-1"></a><span class="co"># times el número de simulaciones a realizar para luego obtener</span></span>
+<span id="cb853-6"><a href="bucles.html#cb853-6" tabindex="-1"></a><span class="co"># un promedio de tiempos</span></span>
+<span id="cb853-7"><a href="bucles.html#cb853-7" tabindex="-1"></a><span class="fu">microbenchmark</span>(x<span class="sc">^</span><span class="dv">2</span>, <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) { y[i] <span class="ot">&lt;-</span> x[i]<span class="sc">^</span><span class="dv">2</span> },</span>
+<span id="cb853-8"><a href="bucles.html#cb853-8" tabindex="-1"></a>               <span class="at">times =</span> <span class="dv">1000</span>)</span></code></pre></div>
+<pre><code>Unit: nanoseconds
+                                  expr     min      lq      mean  median      uq       max neval
+                                   x^2       0     100     540.6     300     800     19900  1000
+ for (i in 1:4) {     y[i] &lt;- x[i]^2 } 1689800 1821700 2237997.1 1873450 1925850 158642300  1000</code></pre>
+<p> </p>
+<p>Veamos otro ejemplo: vamos a <strong>definir de nuevo un vector de edades y nombres</strong>, y vamos a recorrer cada uno imprimiento un mensaje por pantalla.</p>
+<div class="sourceCode" id="cb855"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb855-1"><a href="bucles.html#cb855-1" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
+<span id="cb855-2"><a href="bucles.html#cb855-2" tabindex="-1"></a></span>
+<span id="cb855-3"><a href="bucles.html#cb855-3" tabindex="-1"></a>nombres <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Javi&quot;</span>, <span class="st">&quot;Laura&quot;</span>, <span class="st">&quot;Carlos&quot;</span>, <span class="st">&quot;Lucía&quot;</span>, <span class="st">&quot;Mar&quot;</span>)</span>
+<span id="cb855-4"><a href="bucles.html#cb855-4" tabindex="-1"></a>edades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">32</span>, <span class="dv">51</span>, <span class="dv">18</span>, <span class="dv">43</span>, <span class="dv">29</span>)</span>
+<span id="cb855-5"><a href="bucles.html#cb855-5" tabindex="-1"></a></span>
+<span id="cb855-6"><a href="bucles.html#cb855-6" tabindex="-1"></a><span class="co"># Recorremos cada uno de los 5 elementos e imprimimos un</span></span>
+<span id="cb855-7"><a href="bucles.html#cb855-7" tabindex="-1"></a><span class="co"># mensaje que depende de ese índice i</span></span>
+<span id="cb855-8"><a href="bucles.html#cb855-8" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) { </span>
+<span id="cb855-9"><a href="bucles.html#cb855-9" tabindex="-1"></a>  </span>
+<span id="cb855-10"><a href="bucles.html#cb855-10" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">&quot;{nombres[i]} tiene {edades[i]} años&quot;</span>)) </span>
+<span id="cb855-11"><a href="bucles.html#cb855-11" tabindex="-1"></a>  </span>
+<span id="cb855-12"><a href="bucles.html#cb855-12" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>Javi tiene 32 años
+Laura tiene 51 años
+Carlos tiene 18 años
+Lucía tiene 43 años
+Mar tiene 29 años</code></pre>
+<p>Fíjate que si <mark><strong>no nos queremos preocupar de si añadimos</strong></mark> otra persona, podemos hacer que el bucle empiece en <code>1</code> y termine en el último lugar (sea el que sea), usando <code>length()</code></p>
+<div class="sourceCode" id="cb857"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb857-1"><a href="bucles.html#cb857-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(nombres)) { </span>
+<span id="cb857-2"><a href="bucles.html#cb857-2" tabindex="-1"></a>  </span>
+<span id="cb857-3"><a href="bucles.html#cb857-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">&quot;{nombres[i]} tiene {edades[i]} años&quot;</span>)) </span>
+<span id="cb857-4"><a href="bucles.html#cb857-4" tabindex="-1"></a>  </span>
+<span id="cb857-5"><a href="bucles.html#cb857-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>Javi tiene 32 años
+Laura tiene 51 años
+Carlos tiene 18 años
+Lucía tiene 43 años
+Mar tiene 29 años</code></pre>
+<p>Aunque normalmente el conjunto que recorre el bucle suelen ser índices numéricos, <mark><strong>podemos recorrer cualquier tipo de objeto</strong></mark>, por ejemplo días e la semana</p>
+<div class="sourceCode" id="cb859"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb859-1"><a href="bucles.html#cb859-1" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb859-2"><a href="bucles.html#cb859-2" tabindex="-1"></a>dias_semana <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;lunes&quot;</span>, <span class="st">&quot;martes&quot;</span>, <span class="st">&quot;miércoles&quot;</span>, <span class="st">&quot;jueves&quot;</span>,</span>
+<span id="cb859-3"><a href="bucles.html#cb859-3" tabindex="-1"></a>                 <span class="st">&quot;viernes&quot;</span>, <span class="st">&quot;sábado&quot;</span>, <span class="st">&quot;domingo&quot;</span>)</span>
+<span id="cb859-4"><a href="bucles.html#cb859-4" tabindex="-1"></a></span>
+<span id="cb859-5"><a href="bucles.html#cb859-5" tabindex="-1"></a><span class="cf">for</span> (dias <span class="cf">in</span> dias_semana) { <span class="co"># dias recorre los días de la semana</span></span>
+<span id="cb859-6"><a href="bucles.html#cb859-6" tabindex="-1"></a>  </span>
+<span id="cb859-7"><a href="bucles.html#cb859-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">str_to_upper</span>(dias)) <span class="co"># Imprimimos en mayúsculas el día</span></span>
+<span id="cb859-8"><a href="bucles.html#cb859-8" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] &quot;LUNES&quot;
+[1] &quot;MARTES&quot;
+[1] &quot;MIÉRCOLES&quot;
+[1] &quot;JUEVES&quot;
+[1] &quot;VIERNES&quot;
+[1] &quot;SÁBADO&quot;
+[1] &quot;DOMINGO&quot;</code></pre>
+<p>Como hemos visto, además de imprimir por pantalla podemos asignar valores a variables o cambiarlas. Por ejemplo, vamos a recorrer nuestro conjunto <code>swiss</code> de <code>{datasets}</code> y vamos a pasar a dato ausente todos los valores de fertilidad superiores a 80. Para ello <strong>recorreremos cada fila para después ejecutar un <code>if</code></strong>.</p>
+<div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb861-1"><a href="bucles.html#cb861-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(swiss)) {</span>
+<span id="cb861-2"><a href="bucles.html#cb861-2" tabindex="-1"></a>  </span>
+<span id="cb861-3"><a href="bucles.html#cb861-3" tabindex="-1"></a>  <span class="co"># si cumple la condición dicha fila, ponemos ausente.</span></span>
+<span id="cb861-4"><a href="bucles.html#cb861-4" tabindex="-1"></a>  <span class="cf">if</span> (swiss<span class="sc">$</span>Fertility[i] <span class="sc">&gt;</span> <span class="dv">80</span>) { </span>
+<span id="cb861-5"><a href="bucles.html#cb861-5" tabindex="-1"></a>    </span>
+<span id="cb861-6"><a href="bucles.html#cb861-6" tabindex="-1"></a>    swiss<span class="sc">$</span>Fertility[i] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb861-7"><a href="bucles.html#cb861-7" tabindex="-1"></a>    </span>
+<span id="cb861-8"><a href="bucles.html#cb861-8" tabindex="-1"></a>  }</span>
+<span id="cb861-9"><a href="bucles.html#cb861-9" tabindex="-1"></a>}</span>
+<span id="cb861-10"><a href="bucles.html#cb861-10" tabindex="-1"></a>swiss</span></code></pre></div>
+<pre><code>             Fertility Agriculture Examination Education Catholic Infant.Mortality
+Courtelary          NA        17.0          15        12     9.96             22.2
+Delemont            NA        45.1           6         9    84.84             22.2
+Franches-Mnt        NA        39.7           5         5    93.40             20.2
+Moutier             NA        36.5          12         7    33.77             20.3
+Neuveville        76.9        43.5          17        15     5.16             20.6
+Porrentruy        76.1        35.3           9         7    90.57             26.6
+Broye               NA        70.2          16         7    92.85             23.6
+Glane               NA        67.8          14         8    97.16             24.9
+Gruyere             NA        53.3          12         7    97.67             21.0
+Sarine              NA        45.2          16        13    91.38             24.4
+Veveyse             NA        64.5          14         6    98.61             24.5
+Aigle             64.1        62.0          21        12     8.52             16.5
+Aubonne           66.9        67.5          14         7     2.27             19.1
+Avenches          68.9        60.7          19        12     4.43             22.7
+Cossonay          61.7        69.3          22         5     2.82             18.7
+Echallens         68.3        72.6          18         2    24.20             21.2
+Grandson          71.7        34.0          17         8     3.30             20.0
+Lausanne          55.7        19.4          26        28    12.11             20.2
+La Vallee         54.3        15.2          31        20     2.15             10.8
+Lavaux            65.1        73.0          19         9     2.84             20.0
+Morges            65.5        59.8          22        10     5.23             18.0
+Moudon            65.0        55.1          14         3     4.52             22.4
+Nyone             56.6        50.9          22        12    15.14             16.7
+Orbe              57.4        54.1          20         6     4.20             15.3
+Oron              72.5        71.2          12         1     2.40             21.0
+Payerne           74.2        58.1          14         8     5.23             23.8
+Paysd&#39;enhaut      72.0        63.5           6         3     2.56             18.0
+Rolle             60.5        60.8          16        10     7.72             16.3
+Vevey             58.3        26.8          25        19    18.46             20.9
+Yverdon           65.4        49.5          15         8     6.10             22.5
+Conthey           75.5        85.9           3         2    99.71             15.1
+Entremont         69.3        84.9           7         6    99.68             19.8
+Herens            77.3        89.7           5         2   100.00             18.3
+Martigwy          70.5        78.2          12         6    98.96             19.4
+Monthey           79.4        64.9           7         3    98.22             20.2
+St Maurice        65.0        75.9           9         9    99.06             17.8
+Sierre              NA        84.6           3         3    99.46             16.3
+Sion              79.3        63.1          13        13    96.83             18.1
+Boudry            70.4        38.4          26        12     5.62             20.3
+La Chauxdfnd      65.7         7.7          29        11    13.79             20.5
+Le Locle          72.7        16.7          22        13    11.22             18.9
+Neuchatel         64.4        17.6          35        32    16.92             23.0
+Val de Ruz        77.6        37.6          15         7     4.97             20.0
+ValdeTravers      67.6        18.7          25         7     8.65             19.5
+V. De Geneve      35.0         1.2          37        53    42.34             18.0
+Rive Droite       44.7        46.6          16        29    50.43             18.2
+Rive Gauche       42.8        27.7          22        29    58.33             19.3</code></pre>
+<p>Esto sería exactamente equivalente al <code>ifelse</code> vectorizado que vimos en el tema anterior</p>
+<div class="sourceCode" id="cb863"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb863-1"><a href="bucles.html#cb863-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;swiss&quot;</span>) <span class="co"># lo cargamos de 0</span></span>
+<span id="cb863-2"><a href="bucles.html#cb863-2" tabindex="-1"></a>swiss<span class="sc">$</span>Fertility <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(swiss<span class="sc">$</span>Fertility <span class="sc">&gt;</span> <span class="dv">80</span>, <span class="cn">NA</span>, swiss<span class="sc">$</span>Fertility)</span>
+<span id="cb863-3"><a href="bucles.html#cb863-3" tabindex="-1"></a>swiss</span></code></pre></div>
+<pre><code>             Fertility Agriculture Examination Education Catholic Infant.Mortality
+Courtelary          NA        17.0          15        12     9.96             22.2
+Delemont            NA        45.1           6         9    84.84             22.2
+Franches-Mnt        NA        39.7           5         5    93.40             20.2
+Moutier             NA        36.5          12         7    33.77             20.3
+Neuveville        76.9        43.5          17        15     5.16             20.6
+Porrentruy        76.1        35.3           9         7    90.57             26.6
+Broye               NA        70.2          16         7    92.85             23.6
+Glane               NA        67.8          14         8    97.16             24.9
+Gruyere             NA        53.3          12         7    97.67             21.0
+Sarine              NA        45.2          16        13    91.38             24.4
+Veveyse             NA        64.5          14         6    98.61             24.5
+Aigle             64.1        62.0          21        12     8.52             16.5
+Aubonne           66.9        67.5          14         7     2.27             19.1
+Avenches          68.9        60.7          19        12     4.43             22.7
+Cossonay          61.7        69.3          22         5     2.82             18.7
+Echallens         68.3        72.6          18         2    24.20             21.2
+Grandson          71.7        34.0          17         8     3.30             20.0
+Lausanne          55.7        19.4          26        28    12.11             20.2
+La Vallee         54.3        15.2          31        20     2.15             10.8
+Lavaux            65.1        73.0          19         9     2.84             20.0
+Morges            65.5        59.8          22        10     5.23             18.0
+Moudon            65.0        55.1          14         3     4.52             22.4
+Nyone             56.6        50.9          22        12    15.14             16.7
+Orbe              57.4        54.1          20         6     4.20             15.3
+Oron              72.5        71.2          12         1     2.40             21.0
+Payerne           74.2        58.1          14         8     5.23             23.8
+Paysd&#39;enhaut      72.0        63.5           6         3     2.56             18.0
+Rolle             60.5        60.8          16        10     7.72             16.3
+Vevey             58.3        26.8          25        19    18.46             20.9
+Yverdon           65.4        49.5          15         8     6.10             22.5
+Conthey           75.5        85.9           3         2    99.71             15.1
+Entremont         69.3        84.9           7         6    99.68             19.8
+Herens            77.3        89.7           5         2   100.00             18.3
+Martigwy          70.5        78.2          12         6    98.96             19.4
+Monthey           79.4        64.9           7         3    98.22             20.2
+St Maurice        65.0        75.9           9         9    99.06             17.8
+Sierre              NA        84.6           3         3    99.46             16.3
+Sion              79.3        63.1          13        13    96.83             18.1
+Boudry            70.4        38.4          26        12     5.62             20.3
+La Chauxdfnd      65.7         7.7          29        11    13.79             20.5
+Le Locle          72.7        16.7          22        13    11.22             18.9
+Neuchatel         64.4        17.6          35        32    16.92             23.0
+Val de Ruz        77.6        37.6          15         7     4.97             20.0
+ValdeTravers      67.6        18.7          25         7     8.65             19.5
+V. De Geneve      35.0         1.2          37        53    42.34             18.0
+Rive Droite       44.7        46.6          16        29    50.43             18.2
+Rive Gauche       42.8        27.7          22        29    58.33             19.3</code></pre>
+<p> </p>
+<p>¿Te acuerdas de las operaciones por filas y columnas que hicimos con los <code>apply()</code>? Podemos hacer lo mismo (aunque menos eficiente) con un bucle: vamos a sumar las filas del conjunto <code>swiss</code>. Para ello antes definiremos una variable llena de ceros que luego rellenaremos, de tamaño igual al número de filas, con <code>suma &lt;- rep(0, nrow(swiss))</code></p>
+<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb865-1"><a href="bucles.html#cb865-1" tabindex="-1"></a>suma <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">nrow</span>(swiss))</span>
+<span id="cb865-2"><a href="bucles.html#cb865-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(swiss)) {</span>
+<span id="cb865-3"><a href="bucles.html#cb865-3" tabindex="-1"></a>  </span>
+<span id="cb865-4"><a href="bucles.html#cb865-4" tabindex="-1"></a>  suma[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(swiss[i, ])</span>
+<span id="cb865-5"><a href="bucles.html#cb865-5" tabindex="-1"></a>}</span>
+<span id="cb865-6"><a href="bucles.html#cb865-6" tabindex="-1"></a>suma</span></code></pre></div>
+<pre><code> [1]     NA     NA     NA     NA 178.16 244.57     NA     NA     NA     NA     NA 184.12 176.77 187.73 179.52 206.30 154.00 161.41
+[19] 133.45 188.94 180.53 164.02 173.34 157.00 180.10 183.33 165.06 171.32 168.46 166.50 281.21 286.68 292.30 285.06 272.72 275.76
+[37]     NA 283.33 172.72 147.69 154.52 188.92 162.17 146.45 186.54 204.93 199.13</code></pre>
+<p> </p>
+</div>
+<div id="while" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> while<a href="bucles.html#while" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Otra manera de diseñar un bucle es con la <mark><strong>estructura <code>while{}</code></strong></mark>, que ejecutará el <strong>bucle un número de veces pero que a priori es desconocido</strong>, lo hará hasta que la condición impuesta deje de ser <code>TRUE</code> (en el <code>for</code> sabemos de antemano el número de iteraciones). Por ejemplo, vamos a inicializar una variable <code>ciclos &lt;- 1</code>, y en cada paso aumentaremos una unidad <code>ciclos</code>, y no saldremos del bucle hasta que <code>ciclos &gt; 5</code></p>
+<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb867-1"><a href="bucles.html#cb867-1" tabindex="-1"></a>ciclos <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb867-2"><a href="bucles.html#cb867-2" tabindex="-1"></a><span class="co"># Mientras el número de ciclos sea inferior 5, imprime</span></span>
+<span id="cb867-3"><a href="bucles.html#cb867-3" tabindex="-1"></a><span class="cf">while</span>(ciclos <span class="sc">&lt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb867-4"><a href="bucles.html#cb867-4" tabindex="-1"></a>  </span>
+<span id="cb867-5"><a href="bucles.html#cb867-5" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Todavía no, vamos por el ciclo &quot;</span>, ciclos)) <span class="co"># Pegamos la frase al número de ciclo por el que vayamos con paste</span></span>
+<span id="cb867-6"><a href="bucles.html#cb867-6" tabindex="-1"></a>  ciclos <span class="ot">&lt;-</span> ciclos <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb867-7"><a href="bucles.html#cb867-7" tabindex="-1"></a>  </span>
+<span id="cb867-8"><a href="bucles.html#cb867-8" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] &quot;Todavía no, vamos por el ciclo  1&quot;
+[1] &quot;Todavía no, vamos por el ciclo  2&quot;
+[1] &quot;Todavía no, vamos por el ciclo  3&quot;
+[1] &quot;Todavía no, vamos por el ciclo  4&quot;
+[1] &quot;Todavía no, vamos por el ciclo  5&quot;</code></pre>
+<p><strong>¿Y qué sucede cuando la condición nunca llega a ser <code>FALSE</code>?</strong> Compruébalo tú mismo/a.</p>
+<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb869-1"><a href="bucles.html#cb869-1" tabindex="-1"></a><span class="cf">while</span> (<span class="dv">1</span> <span class="sc">&gt;</span> <span class="dv">0</span>) { <span class="co"># Nunca va a dejar de ser cierto</span></span>
+<span id="cb869-2"><a href="bucles.html#cb869-2" tabindex="-1"></a>  </span>
+<span id="cb869-3"><a href="bucles.html#cb869-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Presiona ESC para salir del bucle&quot;</span>)</span>
+<span id="cb869-4"><a href="bucles.html#cb869-4" tabindex="-1"></a>  </span>
+<span id="cb869-5"><a href="bucles.html#cb869-5" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<div id="breaknext" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> break/next<a href="bucles.html#breaknext" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En <code>R</code> tenemos dos comandos reservados para poder <mark><strong>abortar un bucle</strong></mark> o <mark><strong>avanzar forzosamente un bucle</strong></mark>: dichas palabras son <code>break</code> y <code>next</code>. La primera nos habilita para <strong>parar un bucle</strong> aunque no haya llegado al final de su conjunto de índices a recorrer (o se siga cumpliendo la condición del <code>while{}</code>).</p>
+<p>Vamos a hacer un bucle de <code>1</code> a <code>10</code>: cuando el índice <code>i</code> es igual a 7, el bucle se para.</p>
+<div class="sourceCode" id="cb870"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb870-1"><a href="bucles.html#cb870-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb870-2"><a href="bucles.html#cb870-2" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">7</span>) {</span>
+<span id="cb870-3"><a href="bucles.html#cb870-3" tabindex="-1"></a>    </span>
+<span id="cb870-4"><a href="bucles.html#cb870-4" tabindex="-1"></a>    <span class="cf">break</span> <span class="co"># si i es 7, el bucle frena aquí (nunca llegará a imprimir el 7 ni los sucesivos)</span></span>
+<span id="cb870-5"><a href="bucles.html#cb870-5" tabindex="-1"></a>    </span>
+<span id="cb870-6"><a href="bucles.html#cb870-6" tabindex="-1"></a>  }</span>
+<span id="cb870-7"><a href="bucles.html#cb870-7" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb870-8"><a href="bucles.html#cb870-8" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+[1] 6</code></pre>
+<p>Mientras que la segunda, el <code>next</code> <mark><strong>obliga al bucle a avanzar a la siguiente interacción</strong></mark>, abortando la iteración actual en la que se encuentra. Vamos ahora a hacer un bucle de <code>1</code> a <code>10</code>: cuando el índice <code>i</code> es igual a 7, el bucle salta al <code>i = 8</code>.</p>
+<div class="sourceCode" id="cb872"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb872-1"><a href="bucles.html#cb872-1" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb872-2"><a href="bucles.html#cb872-2" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="dv">7</span>) {</span>
+<span id="cb872-3"><a href="bucles.html#cb872-3" tabindex="-1"></a>    </span>
+<span id="cb872-4"><a href="bucles.html#cb872-4" tabindex="-1"></a>    <span class="cf">next</span> <span class="co"># si i es 7, la iteración frenará aquí y pasará a la siguiente por lo que imprimirá todos menos el 7</span></span>
+<span id="cb872-5"><a href="bucles.html#cb872-5" tabindex="-1"></a>    </span>
+<span id="cb872-6"><a href="bucles.html#cb872-6" tabindex="-1"></a>  }</span>
+<span id="cb872-7"><a href="bucles.html#cb872-7" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb872-8"><a href="bucles.html#cb872-8" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+[1] 6
+[1] 8
+[1] 9
+[1] 10</code></pre>
+</div>
+<div id="repeat" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> repeat<a href="bucles.html#repeat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Aunque es una opción muy poco usada, existe una estructura de control llamada <code>repeat{}</code> que nos <strong>ejecuta un bucle de forma infinita</strong> hasta que le ordenemos parar con un <code>break</code>.</p>
+<div class="sourceCode" id="cb874"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb874-1"><a href="bucles.html#cb874-1" tabindex="-1"></a>conteo <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb874-2"><a href="bucles.html#cb874-2" tabindex="-1"></a><span class="cf">repeat</span> { </span>
+<span id="cb874-3"><a href="bucles.html#cb874-3" tabindex="-1"></a>  </span>
+<span id="cb874-4"><a href="bucles.html#cb874-4" tabindex="-1"></a>  conteo <span class="ot">&lt;-</span> conteo <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb874-5"><a href="bucles.html#cb874-5" tabindex="-1"></a>  <span class="cf">if</span> (conteo <span class="sc">&gt;=</span> <span class="dv">100</span>) { <span class="cf">break</span> }</span>
+<span id="cb874-6"><a href="bucles.html#cb874-6" tabindex="-1"></a>  </span>
+<span id="cb874-7"><a href="bucles.html#cb874-7" tabindex="-1"></a>}</span>
+<span id="cb874-8"><a href="bucles.html#cb874-8" tabindex="-1"></a>conteo</span></code></pre></div>
+<pre><code>[1] 100</code></pre>
+<p> </p>
+<p><strong><span style="color: #ffc107;">WARNING: cuidado con los bucles infinitos</span></strong></p>
+<p>Las estucturas <code>while{}</code> y <code>repeat{}</code> son de las menos usadas por su peligrosidad, ya que si no incluimos un <code>break</code> o la condición nunca llega a ser <code>TRUE</code>, el bucle seguirá ejecutándose de forma infinita y solo podrá ser detenido abortando la ejecución con la tecla <code>ESC</code>.</p>
+<p> </p>
+</div>
+<div id="consejos-8" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Consejos<a href="bucles.html#consejos-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong><span style="color: #20935E;">CONSEJOS</span></strong></p>
+<p> </p>
+<p><strong><span style="color: #20935E;">Evita bucles (si puedes)</span></strong></p>
+<p>Recuerda: por lo general, di no a los bucles en <code>R</code> (intenta evitarlos, en la mayoría de casos hay una alternativa mejor).</p>
+<p> </p>
+<p><strong><span style="color: #20935E;">Evita bucles (parte II)</span></strong></p>
+<p>Evita al máximo los bucles en <code>R</code>: suele existir una forma más eficiente de programarlo. Veamos un ejemplo muy sencillo: dado un vector de índices <code>idx</code>, queremos calcular su cuadrado y guardarlo. Vamos a comparar como sería con un sencillo bucle y de forma vectorial, repitiéndolo 1000 veces para sacar tiempos medios, haciendo uso del paquete <code>{microbenchmark}</code>.</p>
+<div class="sourceCode" id="cb876"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb876-1"><a href="bucles.html#cb876-1" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10000</span></span>
+<span id="cb876-2"><a href="bucles.html#cb876-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(idx))</span>
+<span id="cb876-3"><a href="bucles.html#cb876-3" tabindex="-1"></a>microbenchmark<span class="sc">::</span><span class="fu">microbenchmark</span>(x <span class="ot">&lt;-</span> idx<span class="sc">^</span><span class="dv">2</span>, </span>
+<span id="cb876-4"><a href="bucles.html#cb876-4" tabindex="-1"></a>                               <span class="cf">for</span> (i <span class="cf">in</span> idx) {  y[i] <span class="ot">&lt;-</span> idx[i]<span class="sc">^</span><span class="dv">2</span>},</span>
+<span id="cb876-5"><a href="bucles.html#cb876-5" tabindex="-1"></a>                               <span class="at">times =</span> <span class="fl">1e3</span>)</span></code></pre></div>
+<pre><code>Unit: microseconds
+                                    expr    min      lq      mean  median     uq     max neval
+                              x &lt;- idx^2   12.6   14.15   18.6952   17.00   19.2    64.2  1000
+ for (i in idx) {     y[i] &lt;- idx[i]^2 } 2129.0 2319.35 2762.9928 2433.75 2581.1 65055.0  1000</code></pre>
+<p>Una tarea tan sencilla, <strong>programada en un bucle (segunda fila), tarda 40 veces más que hacerlo de forma vectorial (primera fila)</strong> (elevando cada elemento al cuadrado, iterando internamente, sin necesidad de implementar un bucle).</p>
+</div>
+<div id="ejercicios-9" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">12.6</span> 📝 Ejercicios<a href="#ejercicios-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>(haz click en las flechas para ver soluciones)</p>
+<details>
+<summary>
+<p>📝<strong>Ejercicio 1</strong>: modifica el código inferior para diseñar un bucle <code>for</code> de 5 iteraciones que recorra los 5 primeros impares y les sume uno.</p>
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb878"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb878-1"><a href="bucles.html#cb878-1" tabindex="-1"></a><span class="co"># Una forma</span></span>
+<span id="cb878-2"><a href="bucles.html#cb878-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>, <span class="at">by =</span> <span class="dv">2</span>)) {</span>
+<span id="cb878-3"><a href="bucles.html#cb878-3" tabindex="-1"></a>  </span>
+<span id="cb878-4"><a href="bucles.html#cb878-4" tabindex="-1"></a>  <span class="fu">print</span>(i <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb878-5"><a href="bucles.html#cb878-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] 2
+[1] 4
+[1] 6
+[1] 8
+[1] 10</code></pre>
+<div class="sourceCode" id="cb880"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb880-1"><a href="bucles.html#cb880-1" tabindex="-1"></a><span class="co"># Otra</span></span>
+<span id="cb880-2"><a href="bucles.html#cb880-2" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>)) {</span>
+<span id="cb880-3"><a href="bucles.html#cb880-3" tabindex="-1"></a>  </span>
+<span id="cb880-4"><a href="bucles.html#cb880-4" tabindex="-1"></a>  <span class="fu">print</span>(i <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb880-5"><a href="bucles.html#cb880-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] 2
+[1] 4
+[1] 6
+[1] 8
+[1] 10</code></pre>
+<!-- tocstop -->
+</details>
+<div class="sourceCode" id="cb882"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb882-1"><a href="bucles.html#cb882-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb882-2"><a href="bucles.html#cb882-2" tabindex="-1"></a>  </span>
+<span id="cb882-3"><a href="bucles.html#cb882-3" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb882-4"><a href="bucles.html#cb882-4" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5</code></pre>
+<p> </p>
+<details>
+<summary>
+<p>📝<strong>Ejercicio 2</strong>: modifica el código inferior para diseñar un bucle <code>while</code> que parta con una variable <code>conteo &lt;- 1</code> y pare cuando llegue a 6.</p>
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb884"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb884-1"><a href="bucles.html#cb884-1" tabindex="-1"></a>conteo <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb884-2"><a href="bucles.html#cb884-2" tabindex="-1"></a><span class="cf">while</span> (conteo <span class="sc">&lt;</span> <span class="dv">6</span>) {</span>
+<span id="cb884-3"><a href="bucles.html#cb884-3" tabindex="-1"></a>  </span>
+<span id="cb884-4"><a href="bucles.html#cb884-4" tabindex="-1"></a>  <span class="fu">print</span>(conteo)</span>
+<span id="cb884-5"><a href="bucles.html#cb884-5" tabindex="-1"></a>  conteo <span class="ot">&lt;-</span> conteo <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb884-6"><a href="bucles.html#cb884-6" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5</code></pre>
+<!-- tocstop -->
+</details>
+<div class="sourceCode" id="cb886"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb886-1"><a href="bucles.html#cb886-1" tabindex="-1"></a>conteo <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb886-2"><a href="bucles.html#cb886-2" tabindex="-1"></a><span class="cf">while</span> (conteo <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb886-3"><a href="bucles.html#cb886-3" tabindex="-1"></a>  </span>
+<span id="cb886-4"><a href="bucles.html#cb886-4" tabindex="-1"></a>  <span class="fu">print</span>(conteo)</span>
+<span id="cb886-5"><a href="bucles.html#cb886-5" tabindex="-1"></a>}</span></code></pre></div>
+<p> </p>
+<details>
+<summary>
+<p>📝<strong>Ejercicio 3</strong>: construye un bucle que recorra las primeras 8 filas del conjunto de datos <code>datasets::airquality</code> y que imprima un mensaje con la temperatura</p>
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb887"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb887-1"><a href="bucles.html#cb887-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>) {</span>
+<span id="cb887-2"><a href="bucles.html#cb887-2" tabindex="-1"></a>  </span>
+<span id="cb887-3"><a href="bucles.html#cb887-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">&quot;La temperatura es de {airquality$Temp[i]}ºF&quot;</span>))</span>
+<span id="cb887-4"><a href="bucles.html#cb887-4" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>La temperatura es de 67ºF
+La temperatura es de 72ºF
+La temperatura es de 74ºF
+La temperatura es de 62ºF
+La temperatura es de 56ºF
+La temperatura es de 66ºF
+La temperatura es de 65ºF
+La temperatura es de 59ºF</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+<p>📝<strong>Ejercicio 4</strong>: diseña un bucle <code>for</code> de 200 iteraciones que, empezando en un valor inicial de 100 (euros), te sume 3€ si el número actual es par y te reste 5€ si es impar. Un número par o impar: un número par será todo aquel número que al dividir entre 2, la división es exacta, es decir, que su resto es nulo. Por ejemplo, al dividir 5 entre 2, el resto es 1, pero al dividir 12 entre 2 el resto es 0. Para calcula ese resto usaremos la función <code>%%</code>.</p>
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb889"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb889-1"><a href="bucles.html#cb889-1" tabindex="-1"></a><span class="co"># pares e impares</span></span>
+<span id="cb889-2"><a href="bucles.html#cb889-2" tabindex="-1"></a><span class="dv">5</span> <span class="sc">%%</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<div class="sourceCode" id="cb891"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb891-1"><a href="bucles.html#cb891-1" tabindex="-1"></a><span class="dv">12</span> <span class="sc">%%</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>[1] 0</code></pre>
+<div class="sourceCode" id="cb893"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb893-1"><a href="bucles.html#cb893-1" tabindex="-1"></a><span class="dv">23</span> <span class="sc">%%</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>[1] 1</code></pre>
+<div class="sourceCode" id="cb895"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb895-1"><a href="bucles.html#cb895-1" tabindex="-1"></a><span class="dv">46</span> <span class="sc">%%</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>[1] 0</code></pre>
+<div class="sourceCode" id="cb897"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb897-1"><a href="bucles.html#cb897-1" tabindex="-1"></a><span class="co"># dinero inicial</span></span>
+<span id="cb897-2"><a href="bucles.html#cb897-2" tabindex="-1"></a>dinero <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb897-3"><a href="bucles.html#cb897-3" tabindex="-1"></a></span>
+<span id="cb897-4"><a href="bucles.html#cb897-4" tabindex="-1"></a><span class="co"># Bucle for</span></span>
+<span id="cb897-5"><a href="bucles.html#cb897-5" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>) {</span>
+<span id="cb897-6"><a href="bucles.html#cb897-6" tabindex="-1"></a>  </span>
+<span id="cb897-7"><a href="bucles.html#cb897-7" tabindex="-1"></a>  dinero <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(dinero <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>, dinero <span class="sc">+</span> <span class="dv">3</span>, dinero  <span class="sc">-</span> <span class="dv">5</span>)</span>
+<span id="cb897-8"><a href="bucles.html#cb897-8" tabindex="-1"></a>  </span>
+<span id="cb897-9"><a href="bucles.html#cb897-9" tabindex="-1"></a>}</span>
+<span id="cb897-10"><a href="bucles.html#cb897-10" tabindex="-1"></a>dinero</span></code></pre></div>
+<pre><code>[1] -100</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 5</strong>: diseña el anterior bucle pero guardando el dinero de cada iteración.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb899"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb899-1"><a href="bucles.html#cb899-1" tabindex="-1"></a><span class="co"># vector de importes</span></span>
+<span id="cb899-2"><a href="bucles.html#cb899-2" tabindex="-1"></a>dinero <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">201</span>)</span>
+<span id="cb899-3"><a href="bucles.html#cb899-3" tabindex="-1"></a>dinero[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># dinero inicial</span></span>
+<span id="cb899-4"><a href="bucles.html#cb899-4" tabindex="-1"></a></span>
+<span id="cb899-5"><a href="bucles.html#cb899-5" tabindex="-1"></a><span class="co"># Bucle for</span></span>
+<span id="cb899-6"><a href="bucles.html#cb899-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">201</span>) {</span>
+<span id="cb899-7"><a href="bucles.html#cb899-7" tabindex="-1"></a>  </span>
+<span id="cb899-8"><a href="bucles.html#cb899-8" tabindex="-1"></a>  <span class="co"># si dinero[i - 1] es par o  impar</span></span>
+<span id="cb899-9"><a href="bucles.html#cb899-9" tabindex="-1"></a>  dinero[i] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(dinero[i <span class="sc">-</span> <span class="dv">1</span>] <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>, dinero[i <span class="sc">-</span> <span class="dv">1</span>] <span class="sc">+</span> <span class="dv">3</span>,</span>
+<span id="cb899-10"><a href="bucles.html#cb899-10" tabindex="-1"></a>                      dinero[i <span class="sc">-</span> <span class="dv">1</span>]  <span class="sc">-</span> <span class="dv">5</span>)</span>
+<span id="cb899-11"><a href="bucles.html#cb899-11" tabindex="-1"></a>  </span>
+<span id="cb899-12"><a href="bucles.html#cb899-12" tabindex="-1"></a>}</span>
+<span id="cb899-13"><a href="bucles.html#cb899-13" tabindex="-1"></a>dinero</span></code></pre></div>
+<pre><code>  [1]  100  103   98  101   96   99   94   97   92   95   90   93   88   91   86   89   84   87   82   85   80   83   78   81   76   79
+ [27]   74   77   72   75   70   73   68   71   66   69   64   67   62   65   60   63   58   61   56   59   54   57   52   55   50   53
+ [53]   48   51   46   49   44   47   42   45   40   43   38   41   36   39   34   37   32   35   30   33   28   31   26   29   24   27
+ [79]   22   25   20   23   18   21   16   19   14   17   12   15   10   13    8   11    6    9    4    7    2    5    0    3   -2    1
+[105]   -4   -1   -6   -3   -8   -5  -10   -7  -12   -9  -14  -11  -16  -13  -18  -15  -20  -17  -22  -19  -24  -21  -26  -23  -28  -25
+[131]  -30  -27  -32  -29  -34  -31  -36  -33  -38  -35  -40  -37  -42  -39  -44  -41  -46  -43  -48  -45  -50  -47  -52  -49  -54  -51
+[157]  -56  -53  -58  -55  -60  -57  -62  -59  -64  -61  -66  -63  -68  -65  -70  -67  -72  -69  -74  -71  -76  -73  -78  -75  -80  -77
+[183]  -82  -79  -84  -81  -86  -83  -88  -85  -90  -87  -92  -89  -94  -91  -96  -93  -98  -95 -100</code></pre>
+<!-- tocstop -->
+</details>
+<p> </p>
+<details>
+<summary>
+📝<strong>Ejercicio 6</strong>: diseña el bucle del ejercicio 4 parando cuando no nos quede dinero.
+</summary>
+<!-- toc -->
+<ul>
+<li>Solución:</li>
+</ul>
+<div class="sourceCode" id="cb901"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb901-1"><a href="bucles.html#cb901-1" tabindex="-1"></a>dinero <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># dinero inicial</span></span>
+<span id="cb901-2"><a href="bucles.html#cb901-2" tabindex="-1"></a></span>
+<span id="cb901-3"><a href="bucles.html#cb901-3" tabindex="-1"></a><span class="co"># Bucle while</span></span>
+<span id="cb901-4"><a href="bucles.html#cb901-4" tabindex="-1"></a><span class="cf">while</span> (dinero <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb901-5"><a href="bucles.html#cb901-5" tabindex="-1"></a>  </span>
+<span id="cb901-6"><a href="bucles.html#cb901-6" tabindex="-1"></a>  dinero <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(dinero <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>, dinero <span class="sc">+</span> <span class="dv">3</span>, dinero <span class="sc">-</span> <span class="dv">5</span>)</span>
+<span id="cb901-7"><a href="bucles.html#cb901-7" tabindex="-1"></a>  </span>
+<span id="cb901-8"><a href="bucles.html#cb901-8" tabindex="-1"></a>}</span>
+<span id="cb901-9"><a href="bucles.html#cb901-9" tabindex="-1"></a>dinero</span></code></pre></div>
+<pre><code>[1] 0</code></pre>
+<!-- tocstop -->
+</details>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="if-else.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="funs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02j-bucle.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
